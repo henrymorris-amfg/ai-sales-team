@@ -1,0 +1,1202 @@
+[
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "27964",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'ABG / Oadby Group' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "28003",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'CNC Machining NZ' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "28511",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Clinkenbeard' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "28745",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Accurate Metal Machining deal' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "28859",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'All British Precision' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29288",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Prosper-Tech Machine & Tool' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29289",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Orchid Orthopedic Solutions deal' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Workshop",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29541",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'GN Precision' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29558",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'EMA Tech' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29578",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'B-Tech Engineering' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29610",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Engtek' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29627",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Hadeed' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29630",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Demo Request - Joel Lam' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29663",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Laranca Engineering deal' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29731",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Eco Power Machining deal' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29747",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'M-Tech Precision Machining LLC' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29767",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Aequs Aero Machine' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29769",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'JR Metal Fabrications' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29818",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Pulse Engineering Ltd deal' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Close ",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29835",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Bechtel Plant Machinery, Inc' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Workshop",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29840",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'RS Precision Industries deal' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29887",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Richmond Machine Co.' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29899",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Brace Manufacturing' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29966",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'M2M Machining' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29975",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'PD CNC Precision Ltd' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29980",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Magnolia Machine' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "29982",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Bowyer Engineering' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30013",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'LMA Srl. / Coosmo' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30031",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'K Tooling' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30047",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'PDQ Precision' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Close ",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30065",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Demo Request - Joseph Lawrence Noble' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30077",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Bartlomiej chlosta lead' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30085",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Baltec CNC Technologies' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30086",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Kagneta' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30088",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'MOREY Machining & Manufacturing' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30089",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Limitless Manufacturing Solutions' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30090",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Tru-Billet Machining & Fab' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30092",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Dudek' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30093",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'G-Mach Engineering' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30096",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'SDL Engineering' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30098",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Martekas' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30112",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'ARN Industries, MB lead' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30114",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'hennordic' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30115",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Empire Group' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30128",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Prime Engineering Cornwall Ltd' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30131",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Irontec' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30135",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Maskinfabrikken Silkeborg Spntagning' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30136",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Exigum' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30139",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Avex EE' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30142",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Micro Manufacturing' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30144",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Metallisorvaamo MHakala' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30145",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Demo Request - JAKOB MEGOW' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30147",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Atomic Machine & Edm Inc' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30149",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Metako Group' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30159",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Rigid Concepts' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Validation",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30161",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Meko LV' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30172",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Fine-tec' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30179",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Lilley Precision Engineering' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30183",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'MACSMITH CORPORATIO lead' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30184",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'SR Machining lead' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo done",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R006",
+    "entity_type": "deal",
+    "entity_id": "30228",
+    "owner_id": null,
+    "severity": "medium",
+    "confidence": 1.0,
+    "summary": "Open deal 'Demo Request - Nick Scarborough' has no next activity.",
+    "evidence": {
+      "pipeline_name": "Machining",
+      "stage_name": "Demo booked",
+      "next_activity_date": null
+    },
+    "suggested_action": "Add a next activity on the deal."
+  },
+  {
+    "rule_id": "R008",
+    "entity_type": "activity",
+    "entity_id": "167848",
+    "owner_id": 15871239,
+    "severity": "medium",
+    "confidence": 0.95,
+    "summary": "Demo activity 'Demo' is not linked to a deal.",
+    "evidence": {
+      "type": "demo",
+      "person_id": 37539,
+      "org_id": 26640,
+      "lead_id": "672b8b10-8713-11ef-bc84-9787dc812737",
+      "deal_id": null
+    },
+    "suggested_action": "Relink or recreate the demo activity on the correct deal."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "41976",
+    "owner_id": 22020714,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email rsavitzky@rsprecision.com.",
+    "evidence": {
+      "email": "rsavitzky@rsprecision.com",
+      "match_ids": [
+        41976,
+        64545
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "64545",
+    "owner_id": 15871239,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email rsavitzky@rsprecision.com.",
+    "evidence": {
+      "email": "rsavitzky@rsprecision.com",
+      "match_ids": [
+        41976,
+        64545
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "42762",
+    "owner_id": 15871239,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email info@mthorntoneng.com.",
+    "evidence": {
+      "email": "info@mthorntoneng.com",
+      "match_ids": [
+        42762,
+        66566
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "66566",
+    "owner_id": 23861740,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email info@mthorntoneng.com.",
+    "evidence": {
+      "email": "info@mthorntoneng.com",
+      "match_ids": [
+        42762,
+        66566
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "48511",
+    "owner_id": 22020714,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email pkprecision70@gmail.com.",
+    "evidence": {
+      "email": "pkprecision70@gmail.com",
+      "match_ids": [
+        48511,
+        60704
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "60704",
+    "owner_id": 15871239,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email pkprecision70@gmail.com.",
+    "evidence": {
+      "email": "pkprecision70@gmail.com",
+      "match_ids": [
+        48511,
+        60704
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "62736",
+    "owner_id": 22020714,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email justinas@sinerparta.com.",
+    "evidence": {
+      "email": "justinas@sinerparta.com",
+      "match_ids": [
+        62736,
+        62737
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "62737",
+    "owner_id": 23861740,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email justinas@sinerparta.com.",
+    "evidence": {
+      "email": "justinas@sinerparta.com",
+      "match_ids": [
+        62736,
+        62737
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "65207",
+    "owner_id": 16602992,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email jnoble@normannoble.net.",
+    "evidence": {
+      "email": "jnoble@normannoble.net",
+      "match_ids": [
+        65207,
+        66818
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "66818",
+    "owner_id": 16602992,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email jnoble@normannoble.net.",
+    "evidence": {
+      "email": "jnoble@normannoble.net",
+      "match_ids": [
+        65207,
+        66818
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "67462",
+    "owner_id": 25094488,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email sales@reproengineering.co.uk.",
+    "evidence": {
+      "email": "sales@reproengineering.co.uk",
+      "match_ids": [
+        67462,
+        67468
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "67468",
+    "owner_id": 25094488,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email sales@reproengineering.co.uk.",
+    "evidence": {
+      "email": "sales@reproengineering.co.uk",
+      "match_ids": [
+        67462,
+        67468
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "67498",
+    "owner_id": 25094488,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email hayley@witoneng.co.uk.",
+    "evidence": {
+      "email": "hayley@witoneng.co.uk",
+      "match_ids": [
+        67498,
+        67499
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R001",
+    "entity_type": "person",
+    "entity_id": "67499",
+    "owner_id": 25094488,
+    "severity": "medium",
+    "confidence": 0.98,
+    "summary": "Possible duplicate person records share email hayley@witoneng.co.uk.",
+    "evidence": {
+      "email": "hayley@witoneng.co.uk",
+      "match_ids": [
+        67498,
+        67499
+      ]
+    },
+    "suggested_action": "Review duplicate person records and merge carefully."
+  },
+  {
+    "rule_id": "R004",
+    "entity_type": "organisation",
+    "entity_id": "44035",
+    "owner_id": 22020714,
+    "severity": "low",
+    "confidence": 0.93,
+    "summary": "Organisation name looks similar to 'ESL Engineering'.",
+    "evidence": {
+      "left_name": "SDL Engineering",
+      "right_name": "ESL Engineering",
+      "similarity": 0.93
+    },
+    "suggested_action": "Review possible duplicate organisation names."
+  },
+  {
+    "rule_id": "R004",
+    "entity_type": "organisation",
+    "entity_id": "44195",
+    "owner_id": 23861740,
+    "severity": "low",
+    "confidence": 0.94,
+    "summary": "Organisation name looks similar to 'Tesla Engineering'.",
+    "evidence": {
+      "left_name": "ESL Engineering",
+      "right_name": "Tesla Engineering",
+      "similarity": 0.94
+    },
+    "suggested_action": "Review possible duplicate organisation names."
+  }
+]

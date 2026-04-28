@@ -1,0 +1,42 @@
+[
+  {
+    "agent_id": "sales-ops",
+    "name": "Sales Ops",
+    "scope": "CRM hygiene, duplicates, stage compliance, CNC lead disqualification",
+    "status": "active",
+    "region": "global",
+    "queue_count": 100,
+    "processed_today": 78,
+    "errors_today": 0
+  },
+  {
+    "agent_id": "bdr-us-ca",
+    "name": "AI BDR USA & Canada",
+    "scope": "CNC outbound and qualification for USA & Canada",
+    "status": "planned",
+    "region": "USA & Canada",
+    "queue_count": 0,
+    "processed_today": 0,
+    "errors_today": 0
+  },
+  {
+    "agent_id": "bdr-uk-ie",
+    "name": "AI BDR UK & Ireland",
+    "scope": "CNC outbound and qualification for UK & Ireland",
+    "status": "planned",
+    "region": "UK & Ireland",
+    "queue_count": 0,
+    "processed_today": 0,
+    "errors_today": 0
+  },
+  {
+    "agent_id": "bdr-eu",
+    "name": "AI BDR EU",
+    "scope": "CNC outbound and qualification for EU",
+    "status": "planned",
+    "region": "EU",
+    "queue_count": 0,
+    "processed_today": 0,
+    "errors_today": 0
+  }
+]

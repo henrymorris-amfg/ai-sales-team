@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+.secrets/
+.venv/
+venv/
+node_modules/
+sales-ops-agent/uploads/
+sales-ops-agent/output/upload-jobs.json
+

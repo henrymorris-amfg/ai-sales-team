@@ -1,0 +1,240 @@
+[
+  {
+    "pipedrive_user_id": 25468180,
+    "name": "Ben Sears",
+    "email": "ben.sears@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/ben.sears@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 13081611,
+    "name": "Chris Hunte",
+    "email": "chris.hunte@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/chris.hunte@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 22020714,
+    "name": "Dani Burrows",
+    "email": "danielle.burrows@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/danielle.burrows@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 11347436,
+    "name": "Danny Winn",
+    "email": "danny.w@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/danny.w@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 23061842,
+    "name": "Florian Kneidl",
+    "email": "florian.kneidl@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/florian.kneidl@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 15871239,
+    "name": "Henry Morris",
+    "email": "henry.morris@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/henry.morris@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 23529485,
+    "name": "Ioana Gavrilescu",
+    "email": "ioana.gavrilescu@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/ioana.gavrilescu@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 12849338,
+    "name": "Jake Spindler",
+    "email": "jake.spindler@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/jake.spindler@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 13420505,
+    "name": "Janos Rosenberg",
+    "email": "janos.rosenberg@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/janos.rosenberg@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 24994949,
+    "name": "Jerome Adams",
+    "email": "jerome.adams@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/jerome.adams@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 23861740,
+    "name": "Joe Payne",
+    "email": "joseph.payne@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/joseph.payne@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 23857945,
+    "name": "Jonathan Ho",
+    "email": "jonathan.ho@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/jonathan.ho@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 24406196,
+    "name": "Joseph Tappin",
+    "email": "joseph.tappin@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/joseph.tappin@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 13325069,
+    "name": "Joshua Westbrook",
+    "email": "joshua.westbrook@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/joshua.westbrook@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 25094488,
+    "name": "Julian Earl",
+    "email": "julian.earl@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/julian.earl@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 24319384,
+    "name": "Keith",
+    "email": "keith.domnick@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/keith.domnick@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 2157203,
+    "name": "Keyvan Karimi",
+    "email": "keyvan.k@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/keyvan.k@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 16602992,
+    "name": "Laura AI",
+    "email": "marketing@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/marketing@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 9354639,
+    "name": "Lead Profiling",
+    "email": "leadprofiling@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/leadprofiling@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 11916840,
+    "name": "Lorenzo Buzio",
+    "email": "lorenzo.b@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/lorenzo.b@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 20695203,
+    "name": "Lorenzo Civaia",
+    "email": "lorenzo.civaia@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/lorenzo.civaia@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 24147597,
+    "name": "Marie-Claire",
+    "email": "accounts@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/accounts@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 13140401,
+    "name": "Matt Martin",
+    "email": "matt.martin@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/matt.martin@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 24193753,
+    "name": "Momchil Kyuparski",
+    "email": "momchil.kyuparski@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/momchil.kyuparski@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 14794559,
+    "name": "Murray Judge",
+    "email": "murray.judge@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/murray.judge@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 22609016,
+    "name": "Onboarding Team",
+    "email": "fahad.bashir@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/fahad.bashir@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 21122333,
+    "name": "Robert Heindl",
+    "email": "robert.heindl@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/robert.heindl@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 12884458,
+    "name": "Robert Steele",
+    "email": "robert.steele@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/robert.steele@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 11458482,
+    "name": "Sven Hinrichs",
+    "email": "sven.h@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/sven.h@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 25357905,
+    "name": "Tad",
+    "email": "tad.tamulevicius@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/tad.tamulevicius@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 24052953,
+    "name": "Toby Greer",
+    "email": "toby.greer@amfg.ai",
+    "active": true,
+    "google_chat_target_candidate": "users/toby.greer@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 21852722,
+    "name": "Tom Dennison",
+    "email": "tom.dennison@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/tom.dennison@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 22331805,
+    "name": "Tom Hill",
+    "email": "thomas.hill@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/thomas.hill@amfg.ai"
+  },
+  {
+    "pipedrive_user_id": 12007383,
+    "name": "Tom Kuestermann",
+    "email": "tom.kuestermann@amfg.ai",
+    "active": false,
+    "google_chat_target_candidate": "users/tom.kuestermann@amfg.ai"
+  }
+]

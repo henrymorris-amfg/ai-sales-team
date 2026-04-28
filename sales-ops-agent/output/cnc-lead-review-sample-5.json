@@ -1,0 +1,133 @@
+[
+  {
+    "lead_id": "4c42b430-8188-11ef-87c4-2187007df7a5",
+    "title": "Martin Machine & Welding",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "website": "https://martinmachineandwelding.com",
+    "website_candidates": [
+      "https://martinmachineandwelding.com"
+    ],
+    "recommendation": "keep_active",
+    "confidence": 0.45,
+    "score": 0,
+    "conflict_flag": true,
+    "fit_signals": [
+      "cnc machining",
+      "cnc milling",
+      "cnc turning",
+      "blank",
+      "cad",
+      "quote",
+      "aerospace",
+      "industrial",
+      "iso 9001",
+      "mes",
+      "erp"
+    ],
+    "disqualify_signals": [
+      "fabrication"
+    ]
+  },
+  {
+    "lead_id": "099de550-107b-11f0-96dc-6317a2930902",
+    "title": "Metal Craft",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "website": "https://mcandrs.com",
+    "website_candidates": [
+      "https://mcandrs.com",
+      "https://metal-craft.com"
+    ],
+    "recommendation": "keep_active",
+    "confidence": 0.75,
+    "score": 0,
+    "conflict_flag": false,
+    "fit_signals": [
+      "precision machining",
+      "cnc machining",
+      "request a quote",
+      "blank",
+      "quote",
+      "aerospace",
+      "medical",
+      "defense",
+      "mes"
+    ],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "0a8add60-107b-11f0-8bc6-e5a942681004",
+    "title": "Davis Tool & Die",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "website": "https://davistool.com",
+    "website_candidates": [
+      "https://davistool.com",
+      "https://poplarblufftool.com"
+    ],
+    "recommendation": "keep_active",
+    "confidence": 0.45,
+    "score": 0,
+    "conflict_flag": true,
+    "fit_signals": [
+      "cnc machining",
+      "request a quote",
+      "blank",
+      "cad",
+      "quote",
+      "aerospace",
+      "defense",
+      "mes",
+      "erp"
+    ],
+    "disqualify_signals": [
+      "casting",
+      "molding"
+    ]
+  },
+  {
+    "lead_id": "0c1f3900-107b-11f0-bd00-334fd08483f2",
+    "title": "rms Company",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "website": "https://rmsmachining.com",
+    "website_candidates": [
+      "https://rmsmachining.com",
+      "https://cretex.com"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "score": 0,
+    "conflict_flag": false,
+    "reason": "Website fetch failed: HTTPSConnectionPool(host='rmsmachining.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1000)')))"
+  },
+  {
+    "lead_id": "0d68a8f0-107b-11f0-9f94-91564524ed2c",
+    "title": "Cox Machine",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "website": "https://coxmachine.com",
+    "website_candidates": [
+      "https://coxmachine.com"
+    ],
+    "recommendation": "keep_active",
+    "confidence": 0.45,
+    "score": 0,
+    "conflict_flag": true,
+    "fit_signals": [
+      "blank",
+      "quote",
+      "aerospace",
+      "mes"
+    ],
+    "disqualify_signals": [
+      "fabrication"
+    ]
+  }
+]

@@ -1,0 +1,1324 @@
+[
+  {
+    "lead_id": "08e66690-85dc-11ed-bde5-7b952368e238",
+    "title": "NSIN - National Security Innovation Network",
+    "owner_id": 13304642,
+    "organization_id": 24275,
+    "person_id": 34234,
+    "website_candidates": [
+      "https://nsin.us"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:00.697Z"
+  },
+  {
+    "lead_id": "0ac90940-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "eBay",
+    "owner_id": 13304642,
+    "organization_id": 24276,
+    "person_id": 34235,
+    "website_candidates": [
+      "https://ebay.com",
+      "https://members.ebay.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:03.860Z"
+  },
+  {
+    "lead_id": "12170030-85dc-11ed-b5ae-fbc565463995",
+    "title": "Blue Falls Manufacturing LTD",
+    "owner_id": 13304642,
+    "organization_id": 24289,
+    "person_id": 34264,
+    "website_candidates": [
+      "https://bluefallsbrands.com",
+      "https://goarctic.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:16.115Z"
+  },
+  {
+    "lead_id": "12c2a980-85dc-11ed-b5ae-fbc565463995",
+    "title": "Yamaha Motor Corporation, USA",
+    "owner_id": 13304642,
+    "organization_id": 24293,
+    "person_id": 34272,
+    "website_candidates": [
+      "https://yamaha-motor.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:17.240Z"
+  },
+  {
+    "lead_id": "12c5b6c0-85dc-11ed-b5ae-fbc565463995",
+    "title": "General Motors",
+    "owner_id": 13304642,
+    "organization_id": 4127,
+    "person_id": 34277,
+    "website_candidates": [
+      "https://gm.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:17.260Z"
+  },
+  {
+    "lead_id": "14940e20-85dc-11ed-b5ae-fbc565463995",
+    "title": "Ray Morgan Company - Your Trusted Business Technology Provider",
+    "owner_id": 13304642,
+    "organization_id": 24309,
+    "person_id": 34297,
+    "website_candidates": [
+      "https://raymorgan.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:20.290Z"
+  },
+  {
+    "lead_id": "154360f0-85dc-11ed-8f43-07de1078cd00",
+    "title": "MBX Systems",
+    "owner_id": 13304642,
+    "organization_id": 24339,
+    "person_id": 34357,
+    "website_candidates": [
+      "https://mbx.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:21.438Z"
+  },
+  {
+    "lead_id": "16ae89b0-85dc-11ed-b5ae-fbc565463995",
+    "title": "Tethers Unlimited, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 23189,
+    "person_id": 34280,
+    "website_candidates": [
+      "https://tethers.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:23.819Z"
+  },
+  {
+    "lead_id": "17351ed0-85dc-11ed-b5ae-fbc565463995",
+    "title": "PepsiCo",
+    "owner_id": 13304642,
+    "organization_id": 12988,
+    "person_id": 34283,
+    "website_candidates": [
+      "https://pepsico.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:24.701Z"
+  },
+  {
+    "lead_id": "1737ddf0-85dc-11ed-b5ae-fbc565463995",
+    "title": "NI (National Instruments)",
+    "owner_id": 13304642,
+    "organization_id": 24300,
+    "person_id": 34281,
+    "website_candidates": [
+      "https://ni.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:24.719Z"
+  },
+  {
+    "lead_id": "190794e0-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "CONTEC (formerly DTx, Inc.)",
+    "owner_id": 13304642,
+    "organization_id": 24304,
+    "person_id": 34289,
+    "website_candidates": [
+      "https://us.contec.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:27.758Z"
+  },
+  {
+    "lead_id": "192b97a0-85dc-11ed-b5ab-8fd604591461",
+    "title": "KETIV Technologies, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24308,
+    "person_id": 34295,
+    "website_candidates": [
+      "https://ketiv.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:27.994Z"
+  },
+  {
+    "lead_id": "1b3e7210-85dc-11ed-8f43-07de1078cd00",
+    "title": "Medtronic",
+    "owner_id": 13304642,
+    "organization_id": 7862,
+    "person_id": 34303,
+    "website_candidates": [
+      "https://medtronic.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:31.473Z"
+  },
+  {
+    "lead_id": "1bbd17f0-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "Dexcom",
+    "owner_id": 13304642,
+    "organization_id": 23029,
+    "person_id": 34306,
+    "website_candidates": [
+      "https://dexcom.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:32.303Z"
+  },
+  {
+    "lead_id": "1bdd9840-85dc-11ed-b5ae-fbc565463995",
+    "title": "Aerojet Rocketdyne",
+    "owner_id": 13304642,
+    "organization_id": 13222,
+    "person_id": 34312,
+    "website_candidates": [
+      "https://rocket.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:32.516Z"
+  },
+  {
+    "lead_id": "1c612020-85dc-11ed-b5ae-fbc565463995",
+    "title": "Advanced Energy",
+    "owner_id": 13304642,
+    "organization_id": 23213,
+    "person_id": 34326,
+    "website_candidates": [
+      "https://advanced-energy.com",
+      "https://aei.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:33.378Z"
+  },
+  {
+    "lead_id": "1c7125b0-85dc-11ed-b5ab-8fd604591461",
+    "title": "Lam Research",
+    "owner_id": 13304642,
+    "organization_id": 15687,
+    "person_id": 34314,
+    "website_candidates": [
+      "https://lamresearch.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:33.483Z"
+  },
+  {
+    "lead_id": "1dbdf100-85dc-11ed-bde5-7b952368e238",
+    "title": "Carestream",
+    "owner_id": 13304642,
+    "organization_id": 24316,
+    "person_id": 34315,
+    "website_candidates": [
+      "https://carestream.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:35.664Z"
+  },
+  {
+    "lead_id": "1dd7ba90-85dc-11ed-bde5-7b952368e238",
+    "title": "Campos Engineering, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24318,
+    "person_id": 34317,
+    "website_candidates": [
+      "https://camposengineering.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:35.833Z"
+  },
+  {
+    "lead_id": "1e6099a0-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "Oxford Performance Materials, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24317,
+    "person_id": 34316,
+    "website_candidates": [
+      "https://oxfordpm.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:36.730Z"
+  },
+  {
+    "lead_id": "1ef90910-85dc-11ed-bde5-7b952368e238",
+    "title": "bioLytical",
+    "owner_id": 13304642,
+    "organization_id": 24322,
+    "person_id": 34321,
+    "website_candidates": [
+      "https://biolytical.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:37.729Z"
+  },
+  {
+    "lead_id": "203a1490-85dc-11ed-b5ae-fbc565463995",
+    "title": "Merck",
+    "owner_id": 13304642,
+    "organization_id": 21144,
+    "person_id": 34359,
+    "website_candidates": [
+      "https://merck.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:39.833Z"
+  },
+  {
+    "lead_id": "210d9130-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "Clayton Controls, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24323,
+    "person_id": 34328,
+    "website_candidates": [
+      "https://claycon.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:41.219Z"
+  },
+  {
+    "lead_id": "2121b570-85dc-11ed-bde5-7b952368e238",
+    "title": "Jacuzzi Group Worldwide",
+    "owner_id": 13304642,
+    "organization_id": 18774,
+    "person_id": 34334,
+    "website_candidates": [
+      "https://jacuzzi.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:41.351Z"
+  },
+  {
+    "lead_id": "21229fd0-85dc-11ed-bde5-7b952368e238",
+    "title": "Johnson & Johnson",
+    "owner_id": 13304642,
+    "organization_id": 1865,
+    "person_id": 34360,
+    "website_candidates": [
+      "https://jnj.com",
+      "https://its.jnj.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:41.357Z"
+  },
+  {
+    "lead_id": "2128e160-85dc-11ed-bde5-7b952368e238",
+    "title": "Automated Systems of Tacoma (AST)",
+    "owner_id": 13304642,
+    "organization_id": 24324,
+    "person_id": 34329,
+    "website_candidates": [
+      "https://ast-inc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:41.398Z"
+  },
+  {
+    "lead_id": "2129a4b0-85dc-11ed-b5ae-fbc565463995",
+    "title": "Rivian",
+    "owner_id": 13304642,
+    "organization_id": 21313,
+    "person_id": 34331,
+    "website_candidates": [
+      "https://rivian.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:41.403Z"
+  },
+  {
+    "lead_id": "22e8b9d0-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Zest Dental Solutions",
+    "owner_id": 13304642,
+    "organization_id": 24315,
+    "person_id": 34337,
+    "website_candidates": [
+      "https://zestdent.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:44.333Z"
+  },
+  {
+    "lead_id": "2328d010-85dc-11ed-b5ae-fbc565463995",
+    "title": "TuSimple",
+    "owner_id": 13304642,
+    "organization_id": 24340,
+    "person_id": 34361,
+    "website_candidates": [
+      "https://tusimple.ai"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:44.753Z"
+  },
+  {
+    "lead_id": "23c4c1f0-85dc-11ed-b5ab-8fd604591461",
+    "title": "EnerVenue",
+    "owner_id": 13304642,
+    "organization_id": 24328,
+    "person_id": 34340,
+    "website_candidates": [
+      "https://enervenue.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:45.775Z"
+  },
+  {
+    "lead_id": "23c5d360-85dc-11ed-b5ae-fbc565463995",
+    "title": "Johnson & Johnson Vision",
+    "owner_id": 13304642,
+    "organization_id": 24329,
+    "person_id": 34341,
+    "website_candidates": [
+      "https://jjvision.com",
+      "https://its.jnj.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:45.782Z"
+  },
+  {
+    "lead_id": "25962690-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "Tesla",
+    "owner_id": 13304642,
+    "organization_id": 22908,
+    "person_id": 34342,
+    "website_candidates": [
+      "https://tesla.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:48.825Z"
+  },
+  {
+    "lead_id": "25964da0-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "Johnson & Johnson",
+    "owner_id": 13304642,
+    "organization_id": 1865,
+    "person_id": 34346,
+    "website_candidates": [
+      "https://jnj.com",
+      "https://its.jnj.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:48.826Z"
+  },
+  {
+    "lead_id": "2747a720-85dc-11ed-b5ab-8fd604591461",
+    "title": "CadMakers",
+    "owner_id": 13304642,
+    "organization_id": 24333,
+    "person_id": 34348,
+    "website_candidates": [
+      "https://cadmakers.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:51.666Z"
+  },
+  {
+    "lead_id": "27575e90-85dc-11ed-bde5-7b952368e238",
+    "title": "Stryker",
+    "owner_id": 13304642,
+    "organization_id": 7055,
+    "person_id": 34350,
+    "website_candidates": [
+      "https://stryker.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:51.769Z"
+  },
+  {
+    "lead_id": "2759a880-85dc-11ed-8f43-07de1078cd00",
+    "title": "DISH Network",
+    "owner_id": 13304642,
+    "organization_id": 24336,
+    "person_id": 34353,
+    "website_candidates": [
+      "https://careers.dish.com",
+      "https://dish.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:51.784Z"
+  },
+  {
+    "lead_id": "275f74e0-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Relativity Space",
+    "owner_id": 13304642,
+    "organization_id": 7048,
+    "person_id": 33406,
+    "website_candidates": [
+      "https://relativityspace.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:51.822Z"
+  },
+  {
+    "lead_id": "288be6f0-85dc-11ed-8f43-07de1078cd00",
+    "title": "Dell Technologies",
+    "owner_id": 13304642,
+    "organization_id": 24343,
+    "person_id": 34365,
+    "website_candidates": [
+      "https://dellemc.com",
+      "https://dell.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:53.791Z"
+  },
+  {
+    "lead_id": "29382c80-85dc-11ed-bde5-7b952368e238",
+    "title": "Monolith Materials",
+    "owner_id": 13304642,
+    "organization_id": 24344,
+    "person_id": 34367,
+    "website_candidates": [
+      "https://monolith-corp.com",
+      "https://monolithmaterials.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:54.920Z"
+  },
+  {
+    "lead_id": "2af40d50-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Xometry",
+    "owner_id": 13304642,
+    "organization_id": 1630,
+    "person_id": 34368,
+    "website_candidates": [
+      "https://xometry.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:57.828Z"
+  },
+  {
+    "lead_id": "2b215ee0-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Hawk Ridge Systems",
+    "owner_id": 13304642,
+    "organization_id": 1875,
+    "person_id": 34366,
+    "website_candidates": [
+      "https://hawkridgesys.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:58.126Z"
+  },
+  {
+    "lead_id": "2b501000-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "udelv",
+    "owner_id": 13304642,
+    "organization_id": 24346,
+    "person_id": 34373,
+    "website_candidates": [
+      "https://udelv.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:58.432Z"
+  },
+  {
+    "lead_id": "2bc8e980-85dc-11ed-8f43-07de1078cd00",
+    "title": "HP",
+    "owner_id": 13304642,
+    "organization_id": 10,
+    "person_id": 34371,
+    "website_candidates": [
+      "https://hp.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:59.224Z"
+  },
+  {
+    "lead_id": "2bdebb70-85dc-11ed-bde5-7b952368e238",
+    "title": "Dell EMC",
+    "owner_id": 13304642,
+    "organization_id": 24347,
+    "person_id": 34374,
+    "website_candidates": [
+      "https://dellemc.com",
+      "https://emc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:59.367Z"
+  },
+  {
+    "lead_id": "2bdebb71-85dc-11ed-bde5-7b952368e238",
+    "title": "Medtronic",
+    "owner_id": 13304642,
+    "organization_id": 7862,
+    "person_id": 34372,
+    "website_candidates": [
+      "https://medtronic.com",
+      "https://sbcglobal.net"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:59.367Z"
+  },
+  {
+    "lead_id": "2bf5ecf0-85dc-11ed-8f43-07de1078cd00",
+    "title": "Lockheed Martin",
+    "owner_id": 13304642,
+    "organization_id": 1818,
+    "person_id": 34375,
+    "website_candidates": [
+      "https://lockheedmartin.com",
+      "https://lmco.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:46:59.519Z"
+  },
+  {
+    "lead_id": "2d67a560-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Veterans True North",
+    "owner_id": 13304642,
+    "organization_id": 24348,
+    "person_id": 34376,
+    "website_candidates": [
+      "https://consulttruenorth.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:01.942Z"
+  },
+  {
+    "lead_id": "2dfc4440-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Newell Brands",
+    "owner_id": 13304642,
+    "organization_id": 18877,
+    "person_id": 34380,
+    "website_candidates": [
+      "https://newellbrands.com",
+      "https://clemson.edu"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:02.916Z"
+  },
+  {
+    "lead_id": "2f7576c0-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Graham Packaging",
+    "owner_id": 13304642,
+    "organization_id": 24351,
+    "person_id": 34381,
+    "website_candidates": [
+      "https://grahampackaging.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:05.388Z"
+  },
+  {
+    "lead_id": "2f969350-85dc-11ed-bde5-7b952368e238",
+    "title": "Boston Dynamics",
+    "owner_id": 13304642,
+    "organization_id": 13181,
+    "person_id": 34384,
+    "website_candidates": [
+      "https://bostondynamics.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:05.605Z"
+  },
+  {
+    "lead_id": "2ffd6b70-85dc-11ed-b5ae-fbc565463995",
+    "title": "Blue Bird Corporation",
+    "owner_id": 13304642,
+    "organization_id": 24352,
+    "person_id": 34382,
+    "website_candidates": [
+      "https://blue-bird.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:06.279Z"
+  },
+  {
+    "lead_id": "30348100-85dc-11ed-b5ab-8fd604591461",
+    "title": "HP",
+    "owner_id": 13304642,
+    "organization_id": 10,
+    "person_id": 34385,
+    "website_candidates": [
+      "https://hp.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:06.640Z"
+  },
+  {
+    "lead_id": "30348100-85dc-11ed-bde5-7b952368e238",
+    "title": "Guidepoint",
+    "owner_id": 13304642,
+    "organization_id": 24353,
+    "person_id": 34387,
+    "website_candidates": [
+      "https://guidepoint.com",
+      "https://migdal.us"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:06.640Z"
+  },
+  {
+    "lead_id": "30c612a0-85dc-11ed-bde5-7b952368e238",
+    "title": "Fictiv",
+    "owner_id": 13304642,
+    "organization_id": 24355,
+    "person_id": 34388,
+    "website_candidates": [
+      "https://fictiv.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:07.594Z"
+  },
+  {
+    "lead_id": "30d88930-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Boston Impact LLC",
+    "owner_id": 13304642,
+    "organization_id": 24354,
+    "person_id": 34389,
+    "website_candidates": [
+      "https://desktopmetal.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:07.715Z"
+  },
+  {
+    "lead_id": "32bcd990-85dc-11ed-bde5-7b952368e238",
+    "title": "Miraclon Corporation",
+    "owner_id": 13304642,
+    "organization_id": 24356,
+    "person_id": 34392,
+    "website_candidates": [
+      "https://miraclon.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:10.889Z"
+  },
+  {
+    "lead_id": "32d71850-85dc-11ed-b5ab-8fd604591461",
+    "title": "FanDuel",
+    "owner_id": 13304642,
+    "organization_id": 24357,
+    "person_id": 34393,
+    "website_candidates": [
+      "https://fanduel.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:11.061Z"
+  },
+  {
+    "lead_id": "32e8a480-85dc-11ed-b5ae-fbc565463995",
+    "title": "NEXA3D",
+    "owner_id": 13304642,
+    "organization_id": 17746,
+    "person_id": 34394,
+    "website_candidates": [
+      "https://nexa3d.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:11.176Z"
+  },
+  {
+    "lead_id": "32e8cb90-85dc-11ed-8f43-07de1078cd00",
+    "title": "iRhythm Technologies, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24358,
+    "person_id": 34395,
+    "website_candidates": [
+      "https://irhythmtech.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:11.177Z"
+  },
+  {
+    "lead_id": "3456da80-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "HP",
+    "owner_id": 13304642,
+    "organization_id": 10,
+    "person_id": 34397,
+    "website_candidates": [
+      "https://hp.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:13.576Z"
+  },
+  {
+    "lead_id": "34722ab0-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "Colortech Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24359,
+    "person_id": 34396,
+    "website_candidates": [
+      "https://colortech.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:13.755Z"
+  },
+  {
+    "lead_id": "34d420d0-85dc-11ed-b5ae-fbc565463995",
+    "title": "Divergent 3D",
+    "owner_id": 13304642,
+    "organization_id": 7697,
+    "person_id": 33783,
+    "website_candidates": [
+      "https://divergent3d.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:14.397Z"
+  },
+  {
+    "lead_id": "35020ea0-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "M. Holland Company",
+    "owner_id": 13304642,
+    "organization_id": 20602,
+    "person_id": 34399,
+    "website_candidates": [
+      "https://mholland.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:14.698Z"
+  },
+  {
+    "lead_id": "3588a3c0-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Sartomer, Business Unit of Arkema Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24361,
+    "person_id": 34401,
+    "website_candidates": [
+      "https://sartomer.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:15.580Z"
+  },
+  {
+    "lead_id": "35a6b310-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Microsoft",
+    "owner_id": 13304642,
+    "organization_id": 3766,
+    "person_id": 34402,
+    "website_candidates": [
+      "https://microsoft.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:15.777Z"
+  },
+  {
+    "lead_id": "35ab9510-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Tesla",
+    "owner_id": 13304642,
+    "organization_id": 22908,
+    "person_id": 34403,
+    "website_candidates": [
+      "https://tesla.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:15.809Z"
+  },
+  {
+    "lead_id": "371907c0-85dc-11ed-bde5-7b952368e238",
+    "title": "Intrinio",
+    "owner_id": 13304642,
+    "organization_id": 24362,
+    "person_id": 34404,
+    "website_candidates": [
+      "https://intrinio.com",
+      "https://tribunat.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:18.204Z"
+  },
+  {
+    "lead_id": "37853710-85dc-11ed-b5ab-8fd604591461",
+    "title": "iota Biosciences, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 23255,
+    "person_id": 34405,
+    "website_candidates": [
+      "https://iota.bio"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:18.913Z"
+  },
+  {
+    "lead_id": "379f4ec0-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "3M",
+    "owner_id": 13304642,
+    "organization_id": 8694,
+    "person_id": 34407,
+    "website_candidates": [
+      "https://3m.com",
+      "https://mmm.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:19.084Z"
+  },
+  {
+    "lead_id": "390ff5c0-85dc-11ed-bde5-7b952368e238",
+    "title": "Stanley Black & Decker, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 13831,
+    "person_id": 34409,
+    "website_candidates": [
+      "https://sbdinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:21.500Z"
+  },
+  {
+    "lead_id": "3949ca70-85dc-11ed-b5ab-8fd604591461",
+    "title": "GoEngineer",
+    "owner_id": 13304642,
+    "organization_id": 626,
+    "person_id": 34411,
+    "website_candidates": [
+      "https://goengineer.com",
+      "https://cati.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:21.879Z"
+  },
+  {
+    "lead_id": "394de920-85dc-11ed-b5ab-8fd604591461",
+    "title": "Mobex Global",
+    "owner_id": 13304642,
+    "organization_id": 24366,
+    "person_id": 34412,
+    "website_candidates": [
+      "https://mobexglobal.com",
+      "https://buschegroup.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:21.906Z"
+  },
+  {
+    "lead_id": "3994b620-85dc-11ed-b5ae-fbc565463995",
+    "title": "Camco Manufacturing",
+    "owner_id": 13304642,
+    "organization_id": 24368,
+    "person_id": 34415,
+    "website_candidates": [
+      "https://camco.net"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:22.370Z"
+  },
+  {
+    "lead_id": "39c0f640-85dc-11ed-b5ab-8fd604591461",
+    "title": "Precision Shooting Equipment Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24367,
+    "person_id": 34414,
+    "website_candidates": [
+      "https://pse-archery.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:22.660Z"
+  },
+  {
+    "lead_id": "39d875e0-85dc-11ed-bde5-7b952368e238",
+    "title": "Astronics - Luminescent Systems Inc",
+    "owner_id": 13304642,
+    "organization_id": 24365,
+    "person_id": 34413,
+    "website_candidates": [
+      "https://astronics.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:22.814Z"
+  },
+  {
+    "lead_id": "3bb96ae0-85dc-11ed-b5ae-fbc565463995",
+    "title": "Comprehensive Logistics Co., Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24370,
+    "person_id": 34418,
+    "website_candidates": [
+      "https://complog.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:25.966Z"
+  },
+  {
+    "lead_id": "3bba7c50-85dc-11ed-bde5-7b952368e238",
+    "title": "Techstars",
+    "owner_id": 13304642,
+    "organization_id": 24369,
+    "person_id": 34419,
+    "website_candidates": [
+      "https://techstars.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:25.973Z"
+  },
+  {
+    "lead_id": "3c854660-85dc-11ed-b5ab-8fd604591461",
+    "title": "Opentrons Labworks Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24371,
+    "person_id": 34424,
+    "website_candidates": [
+      "https://opentrons.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:27.302Z"
+  },
+  {
+    "lead_id": "3c887ab0-85dc-11ed-b5ab-8fd604591461",
+    "title": "HP",
+    "owner_id": 13304642,
+    "organization_id": 10,
+    "person_id": 34423,
+    "website_candidates": [
+      "https://hp.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:27.323Z"
+  },
+  {
+    "lead_id": "3c88a1c0-85dc-11ed-b5ab-8fd604591461",
+    "title": "Velo3D",
+    "owner_id": 13304642,
+    "organization_id": 14984,
+    "person_id": 34421,
+    "website_candidates": [
+      "https://velo3d.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:27.324Z"
+  },
+  {
+    "lead_id": "3e50b790-85dc-11ed-b5ab-8fd604591461",
+    "title": "Arconic",
+    "owner_id": 13304642,
+    "organization_id": 3811,
+    "person_id": 34425,
+    "website_candidates": [
+      "https://arconic.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:30.313Z"
+  },
+  {
+    "lead_id": "3e7f41a0-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "Bechtel Corporation",
+    "owner_id": 13304642,
+    "organization_id": 14541,
+    "person_id": 12145,
+    "website_candidates": [
+      "https://bechtel.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:30.618Z"
+  },
+  {
+    "lead_id": "3e7f8fc0-85dc-11ed-8f43-07de1078cd00",
+    "title": "BluePrint Automation (BPA)",
+    "owner_id": 13304642,
+    "organization_id": 24373,
+    "person_id": 34427,
+    "website_candidates": [
+      "https://blueprintautomation.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:30.620Z"
+  },
+  {
+    "lead_id": "3ea34460-85dc-11ed-bde5-7b952368e238",
+    "title": "Booz Allen Hamilton",
+    "owner_id": 13304642,
+    "organization_id": 24374,
+    "person_id": 34428,
+    "website_candidates": [
+      "https://boozallen.com",
+      "https://bah.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:30.854Z"
+  },
+  {
+    "lead_id": "3f28c810-85dc-11ed-b5ae-fbc565463995",
+    "title": "Texas Instruments",
+    "owner_id": 13304642,
+    "organization_id": 24375,
+    "person_id": 34429,
+    "website_candidates": [
+      "https://ti.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:31.729Z"
+  },
+  {
+    "lead_id": "3f2a9cd0-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "Bolton & Menk, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24377,
+    "person_id": 34430,
+    "website_candidates": [
+      "https://bolton-menk.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:31.741Z"
+  },
+  {
+    "lead_id": "3f4c2e90-85dc-11ed-b5ae-fbc565463995",
+    "title": "Merrithew\u201a\u00d1\u00a2",
+    "owner_id": 13304642,
+    "organization_id": 24376,
+    "person_id": 34431,
+    "website_candidates": [
+      "https://merrithew.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:31.961Z"
+  },
+  {
+    "lead_id": "3f6ada20-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "Javelin Technologies - Une entreprise de TriMech",
+    "owner_id": 13304642,
+    "organization_id": 24378,
+    "person_id": 34432,
+    "website_candidates": [
+      "https://javelin-tech.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:32.162Z"
+  },
+  {
+    "lead_id": "3fc4e100-85dc-11ed-bde5-7b952368e238",
+    "title": "NEXA3D",
+    "owner_id": 13304642,
+    "organization_id": 17746,
+    "person_id": 15549,
+    "website_candidates": [
+      "https://nexa3d.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:32.752Z"
+  },
+  {
+    "lead_id": "418be560-85dc-11ed-b5ab-8fd604591461",
+    "title": "Vicarious Surgical Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24380,
+    "person_id": 34436,
+    "website_candidates": [
+      "https://vicarioussurgical.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:35.734Z"
+  },
+  {
+    "lead_id": "41b34380-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "ABCO Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24382,
+    "person_id": 34438,
+    "website_candidates": [
+      "https://abcodigital.com",
+      "https://abcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:35.992Z"
+  },
+  {
+    "lead_id": "425269b0-85dc-11ed-b5ab-8fd604591461",
+    "title": "Boyd Corp",
+    "owner_id": 13304642,
+    "organization_id": 22545,
+    "person_id": 29291,
+    "website_candidates": [
+      "https://boydcorp.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:37.035Z"
+  },
+  {
+    "lead_id": "429c9210-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "FS Studio",
+    "owner_id": 13304642,
+    "organization_id": 14881,
+    "person_id": 34439,
+    "website_candidates": [
+      "https://fsstudio.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:37.521Z"
+  },
+  {
+    "lead_id": "43ed06e0-85dc-11ed-8f43-07de1078cd00",
+    "title": "Applied Materials",
+    "owner_id": 13304642,
+    "organization_id": 7730,
+    "person_id": 34441,
+    "website_candidates": [
+      "https://appliedmaterials.com",
+      "https://amat.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:39.726Z"
+  },
+  {
+    "lead_id": "44a92af0-85dc-11ed-bde5-7b952368e238",
+    "title": "Repligen Corporation",
+    "owner_id": 13304642,
+    "organization_id": 24386,
+    "person_id": 34446,
+    "website_candidates": [
+      "https://repligen.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:40.959Z"
+  },
+  {
+    "lead_id": "44a9a020-85dc-11ed-bde5-7b952368e238",
+    "title": "YETI",
+    "owner_id": 13304642,
+    "organization_id": 22160,
+    "person_id": 34443,
+    "website_candidates": [
+      "https://yeti.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:40.962Z"
+  },
+  {
+    "lead_id": "44c9f960-85dc-11ed-8f43-07de1078cd00",
+    "title": "Apptronik",
+    "owner_id": 13304642,
+    "organization_id": 24384,
+    "person_id": 34444,
+    "website_candidates": [
+      "https://apptronik.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:41.174Z"
+  },
+  {
+    "lead_id": "44cb31e0-85dc-11ed-a3d6-3b1a5f7db9b7",
+    "title": "A+ Products, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24385,
+    "person_id": 34445,
+    "website_candidates": [
+      "https://aplusproducts.net"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:41.182Z"
+  },
+  {
+    "lead_id": "4651aad0-85dc-11ed-8f43-07de1078cd00",
+    "title": "Form Energy, Inc.",
+    "owner_id": 13304642,
+    "organization_id": 24387,
+    "person_id": 34448,
+    "website_candidates": [
+      "https://formenergy.it",
+      "https://formenergy.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:43.741Z"
+  },
+  {
+    "lead_id": "46bbde50-85dc-11ed-95b4-f7b321b19d0a",
+    "title": "Ocean Insight",
+    "owner_id": 13304642,
+    "organization_id": 24388,
+    "person_id": 34449,
+    "website_candidates": [
+      "https://oceaninsight.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2022-12-27T11:47:44.437Z"
+  }
+]

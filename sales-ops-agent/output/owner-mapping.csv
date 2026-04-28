@@ -1,0 +1,35 @@
+pipedrive_user_id,name,email,active,google_chat_target_candidate
+25468180,Ben Sears,ben.sears@amfg.ai,True,users/ben.sears@amfg.ai
+13081611,Chris Hunte,chris.hunte@amfg.ai,False,users/chris.hunte@amfg.ai
+22020714,Dani Burrows,danielle.burrows@amfg.ai,False,users/danielle.burrows@amfg.ai
+11347436,Danny Winn,danny.w@amfg.ai,False,users/danny.w@amfg.ai
+23061842,Florian Kneidl,florian.kneidl@amfg.ai,False,users/florian.kneidl@amfg.ai
+15871239,Henry Morris,henry.morris@amfg.ai,True,users/henry.morris@amfg.ai
+23529485,Ioana Gavrilescu,ioana.gavrilescu@amfg.ai,False,users/ioana.gavrilescu@amfg.ai
+12849338,Jake Spindler,jake.spindler@amfg.ai,False,users/jake.spindler@amfg.ai
+13420505,Janos Rosenberg,janos.rosenberg@amfg.ai,False,users/janos.rosenberg@amfg.ai
+24994949,Jerome Adams,jerome.adams@amfg.ai,False,users/jerome.adams@amfg.ai
+23861740,Joe Payne,joseph.payne@amfg.ai,True,users/joseph.payne@amfg.ai
+23857945,Jonathan Ho,jonathan.ho@amfg.ai,True,users/jonathan.ho@amfg.ai
+24406196,Joseph Tappin,joseph.tappin@amfg.ai,False,users/joseph.tappin@amfg.ai
+13325069,Joshua Westbrook,joshua.westbrook@amfg.ai,False,users/joshua.westbrook@amfg.ai
+25094488,Julian Earl,julian.earl@amfg.ai,True,users/julian.earl@amfg.ai
+24319384,Keith,keith.domnick@amfg.ai,False,users/keith.domnick@amfg.ai
+2157203,Keyvan Karimi,keyvan.k@amfg.ai,True,users/keyvan.k@amfg.ai
+16602992,Laura AI,marketing@amfg.ai,True,users/marketing@amfg.ai
+9354639,Lead Profiling,leadprofiling@amfg.ai,False,users/leadprofiling@amfg.ai
+11916840,Lorenzo Buzio,lorenzo.b@amfg.ai,False,users/lorenzo.b@amfg.ai
+20695203,Lorenzo Civaia,lorenzo.civaia@amfg.ai,False,users/lorenzo.civaia@amfg.ai
+24147597,Marie-Claire,accounts@amfg.ai,False,users/accounts@amfg.ai
+13140401,Matt Martin,matt.martin@amfg.ai,False,users/matt.martin@amfg.ai
+24193753,Momchil Kyuparski,momchil.kyuparski@amfg.ai,False,users/momchil.kyuparski@amfg.ai
+14794559,Murray Judge,murray.judge@amfg.ai,False,users/murray.judge@amfg.ai
+22609016,Onboarding Team,fahad.bashir@amfg.ai,True,users/fahad.bashir@amfg.ai
+21122333,Robert Heindl,robert.heindl@amfg.ai,False,users/robert.heindl@amfg.ai
+12884458,Robert Steele,robert.steele@amfg.ai,False,users/robert.steele@amfg.ai
+11458482,Sven Hinrichs,sven.h@amfg.ai,True,users/sven.h@amfg.ai
+25357905,Tad,tad.tamulevicius@amfg.ai,True,users/tad.tamulevicius@amfg.ai
+24052953,Toby Greer,toby.greer@amfg.ai,True,users/toby.greer@amfg.ai
+21852722,Tom Dennison,tom.dennison@amfg.ai,False,users/tom.dennison@amfg.ai
+22331805,Tom Hill,thomas.hill@amfg.ai,False,users/thomas.hill@amfg.ai
+12007383,Tom Kuestermann,tom.kuestermann@amfg.ai,False,users/tom.kuestermann@amfg.ai

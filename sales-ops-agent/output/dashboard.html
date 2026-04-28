@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AMFG AI Sales Team Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #1B83FF;
+      --dark: #272727;
+      --muted: #646464;
+      --border: #EBEDF0;
+      --bg: #F7F9FC;
+      --card: #FFFFFF;
+      --success: #1f9d63;
+      --warning: #c76b00;
+      --danger: #cf3f3f;
+      --shadow: 0 20px 50px rgba(27, 39, 51, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, Arial, sans-serif; background: linear-gradient(180deg, #f5f9ff 0%, var(--bg) 28%, #f8fafc 100%); color: var(--dark); }
+    .shell { max-width: 1440px; margin: 0 auto; padding: 28px; }
+    .hero { background: radial-gradient(circle at top left, rgba(27,131,255,0.18), rgba(27,131,255,0) 40%), linear-gradient(135deg, #0f1720 0%, #1f2937 48%, #111827 100%); color: white; border-radius: 28px; padding: 32px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .hero::after { content: ""; position: absolute; inset: auto -80px -80px auto; width: 260px; height: 260px; border-radius: 50%; background: rgba(27,131,255,0.16); filter: blur(10px); }
+    .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; letter-spacing: 0.02em; }
+    .brand-mark { width: 16px; height: 16px; background: var(--blue); border-radius: 5px; box-shadow: 20px 0 0 rgba(27,131,255,0.35), 40px 0 0 rgba(27,131,255,0.15); }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; margin-top: 28px; align-items: end; }
+    .hero h1 { margin: 10px 0 12px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; max-width: 10ch; }
+    .hero p { margin: 0; color: rgba(255,255,255,0.78); max-width: 58ch; font-size: 1rem; }
+    .hero-panel { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: 22px; padding: 18px; backdrop-filter: blur(10px); }
+    .hero-panel-title { color: rgba(255,255,255,0.7); font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; }
+    .hero-panel strong { display: block; font-size: 2.4rem; margin-top: 8px; }
+    .hero-panel small { display: block; margin-top: 6px; color: rgba(255,255,255,0.7); }
+    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 22px 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); }
+    .kpi-card { padding: 22px; }
+    .label { color: var(--muted); font-size: .86rem; text-transform: uppercase; letter-spacing: .08em; }
+    .value { font-size: 2rem; font-weight: 800; margin-top: 10px; }
+    .subtle { color: var(--muted); margin-top: 6px; font-size: .93rem; }
+    .grid { display: grid; grid-template-columns: 1.45fr .95fr; gap: 18px; margin-top: 18px; }
+    .section { padding: 22px; }
+    .section h2 { margin: 0 0 4px; font-size: 1.2rem; }
+    .section-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 18px; }
+    .section-head p { margin: 0; color: var(--muted); }
+    .agent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .agent-card { border: 1px solid var(--border); border-radius: 20px; padding: 18px; background: linear-gradient(180deg, #fff 0%, #fcfdff 100%); }
+    .agent-card-top { display: flex; justify-content: space-between; gap: 14px; align-items: start; }
+    .agent-card h3 { margin: 4px 0 0; font-size: 1.05rem; }
+    .pill { display: inline-flex; border-radius: 999px; padding: 8px 12px; font-size: .82rem; font-weight: 700; }
+    .eyebrow { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; }
+    .muted { color: var(--muted); line-height: 1.5; }
+    .agent-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+    .agent-metrics div { background: var(--bg); border-radius: 16px; padding: 12px; }
+    .agent-metrics span { display: block; color: var(--muted); font-size: .78rem; margin-bottom: 6px; }
+    .agent-metrics strong { font-size: 1.15rem; }
+    .stack { display: grid; gap: 18px; }
+    .owner-row { display: grid; grid-template-columns: 1.3fr 1fr auto; gap: 12px; align-items: center; margin-bottom: 14px; }
+    .owner-meta { display: grid; gap: 4px; }
+    .owner-meta span { color: var(--muted); font-size: .88rem; }
+    .owner-bar-wrap { height: 10px; background: #edf2f7; border-radius: 999px; overflow: hidden; }
+    .owner-bar { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--blue), #6fb4ff); }
+    .finding-list { display: grid; gap: 12px; }
+    .finding-row { border: 1px solid var(--border); border-radius: 18px; padding: 16px; }
+    .finding-row-top { display: flex; justify-content: space-between; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .rule { color: var(--blue); font-weight: 700; font-size: .84rem; letter-spacing: .06em; }
+    .severity { border-radius: 999px; padding: 6px 10px; font-size: .76rem; font-weight: 700; }
+    .severity.medium { background: #fff4e5; color: var(--warning); }
+    .severity.low { background: #eef6ef; color: var(--success); }
+    .severity.high { background: #ffebeb; color: var(--danger); }
+    .severity.unknown { background: #f1f3f5; color: var(--muted); }
+    .finding-summary { font-weight: 600; line-height: 1.45; }
+    .finding-foot { margin-top: 8px; color: var(--muted); font-size: .9rem; }
+    .mini-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .mini-stat { background: var(--bg); border-radius: 18px; padding: 14px; }
+    .mini-stat span { display: block; color: var(--muted); font-size: .83rem; margin-bottom: 6px; }
+    .mini-stat strong { font-size: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 14px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; }
+    .footer { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); padding: 16px 4px 0; font-size: .9rem; }
+    @media (max-width: 1100px) {
+      .hero-grid, .grid { grid-template-columns: 1fr; }
+      .kpis { grid-template-columns: repeat(2, 1fr); }
+      .agent-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .shell { padding: 16px; }
+      .hero { padding: 22px; border-radius: 22px; }
+      .kpis { grid-template-columns: 1fr; }
+      .mini-stats { grid-template-columns: 1fr; }
+      .owner-row { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      th:nth-child(5), td:nth-child(5) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="brand"><div class="brand-mark"></div><span>AMFG AI SALES TEAM</span></div>
+      <div class="hero-grid">
+        <div>
+          <h1>Manage the AI sales team in one place.</h1>
+          <p>A simple AMFG-branded control view for Sales Ops, AI BDR USA & Canada, AI BDR UK & Ireland, and AI BDR EU. Built around the live Pipedrive hygiene outputs already running in the workspace.</p>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-panel-title">Current posture</div>
+          <strong>1 live, 3 queued</strong>
+          <small>100 items waiting across agents, 78 processed in the current run.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="kpis">
+      <div class="card kpi-card"><div class="label">Open hygiene findings</div><div class="value">78</div><div class="subtle">76 medium, 2 low</div></div>
+      <div class="card kpi-card"><div class="label">Lead review queue</div><div class="value">100</div><div class="subtle">CNC-labelled leads prioritized for website-backed review</div></div>
+      <div class="card kpi-card"><div class="label">Owners impacted</div><div class="value">6</div><div class="subtle">Top reps and managers needing action right now</div></div>
+      <div class="card kpi-card"><div class="label">Generated</div><div class="value">21:21</div><div class="subtle">2026-04-27 UTC snapshot</div></div>
+    </section>
+
+    <section class="grid">
+      <div class="card section">
+        <div class="section-head">
+          <div>
+            <h2>Agent control surface</h2>
+            <p>The first simple management layer for the four-agent model.</p>
+          </div>
+        </div>
+        <div class="agent-grid">
+            <article class="agent-card">
+              <div class="agent-card-top">
+                <div>
+                  <div class="eyebrow">global</div>
+                  <h3>Sales Ops</h3>
+                </div>
+                <span class="pill" style="background:#E8F3FF;color:#1B83FF;">Active</span>
+              </div>
+              <p class="muted">CRM hygiene, duplicates, stage compliance, CNC lead disqualification</p>
+              <div class="agent-metrics">
+                <div><span>Queue</span><strong>100</strong></div>
+                <div><span>Processed</span><strong>78</strong></div>
+                <div><span>Errors</span><strong>0</strong></div>
+              </div>
+            </article>
+            
+            <article class="agent-card">
+              <div class="agent-card-top">
+                <div>
+                  <div class="eyebrow">USA &amp; Canada</div>
+                  <h3>AI BDR USA &amp; Canada</h3>
+                </div>
+                <span class="pill" style="background:#F1F3F5;color:#646464;">Planned</span>
+              </div>
+              <p class="muted">CNC outbound and qualification for USA &amp; Canada</p>
+              <div class="agent-metrics">
+                <div><span>Queue</span><strong>0</strong></div>
+                <div><span>Processed</span><strong>0</strong></div>
+                <div><span>Errors</span><strong>0</strong></div>
+              </div>
+            </article>
+            
+            <article class="agent-card">
+              <div class="agent-card-top">
+                <div>
+                  <div class="eyebrow">UK &amp; Ireland</div>
+                  <h3>AI BDR UK &amp; Ireland</h3>
+                </div>
+                <span class="pill" style="background:#F1F3F5;color:#646464;">Planned</span>
+              </div>
+              <p class="muted">CNC outbound and qualification for UK &amp; Ireland</p>
+              <div class="agent-metrics">
+                <div><span>Queue</span><strong>0</strong></div>
+                <div><span>Processed</span><strong>0</strong></div>
+                <div><span>Errors</span><strong>0</strong></div>
+              </div>
+            </article>
+            
+            <article class="agent-card">
+              <div class="agent-card-top">
+                <div>
+                  <div class="eyebrow">EU</div>
+                  <h3>AI BDR EU</h3>
+                </div>
+                <span class="pill" style="background:#F1F3F5;color:#646464;">Planned</span>
+              </div>
+              <p class="muted">CNC outbound and qualification for EU</p>
+              <div class="agent-metrics">
+                <div><span>Queue</span><strong>0</strong></div>
+                <div><span>Processed</span><strong>0</strong></div>
+                <div><span>Errors</span><strong>0</strong></div>
+              </div>
+            </article>
+            </div>
+      </div>
+
+      <div class="stack">
+        <div class="card section">
+          <div class="section-head"><div><h2>Owners needing attention</h2><p>Who currently has the biggest cleanup load.</p></div></div>
+          
+            <div class="owner-row">
+              <div class="owner-meta">
+                <strong>Unassigned</strong>
+                <span></span>
+              </div>
+              <div class="owner-bar-wrap">
+                <div class="owner-bar" style="width:100%"></div>
+              </div>
+              <strong>61</strong>
+            </div>
+            
+            <div class="owner-row">
+              <div class="owner-meta">
+                <strong>Henry Morris</strong>
+                <span>henry.morris@amfg.ai</span>
+              </div>
+              <div class="owner-bar-wrap">
+                <div class="owner-bar" style="width:8%"></div>
+              </div>
+              <strong>4</strong>
+            </div>
+            
+            <div class="owner-row">
+              <div class="owner-meta">
+                <strong>Dani Burrows</strong>
+                <span>danielle.burrows@amfg.ai</span>
+              </div>
+              <div class="owner-bar-wrap">
+                <div class="owner-bar" style="width:8%"></div>
+              </div>
+              <strong>4</strong>
+            </div>
+            
+            <div class="owner-row">
+              <div class="owner-meta">
+                <strong>Julian Earl</strong>
+                <span>julian.earl@amfg.ai</span>
+              </div>
+              <div class="owner-bar-wrap">
+                <div class="owner-bar" style="width:8%"></div>
+              </div>
+              <strong>4</strong>
+            </div>
+            
+            <div class="owner-row">
+              <div class="owner-meta">
+                <strong>Joe Payne</strong>
+                <span>joseph.payne@amfg.ai</span>
+              </div>
+              <div class="owner-bar-wrap">
+                <div class="owner-bar" style="width:8%"></div>
+              </div>
+              <strong>3</strong>
+            </div>
+            
+            <div class="owner-row">
+              <div class="owner-meta">
+                <strong>Laura AI</strong>
+                <span>marketing@amfg.ai</span>
+              </div>
+              <div class="owner-bar-wrap">
+                <div class="owner-bar" style="width:8%"></div>
+              </div>
+              <strong>2</strong>
+            </div>
+            
+        </div>
+        <div class="card section">
+          <div class="section-head"><div><h2>Rule pressure</h2><p>Where the hygiene engine is firing most often.</p></div></div>
+          <div class="mini-stats"><div class="mini-stat"><span>R006</span><strong>61</strong></div><div class="mini-stat"><span>R001</span><strong>14</strong></div><div class="mini-stat"><span>R004</span><strong>2</strong></div><div class="mini-stat"><span>R008</span><strong>1</strong></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card section">
+        <div class="section-head"><div><h2>Priority findings</h2><p>The first issues worth acting on inside Pipedrive.</p></div></div>
+        <div class="finding-list">
+            <div class="finding-row">
+              <div class="finding-row-top">
+                <span class="rule">R006</span>
+                <span class="severity medium">Medium</span>
+              </div>
+              <div class="finding-summary">Open deal &#x27;ABG / Oadby Group&#x27; has no next activity.</div>
+              <div class="finding-foot">Validation • Add a next activity on the deal.</div>
+            </div>
+            
+            <div class="finding-row">
+              <div class="finding-row-top">
+                <span class="rule">R006</span>
+                <span class="severity medium">Medium</span>
+              </div>
+              <div class="finding-summary">Open deal &#x27;CNC Machining NZ&#x27; has no next activity.</div>
+              <div class="finding-foot">Demo done • Add a next activity on the deal.</div>
+            </div>
+            
+            <div class="finding-row">
+              <div class="finding-row-top">
+                <span class="rule">R006</span>
+                <span class="severity medium">Medium</span>
+              </div>
+              <div class="finding-summary">Open deal &#x27;Clinkenbeard&#x27; has no next activity.</div>
+              <div class="finding-foot">Validation • Add a next activity on the deal.</div>
+            </div>
+            
+            <div class="finding-row">
+              <div class="finding-row-top">
+                <span class="rule">R006</span>
+                <span class="severity medium">Medium</span>
+              </div>
+              <div class="finding-summary">Open deal &#x27;Accurate Metal Machining deal&#x27; has no next activity.</div>
+              <div class="finding-foot">Demo done • Add a next activity on the deal.</div>
+            </div>
+            
+            <div class="finding-row">
+              <div class="finding-row-top">
+                <span class="rule">R006</span>
+                <span class="severity medium">Medium</span>
+              </div>
+              <div class="finding-summary">Open deal &#x27;All British Precision&#x27; has no next activity.</div>
+              <div class="finding-foot">Demo done • Add a next activity on the deal.</div>
+            </div>
+            
+            <div class="finding-row">
+              <div class="finding-row-top">
+                <span class="rule">R006</span>
+                <span class="severity medium">Medium</span>
+              </div>
+              <div class="finding-summary">Open deal &#x27;Prosper-Tech Machine &amp; Tool&#x27; has no next activity.</div>
+              <div class="finding-foot">Demo done • Add a next activity on the deal.</div>
+            </div>
+            
+            <div class="finding-row">
+              <div class="finding-row-top">
+                <span class="rule">R006</span>
+                <span class="severity medium">Medium</span>
+              </div>
+              <div class="finding-summary">Open deal &#x27;Orchid Orthopedic Solutions deal&#x27; has no next activity.</div>
+              <div class="finding-foot">Workshop • Add a next activity on the deal.</div>
+            </div>
+            
+            <div class="finding-row">
+              <div class="finding-row-top">
+                <span class="rule">R006</span>
+                <span class="severity medium">Medium</span>
+              </div>
+              <div class="finding-summary">Open deal &#x27;GN Precision&#x27; has no next activity.</div>
+              <div class="finding-foot">Validation • Add a next activity on the deal.</div>
+            </div>
+            </div>
+      </div>
+      <div class="stack">
+        <div class="card section">
+          <div class="section-head"><div><h2>Deal stage hotspots</h2><p>Which stages are producing the most issues.</p></div></div>
+          <div class="mini-stats"><div class="mini-stat"><span>Demo booked</span><strong>28</strong></div><div class="mini-stat"><span>Demo done</span><strong>18</strong></div><div class="mini-stat"><span>Validation</span><strong>11</strong></div><div class="mini-stat"><span>Workshop</span><strong>2</strong></div></div>
+        </div>
+        <div class="card section">
+          <div class="section-head"><div><h2>Lead review mix</h2><p>Sample output from the CNC lead-review worker.</p></div></div>
+          <div class="mini-stats"><div class="mini-stat"><span>Keep Active</span><strong>4</strong></div><div class="mini-stat"><span>Needs Review</span><strong>1</strong></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section" style="margin-top:18px;">
+      <div class="section-head"><div><h2>CNC lead sample</h2><p>Quick view of the reviewed leads and their current recommendation state.</p></div></div>
+      <table>
+        <thead>
+          <tr><th>Lead</th><th>Recommendation</th><th>Score</th><th>Confidence</th><th>Website</th></tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>Martin Machine &amp; Welding</td>
+              <td>Keep Active</td>
+              <td>0</td>
+              <td>45%</td>
+              <td>https://martinmachineandwelding.com</td>
+            </tr>
+            
+            <tr>
+              <td>Metal Craft</td>
+              <td>Keep Active</td>
+              <td>0</td>
+              <td>75%</td>
+              <td>https://mcandrs.com</td>
+            </tr>
+            
+            <tr>
+              <td>Davis Tool &amp; Die</td>
+              <td>Keep Active</td>
+              <td>0</td>
+              <td>45%</td>
+              <td>https://davistool.com</td>
+            </tr>
+            
+            <tr>
+              <td>rms Company</td>
+              <td>Needs Review</td>
+              <td>0</td>
+              <td>0%</td>
+              <td>https://rmsmachining.com</td>
+            </tr>
+            
+            <tr>
+              <td>Cox Machine</td>
+              <td>Keep Active</td>
+              <td>0</td>
+              <td>45%</td>
+              <td>https://coxmachine.com</td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </section>
+
+    <div class="footer">
+      <div>Designed to feel like AMFG, using Inter plus the website palette cues, especially the AMFG blue and charcoal.</div>
+      <div>Next natural upgrade: convert this into a live React dashboard with action controls and refreshable APIs.</div>
+    </div>
+  </div>
+</body>
+</html>

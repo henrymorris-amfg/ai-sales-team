@@ -1,0 +1,242 @@
+[
+  {
+    "lead_id": "75612b20-0c51-11ed-b53c-11a85d8d756c",
+    "title": "M2 Optics Inc. lead",
+    "website": "https://m2optics.com",
+    "website_candidates": [
+      "https://m2optics.com"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "fit_signals": [],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "2bc17460-3aba-11ed-8061-cfda6e871c81",
+    "title": "Milwaukee Tool lead",
+    "website": "https://volunteeraerospace.com",
+    "website_candidates": [
+      "https://volunteeraerospace.com",
+      "https://beehive-industries.com",
+      "https://milwaukeetool.com"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "fit_signals": [],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "96691c20-5075-11ed-b15d-bba0b1e8ab66",
+    "title": "topmodellfabrik GbR lead",
+    "website": "https://topmodellfabrik.de",
+    "website_candidates": [
+      "https://topmodellfabrik.de"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "fit_signals": [],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "e7d7ec70-3a91-11ed-a0eb-adba5ea5c0d7",
+    "title": "Ziviz3D lead",
+    "website": "https://sapphire3d.tech",
+    "website_candidates": [
+      "https://sapphire3d.tech"
+    ],
+    "recommendation": "keep_active",
+    "confidence": 0.05,
+    "fit_signals": [
+      "cad"
+    ],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "94d61f10-3a87-11ed-a0eb-adba5ea5c0d7",
+    "title": "Falcon Motors Corporation lead",
+    "website": "https://falconmotors.us",
+    "website_candidates": [
+      "https://falconmotors.us"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "fit_signals": [],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "fa7194e0-598a-11ed-bacf-0dc4530f12c3",
+    "title": "Nova Rapid Product Development Services Ltd. lead",
+    "website": "https://novaproduct.com",
+    "website_candidates": [
+      "https://novaproduct.com"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "fit_signals": [],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "6d4465c0-3aa4-11ed-a315-932c30d4cd12",
+    "title": "Hougen lead",
+    "website": "https://hougen.com",
+    "website_candidates": [
+      "https://hougen.com"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.2,
+    "fit_signals": [],
+    "disqualify_signals": [
+      "fabrication"
+    ]
+  },
+  {
+    "lead_id": "d8faa6b0-4b22-11ed-8e9c-d381df2479ca",
+    "title": "Shiseido lead",
+    "website": "https://emea.shiseido.com",
+    "website_candidates": [
+      "https://emea.shiseido.com"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "reason": "Website fetch failed: HTTPSConnectionPool(host='emea.shiseido.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x75f26a049010>: Failed to resolve 'emea.shiseido.com' ([Errno -5] No address associated with hostname)\"))"
+  },
+  {
+    "lead_id": "39246470-3b67-11ed-8ecf-25e8381288dc",
+    "title": "Fortify lead",
+    "website": "https://3dfortify.com",
+    "website_candidates": [
+      "https://3dfortify.com"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "reason": "Website fetch failed: HTTPSConnectionPool(host='3dfortify.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)')))"
+  },
+  {
+    "lead_id": "d2a21ec0-666a-11ed-9b99-3987e6e59e6f",
+    "title": "Alex Knopff lead",
+    "website": "https://ak-hydraulics.com",
+    "website_candidates": [
+      "https://ak-hydraulics.com"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "reason": "Website fetch failed: HTTPSConnectionPool(host='ak-hydraulics.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'ak-hydraulics.com'. (_ssl.c:1000)\")))"
+  },
+  {
+    "lead_id": "6d1255e0-666d-11ed-960a-bfe8548a3f9d",
+    "title": "Marvin Kierst lead",
+    "website": "https://unimatic.de",
+    "website_candidates": [
+      "https://unimatic.de"
+    ],
+    "recommendation": "keep_active",
+    "confidence": 0.05,
+    "fit_signals": [
+      "cad"
+    ],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "bec11860-6661-11ed-a279-bd305ca3c539",
+    "title": "Lead from Formnext lead",
+    "website": "https://binder-connector.de",
+    "website_candidates": [
+      "https://binder-connector.de"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "fit_signals": [],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "4f7309f0-6666-11ed-9b99-3987e6e59e6f",
+    "title": "Stephen lead",
+    "website": "https://woodward.com",
+    "website_candidates": [
+      "https://woodward.com"
+    ],
+    "recommendation": "keep_active",
+    "confidence": 0.05,
+    "fit_signals": [
+      "cad"
+    ],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "9cc008e0-666e-11ed-8e67-0328eb789238",
+    "title": "Patrick Helfrich lead",
+    "website": "https://atec-fluidsysteme.de",
+    "website_candidates": [
+      "https://atec-fluidsysteme.de"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "reason": "Website fetch failed: HTTPSConnectionPool(host='atec-fluidsysteme.de', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x75f26a048ef0>, 'Connection to atec-fluidsysteme.de timed out. (connect timeout=4)'))"
+  },
+  {
+    "lead_id": "44dd6640-665f-11ed-9a9f-0502b8157528",
+    "title": "Stefan Haag lead",
+    "website": "https://groninger.de",
+    "website_candidates": [
+      "https://groninger.de"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "fit_signals": [],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "a8a37630-665d-11ed-9b99-3987e6e59e6f",
+    "title": "Alexander Jiminez lead",
+    "website": "https://army.mil",
+    "website_candidates": [
+      "https://army.mil"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "reason": "Website fetch failed: HTTPSConnectionPool(host='army.mil', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x75f26a048d70>: Failed to resolve 'army.mil' ([Errno -5] No address associated with hostname)\"))"
+  },
+  {
+    "lead_id": "728d9860-665c-11ed-9a9f-0502b8157528",
+    "title": "Timothy lead",
+    "website": "https://gmail.com",
+    "website_candidates": [
+      "https://gmail.com",
+      "https://loxo.ch"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "fit_signals": [],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "f95f3940-6669-11ed-a279-bd305ca3c539",
+    "title": "Michael Stockli lead",
+    "website": "https://robatech.ch",
+    "website_candidates": [
+      "https://robatech.ch"
+    ],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "fit_signals": [],
+    "disqualify_signals": []
+  },
+  {
+    "lead_id": "67786d00-666c-11ed-8e67-0328eb789238",
+    "title": "Maximillian Frey lead",
+    "website": null,
+    "website_candidates": [],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "reason": "No website found on lead, organisation, or person data."
+  },
+  {
+    "lead_id": "ce0d6980-666c-11ed-a279-bd305ca3c539",
+    "title": "Kasim Ocakli lead",
+    "website": null,
+    "website_candidates": [],
+    "recommendation": "needs_review",
+    "confidence": 0.0,
+    "reason": "No website found on lead, organisation, or person data."
+  }
+]

@@ -1,0 +1,6291 @@
+{
+  "generated_at": "2026-04-27T21:44:52.992361+00:00",
+  "sample_type": "random_cnc_leads",
+  "batch_size": 200,
+  "seed": 42,
+  "total_cnc_leads_available": 13827,
+  "recommendation_counts": {
+    "very_good_fit": 78,
+    "good_fit": 64,
+    "needs_review": 57,
+    "archive_disqualified": 1
+  },
+  "score_bands": {
+    "80_100": 78,
+    "60_79": 64,
+    "21_59": 32,
+    "0_20": 26
+  },
+  "archive_candidates": [
+    {
+      "lead_id": "5b8a3d40-fb4b-11ef-b719-e1b40168db4f",
+      "title": "Ada + The Machine",
+      "recommendation": "archive_disqualified",
+      "score": 20,
+      "confidence": 0.75,
+      "website": "https://adaandthemachine.com",
+      "website_candidates": [
+        "https://adaandthemachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [],
+      "disqualify_signals": [
+        "no in-house"
+      ],
+      "conflict_flag": false
+    }
+  ],
+  "good_fits": [
+    {
+      "lead_id": "1f048570-0884-11ef-94dd-bbe9e5c82044",
+      "title": "Dailey's CNC Machining lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://daileyscnc.com",
+      "website_candidates": [
+        "https://daileyscnc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "5-axis",
+        "5 axis",
+        "request a quote",
+        "blank",
+        "quote",
+        "medical",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "71a261f0-a8e1-11ef-8a5a-eddbba90c264",
+      "title": "Astley Precision Machine Co Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://astleyprecision.com",
+      "website_candidates": [
+        "https://astleyprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "5-axis",
+        "request a quote",
+        "rfq",
+        "blank",
+        "quote",
+        "medical",
+        "iso 9001",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "00a19fe0-e53e-11ef-a3d2-ab07afb01fef",
+      "title": "M&L Precision Machining Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://mlprecision.com",
+      "website_candidates": [
+        "https://mlprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "iso 9001",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "2b0ec2b0-c5dc-11f0-ac31-51a52f7017de",
+      "title": "Lorro Precision",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://lorroprecision.co.uk",
+      "website_candidates": [
+        "https://lorroprecision.co.uk"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "af524420-8712-11ef-bf00-b32df28ac08b",
+      "title": "Bowman Tool & Machining deal",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://btmcnc.com",
+      "website_candidates": [
+        "https://btmcnc.com",
+        "https://wsiindustries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "quote",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "71cb46b0-a8e1-11ef-840a-2f2db825ebe9",
+      "title": "Debco Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://debcomachine.com",
+      "website_candidates": [
+        "https://debcomachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "cnc milling",
+        "cnc turning",
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "e71781c0-e23b-11ef-9c3b-7d4d6ddca5f1",
+      "title": "M's Machine & Mfg Co Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://ms-machine.com",
+      "website_candidates": [
+        "https://ms-machine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "cad",
+        "quote",
+        "medical",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "e16d1f40-1b98-11f1-8132-71863f9b3d70",
+      "title": "PGM Corporation lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://pgmcorp.com",
+      "website_candidates": [
+        "https://pgmcorp.com",
+        "https://apollopm.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "blank",
+        "cad",
+        "medical",
+        "defense",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "a6b7da91-8713-11ef-9bc9-dfdc9b433279",
+      "title": "Zimmer Design and Manufacturing lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://zimmermanufacturing.com",
+      "website_candidates": [
+        "https://zimmermanufacturing.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "rfq",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "f6f96ad0-4453-11ef-b462-357230ef0032",
+      "title": "Engineered Medical Systems lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://engmedsys.net",
+      "website_candidates": [
+        "https://engmedsys.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "high mix",
+        "low volume",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "12b14880-3231-11f0-9aa0-fbe9f604671e",
+      "title": "Micron Industries of Rochester, Inc lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://micronindustries.com",
+      "website_candidates": [
+        "https://micronindustries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "industrial",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "1ba646a0-d324-11ef-b85f-632c49bc46e8",
+      "title": "Hillman Precision Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://hillmanprecision.com",
+      "website_candidates": [
+        "https://hillmanprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "198abaf0-e53e-11ef-8f96-95c139b40603",
+      "title": "S&H Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://shmachine.com",
+      "website_candidates": [
+        "https://shmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "request a quote",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "defense",
+        "iso 9001",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "5188e620-fb4b-11ef-a622-710795736665",
+      "title": "Custom Machine",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://custommachineinc.com",
+      "website_candidates": [
+        "https://custommachineinc.com",
+        "https://customgroupusa.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "iso 9001",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "135585b0-d324-11ef-9618-2bf020d8ce9d",
+      "title": "Firstar Precision Corp",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://firstarcnc.com",
+      "website_candidates": [
+        "https://firstarcnc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "cnc milling",
+        "cnc turning",
+        "mill-turn",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "7b31de60-bd6f-11ef-ba00-39e351e2e7b9",
+      "title": "Vescio Manufacturing lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://vesciomfg.com",
+      "website_candidates": [
+        "https://vesciomfg.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "cnc milling",
+        "cnc turning",
+        "mill-turn",
+        "blank",
+        "aerospace",
+        "medical",
+        "defense",
+        "iso 9001",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "6a04ccb0-0875-11ef-b78e-654f529113e8",
+      "title": "Northwest Production Consulting lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://northwpc.com",
+      "website_candidates": [
+        "https://northwpc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "5-axis",
+        "5 axis",
+        "cnc milling",
+        "blank",
+        "cad",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b561c700-03ea-11f0-8dfb-8310cb8b8f73",
+      "title": "C&K Precision Engineers lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://ckprecision.co.uk",
+      "website_candidates": [
+        "https://ckprecision.co.uk"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "5 axis",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "aerospace",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "0454aea0-66bf-11ef-9211-35c74ea9de5b",
+      "title": "Courser lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://courser.com",
+      "website_candidates": [
+        "https://courser.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "3acb90c0-349b-11f0-b8ee-d19edd0ccaf3",
+      "title": "Lakeview Machining lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://lakeviewprecision.com",
+      "website_candidates": [
+        "https://lakeviewprecision.com",
+        "https://gmail.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "3f4cba90-b15e-11ef-9b78-2138b97cd2f1",
+      "title": "Regal Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://regalmachineinc.com",
+      "website_candidates": [
+        "https://regalmachineinc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "c490ced0-e309-11ef-aaa2-3dbe199a7fe5",
+      "title": "Pivot Precision Corp",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://pivotprecision.com",
+      "website_candidates": [
+        "https://pivotprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "request a quote",
+        "rfq",
+        "cnc milling",
+        "blank",
+        "cad",
+        "quote",
+        "medical",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "e9ea5b30-107a-11f0-bd00-334fd08483f2",
+      "title": "Metal Craft",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://mcandrs.com",
+      "website_candidates": [
+        "https://mcandrs.com",
+        "https://metal-craft.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "4a21e2a0-c522-11f0-99ff-6f7324ed4f20",
+      "title": "Dawlough",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://dawnlough.com",
+      "website_candidates": [
+        "https://dawnlough.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "industrial",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "615e7800-acd4-11ef-8b6a-150491e03489",
+      "title": "TQ Machining Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://tqmachine.com",
+      "website_candidates": [
+        "https://tqmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "91ea5c20-ad7c-11ef-b0a9-b79125ba6b59",
+      "title": "Wire Cut Co., Inc. lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://wirecutcompany.com",
+      "website_candidates": [
+        "https://wirecutcompany.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "as9100"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b89eb910-147e-11f0-92e3-312f29aa9304",
+      "title": "Frontline Machining",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://frontlinemachining.com",
+      "website_candidates": [
+        "https://frontlinemachining.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "9fd62d30-45dc-11ef-bc0d-b9a70f4c2f4d",
+      "title": "Sharp Turn Products lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://sharpturn.com",
+      "website_candidates": [
+        "https://sharpturn.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "cnc turning",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "84d0e940-fce8-11ee-bf1b-f73277ca6ff0",
+      "title": "Accumet Materials lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://accumetmaterials.com",
+      "website_candidates": [
+        "https://accumetmaterials.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "rfq",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "d8988760-c9f5-11ef-b538-a34253d057ce",
+      "title": "Douglas Machining Services lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://douglasmachiningservices.com",
+      "website_candidates": [
+        "https://douglasmachiningservices.com",
+        "https://dougmac.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "3d2efbc0-03e8-11ef-9fad-b163f95be4ab",
+      "title": "Rotary or Die lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://rotarydieinc.com",
+      "website_candidates": [
+        "https://rotarydieinc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "72bce140-acd4-11ef-abcb-033acca54ebd",
+      "title": "Bowman Tool & Machining Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://btmcnc.com",
+      "website_candidates": [
+        "https://btmcnc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "quote",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "0b32abf0-1ae1-11f1-9899-b778a046c137",
+      "title": "Camcraft, Inc. lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://camcraft.com",
+      "website_candidates": [
+        "https://camcraft.com",
+        "https://hasselgren.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5 axis",
+        "blank",
+        "cad",
+        "aerospace",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "ec3c8890-107a-11f0-8bc6-e5a942681004",
+      "title": "Taylor Machine",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://tmicnc.com",
+      "website_candidates": [
+        "https://tmicnc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "request a quote",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "iso 9001",
+        "as9100"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "7a6a1710-5fe4-11ef-bfe3-e5dcbd94bc57",
+      "title": "Tram-Tek lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://tramtek.com",
+      "website_candidates": [
+        "https://tramtek.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "5-axis",
+        "cnc turning",
+        "blank",
+        "cad",
+        "aerospace",
+        "defense",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "forging",
+        "casting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "9669f7d0-1148-11f0-ae27-c105b2b358a8",
+      "title": "Cox Manufacturing Company lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://coxmanufacturing.com",
+      "website_candidates": [
+        "https://coxmanufacturing.com",
+        "https://cox-manufacturing.co.za"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "rfq",
+        "cnc milling",
+        "cnc turning",
+        "mill-turn",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "swiss screw"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "c71718a0-dc1c-11f0-9a9b-cf2593ac81d3",
+      "title": "Advantage Metal Products",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://advantagemetal.com",
+      "website_candidates": [
+        "https://advantagemetal.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "request a quote",
+        "cnc milling",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "bb45b3f0-e23b-11ef-87bd-27656bc37394",
+      "title": "Arwood Machine Corp",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://arwoodmachine.com",
+      "website_candidates": [
+        "https://arwoodmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "additive manufacturing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "03f47460-e53e-11ef-a3d2-ab07afb01fef",
+      "title": "Silicon Valley Precision Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://siliconvalleyprecision.com",
+      "website_candidates": [
+        "https://siliconvalleyprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "rfq",
+        "cnc milling",
+        "blank",
+        "quote",
+        "medical",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "244549d0-3c7b-11f0-9ced-7788dccea1c8",
+      "title": "GPR lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://gprco.com",
+      "website_candidates": [
+        "https://gprco.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "5-axis",
+        "request a quote",
+        "rfq",
+        "cnc turning",
+        "mill-turn",
+        "quote",
+        "aerospace",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "c9faf630-e23b-11ef-9c3b-7d4d6ddca5f1",
+      "title": "Advance CNC Machining",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://advancecnc.com",
+      "website_candidates": [
+        "https://advancecnc.com",
+        "https://advancecncmachining.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "request a quote",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "8f950e80-3705-11f0-900c-fbd0ea0eb06a",
+      "title": "ROMAC lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://romacamerica.com",
+      "website_candidates": [
+        "https://romacamerica.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "cad",
+        "aerospace",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "stamping"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "69a4abc0-c6c2-11f0-8618-cbced84a931a",
+      "title": "Precision 2000",
+      "recommendation": "very_good_fit",
+      "score": 99,
+      "confidence": 0.94,
+      "website": "https://precision2000.co.uk",
+      "website_candidates": [
+        "https://precision2000.co.uk",
+        "https://precision2k.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5-axis",
+        "cnc milling",
+        "cnc turning",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "5b29d290-6602-11ef-91d2-9f285a8c0c90",
+      "title": "TSE Industries, Inc. lead",
+      "recommendation": "very_good_fit",
+      "score": 97,
+      "confidence": 0.82,
+      "website": "https://tse-industries.com",
+      "website_candidates": [
+        "https://tse-industries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "cad",
+        "quote",
+        "medical",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "35c71080-3da2-11f0-9a51-ed698cbc6c87",
+      "title": "Carver Machine Works lead",
+      "recommendation": "very_good_fit",
+      "score": 97,
+      "confidence": 0.82,
+      "website": "https://cmwglobal.com",
+      "website_candidates": [
+        "https://cmwglobal.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "aerospace",
+        "defense",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "a14f4250-9762-11ef-9e72-ef6c51bf4302",
+      "title": "Roysters Machine Shop lead",
+      "recommendation": "very_good_fit",
+      "score": 95,
+      "confidence": 0.9,
+      "website": "https://roystersmachine.com",
+      "website_candidates": [
+        "https://roystersmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "rfq",
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "33db9a00-1b66-11f1-9899-b778a046c137",
+      "title": "Senga Engineering lead",
+      "recommendation": "very_good_fit",
+      "score": 94,
+      "confidence": 0.89,
+      "website": "https://senga-eng.com",
+      "website_candidates": [
+        "https://senga-eng.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "quote",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "72edb0d0-8188-11ef-9b16-0ff3ab7e83c8",
+      "title": "De Cuir Machine",
+      "recommendation": "very_good_fit",
+      "score": 92,
+      "confidence": 0.87,
+      "website": "https://decuirmachine.com",
+      "website_candidates": [
+        "https://decuirmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "aerospace",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "302b0410-2b32-11f0-9029-2760dfb36ca9",
+      "title": "Dayton T. Brown lead",
+      "recommendation": "very_good_fit",
+      "score": 92,
+      "confidence": 0.87,
+      "website": "https://dtb.com",
+      "website_candidates": [
+        "https://dtb.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "aerospace",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "1bcfeeb0-d324-11ef-b6bc-dfdf3adf08fd",
+      "title": "Aurora Micro Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 91,
+      "confidence": 0.86,
+      "website": "https://auroramicromachine.com",
+      "website_candidates": [
+        "https://auroramicromachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "blank",
+        "quote",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "9d264010-54dd-11ef-9748-073ea1f5aedb",
+      "title": "EC Precision lead",
+      "recommendation": "very_good_fit",
+      "score": 91,
+      "confidence": 0.86,
+      "website": "https://ecprecision.ie",
+      "website_candidates": [
+        "https://ecprecision.ie"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc milling",
+        "blank",
+        "cad",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "64722180-a96f-11ef-8a5a-eddbba90c264",
+      "title": "EBERT - Rapid Technologies lead",
+      "recommendation": "very_good_fit",
+      "score": 90,
+      "confidence": 0.85,
+      "website": "https://ebert-rt.de",
+      "website_candidates": [
+        "https://ebert-rt.de"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "quote",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "2a568490-b15e-11ef-a5a7-0741d8ae6c4f",
+      "title": "Northern Valley Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 90,
+      "confidence": 0.75,
+      "website": "https://northernvalleymachine.com",
+      "website_candidates": [
+        "https://northernvalleymachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "quote",
+        "aerospace",
+        "defense"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "fixtures"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "ff7c0a70-355b-11ef-ada8-dfd14c0c5c2f",
+      "title": "Compass Precision lead",
+      "recommendation": "very_good_fit",
+      "score": 89,
+      "confidence": 0.84,
+      "website": "https://compassprecision.com",
+      "website_candidates": [
+        "https://compassprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "e2015cb0-1838-11ef-b5ec-a733199cfaff",
+      "title": "Cale Engineering lead",
+      "recommendation": "very_good_fit",
+      "score": 88,
+      "confidence": 0.73,
+      "website": "https://cale-engineering.com",
+      "website_candidates": [
+        "https://cale-engineering.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "cnc milling",
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "f665fc20-37c1-11f0-a1e2-8d1718f2702b",
+      "title": "B&B Machine & Grinding Service Corportation lead",
+      "recommendation": "very_good_fit",
+      "score": 88,
+      "confidence": 0.73,
+      "website": "https://bandbmachineshop.com",
+      "website_candidates": [
+        "https://bandbmachineshop.com",
+        "https://bbmachine.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "defense",
+        "iso 9001"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "b43a77d0-8d77-11ef-9067-df49dbfd0384",
+      "title": "DuPage Precision Products lead",
+      "recommendation": "very_good_fit",
+      "score": 87,
+      "confidence": 0.82,
+      "website": "https://dupageprecision.com",
+      "website_candidates": [
+        "https://dupageprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "quote",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "bfc762a0-42be-11f0-993f-d16c899c57ca",
+      "title": "Westcoast Precision",
+      "recommendation": "very_good_fit",
+      "score": 87,
+      "confidence": 0.82,
+      "website": "https://westcoastprecision.com",
+      "website_candidates": [
+        "https://westcoastprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "aerospace",
+        "medical",
+        "defense",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b2ab9730-147e-11f0-86f2-bf01ccaa2475",
+      "title": "Peralta's Machine Shop",
+      "recommendation": "very_good_fit",
+      "score": 87,
+      "confidence": 0.82,
+      "website": "https://peraltasmachineshop.com",
+      "website_candidates": [
+        "https://peraltasmachineshop.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc milling",
+        "cnc turning",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "d60ae5f0-7014-11ef-aae4-c53656e2b889",
+      "title": "Reuther Engineering & Machine",
+      "recommendation": "very_good_fit",
+      "score": 86,
+      "confidence": 0.81,
+      "website": "https://reutherengineering.com",
+      "website_candidates": [
+        "https://reutherengineering.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "086f22e0-7015-11ef-944c-ebfcec2c714d",
+      "title": "Plastech Machining and Fabrication",
+      "recommendation": "very_good_fit",
+      "score": 86,
+      "confidence": 0.71,
+      "website": "https://plastechfab.com",
+      "website_candidates": [
+        "https://plastechfab.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5-axis",
+        "request a quote",
+        "low volume",
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "molding"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "823d0600-a8e1-11ef-840a-2f2db825ebe9",
+      "title": "Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 85,
+      "confidence": 0.8,
+      "website": "https://machinetoolspecialties.com",
+      "website_candidates": [
+        "https://machinetoolspecialties.com",
+        "https://publicismachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5-axis",
+        "blank",
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "39849b90-d324-11ef-ae05-bb7218f8f68a",
+      "title": "Precision Plating Co",
+      "recommendation": "very_good_fit",
+      "score": 85,
+      "confidence": 0.8,
+      "website": "https://ppc1904.com",
+      "website_candidates": [
+        "https://ppc1904.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "aerospace",
+        "medical",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "eecc1290-f90c-11ef-af68-e17775f18387",
+      "title": "Precision Dynamics Corp",
+      "recommendation": "very_good_fit",
+      "score": 85,
+      "confidence": 0.8,
+      "website": "https://dynamicdescaler.com",
+      "website_candidates": [
+        "https://pdcorp.com",
+        "https://dynamicdescaler.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "rfq",
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "878a49c0-4c5a-11f0-904f-55bd973c1a31",
+      "title": "Precise Components lead",
+      "recommendation": "very_good_fit",
+      "score": 84,
+      "confidence": 0.79,
+      "website": "https://precisecomponents.co.uk",
+      "website_candidates": [
+        "https://precisecomponents.co.uk"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "aerospace",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "8e2f5830-6f7c-11ef-86fb-c94086698803",
+      "title": "Derenette Machining lead",
+      "recommendation": "very_good_fit",
+      "score": 84,
+      "confidence": 0.69,
+      "website": "https://dmc-cnc.be",
+      "website_candidates": [
+        "https://dmc-cnc.be"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "4bac4090-8188-11ef-a8ca-15561e791515",
+      "title": "Sanks Machining",
+      "recommendation": "very_good_fit",
+      "score": 84,
+      "confidence": 0.69,
+      "website": "https://sanksmachining.com",
+      "website_candidates": [
+        "https://sanksmachining.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "casting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "d61bc910-42be-11f0-99db-5ddbedbca78d",
+      "title": "Lusk Quality Machine Products",
+      "recommendation": "very_good_fit",
+      "score": 83,
+      "confidence": 0.78,
+      "website": "https://luskquality.com",
+      "website_candidates": [
+        "https://luskquality.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc turning",
+        "blank",
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "f19fb940-3647-11f0-97a6-977df5462351",
+      "title": "Ashley Machine & Tool Co lead",
+      "recommendation": "very_good_fit",
+      "score": 83,
+      "confidence": 0.68,
+      "website": "https://ashleymt.com",
+      "website_candidates": [
+        "https://ashleymt.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "blank",
+        "quote",
+        "aerospace",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "tool and die"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "fd515f40-7014-11ef-9834-4b34217ecae5",
+      "title": "CompuMachine",
+      "recommendation": "very_good_fit",
+      "score": 82,
+      "confidence": 0.77,
+      "website": "https://compumachine.com",
+      "website_candidates": [
+        "https://compumachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5 axis",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "506b4060-28c1-11ef-aa84-33197b61e45c",
+      "title": "5th Axis Workholding lead",
+      "recommendation": "very_good_fit",
+      "score": 82,
+      "confidence": 0.77,
+      "website": "https://5thaxis.com",
+      "website_candidates": [
+        "https://5thaxis.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5 axis",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "d799a830-f90c-11ef-8a6e-e55750bcbed6",
+      "title": "SCHNEIDER GmbH & Co KG",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.76,
+      "website": "https://schneider-om.com",
+      "website_candidates": [
+        "https://schneider-om.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "c6162ac0-f90c-11ef-9445-b163d8f96bc6",
+      "title": "Dover Precision Components",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.76,
+      "website": "https://doverprecision.com",
+      "website_candidates": [
+        "https://doverprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "c8c51e20-f90c-11ef-9445-b163d8f96bc6",
+      "title": "T & S Machine Co. Inc",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.76,
+      "website": "https://tnsmachines.com",
+      "website_candidates": [
+        "https://tnsmachines.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "industrial"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "0a581310-f90d-11ef-af68-e17775f18387",
+      "title": "Dover Precision Components",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.76,
+      "website": "https://doverprecision.com",
+      "website_candidates": [
+        "https://doverprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "458833c0-ef9e-11ef-8564-9de93270fffc",
+      "title": "Csi Industries lead",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.66,
+      "website": "https://csiind.com",
+      "website_candidates": [
+        "https://csiind.com",
+        "https://csi4u.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "rfq",
+        "blank",
+        "quote",
+        "industrial"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "16c90b10-1b1a-11f1-afa6-9360ac46ec4d",
+      "title": "DANNY I WEST lead",
+      "recommendation": "very_good_fit",
+      "score": 80,
+      "confidence": 0.65,
+      "website": "https://west-industries.com",
+      "website_candidates": [
+        "https://west-industries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "cf99b710-1b2a-11f1-afa6-9360ac46ec4d",
+      "title": "DANNY I WEST lead",
+      "recommendation": "very_good_fit",
+      "score": 80,
+      "confidence": 0.65,
+      "website": "https://west-industries.com",
+      "website_candidates": [
+        "https://west-industries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "3d printing"
+      ],
+      "conflict_flag": true
+    }
+  ],
+  "results": [
+    {
+      "lead_id": "1f048570-0884-11ef-94dd-bbe9e5c82044",
+      "title": "Dailey's CNC Machining lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://daileyscnc.com",
+      "website_candidates": [
+        "https://daileyscnc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "5-axis",
+        "5 axis",
+        "request a quote",
+        "blank",
+        "quote",
+        "medical",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "5a1e3840-8188-11ef-87c4-2187007df7a5",
+      "title": "Wartrom Machine Systems",
+      "recommendation": "good_fit",
+      "score": 60,
+      "confidence": 0.55,
+      "website": "https://wartrom.com",
+      "website_candidates": [
+        "https://wartrom.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "71a261f0-a8e1-11ef-8a5a-eddbba90c264",
+      "title": "Astley Precision Machine Co Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://astleyprecision.com",
+      "website_candidates": [
+        "https://astleyprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "5-axis",
+        "request a quote",
+        "rfq",
+        "blank",
+        "quote",
+        "medical",
+        "iso 9001",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "6c550710-2efd-11ef-bd22-55c11d29cb61",
+      "title": "progres cnc  lead",
+      "recommendation": "good_fit",
+      "score": 63,
+      "confidence": 0.58,
+      "website": "https://progrescnc.pl",
+      "website_candidates": [
+        "https://progrescnc.pl"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b9b84b00-8d69-11ef-a4de-89a4368c85e9",
+      "title": "Performance Machine",
+      "recommendation": "needs_review",
+      "score": 58,
+      "confidence": 0.53,
+      "website": "https://performancemachine.com",
+      "website_candidates": [
+        "https://performancemachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "997f5320-4b50-11ef-90c2-5d1aa869afb6",
+      "title": "CMP Group Ltd. lead",
+      "recommendation": "good_fit",
+      "score": 67,
+      "confidence": 0.52,
+      "website": "https://cmpgroup.net",
+      "website_candidates": [
+        "https://cmpgroup.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "casting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "00a19fe0-e53e-11ef-a3d2-ab07afb01fef",
+      "title": "M&L Precision Machining Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://mlprecision.com",
+      "website_candidates": [
+        "https://mlprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "iso 9001",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b03dfe30-8d69-11ef-b4e3-43e1f609ffc7",
+      "title": "Chieftek Precision",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://chieftek.com",
+      "website_candidates": [
+        "https://chieftek.com",
+        "https://usa.chieftek.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "a910fcc0-8d69-11ef-b4e3-43e1f609ffc7",
+      "title": "La Slot Machine",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://laslots.com",
+      "website_candidates": [
+        "https://laslots.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "55732b30-acd4-11ef-8998-612decae719a",
+      "title": "Precision Engineering & Development Co",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://pedco-inc.com",
+      "website_candidates": [
+        "https://pedco-inc.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='pedco-inc.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "d5d4a7c0-ea9e-11ee-a1ab-efd9ede68fd0",
+      "title": "Greenlight Optics lead",
+      "recommendation": "needs_review",
+      "score": 56,
+      "confidence": 0.41,
+      "website": "https://greenlightoptics.com",
+      "website_candidates": [
+        "https://greenlightoptics.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "molding"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "401784a0-b15e-11ef-8990-fb1ac71b6c39",
+      "title": "Extreme Machine Corp",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.56,
+      "website": "https://extreme-machine.com",
+      "website_candidates": [
+        "https://extrememachinecorp.com",
+        "https://extreme-machine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "5 axis",
+        "cnc turning",
+        "billet",
+        "quote",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "casting",
+        "jigs",
+        "fixtures",
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "6f345250-8188-11ef-87c4-2187007df7a5",
+      "title": "Columbus Machine Works",
+      "recommendation": "needs_review",
+      "score": 43,
+      "confidence": 0.42,
+      "website": "https://columbusmachine.com",
+      "website_candidates": [
+        "https://columbusmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "cad",
+        "quote",
+        "medical",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "casting",
+        "jigs",
+        "fixtures",
+        "molding"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "2b0ec2b0-c5dc-11f0-ac31-51a52f7017de",
+      "title": "Lorro Precision",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://lorroprecision.co.uk",
+      "website_candidates": [
+        "https://lorroprecision.co.uk"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "e2015cb0-1838-11ef-b5ec-a733199cfaff",
+      "title": "Cale Engineering lead",
+      "recommendation": "very_good_fit",
+      "score": 88,
+      "confidence": 0.73,
+      "website": "https://cale-engineering.com",
+      "website_candidates": [
+        "https://cale-engineering.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "cnc milling",
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "1dfa9ba0-b15e-11ef-bb55-e744f71a7445",
+      "title": "Montrow Tool & Machine",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://cinergymetro.net",
+      "website_candidates": [
+        "https://cinergymetro.net"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='cinergymetro.net', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x769bcec3a660>, 'Connection to cinergymetro.net timed out. (connect timeout=4)'))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "2369aa50-0dd4-11ef-a883-2159ef01fa8c",
+      "title": "I.Q. Metals lead",
+      "recommendation": "good_fit",
+      "score": 78,
+      "confidence": 0.73,
+      "website": "https://iqmetals.com",
+      "website_candidates": [
+        "https://iqmetals.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "1ef4ce10-2ed0-11ef-b532-898fcad16494",
+      "title": "Spike Electric Controls lead",
+      "recommendation": "needs_review",
+      "score": 55,
+      "confidence": 0.5,
+      "website": "https://spikeelectric.com",
+      "website_candidates": [
+        "https://spikeelectric.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "74585010-703f-11ef-ba82-db82fc43b337",
+      "title": "San Joaquin Steel lead",
+      "recommendation": "good_fit",
+      "score": 63,
+      "confidence": 0.58,
+      "website": "https://sjs-steel.com",
+      "website_candidates": [
+        "https://sjs-steel.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "8c823e40-aca2-11ef-a440-a7f7a9a0a180",
+      "title": "Metaltech Products Inc. lead",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://metaltechproductsinc.com",
+      "website_candidates": [
+        "https://metaltechproductsinc.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='metaltechproductsinc.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)')))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "40914080-acd4-11ef-bb65-210e36b4d394",
+      "title": "Harris Machine Co",
+      "recommendation": "good_fit",
+      "score": 77,
+      "confidence": 0.62,
+      "website": "https://harrismachineco.com",
+      "website_candidates": [
+        "https://harrismachineco.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "5b29d290-6602-11ef-91d2-9f285a8c0c90",
+      "title": "TSE Industries, Inc. lead",
+      "recommendation": "very_good_fit",
+      "score": 97,
+      "confidence": 0.82,
+      "website": "https://tse-industries.com",
+      "website_candidates": [
+        "https://tse-industries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "cad",
+        "quote",
+        "medical",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "9ee80410-7107-11ef-abaf-49aaedd033ed",
+      "title": "ABT Metals Manufacturing lead",
+      "recommendation": "needs_review",
+      "score": 30,
+      "confidence": 0.55,
+      "website": "https://abtmetals.com",
+      "website_candidates": [
+        "https://abtmetals.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "request a quote",
+        "cnc milling",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication",
+        "laser cutting",
+        "stamping"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "8e35c050-a8e1-11ef-acd2-15e426954934",
+      "title": "Carlisle Machine Works Inc",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://carlislemachine.com",
+      "website_candidates": [
+        "https://carlislemachine.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='carlislemachine.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "0100a960-cb78-11f0-b3e2-af5bae763915",
+      "title": "RDS Precision Engineering",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://rdsengineering.co.uk",
+      "website_candidates": [
+        "https://rdsengineering.co.uk"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "1837fec0-0ebf-11ef-8502-07ff0e9fdb1c",
+      "title": "NorthState Manufacturing lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://northstatemfg.com",
+      "website_candidates": [
+        "https://northstatemfg.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "ac4b82b0-147e-11f0-a9fc-7de0f58a9719",
+      "title": "Prompt Machine Products",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://promptmachine.com",
+      "website_candidates": [
+        "https://promptmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "af524420-8712-11ef-bf00-b32df28ac08b",
+      "title": "Bowman Tool & Machining deal",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://btmcnc.com",
+      "website_candidates": [
+        "https://btmcnc.com",
+        "https://wsiindustries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "quote",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "eca5edf0-4b57-11ef-88fd-9baebf96950d",
+      "title": "KLFlo CNC Machining lead",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://klflo.com",
+      "website_candidates": [
+        "https://klflo.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='klflo.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)')))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "966bb000-147e-11f0-9852-216e806cb090",
+      "title": "Astro Machine",
+      "recommendation": "needs_review",
+      "score": 28,
+      "confidence": 0.57,
+      "website": "https://astromachine.net",
+      "website_candidates": [
+        "https://astromachine.net",
+        "https://astromachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "aerospace",
+        "medical",
+        "defense"
+      ],
+      "disqualify_signals": [
+        "forging",
+        "casting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "71cb46b0-a8e1-11ef-840a-2f2db825ebe9",
+      "title": "Debco Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://debcomachine.com",
+      "website_candidates": [
+        "https://debcomachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "cnc milling",
+        "cnc turning",
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b665afc0-e23b-11ef-ba82-4fbae75ce1f6",
+      "title": "B&R Machine Co",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://brmachineco.com",
+      "website_candidates": [
+        "https://brmachineco.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "e71781c0-e23b-11ef-9c3b-7d4d6ddca5f1",
+      "title": "M's Machine & Mfg Co Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://ms-machine.com",
+      "website_candidates": [
+        "https://ms-machine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "cad",
+        "quote",
+        "medical",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "2bcf5900-b89d-11ef-8f7a-c37ff6333f1f",
+      "title": "Glass Fab lead",
+      "recommendation": "needs_review",
+      "score": 58,
+      "confidence": 0.43,
+      "website": "https://glassfab.com",
+      "website_candidates": [
+        "https://glassfab.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "16c90b10-1b1a-11f1-afa6-9360ac46ec4d",
+      "title": "DANNY I WEST lead",
+      "recommendation": "very_good_fit",
+      "score": 80,
+      "confidence": 0.65,
+      "website": "https://west-industries.com",
+      "website_candidates": [
+        "https://west-industries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "e16d1f40-1b98-11f1-8132-71863f9b3d70",
+      "title": "PGM Corporation lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://pgmcorp.com",
+      "website_candidates": [
+        "https://pgmcorp.com",
+        "https://apollopm.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "blank",
+        "cad",
+        "medical",
+        "defense",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "7ebc8de0-fb4b-11ef-b8c2-5bcb6eb2cd55",
+      "title": "1stAveMachine",
+      "recommendation": "good_fit",
+      "score": 63,
+      "confidence": 0.58,
+      "website": "https://1stavemachine.com",
+      "website_candidates": [
+        "https://1stavemachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "72edb0d0-8188-11ef-9b16-0ff3ab7e83c8",
+      "title": "De Cuir Machine",
+      "recommendation": "very_good_fit",
+      "score": 92,
+      "confidence": 0.87,
+      "website": "https://decuirmachine.com",
+      "website_candidates": [
+        "https://decuirmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "aerospace",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "878a49c0-4c5a-11f0-904f-55bd973c1a31",
+      "title": "Precise Components lead",
+      "recommendation": "very_good_fit",
+      "score": 84,
+      "confidence": 0.79,
+      "website": "https://precisecomponents.co.uk",
+      "website_candidates": [
+        "https://precisecomponents.co.uk"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "aerospace",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "ee5f5c10-8713-11ef-856b-8dcfc1bcf980",
+      "title": "Penta Pattern & Precision deal",
+      "recommendation": "good_fit",
+      "score": 63,
+      "confidence": 0.58,
+      "website": "https://pentapatterns.co.uk",
+      "website_candidates": [
+        "https://pentapatterns.co.uk"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "f6155d20-c5f5-11f0-a518-b9df90275505",
+      "title": "Metalium Precision Engineering",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://metalium.co.uk",
+      "website_candidates": [
+        "https://metalium.co.uk"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "5b3b4100-8188-11ef-9efa-8b804e381da3",
+      "title": "Mills Machine Works",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://millsmachineworks.com",
+      "website_candidates": [
+        "https://millsmachineworks.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "fa572280-b988-11ef-b176-3b55ea46c35f",
+      "title": "Eimo Technologies, Inc. lead",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://eimotech.com",
+      "website_candidates": [
+        "https://eimotech.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='eimotech.com', port=443): Read timed out. (read timeout=4)",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "2a568490-b15e-11ef-a5a7-0741d8ae6c4f",
+      "title": "Northern Valley Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 90,
+      "confidence": 0.75,
+      "website": "https://northernvalleymachine.com",
+      "website_candidates": [
+        "https://northernvalleymachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "quote",
+        "aerospace",
+        "defense"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "fixtures"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "7a6a1710-5fe4-11ef-bfe3-e5dcbd94bc57",
+      "title": "Tram-Tek lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://tramtek.com",
+      "website_candidates": [
+        "https://tramtek.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "5-axis",
+        "cnc turning",
+        "blank",
+        "cad",
+        "aerospace",
+        "defense",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "forging",
+        "casting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "8c412600-147e-11f0-9852-216e806cb090",
+      "title": "A+J Machining",
+      "recommendation": "needs_review",
+      "score": 39,
+      "confidence": 0.46,
+      "website": "https://ajmachining.com",
+      "website_candidates": [
+        "https://ajmachining.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "5-axis",
+        "cnc milling",
+        "cnc turning",
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication",
+        "forging",
+        "casting",
+        "swiss screw",
+        "instant quote",
+        "molding"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "fb9eded0-04b5-11f0-93e0-55f87ca97f45",
+      "title": "Mikron Precision Machining lead",
+      "recommendation": "good_fit",
+      "score": 60,
+      "confidence": 0.55,
+      "website": "https://mikron.gr",
+      "website_candidates": [
+        "https://mikron.gr"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "d799a830-f90c-11ef-8a6e-e55750bcbed6",
+      "title": "SCHNEIDER GmbH & Co KG",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.76,
+      "website": "https://schneider-om.com",
+      "website_candidates": [
+        "https://schneider-om.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "87dc7120-0364-11f1-9665-39f69942f76e",
+      "title": "Meaf Machines",
+      "recommendation": "needs_review",
+      "score": 50,
+      "confidence": 0.35,
+      "website": "https://meaf.com",
+      "website_candidates": [
+        "https://meaf.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "extrusion"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "82ab4ca0-18e0-11ef-8ff0-6114e78bd0f4",
+      "title": "Jaquith Industries lead",
+      "recommendation": "needs_review",
+      "score": 58,
+      "confidence": 0.43,
+      "website": "https://jaquith.com",
+      "website_candidates": [
+        "https://jaquith.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "c9c86d50-96b4-11ef-83fe-03be9ecf74a0",
+      "title": "P&S Machining & Fabrication lead",
+      "recommendation": "needs_review",
+      "score": 57,
+      "confidence": 0.42,
+      "website": "https://psmachine.com",
+      "website_candidates": [
+        "https://psmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "cnc turning",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication",
+        "laser cutting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "9669f7d0-1148-11f0-ae27-c105b2b358a8",
+      "title": "Cox Manufacturing Company lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://coxmanufacturing.com",
+      "website_candidates": [
+        "https://coxmanufacturing.com",
+        "https://cox-manufacturing.co.za"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "rfq",
+        "cnc milling",
+        "cnc turning",
+        "mill-turn",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "swiss screw"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "458833c0-ef9e-11ef-8564-9de93270fffc",
+      "title": "Csi Industries lead",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.66,
+      "website": "https://csiind.com",
+      "website_candidates": [
+        "https://csiind.com",
+        "https://csi4u.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "rfq",
+        "blank",
+        "quote",
+        "industrial"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "a6b7da91-8713-11ef-9bc9-dfdc9b433279",
+      "title": "Zimmer Design and Manufacturing lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://zimmermanufacturing.com",
+      "website_candidates": [
+        "https://zimmermanufacturing.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "rfq",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "951a7b50-b98e-11ef-aaae-d772d3b0d04d",
+      "title": "Applied Composite Technology lead",
+      "recommendation": "good_fit",
+      "score": 79,
+      "confidence": 0.74,
+      "website": "https://actaero.com",
+      "website_candidates": [
+        "https://actaero.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "aerospace",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "35c71080-3da2-11f0-9a51-ed698cbc6c87",
+      "title": "Carver Machine Works lead",
+      "recommendation": "very_good_fit",
+      "score": 97,
+      "confidence": 0.82,
+      "website": "https://cmwglobal.com",
+      "website_candidates": [
+        "https://cmwglobal.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "aerospace",
+        "defense",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "48af5bf0-d324-11ef-ae05-bb7218f8f68a",
+      "title": "CNC Concepts Inc",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://cncci.com",
+      "website_candidates": [
+        "https://cncci.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "aff29400-fcb3-11ee-8d57-fdf220504f54",
+      "title": "Caliber Engraving lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://caliberengraving.com",
+      "website_candidates": [
+        "https://caliberengraving.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "ecbb60c0-4789-11f0-bead-4795aee71ce1",
+      "title": "Brangers Performance & Machine",
+      "recommendation": "needs_review",
+      "score": 55,
+      "confidence": 0.5,
+      "website": "https://brangersracing.com",
+      "website_candidates": [
+        "https://brangersracing.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "dc7f51b0-f90c-11ef-af68-e17775f18387",
+      "title": "Spindletop Machine Works",
+      "recommendation": "good_fit",
+      "score": 66,
+      "confidence": 0.51,
+      "website": "https://spindletop.works",
+      "website_candidates": [
+        "https://spindletop.works"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "rfq",
+        "cad",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fixtures"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "f6f96ad0-4453-11ef-b462-357230ef0032",
+      "title": "Engineered Medical Systems lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://engmedsys.net",
+      "website_candidates": [
+        "https://engmedsys.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "high mix",
+        "low volume",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "50ee0670-d25e-11ef-a697-9b98477b2fad",
+      "title": "World Precision Instruments Inc",
+      "recommendation": "good_fit",
+      "score": 63,
+      "confidence": 0.58,
+      "website": "https://wpiinc.com",
+      "website_candidates": [
+        "https://wpiinc.com",
+        "https://wpiinc.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "823d0600-a8e1-11ef-840a-2f2db825ebe9",
+      "title": "Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 85,
+      "confidence": 0.8,
+      "website": "https://machinetoolspecialties.com",
+      "website_candidates": [
+        "https://machinetoolspecialties.com",
+        "https://publicismachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5-axis",
+        "blank",
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "fd5de8d0-107a-11f0-8bc6-e5a942681004",
+      "title": "Chelar Tool & Die",
+      "recommendation": "needs_review",
+      "score": 44,
+      "confidence": 0.41,
+      "website": "https://chelar.com",
+      "website_candidates": [
+        "https://chelar.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "stamping",
+        "tool and die"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "c990e010-75da-11ef-890c-1f9d1825a355",
+      "title": "Cadence lead",
+      "recommendation": "needs_review",
+      "score": 50,
+      "confidence": 0.35,
+      "website": "https://cadenceinc.com",
+      "website_candidates": [
+        "https://cadenceinc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "quote",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "stamping",
+        "molding"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "b43a77d0-8d77-11ef-9067-df49dbfd0384",
+      "title": "DuPage Precision Products lead",
+      "recommendation": "very_good_fit",
+      "score": 87,
+      "confidence": 0.82,
+      "website": "https://dupageprecision.com",
+      "website_candidates": [
+        "https://dupageprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "quote",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "5b749a60-1b09-11f1-aea0-8914d8933f54",
+      "title": "CanCam CNC Machines Ltd lead",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://cancam.ca",
+      "website_candidates": [
+        "https://cancam.ca",
+        "https://douglas-machine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "12b14880-3231-11f0-9aa0-fbe9f604671e",
+      "title": "Micron Industries of Rochester, Inc lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://micronindustries.com",
+      "website_candidates": [
+        "https://micronindustries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "industrial",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "000fdab0-45de-11ef-9fbd-ddc11870addd",
+      "title": "Rapid Machine Shop lead",
+      "recommendation": "good_fit",
+      "score": 70,
+      "confidence": 0.55,
+      "website": "https://rms02.com",
+      "website_candidates": [
+        "https://rms02.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5 axis",
+        "cnc milling",
+        "blank",
+        "quote",
+        "aerospace",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "1ba646a0-d324-11ef-b85f-632c49bc46e8",
+      "title": "Hillman Precision Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://hillmanprecision.com",
+      "website_candidates": [
+        "https://hillmanprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "0c9c36b0-f90d-11ef-af68-e17775f18387",
+      "title": "United Machine and Tool LLC",
+      "recommendation": "needs_review",
+      "score": 40,
+      "confidence": 0.45,
+      "website": "https://unitedmachineandtool.com",
+      "website_candidates": [
+        "https://unitedmachineandtool.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "cad",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "laser cutting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "479bb340-fb4b-11ef-aa08-9785624e26b1",
+      "title": "Sea Machines Robotics Inc",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://sea-machines.com",
+      "website_candidates": [
+        "https://sea-machines.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "c71718a0-dc1c-11f0-9a9b-cf2593ac81d3",
+      "title": "Advantage Metal Products",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://advantagemetal.com",
+      "website_candidates": [
+        "https://advantagemetal.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "request a quote",
+        "cnc milling",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "d4b60fa0-4510-11f0-9436-e7e297c53fd8",
+      "title": "Triple C Machine",
+      "recommendation": "needs_review",
+      "score": 50,
+      "confidence": 0.45,
+      "website": "https://triplecmachine.com",
+      "website_candidates": [
+        "https://triplecmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "1bcfeeb0-d324-11ef-b6bc-dfdf3adf08fd",
+      "title": "Aurora Micro Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 91,
+      "confidence": 0.86,
+      "website": "https://auroramicromachine.com",
+      "website_candidates": [
+        "https://auroramicromachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "blank",
+        "quote",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "83db6cc0-7107-11ef-82e8-edbf4b09f789",
+      "title": "ABT Metals Manufacturing lead",
+      "recommendation": "needs_review",
+      "score": 30,
+      "confidence": 0.55,
+      "website": "https://abtmetals.com",
+      "website_candidates": [
+        "https://abtmetals.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "request a quote",
+        "cnc milling",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication",
+        "laser cutting",
+        "stamping"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "aea004e0-71fa-11ef-9fe1-557ea4aac514",
+      "title": "Biggs Tool & Die Inc. lead",
+      "recommendation": "needs_review",
+      "score": 55,
+      "confidence": 0.4,
+      "website": "https://biggstd.com",
+      "website_candidates": [
+        "https://biggstd.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "iso 9001",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "stamping"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "8ae47850-87f9-11ef-a9fc-b9f88c1e138a",
+      "title": "Class A Tooling Inc lead",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://classatooling.net",
+      "website_candidates": [
+        "https://classatooling.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "eb5870e0-96ba-11ef-a66d-596c1579b765",
+      "title": "Precision Products lead",
+      "recommendation": "needs_review",
+      "score": 16,
+      "confidence": 0.69,
+      "website": "https://prec-prod.com",
+      "website_candidates": [
+        "https://prec-prod.com",
+        "https://precisionprodinc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "stamping",
+        "forging"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "ff7c0a70-355b-11ef-ada8-dfd14c0c5c2f",
+      "title": "Compass Precision lead",
+      "recommendation": "very_good_fit",
+      "score": 89,
+      "confidence": 0.84,
+      "website": "https://compassprecision.com",
+      "website_candidates": [
+        "https://compassprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "9725c190-3d99-11f0-9a51-ed698cbc6c87",
+      "title": "IMG Companies lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.61,
+      "website": "https://imgprecision.com",
+      "website_candidates": [
+        "https://imgprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "198abaf0-e53e-11ef-8f96-95c139b40603",
+      "title": "S&H Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://shmachine.com",
+      "website_candidates": [
+        "https://shmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "request a quote",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "defense",
+        "iso 9001",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b64e28f0-96b4-11ef-bbdc-0d79fcd3679b",
+      "title": "P&S Machining & Fabrication lead",
+      "recommendation": "needs_review",
+      "score": 57,
+      "confidence": 0.42,
+      "website": "https://psmachine.com",
+      "website_candidates": [
+        "https://psmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "cnc turning",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication",
+        "laser cutting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "086f22e0-7015-11ef-944c-ebfcec2c714d",
+      "title": "Plastech Machining and Fabrication",
+      "recommendation": "very_good_fit",
+      "score": 86,
+      "confidence": 0.71,
+      "website": "https://plastechfab.com",
+      "website_candidates": [
+        "https://plastechfab.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5-axis",
+        "request a quote",
+        "low volume",
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "molding"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "76a53a90-8188-11ef-91b5-93cff5eeb59f",
+      "title": "Rockport Machine",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://rockportmachine.com",
+      "website_candidates": [
+        "https://rockportmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "dd352d20-1e63-11ef-a4c0-45565d1abca0",
+      "title": "Champlain Precision lead",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://gmavt.net",
+      "website_candidates": [
+        "https://champlainprecision.com",
+        "https://gmavt.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "bb45b3f0-e23b-11ef-87bd-27656bc37394",
+      "title": "Arwood Machine Corp",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://arwoodmachine.com",
+      "website_candidates": [
+        "https://arwoodmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "additive manufacturing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "f5cc8020-44ee-11ef-8392-158d406236c3",
+      "title": "Gett Industries lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://gettindustries.com",
+      "website_candidates": [
+        "https://gettindustries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "fd515f40-7014-11ef-9834-4b34217ecae5",
+      "title": "CompuMachine",
+      "recommendation": "very_good_fit",
+      "score": 82,
+      "confidence": 0.77,
+      "website": "https://compumachine.com",
+      "website_candidates": [
+        "https://compumachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5 axis",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "69a4abc0-c6c2-11f0-8618-cbced84a931a",
+      "title": "Precision 2000",
+      "recommendation": "very_good_fit",
+      "score": 99,
+      "confidence": 0.94,
+      "website": "https://precision2000.co.uk",
+      "website_candidates": [
+        "https://precision2000.co.uk",
+        "https://precision2k.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5-axis",
+        "cnc milling",
+        "cnc turning",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "14eb16f0-7015-11ef-bb48-37373fc4e576",
+      "title": "American Flowform & Machining",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://americanflowform.com",
+      "website_candidates": [
+        "https://americanflowform.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "6643a3a0-1c22-11f0-b288-9d3150c629cd",
+      "title": "Custom Machine lead",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://customcncmachine.com",
+      "website_candidates": [
+        "https://customcncmachine.com"
+      ],
+      "reason": "Website fetch failed: 403 Client Error: Forbidden for url: https://customcncmachine.com/",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "260bc090-c6b5-11f0-8618-cbced84a931a",
+      "title": "Peter Day Precision Engineering",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://peterday.co.uk",
+      "website_candidates": [
+        "https://peterday.co.uk"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='peterday.co.uk', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1000)')))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "cb2ca1a0-147e-11f0-a9fc-7de0f58a9719",
+      "title": "Small Precision Tools",
+      "recommendation": "needs_review",
+      "score": 56,
+      "confidence": 0.41,
+      "website": "https://smallprecisiontools.com",
+      "website_candidates": [
+        "https://smallprecisiontools.com",
+        "https://spt.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "molding"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "5188e620-fb4b-11ef-a622-710795736665",
+      "title": "Custom Machine",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://custommachineinc.com",
+      "website_candidates": [
+        "https://custommachineinc.com",
+        "https://customgroupusa.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "iso 9001",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "908b9230-1def-11ef-b34c-ad669d331e03",
+      "title": "Colinear Machine & Design lead",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://colinearmachine.com",
+      "website_candidates": [
+        "https://colinearmachine.com"
+      ],
+      "reason": "Website fetch failed: 404 Client Error: Not Found for url: https://colinearmachine.com/",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "ab888c70-8d69-11ef-a4de-89a4368c85e9",
+      "title": "Woody's Precision Grinding",
+      "recommendation": "good_fit",
+      "score": 60,
+      "confidence": 0.45,
+      "website": "https://woodysgrinding.net",
+      "website_candidates": [
+        "https://woodysgrinding.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "quote",
+        "aerospace"
+      ],
+      "disqualify_signals": [
+        "tool and die"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "135585b0-d324-11ef-9618-2bf020d8ce9d",
+      "title": "Firstar Precision Corp",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://firstarcnc.com",
+      "website_candidates": [
+        "https://firstarcnc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "cnc milling",
+        "cnc turning",
+        "mill-turn",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "8e2f5830-6f7c-11ef-86fb-c94086698803",
+      "title": "Derenette Machining lead",
+      "recommendation": "very_good_fit",
+      "score": 84,
+      "confidence": 0.69,
+      "website": "https://dmc-cnc.be",
+      "website_candidates": [
+        "https://dmc-cnc.be"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "577c7df0-d25e-11ef-af3b-bf94dc038f84",
+      "title": "Capital Machine Technologies Inc",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.85,
+      "website": "https://capitalmachine.com",
+      "website_candidates": [
+        "https://capitalmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication",
+        "laser cutting",
+        "waterjet"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "7b31de60-bd6f-11ef-ba00-39e351e2e7b9",
+      "title": "Vescio Manufacturing lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://vesciomfg.com",
+      "website_candidates": [
+        "https://vesciomfg.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "cnc milling",
+        "cnc turning",
+        "mill-turn",
+        "blank",
+        "aerospace",
+        "medical",
+        "defense",
+        "iso 9001",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "6a04ccb0-0875-11ef-b78e-654f529113e8",
+      "title": "Northwest Production Consulting lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://northwpc.com",
+      "website_candidates": [
+        "https://northwpc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "5-axis",
+        "5 axis",
+        "cnc milling",
+        "blank",
+        "cad",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "03f47460-e53e-11ef-a3d2-ab07afb01fef",
+      "title": "Silicon Valley Precision Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://siliconvalleyprecision.com",
+      "website_candidates": [
+        "https://siliconvalleyprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "rfq",
+        "cnc milling",
+        "blank",
+        "quote",
+        "medical",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "40f229c0-e53e-11ef-83c6-5fab08ce392c",
+      "title": "Southwest Precision",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://southwestprecision.net",
+      "website_candidates": [
+        "https://southwestprecision.net"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='southwestprecision.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x769bcea57b00>: Failed to resolve 'southwestprecision.net' ([Errno -3] Temporary failure in name resolution)\"))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "42889f40-8188-11ef-ac35-a5a8aa3123dc",
+      "title": "Commercial and Aerospace Machining",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://candamachining.com",
+      "website_candidates": [
+        "https://candamachining.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='candamachining.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "19bcd2a0-887d-11f0-a910-c7d6b8d44839",
+      "title": "Demo Request - deepak",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://sru.edu.in",
+      "website_candidates": [
+        "https://sru.edu.in"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "e7dbcc00-f90c-11ef-af68-e17775f18387",
+      "title": "Womack Machine Supply Co",
+      "recommendation": "good_fit",
+      "score": 77,
+      "confidence": 0.72,
+      "website": "https://aimotion.com",
+      "website_candidates": [
+        "https://womackmachine.com",
+        "https://aimotion.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "rfq",
+        "blank",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "aba870c0-12b8-11ef-906c-6d79dba4961a",
+      "title": "Centrx Inc. lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://centrxinc.com",
+      "website_candidates": [
+        "https://centrxinc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "bb418c60-42be-11f0-99db-5ddbedbca78d",
+      "title": "RIOS",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://rios.ai",
+      "website_candidates": [
+        "https://rios.ai"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "d10cc260-a73e-11ef-9386-e79ffb9d249f",
+      "title": "Haydon Precision Turned Parts Ltd lead",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://haydon-precision.co.uk",
+      "website_candidates": [
+        "https://haydon-precision.co.uk"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='haydon-precision.co.uk', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x769bce890110>: Failed to resolve 'haydon-precision.co.uk' ([Errno -5] No address associated with hostname)\"))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "506b4060-28c1-11ef-aa84-33197b61e45c",
+      "title": "5th Axis Workholding lead",
+      "recommendation": "very_good_fit",
+      "score": 82,
+      "confidence": 0.77,
+      "website": "https://5thaxis.com",
+      "website_candidates": [
+        "https://5thaxis.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5 axis",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b561c700-03ea-11f0-8dfb-8310cb8b8f73",
+      "title": "C&K Precision Engineers lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://ckprecision.co.uk",
+      "website_candidates": [
+        "https://ckprecision.co.uk"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "5 axis",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "aerospace",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "7ddbabb0-0363-11f1-9162-f5457e0ff759",
+      "title": "TitanX Engine Cooling",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://titanx.com",
+      "website_candidates": [
+        "https://titanx.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "bfc762a0-42be-11f0-993f-d16c899c57ca",
+      "title": "Westcoast Precision",
+      "recommendation": "very_good_fit",
+      "score": 87,
+      "confidence": 0.82,
+      "website": "https://westcoastprecision.com",
+      "website_candidates": [
+        "https://westcoastprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "aerospace",
+        "medical",
+        "defense",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "0454aea0-66bf-11ef-9211-35c74ea9de5b",
+      "title": "Courser lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://courser.com",
+      "website_candidates": [
+        "https://courser.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "244549d0-3c7b-11f0-9ced-7788dccea1c8",
+      "title": "GPR lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://gprco.com",
+      "website_candidates": [
+        "https://gprco.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "5-axis",
+        "request a quote",
+        "rfq",
+        "cnc turning",
+        "mill-turn",
+        "quote",
+        "aerospace",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "5aac9590-8188-11ef-b86c-a3e22893b904",
+      "title": "Apex Machine Group",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.85,
+      "website": "https://apexmachinegroup.com",
+      "website_candidates": [
+        "https://apexmachinegroup.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "rfq",
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "waterjet",
+        "stamping",
+        "instant quote"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "c6162ac0-f90c-11ef-9445-b163d8f96bc6",
+      "title": "Dover Precision Components",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.76,
+      "website": "https://doverprecision.com",
+      "website_candidates": [
+        "https://doverprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "3acb90c0-349b-11f0-b8ee-d19edd0ccaf3",
+      "title": "Lakeview Machining lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://lakeviewprecision.com",
+      "website_candidates": [
+        "https://lakeviewprecision.com",
+        "https://gmail.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "d60ae5f0-7014-11ef-aae4-c53656e2b889",
+      "title": "Reuther Engineering & Machine",
+      "recommendation": "very_good_fit",
+      "score": 86,
+      "confidence": 0.81,
+      "website": "https://reutherengineering.com",
+      "website_candidates": [
+        "https://reutherengineering.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "c9faf630-e23b-11ef-9c3b-7d4d6ddca5f1",
+      "title": "Advance CNC Machining",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://advancecnc.com",
+      "website_candidates": [
+        "https://advancecnc.com",
+        "https://advancecncmachining.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "5-axis",
+        "request a quote",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "8f950e80-3705-11f0-900c-fbd0ea0eb06a",
+      "title": "ROMAC lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.85,
+      "website": "https://romacamerica.com",
+      "website_candidates": [
+        "https://romacamerica.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "cad",
+        "aerospace",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "stamping"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "2307c6e0-e53e-11ef-afc8-3398665dd50e",
+      "title": "Precision Castparts Corp",
+      "recommendation": "needs_review",
+      "score": 17,
+      "confidence": 0.68,
+      "website": "https://precast.com",
+      "website_candidates": [
+        "https://precast.com",
+        "https://pccairframe.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "aerospace",
+        "industrial"
+      ],
+      "disqualify_signals": [
+        "forging",
+        "casting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "c131e610-f7dd-11ee-82b3-574d8003b9ab",
+      "title": "Ireland Tool & Die Ltd lead",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://irelandtool.com",
+      "website_candidates": [
+        "https://irelandtool.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "edf5ad90-7045-11ef-ad9d-01fd6f94b347",
+      "title": "Howland Tool & Machine",
+      "recommendation": "needs_review",
+      "score": 51,
+      "confidence": 0.36,
+      "website": "https://howlandtool.com",
+      "website_candidates": [
+        "https://howlandtool.com",
+        "https://htmplastic.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "molding"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "26759c20-d324-11ef-9618-2bf020d8ce9d",
+      "title": "Precision Rotary Equipment Inc",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://precisionrotary.com",
+      "website_candidates": [
+        "https://precisionrotary.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "4bac4090-8188-11ef-a8ca-15561e791515",
+      "title": "Sanks Machining",
+      "recommendation": "very_good_fit",
+      "score": 84,
+      "confidence": 0.69,
+      "website": "https://sanksmachining.com",
+      "website_candidates": [
+        "https://sanksmachining.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "as9100",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "casting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "39849b90-d324-11ef-ae05-bb7218f8f68a",
+      "title": "Precision Plating Co",
+      "recommendation": "very_good_fit",
+      "score": 85,
+      "confidence": 0.8,
+      "website": "https://ppc1904.com",
+      "website_candidates": [
+        "https://ppc1904.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "aerospace",
+        "medical",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "e19a8190-703d-11ef-bb48-37373fc4e576",
+      "title": "Gima-machines",
+      "recommendation": "good_fit",
+      "score": 74,
+      "confidence": 0.59,
+      "website": "https://gima-machines.com",
+      "website_candidates": [
+        "https://gima-machines.com",
+        "https://gima-machines.be"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "3f4cba90-b15e-11ef-9b78-2138b97cd2f1",
+      "title": "Regal Machine Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://regalmachineinc.com",
+      "website_candidates": [
+        "https://regalmachineinc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "09946d30-e53e-11ef-a0f6-837c994c9ea0",
+      "title": "FMW Machine Shop",
+      "recommendation": "needs_review",
+      "score": 50,
+      "confidence": 0.45,
+      "website": "https://fmwmachineshop.com",
+      "website_candidates": [
+        "https://fmwmachineshop.com"
+      ],
+      "reason": null,
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "c490ced0-e309-11ef-aaa2-3dbe199a7fe5",
+      "title": "Pivot Precision Corp",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://pivotprecision.com",
+      "website_candidates": [
+        "https://pivotprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "request a quote",
+        "rfq",
+        "cnc milling",
+        "blank",
+        "cad",
+        "quote",
+        "medical",
+        "industrial",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "0dfc12a0-7046-11ef-944c-ebfcec2c714d",
+      "title": "Flying Machine",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://flyingmachine.beer",
+      "website_candidates": [
+        "https://flyingmachine.beer"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "9d264010-54dd-11ef-9748-073ea1f5aedb",
+      "title": "EC Precision lead",
+      "recommendation": "very_good_fit",
+      "score": 91,
+      "confidence": 0.86,
+      "website": "https://ecprecision.ie",
+      "website_candidates": [
+        "https://ecprecision.ie"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc milling",
+        "blank",
+        "cad",
+        "medical",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "78b48470-fb4b-11ef-b719-e1b40168db4f",
+      "title": "Java Virtual Machine",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://java.com",
+      "website_candidates": [
+        "https://java.com",
+        "https://sun.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "e9ea5b30-107a-11f0-bd00-334fd08483f2",
+      "title": "Metal Craft",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://mcandrs.com",
+      "website_candidates": [
+        "https://mcandrs.com",
+        "https://metal-craft.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "602cc340-fb4b-11ef-b719-e1b40168db4f",
+      "title": "Blahut Machine Co",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://blahutmc.biz",
+      "website_candidates": [
+        "https://blahutmc.biz"
+      ],
+      "reason": "Website fetch failed: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b2ab9730-147e-11f0-86f2-bf01ccaa2475",
+      "title": "Peralta's Machine Shop",
+      "recommendation": "very_good_fit",
+      "score": 87,
+      "confidence": 0.82,
+      "website": "https://peraltasmachineshop.com",
+      "website_candidates": [
+        "https://peraltasmachineshop.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc milling",
+        "cnc turning",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "8fa3e160-8bb8-11ef-95cc-519d06105b0b",
+      "title": "4M Precision Industries lead",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://4mprecision.com",
+      "website_candidates": [
+        "https://4mprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "7e292620-1b22-11f1-9899-b778a046c137",
+      "title": "Mechanical Drive Components lead",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://mechdrive.com",
+      "website_candidates": [
+        "https://mechdrive.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "4129ab80-8188-11ef-9efa-8b804e381da3",
+      "title": "Streamline Machine Source",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://streamlinemachinesource.com",
+      "website_candidates": [
+        "https://streamlinemachinesource.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "c262a6f0-42be-11f0-b4a5-c5bfb78a0ca4",
+      "title": "Epson Precision",
+      "recommendation": "needs_review",
+      "score": 50,
+      "confidence": 0.45,
+      "website": "https://www5.epsondevice.com",
+      "website_candidates": [
+        "https://www5.epsondevice.com",
+        "https://eppi.epson.com.ph"
+      ],
+      "reason": null,
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "4a21e2a0-c522-11f0-99ff-6f7324ed4f20",
+      "title": "Dawlough",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://dawnlough.com",
+      "website_candidates": [
+        "https://dawnlough.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "industrial",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "f19fb940-3647-11f0-97a6-977df5462351",
+      "title": "Ashley Machine & Tool Co lead",
+      "recommendation": "very_good_fit",
+      "score": 83,
+      "confidence": 0.68,
+      "website": "https://ashleymt.com",
+      "website_candidates": [
+        "https://ashleymt.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "blank",
+        "quote",
+        "aerospace",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "tool and die"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "a14f4250-9762-11ef-9e72-ef6c51bf4302",
+      "title": "Roysters Machine Shop lead",
+      "recommendation": "very_good_fit",
+      "score": 95,
+      "confidence": 0.9,
+      "website": "https://roystersmachine.com",
+      "website_candidates": [
+        "https://roystersmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "rfq",
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b84e4c10-5bd7-11ef-b741-b506c562de51",
+      "title": "Harding Display lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://hardingdisplay.com",
+      "website_candidates": [
+        "https://hardingdisplay.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "da2ef910-f90c-11ef-af68-e17775f18387",
+      "title": "Precision Aviation Inc",
+      "recommendation": "needs_review",
+      "score": 50,
+      "confidence": 0.45,
+      "website": "https://pai700.com",
+      "website_candidates": [
+        "https://pai700.com"
+      ],
+      "reason": null,
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "c8c51e20-f90c-11ef-9445-b163d8f96bc6",
+      "title": "T & S Machine Co. Inc",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.76,
+      "website": "https://tnsmachines.com",
+      "website_candidates": [
+        "https://tnsmachines.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "industrial"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "87f566d0-7d05-11ef-9b7d-4db0847e3ce5",
+      "title": "Star Extruded Shapes lead",
+      "recommendation": "needs_review",
+      "score": 57,
+      "confidence": 0.42,
+      "website": "https://starext.com",
+      "website_candidates": [
+        "https://starext.com",
+        "https://starfab.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "blank",
+        "cad",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "extrusion"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "2bace810-d324-11ef-afc2-c7086dd18e35",
+      "title": "Precision Connector",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://precisionconnector.com",
+      "website_candidates": [
+        "https://precisionconnector.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "322567e0-e53e-11ef-8f96-95c139b40603",
+      "title": "CAL Precision Inc",
+      "recommendation": "good_fit",
+      "score": 70,
+      "confidence": 0.55,
+      "website": "https://calprecision.com",
+      "website_candidates": [
+        "https://calprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "5-axis",
+        "blank",
+        "aerospace",
+        "as9100"
+      ],
+      "disqualify_signals": [
+        "forging",
+        "casting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "521a9370-535e-11f0-b39c-4b0a70a5cc1a",
+      "title": "Masterpiece Technologies B.V. lead",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://masterpiece-tech.com",
+      "website_candidates": [
+        "https://masterpiece-tech.com"
+      ],
+      "reason": "Website fetch failed: 404 Client Error: Not Found for url: https://masterpiece-tech.com/",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "b7b82a60-5bdf-11f0-a6a9-c36a26db1fd6",
+      "title": "Noreca Ltd lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://noreca.fi",
+      "website_candidates": [
+        "https://noreca.fi"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "cff52c30-4510-11f0-8319-65a4c3e8b093",
+      "title": "Vision Machine and Fabrication",
+      "recommendation": "needs_review",
+      "score": 58,
+      "confidence": 0.43,
+      "website": "https://visionmachine.com",
+      "website_candidates": [
+        "https://visionmfc.com",
+        "https://visionmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "8612ada0-0364-11f1-9162-f5457e0ff759",
+      "title": "Coolen Engineering",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://coolen-engineering.eu",
+      "website_candidates": [
+        "https://coolen-engineering.eu"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "615e7800-acd4-11ef-8b6a-150491e03489",
+      "title": "TQ Machining Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://tqmachine.com",
+      "website_candidates": [
+        "https://tqmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "request a quote",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "791d7800-49d9-11ef-9d1b-59c5b11eb90a",
+      "title": "EZG Manufacturing lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://ezgmfg.com",
+      "website_candidates": [
+        "https://ezgmfg.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "38a0f3a0-e53e-11ef-a3d2-ab07afb01fef",
+      "title": "Prodigy Machine Corp",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://prodigyquilter.com",
+      "website_candidates": [
+        "https://prodigyquilter.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='prodigyquilter.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x769bce7b19a0>: Failed to resolve 'prodigyquilter.com' ([Errno -2] Name or service not known)\"))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "91ea5c20-ad7c-11ef-b0a9-b79125ba6b59",
+      "title": "Wire Cut Co., Inc. lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://wirecutcompany.com",
+      "website_candidates": [
+        "https://wirecutcompany.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "as9100"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "1f02ad80-3954-11ef-a5ae-af6c3999eba9",
+      "title": "Kreysler and Associates lead",
+      "recommendation": "needs_review",
+      "score": 50,
+      "confidence": 0.35,
+      "website": "https://kreysler.com",
+      "website_candidates": [
+        "https://kreysler.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "77f78890-acd4-11ef-bb65-210e36b4d394",
+      "title": "Eirich",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://eirich.com",
+      "website_candidates": [
+        "https://eirich.com",
+        "https://eirich.in"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='eirich.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x769bce7e52e0>: Failed to establish a new connection: [Errno 111] Connection refused'))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "1d4c8950-1a5a-11f1-9899-b778a046c137",
+      "title": "Cheetah Precision Inc lead",
+      "recommendation": "good_fit",
+      "score": 79,
+      "confidence": 0.74,
+      "website": "https://cheetahprecision.com",
+      "website_candidates": [
+        "https://cheetahprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "a710e7a0-f345-11ee-aa54-1d7c946d24a9",
+      "title": "Mursix Corporation lead",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.85,
+      "website": "https://mursix.com",
+      "website_candidates": [
+        "https://mursix.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "stamping"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "435d12b0-b15e-11ef-8c44-0db1925dbf19",
+      "title": "Geater Machining & Manufacturing Co",
+      "recommendation": "good_fit",
+      "score": 70,
+      "confidence": 0.55,
+      "website": "https://geater.com",
+      "website_candidates": [
+        "https://geater.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cad",
+        "quote",
+        "aerospace",
+        "defense",
+        "as9100",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "f35a9c50-8706-11ef-82c8-bb3a3a5778fe",
+      "title": "Fab-Rite Services lead",
+      "recommendation": "good_fit",
+      "score": 68,
+      "confidence": 0.63,
+      "website": "https://fabriteservices.com",
+      "website_candidates": [
+        "https://fabriteservices.com",
+        "https://fabrite.ca"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "67a85dd0-a8e1-11ef-8b72-9fbe85527fb6",
+      "title": "Miles Machine Inc",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://milesmachineinc.com",
+      "website_candidates": [
+        "https://milesmachineinc.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='milesmachineinc.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)')))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "d94ca370-7014-11ef-944c-ebfcec2c714d",
+      "title": "Concept Machining",
+      "recommendation": "good_fit",
+      "score": 63,
+      "confidence": 0.58,
+      "website": "https://conceptmachining.com",
+      "website_candidates": [
+        "https://conceptmachining.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "3e464080-9da9-11ef-8b44-bb2dd83387f8",
+      "title": "Alacriant Inc. lead",
+      "recommendation": "needs_review",
+      "score": 24,
+      "confidence": 0.61,
+      "website": "https://alacriant.com",
+      "website_candidates": [
+        "https://alacriant.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "quote",
+        "aerospace",
+        "defense",
+        "industrial",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "sheet metal",
+        "fabrication",
+        "laser cutting",
+        "stamping"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "bbfa6f90-75bf-11ef-8ebc-39e28974d748",
+      "title": "DITEK lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://ditekcorp.com",
+      "website_candidates": [
+        "https://diteksurgeprotection.com",
+        "https://ditekcorp.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "defense",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "0a581310-f90d-11ef-af68-e17775f18387",
+      "title": "Dover Precision Components",
+      "recommendation": "very_good_fit",
+      "score": 81,
+      "confidence": 0.76,
+      "website": "https://doverprecision.com",
+      "website_candidates": [
+        "https://doverprecision.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "104cd950-b406-11ef-a17b-ed0f467ec161",
+      "title": "Covert Manufacturing lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://covertmfg.com",
+      "website_candidates": [
+        "https://covertmfg.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "64722180-a96f-11ef-8a5a-eddbba90c264",
+      "title": "EBERT - Rapid Technologies lead",
+      "recommendation": "very_good_fit",
+      "score": 90,
+      "confidence": 0.85,
+      "website": "https://ebert-rt.de",
+      "website_candidates": [
+        "https://ebert-rt.de"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "quote",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "cf99b710-1b2a-11f1-afa6-9360ac46ec4d",
+      "title": "DANNY I WEST lead",
+      "recommendation": "very_good_fit",
+      "score": 80,
+      "confidence": 0.65,
+      "website": "https://west-industries.com",
+      "website_candidates": [
+        "https://west-industries.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "iso 9001",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "b89eb910-147e-11f0-92e3-312f29aa9304",
+      "title": "Frontline Machining",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://frontlinemachining.com",
+      "website_candidates": [
+        "https://frontlinemachining.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "33db9a00-1b66-11f1-9899-b778a046c137",
+      "title": "Senga Engineering lead",
+      "recommendation": "very_good_fit",
+      "score": 94,
+      "confidence": 0.89,
+      "website": "https://senga-eng.com",
+      "website_candidates": [
+        "https://senga-eng.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "quote",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "2bd7cd60-b15e-11ef-8c44-0db1925dbf19",
+      "title": "Northland Machine Inc",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.71,
+      "website": "https://northlandmachine.com",
+      "website_candidates": [
+        "https://northlandmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "9fd62d30-45dc-11ef-bc0d-b9a70f4c2f4d",
+      "title": "Sharp Turn Products lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://sharpturn.com",
+      "website_candidates": [
+        "https://sharpturn.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "cnc turning",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "302b0410-2b32-11f0-9029-2760dfb36ca9",
+      "title": "Dayton T. Brown lead",
+      "recommendation": "very_good_fit",
+      "score": 92,
+      "confidence": 0.87,
+      "website": "https://dtb.com",
+      "website_candidates": [
+        "https://dtb.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cad",
+        "quote",
+        "aerospace",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "84d0e940-fce8-11ee-bf1b-f73277ca6ff0",
+      "title": "Accumet Materials lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://accumetmaterials.com",
+      "website_candidates": [
+        "https://accumetmaterials.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "rfq",
+        "blank",
+        "cad",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "830c46a0-147e-11f0-b877-ffd031fd8db6",
+      "title": "Horn Machine Tools",
+      "recommendation": "needs_review",
+      "score": 27,
+      "confidence": 0.58,
+      "website": "https://hornmachinetools.com",
+      "website_candidates": [
+        "https://hornmachinetools.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "aerospace",
+        "industrial",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "laser cutting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "f8a1b5f0-e23b-11ef-ba82-4fbae75ce1f6",
+      "title": "Aa Precision Machine Company Inc",
+      "recommendation": "needs_review",
+      "score": 49,
+      "confidence": 0.36,
+      "website": "https://aaprecisionmachine.com",
+      "website_candidates": [
+        "https://aaprecisionmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "jigs",
+        "fixtures"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "033fcca0-107b-11f0-96dc-6317a2930902",
+      "title": "Tool & Machine",
+      "recommendation": "good_fit",
+      "score": 62,
+      "confidence": 0.47,
+      "website": "https://superior-dietool.com",
+      "website_candidates": [
+        "https://superior-dietool.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "cad",
+        "quote",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "stamping"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "d8988760-c9f5-11ef-b538-a34253d057ce",
+      "title": "Douglas Machining Services lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://douglasmachiningservices.com",
+      "website_candidates": [
+        "https://douglasmachiningservices.com",
+        "https://dougmac.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "9304d390-a1f2-11f0-a8e0-d9a10f84bde4",
+      "title": "NorCal Engineering",
+      "recommendation": "good_fit",
+      "score": 71,
+      "confidence": 0.66,
+      "website": "https://norcalcnc.com",
+      "website_candidates": [
+        "https://norcalcnc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "quote",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "cb0e0b00-42be-11f0-993f-d16c899c57ca",
+      "title": "Consolidated Precision Products",
+      "recommendation": "good_fit",
+      "score": 60,
+      "confidence": 0.45,
+      "website": "https://cppcorp.com",
+      "website_candidates": [
+        "https://cppcorp.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "blank",
+        "aerospace",
+        "defense",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "casting"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "3d2efbc0-03e8-11ef-9fad-b163f95be4ab",
+      "title": "Rotary or Die lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://rotarydieinc.com",
+      "website_candidates": [
+        "https://rotarydieinc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "72bce140-acd4-11ef-abcb-033acca54ebd",
+      "title": "Bowman Tool & Machining Inc",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://btmcnc.com",
+      "website_candidates": [
+        "https://btmcnc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "cnc machining",
+        "request a quote",
+        "blank",
+        "quote",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "f8899e00-7014-11ef-bb48-37373fc4e576",
+      "title": "Midwest Machining",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://midwestmi.com",
+      "website_candidates": [
+        "https://midwestmi.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='midwestmi.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "0b32abf0-1ae1-11f1-9899-b778a046c137",
+      "title": "Camcraft, Inc. lead",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://camcraft.com",
+      "website_candidates": [
+        "https://camcraft.com",
+        "https://hasselgren.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "5 axis",
+        "blank",
+        "cad",
+        "aerospace",
+        "medical",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "d61bc910-42be-11f0-99db-5ddbedbca78d",
+      "title": "Lusk Quality Machine Products",
+      "recommendation": "very_good_fit",
+      "score": 83,
+      "confidence": 0.78,
+      "website": "https://luskquality.com",
+      "website_candidates": [
+        "https://luskquality.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc turning",
+        "blank",
+        "cad",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "cad62990-4789-11f0-bead-4795aee71ce1",
+      "title": "Hamilton Machine",
+      "recommendation": "good_fit",
+      "score": 60,
+      "confidence": 0.45,
+      "website": "https://hamiltonmachine.com",
+      "website_candidates": [
+        "https://hamiltonmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "blank",
+        "quote",
+        "industrial",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "fixtures"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "ec3c8890-107a-11f0-8bc6-e5a942681004",
+      "title": "Taylor Machine",
+      "recommendation": "very_good_fit",
+      "score": 100,
+      "confidence": 0.95,
+      "website": "https://tmicnc.com",
+      "website_candidates": [
+        "https://tmicnc.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "request a quote",
+        "cnc milling",
+        "cnc turning",
+        "blank",
+        "quote",
+        "aerospace",
+        "medical",
+        "defense",
+        "iso 9001",
+        "as9100"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "2ad47460-d25e-11ef-8ac7-6170579837cc",
+      "title": "Precision Econowind LLC",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://precisioneconowind.com",
+      "website_candidates": [
+        "https://precisioneconowind.com",
+        "https://pecoils.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='pecoils.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x769bce682cf0>, 'Connection to pecoils.com timed out. (connect timeout=4)'))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "eecc1290-f90c-11ef-af68-e17775f18387",
+      "title": "Precision Dynamics Corp",
+      "recommendation": "very_good_fit",
+      "score": 85,
+      "confidence": 0.8,
+      "website": "https://dynamicdescaler.com",
+      "website_candidates": [
+        "https://pdcorp.com",
+        "https://dynamicdescaler.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "rfq",
+        "blank",
+        "quote",
+        "mes"
+      ],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "9d19b030-fce9-11ee-bec5-939428b4b9a5",
+      "title": "Lauer Machine & Manufacturing lead",
+      "recommendation": "good_fit",
+      "score": 76,
+      "confidence": 0.61,
+      "website": "https://lauermachine.com",
+      "website_candidates": [
+        "https://lauermachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "cad",
+        "quote",
+        "mes",
+        "erp"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "e0f7fca0-7014-11ef-aae4-c53656e2b889",
+      "title": "L C Machine Shop",
+      "recommendation": "needs_review",
+      "score": 50,
+      "confidence": 0.45,
+      "website": "https://lcmachine.com",
+      "website_candidates": [
+        "https://lcmachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "5b8a3d40-fb4b-11ef-b719-e1b40168db4f",
+      "title": "Ada + The Machine",
+      "recommendation": "archive_disqualified",
+      "score": 20,
+      "confidence": 0.75,
+      "website": "https://adaandthemachine.com",
+      "website_candidates": [
+        "https://adaandthemachine.com"
+      ],
+      "reason": null,
+      "fit_signals": [],
+      "disqualify_signals": [
+        "no in-house"
+      ],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "ae129c10-6640-11ef-8825-57c858daaf86",
+      "title": "Sabre Machine Tool lead",
+      "recommendation": "needs_review",
+      "score": 51,
+      "confidence": 0.36,
+      "website": "https://sabremachinetool.com",
+      "website_candidates": [
+        "https://sabremachinetool.com"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "cnc machining",
+        "cad",
+        "quote",
+        "iso 9001",
+        "mes"
+      ],
+      "disqualify_signals": [
+        "fabrication",
+        "fixtures",
+        "3d printing"
+      ],
+      "conflict_flag": true
+    },
+    {
+      "lead_id": "68f7f270-8188-11ef-87c4-2187007df7a5",
+      "title": "Quality Machine & Fabrication",
+      "recommendation": "needs_review",
+      "score": 0,
+      "confidence": 0.0,
+      "website": "https://qmfinc.com",
+      "website_candidates": [
+        "https://qmfinc.com"
+      ],
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='qmfinc.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))",
+      "fit_signals": [],
+      "disqualify_signals": [],
+      "conflict_flag": false
+    },
+    {
+      "lead_id": "f665fc20-37c1-11f0-a1e2-8d1718f2702b",
+      "title": "B&B Machine & Grinding Service Corportation lead",
+      "recommendation": "very_good_fit",
+      "score": 88,
+      "confidence": 0.73,
+      "website": "https://bandbmachineshop.com",
+      "website_candidates": [
+        "https://bandbmachineshop.com",
+        "https://bbmachine.net"
+      ],
+      "reason": null,
+      "fit_signals": [
+        "precision machining",
+        "blank",
+        "quote",
+        "aerospace",
+        "defense",
+        "iso 9001"
+      ],
+      "disqualify_signals": [
+        "fabrication"
+      ],
+      "conflict_flag": true
+    }
+  ]
+}

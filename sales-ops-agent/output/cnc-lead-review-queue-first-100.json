@@ -1,0 +1,1667 @@
+[
+  {
+    "lead_id": "a2daad10-dd5a-11ef-9586-ef5826114908",
+    "title": "Travis Moore Lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 22020714,
+    "organization_id": 44592,
+    "person_id": 55311,
+    "website_candidates": [
+      "https://jemcoinc.com",
+      "https://gojemco.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "9f8322c0-1b6e-11f1-afa6-9360ac46ec4d",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "5c9d8660-1b7f-11f1-afa6-9360ac46ec4d",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "ce131cd0-1b87-11f1-9899-b778a046c137",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "15f0cfe0-1b90-11f1-8abd-6fadf7d990a0",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "a74482e0-1b98-11f1-b45d-3768435b6acd",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "f741d4c0-1ba0-11f1-8a4b-5d6d83476544",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "50867c90-1ba9-11f1-8132-71863f9b3d70",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "b252acc0-1bb1-11f1-8132-71863f9b3d70",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "23b83da0-1bba-11f1-97e4-31d2576b5af6",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "78967e10-1bc2-11f1-b45d-3768435b6acd",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "e85515b0-1bca-11f1-8a4b-5d6d83476544",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "5cd0e740-1bd3-11f1-a291-890c0b75eec2",
+    "title": "JEMCO Components and Fabrication, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44592,
+    "person_id": null,
+    "website_candidates": [
+      "https://jemcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:37.694Z"
+  },
+  {
+    "lead_id": "86a28f20-ed49-11ee-8857-adc9915a64da",
+    "title": "KLH Industries, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 15871239,
+    "organization_id": 44394,
+    "person_id": 42192,
+    "website_candidates": [
+      "https://klhindustries.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:38.102Z"
+  },
+  {
+    "lead_id": "6cb9fb90-1b44-11f1-9899-b778a046c137",
+    "title": "KLH Industries, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44394,
+    "person_id": 40143,
+    "website_candidates": [
+      "https://klhindustries.com",
+      "https://chandlergearmachining.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:38.102Z"
+  },
+  {
+    "lead_id": "8f2f6190-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "KrisDee & Associates",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45635,
+    "person_id": 64587,
+    "website_candidates": [
+      "https://krisdee.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:38.425Z"
+  },
+  {
+    "lead_id": "a56cbd90-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "KrisDee & Associates",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45635,
+    "person_id": 64698,
+    "website_candidates": [
+      "https://krisdee.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:38.426Z"
+  },
+  {
+    "lead_id": "63d77eb0-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Kutzner Manufacturing Industries",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45586,
+    "person_id": 64351,
+    "website_candidates": [
+      "https://kutznermanufacturing.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:39.033Z"
+  },
+  {
+    "lead_id": "6fd25be0-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "LA Gauge",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45615,
+    "person_id": 64417,
+    "website_candidates": [
+      "https://lagauge.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:39.445Z"
+  },
+  {
+    "lead_id": "828afdf0-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Lake Manufacturing",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45628,
+    "person_id": 64517,
+    "website_candidates": [
+      "https://lakemfg.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:39.825Z"
+  },
+  {
+    "lead_id": "9a6da580-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Machine Tech",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45640,
+    "person_id": 64645,
+    "website_candidates": [
+      "https://machinetech.biz",
+      "https://machinetech.ca"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:40.068Z"
+  },
+  {
+    "lead_id": "f5d0bea0-edf6-11ee-a274-a5fa38d9c5bd",
+    "title": "Mac Machine Company, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 13081611,
+    "organization_id": 44285,
+    "person_id": 42232,
+    "website_candidates": [
+      "https://macmachine.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:40.414Z"
+  },
+  {
+    "lead_id": "3cdafc00-1b1a-11f1-afa6-9360ac46ec4d",
+    "title": "Mac Machine Company, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44285,
+    "person_id": 40222,
+    "website_candidates": [
+      "https://macmachine.com",
+      "https://warfab.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:40.414Z"
+  },
+  {
+    "lead_id": "a4315760-a1f2-11f0-860b-dd29933a7269",
+    "title": "Magnus Precision Manufacturing",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45650,
+    "person_id": 64691,
+    "website_candidates": [
+      "https://magnusprecision.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:40.830Z"
+  },
+  {
+    "lead_id": "71103310-a1f2-11f0-860b-dd29933a7269",
+    "title": "Malones CNC Machining",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45620,
+    "person_id": 64428,
+    "website_candidates": [
+      "https://malonescnc.com",
+      "https://mah-usa.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:41.136Z"
+  },
+  {
+    "lead_id": "62c30170-a1f2-11f0-860b-dd29933a7269",
+    "title": "Mantz Automation",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45582,
+    "person_id": 64345,
+    "website_candidates": [
+      "https://mantzautomation.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:41.857Z"
+  },
+  {
+    "lead_id": "d11e78e0-42be-11f0-920b-89de83c8e11e",
+    "title": "Marton",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45596,
+    "person_id": 61353,
+    "website_candidates": [
+      "https://martoninc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:42.257Z"
+  },
+  {
+    "lead_id": "67518a40-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Marton",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45596,
+    "person_id": 64370,
+    "website_candidates": [
+      "https://martoninc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:42.257Z"
+  },
+  {
+    "lead_id": "77964620-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "McCormick Industries",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45623,
+    "person_id": 64465,
+    "website_candidates": [
+      "https://mccormickind.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:42.887Z"
+  },
+  {
+    "lead_id": "69d06cf0-a1f2-11f0-860b-dd29933a7269",
+    "title": "Meriden Manufacturing",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45604,
+    "person_id": 64386,
+    "website_candidates": [
+      "https://meridenmfg.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:43.252Z"
+  },
+  {
+    "lead_id": "a3e1b5b0-3713-11f0-906c-f7997368edde",
+    "title": "Micro Instrument Corp lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 22020714,
+    "organization_id": 44224,
+    "person_id": 60847,
+    "website_candidates": [
+      "https://microinst.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:43.546Z"
+  },
+  {
+    "lead_id": "cba79830-3713-11f0-9698-052d407f2a43",
+    "title": "Micro Instrument Corp lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 22020714,
+    "organization_id": 44224,
+    "person_id": 60848,
+    "website_candidates": [
+      "https://microinst.com",
+      "https://sutherlandglobal.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:43.546Z"
+  },
+  {
+    "lead_id": "ec671410-3713-11f0-a248-95d2cc9bf15e",
+    "title": "Micro Instrument Corp lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 22020714,
+    "organization_id": 44224,
+    "person_id": 60849,
+    "website_candidates": [
+      "https://microinst.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:43.546Z"
+  },
+  {
+    "lead_id": "92d0a430-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "Micro Tool",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45637,
+    "person_id": 51488,
+    "website_candidates": [
+      "https://microtool.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:43.944Z"
+  },
+  {
+    "lead_id": "63b24370-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "Model Precision Machine",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45584,
+    "person_id": 64347,
+    "website_candidates": [
+      "https://modelprecision.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:44.252Z"
+  },
+  {
+    "lead_id": "6d568670-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "Moseys' Production Machinists",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45609,
+    "person_id": 60786,
+    "website_candidates": [
+      "https://moseys.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:44.557Z"
+  },
+  {
+    "lead_id": "8d7359b0-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "NRL & Associates",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45633,
+    "person_id": 64578,
+    "website_candidates": [
+      "https://nrlassoc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:44.982Z"
+  },
+  {
+    "lead_id": "63c703f0-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Numerics Unlimited",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45583,
+    "person_id": 64348,
+    "website_candidates": [
+      "https://numericsunlimited.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:45.271Z"
+  },
+  {
+    "lead_id": "7f11b5b0-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "Pen Manufacturing",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45627,
+    "person_id": 64501,
+    "website_candidates": [
+      "https://pendarvismanufacturing.com",
+      "https://pen-mfg.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:45.585Z"
+  },
+  {
+    "lead_id": "3eb18070-28b0-11ef-be6d-9350469948fd",
+    "title": "Perma-Brass, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 13081611,
+    "organization_id": 44616,
+    "person_id": 43956,
+    "website_candidates": [
+      "https://dlsmachineandfab.com",
+      "https://permabrass.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:45.982Z"
+  },
+  {
+    "lead_id": "5a92f3f0-28b0-11ef-b7bd-d96e732d049f",
+    "title": "Perma-Brass, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 13081611,
+    "organization_id": 44616,
+    "person_id": 43957,
+    "website_candidates": [
+      "https://dlsmachineandfab.com",
+      "https://permabrass.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:45.982Z"
+  },
+  {
+    "lead_id": "2d203660-1b77-11f1-aea0-8914d8933f54",
+    "title": "Perma-Brass, Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44616,
+    "person_id": 23508,
+    "website_candidates": [
+      "https://dlsmachineandfab.com",
+      "https://permabrass.com",
+      "https://sap.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:45.982Z"
+  },
+  {
+    "lead_id": "9dfb6020-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "Phillips Precision",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45645,
+    "person_id": 64661,
+    "website_candidates": [
+      "https://phillips-precision.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:46.522Z"
+  },
+  {
+    "lead_id": "d9868f20-2368-11ef-8204-612160307a17",
+    "title": "Pivot Manufacturing lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 13081611,
+    "organization_id": 44624,
+    "person_id": 43817,
+    "website_candidates": [
+      "https://pivotmfg.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:47.003Z"
+  },
+  {
+    "lead_id": "fbe9cff0-2368-11ef-a447-aba17db73931",
+    "title": "Pivot Manufacturing lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 13081611,
+    "organization_id": 44624,
+    "person_id": 43818,
+    "website_candidates": [
+      "https://pivotmfg.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:47.003Z"
+  },
+  {
+    "lead_id": "68233390-1b7f-11f1-93b8-077149608b7c",
+    "title": "Pivot Manufacturing lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44624,
+    "person_id": 31779,
+    "website_candidates": [
+      "https://pivotmfg.com",
+      "https://the-mtc.org"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:47.003Z"
+  },
+  {
+    "lead_id": "9b927670-a1f2-11f0-8256-dd8b2ff9e88a",
+    "title": "Pleasanton Tool & Manufacturing",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45641,
+    "person_id": 64650,
+    "website_candidates": [
+      "https://pleasantontool.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:47.450Z"
+  },
+  {
+    "lead_id": "7cf6f310-eea8-11ef-91ca-73396405d8e6",
+    "title": "porter machine & tool lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 22020714,
+    "organization_id": 44608,
+    "person_id": 56851,
+    "website_candidates": [
+      "https://portermachineinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:47.782Z"
+  },
+  {
+    "lead_id": "8211dc50-1bc2-11f1-b236-c1acc93487a1",
+    "title": "Porter Machine Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44608,
+    "person_id": 5676,
+    "website_candidates": [
+      "https://portermachineinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:47.782Z"
+  },
+  {
+    "lead_id": "840c94e0-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "Precise Products",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45629,
+    "person_id": 64528,
+    "website_candidates": [
+      "https://preciseproducts.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:48.114Z"
+  },
+  {
+    "lead_id": "a91d9090-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "Precise Products",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45629,
+    "person_id": 64722,
+    "website_candidates": [
+      "https://preciseproducts.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:48.114Z"
+  },
+  {
+    "lead_id": "63f73bb0-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "Quick Manufacturing",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45585,
+    "person_id": 64352,
+    "website_candidates": [
+      "https://quickmanufacturing.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:48.477Z"
+  },
+  {
+    "lead_id": "6d061c80-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "REPS Custom Machining & Fabrication",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45607,
+    "person_id": 64403,
+    "website_candidates": [
+      "https://repscustom.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:48.817Z"
+  },
+  {
+    "lead_id": "ab1e1b80-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "Rock Valley Tool",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45655,
+    "person_id": 64733,
+    "website_candidates": [
+      "https://rockvalleytool.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:49.187Z"
+  },
+  {
+    "lead_id": "751b3400-a1f2-11f0-860b-dd29933a7269",
+    "title": "Saxon Technologies",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45621,
+    "person_id": 64451,
+    "website_candidates": [
+      "https://saxontechnologies.com",
+      "https://saxontools.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:49.989Z"
+  },
+  {
+    "lead_id": "640a9ca0-a1f2-11f0-860b-dd29933a7269",
+    "title": "Scientific Fabrication Services",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45587,
+    "person_id": 64353,
+    "website_candidates": [
+      "https://scientificfabrication.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:50.399Z"
+  },
+  {
+    "lead_id": "9f4656b0-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "Southeast Machine",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45646,
+    "person_id": 64667,
+    "website_candidates": [
+      "https://semachine.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:51.272Z"
+  },
+  {
+    "lead_id": "a0bbdfb0-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "Slater",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45647,
+    "person_id": 64676,
+    "website_candidates": [
+      "https://slater-inc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:51.630Z"
+  },
+  {
+    "lead_id": "6db60b90-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "STADCO",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45611,
+    "person_id": 64408,
+    "website_candidates": [
+      "https://stadcoprecision.com",
+      "https://stadcoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:51.873Z"
+  },
+  {
+    "lead_id": "688e9e20-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Tessa Precision Products",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45601,
+    "person_id": 64380,
+    "website_candidates": [
+      "https://tessaprecision.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:52.276Z"
+  },
+  {
+    "lead_id": "6c6fa8e0-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "TMF",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45606,
+    "person_id": 64400,
+    "website_candidates": [
+      "https://tmf-inc.com",
+      "https://tmf-group.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:52.621Z"
+  },
+  {
+    "lead_id": "700f3dd0-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "TMF",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45606,
+    "person_id": 64422,
+    "website_candidates": [
+      "https://tmf-inc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:52.621Z"
+  },
+  {
+    "lead_id": "a36554d0-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "TMF",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45606,
+    "person_id": 64689,
+    "website_candidates": [
+      "https://tmf-inc.com",
+      "https://tmf-group.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:52.621Z"
+  },
+  {
+    "lead_id": "7358c880-0363-11f1-bd5b-8f2b1e85782c",
+    "title": "Tronrud Engineering",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 25094488,
+    "organization_id": 45365,
+    "person_id": 66056,
+    "website_candidates": [
+      "https://tronrud.no"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:52.931Z"
+  },
+  {
+    "lead_id": "64f74690-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "Wal-Tek Industries",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45591,
+    "person_id": 41424,
+    "website_candidates": [
+      "https://waltekindustries.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:53.338Z"
+  },
+  {
+    "lead_id": "70311db0-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "WESCO Machine Products",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45617,
+    "person_id": 64423,
+    "website_candidates": [
+      "https://wescomachine.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:53.725Z"
+  },
+  {
+    "lead_id": "646e4070-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "West Industries",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45593,
+    "person_id": 64350,
+    "website_candidates": [
+      "https://west-industries.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:54.028Z"
+  },
+  {
+    "lead_id": "695a0470-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Westwood Precision",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45602,
+    "person_id": 64382,
+    "website_candidates": [
+      "https://westwoodprecision.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:54.329Z"
+  },
+  {
+    "lead_id": "90580310-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "Windsor Beach Technologies",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45636,
+    "person_id": 64595,
+    "website_candidates": [
+      "https://windsorbeach.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:54.631Z"
+  },
+  {
+    "lead_id": "681fafb0-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Zyxaxis",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45597,
+    "person_id": 64372,
+    "website_candidates": [
+      "https://zyxaxis.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:28:55.038Z"
+  },
+  {
+    "lead_id": "3cbed6f0-1b66-11f1-9899-b778a046c137",
+    "title": "Hamill Manufacturing Company lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 25094488,
+    "organization_id": 45643,
+    "person_id": 41368,
+    "website_candidates": [
+      "https://hamillmfg.com",
+      "https://kakouusa.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:36:54.730Z"
+  },
+  {
+    "lead_id": "81159910-fb4b-11ef-b719-e1b40168db4f",
+    "title": "International Telemetry Machines Corp",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 15871239,
+    "organization_id": 41746,
+    "person_id": 58116,
+    "website_candidates": [
+      "https://wampum1st.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:38:47.255Z"
+  },
+  {
+    "lead_id": "70202dc0-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "EMF",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45616,
+    "person_id": 64420,
+    "website_candidates": [
+      "https://emfinc.net"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:39:01.476Z"
+  },
+  {
+    "lead_id": "77763b00-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Mictron",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44346,
+    "person_id": 54001,
+    "website_candidates": [
+      "https://mictron.net"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:39:13.758Z"
+  },
+  {
+    "lead_id": "63af3340-fb4b-11ef-96e5-6533481667a2",
+    "title": "All States Industrial Machine AIS Inc",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 15871239,
+    "organization_id": 41660,
+    "person_id": 57939,
+    "website_candidates": [
+      "https://allstatesindustrial.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:43:28.140Z"
+  },
+  {
+    "lead_id": "f70bd440-1b2a-11f1-9899-b778a046c137",
+    "title": "EMF Engineered Components, LLC lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45616,
+    "person_id": 42153,
+    "website_candidates": [
+      "https://emfinc.net",
+      "https://hadronics.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T15:52:50.847Z"
+  },
+  {
+    "lead_id": "3bedff30-b15e-11ef-aa9b-0d234e295603",
+    "title": "Parametric Machining Inc",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 15871239,
+    "organization_id": 38808,
+    "person_id": 53679,
+    "website_candidates": [
+      "https://pmifw.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T16:24:45.849Z"
+  },
+  {
+    "lead_id": "71068090-1eed-11f1-811a-319c517981c8",
+    "title": "ALPHA MACHINING & MANUFACTURING, INC. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45605,
+    "person_id": null,
+    "website_candidates": [
+      "https://alphamachining.net"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T16:45:45.316Z"
+  },
+  {
+    "lead_id": "01d6a390-1bf4-11f1-8146-c39b001c5c8a",
+    "title": "RiAlto Manufacturing lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45700,
+    "person_id": 66738,
+    "website_candidates": [
+      "https://rialtomfg.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T16:45:51.550Z"
+  },
+  {
+    "lead_id": "0367a3d0-1bf4-11f1-8146-c39b001c5c8a",
+    "title": "Swartz Manufacturing Inc. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45701,
+    "person_id": 66739,
+    "website_candidates": [
+      "https://swartzmfg.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T16:45:52.051Z"
+  },
+  {
+    "lead_id": "7538a710-a1f2-11f0-9c86-dd6f3797f964",
+    "title": "Notthoff Engineering - LA",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44334,
+    "person_id": 64454,
+    "website_candidates": [
+      "https://notthoff.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T17:07:38.915Z"
+  },
+  {
+    "lead_id": "0edeba60-1b99-11f1-8eb7-5fd40e74a34a",
+    "title": "Pyramid Precision Machine Inc lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 40743,
+    "person_id": 10753,
+    "website_candidates": [
+      "https://pyramidprecision.com",
+      "https://coredux-usa.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T17:11:51.661Z"
+  },
+  {
+    "lead_id": "61fffca0-fb4b-11ef-b0b5-71434f48dda5",
+    "title": "Miller Fabrication Solutions",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 22020714,
+    "organization_id": 41432,
+    "person_id": 57925,
+    "website_candidates": [
+      "https://millerfabricationsolutions.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T17:12:46.200Z"
+  },
+  {
+    "lead_id": "d4a23da0-ede9-11ef-9cd8-c53230ed194b",
+    "title": "Precise Turning & Mfg lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 22020714,
+    "organization_id": 40827,
+    "person_id": 56824,
+    "website_candidates": [
+      "https://preciseturning.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-19T17:36:27.788Z"
+  },
+  {
+    "lead_id": "87a28ce0-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "RS Precision Industries",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45631,
+    "person_id": 64545,
+    "website_candidates": [
+      "https://rsprecision.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-20T16:22:39.417Z"
+  },
+  {
+    "lead_id": "3f6ffe30-bb74-11f0-997d-bd9f8ca375b9",
+    "title": "BWM Services",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 25094488,
+    "organization_id": 44795,
+    "person_id": 65097,
+    "website_candidates": [
+      "https://bwmservices.cc"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T14:12:51.779Z"
+  },
+  {
+    "lead_id": "bd642540-1bba-11f1-97e4-31d2576b5af6",
+    "title": "Precise Tool and Manufacturing lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021"
+    ],
+    "owner_id": 25094488,
+    "organization_id": 45686,
+    "person_id": 30496,
+    "website_candidates": [
+      "https://precisetool.com",
+      "https://freshhealth.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T14:17:21.257Z"
+  },
+  {
+    "lead_id": "1885a940-107b-11f0-8bf7-9b6f0128dde2",
+    "title": "Laspina Tool & Die",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 42092,
+    "person_id": 59098,
+    "website_candidates": [
+      "https://laspinatd.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T14:28:27.233Z"
+  },
+  {
+    "lead_id": "8c9d9320-a1f2-11f0-a8e0-d9a10f84bde4",
+    "title": "Coastal Milling Works",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44472,
+    "person_id": 64573,
+    "website_candidates": [
+      "https://coastalmillingworks.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T14:49:35.554Z"
+  },
+  {
+    "lead_id": "7d93ec60-fb4b-11ef-b719-e1b40168db4f",
+    "title": "Silverson Machines Inc",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 15871239,
+    "organization_id": 41552,
+    "person_id": 58092,
+    "website_candidates": [
+      "https://silverson.com",
+      "https://silverson.co.uk"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T15:15:04.929Z"
+  },
+  {
+    "lead_id": "765257f0-bb6e-11f0-8d1d-6d827c69e92b",
+    "title": "Sinco",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 25094488,
+    "organization_id": 44791,
+    "person_id": 65092,
+    "website_candidates": [
+      "https://sincoinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T15:33:30.228Z"
+  },
+  {
+    "lead_id": "d8801e50-1b98-11f1-8eb7-5fd40e74a34a",
+    "title": "JW Machine lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 36029,
+    "person_id": 40073,
+    "website_candidates": [
+      "https://jwmachinedesign.com",
+      "https://jwmachinecorp.com",
+      "https://magnetic-shield.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T15:59:10.793Z"
+  },
+  {
+    "lead_id": "d3936030-1ba9-11f1-8a4b-5d6d83476544",
+    "title": "Fort Walton Machining Inc lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 39219,
+    "person_id": 41032,
+    "website_candidates": [
+      "https://fwmachining.com",
+      "https://sandia.gov"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T16:00:05.361Z"
+  },
+  {
+    "lead_id": "45369560-7bef-11ef-a4cb-43d16646f1c4",
+    "title": "Innovative Metal Designs lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 21852722,
+    "organization_id": 36377,
+    "person_id": 49760,
+    "website_candidates": [
+      "https://innovativemetals.com",
+      "https://imdfab.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T16:41:20.459Z"
+  },
+  {
+    "lead_id": "9e31b260-a1f2-11f0-8351-8b12ca1274ac",
+    "title": "Mictron",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44346,
+    "person_id": 54000,
+    "website_candidates": [
+      "https://mictron.net"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-23T18:00:39.314Z"
+  },
+  {
+    "lead_id": "85458a10-a1f2-11f0-860b-dd29933a7269",
+    "title": "Drabik Manufacturing",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 44431,
+    "person_id": 64536,
+    "website_candidates": [
+      "https://drabikinc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-24T15:58:02.422Z"
+  },
+  {
+    "lead_id": "3d58d510-d324-11ef-b85f-632c49bc46e8",
+    "title": "Lavelle Machine",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7"
+    ],
+    "owner_id": 15871239,
+    "organization_id": 39648,
+    "person_id": 55012,
+    "website_candidates": [
+      "https://lavellemachine.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-24T16:01:36.361Z"
+  },
+  {
+    "lead_id": "2a8eb610-1b77-11f1-aea0-8914d8933f54",
+    "title": "FRANKLINS INDUSTRIES OF SAN DIEGO, INC. lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021",
+      "65e443f0-17f9-11f1-a37d-27e51f3d0737"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45652,
+    "person_id": 11667,
+    "website_candidates": [
+      "https://franklin-ind.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-24T16:14:08.017Z"
+  },
+  {
+    "lead_id": "c5a55010-1b5d-11f1-9899-b778a046c137",
+    "title": "Amratec Engineering lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 45639,
+    "person_id": 28850,
+    "website_candidates": [
+      "https://amratec.com",
+      "https://melotte.be"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-24T16:35:05.775Z"
+  },
+  {
+    "lead_id": "cb4c1cb0-1bcb-11f1-8132-71863f9b3d70",
+    "title": "Miller CNC lead",
+    "label_ids": [
+      "e028bea0-b37b-11ee-9581-d55a394d57f7",
+      "616f0f80-17f9-11f1-af24-81f45bb3e021"
+    ],
+    "owner_id": 16602992,
+    "organization_id": 40515,
+    "person_id": null,
+    "website_candidates": [
+      "https://millercnc.com"
+    ],
+    "has_website_candidate": true,
+    "priority_reason": "website_candidate",
+    "update_time": "2026-03-24T16:35:07.340Z"
+  }
+]
