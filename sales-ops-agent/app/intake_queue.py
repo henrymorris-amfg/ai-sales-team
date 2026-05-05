@@ -25,16 +25,16 @@ def _save_json(path: Path, payload) -> None:
 
 
 ALIASES = {
-    "company": ["company", "company_name", "account", "organisation", "organization", "business_name"],
-    "website": ["website", "domain", "url", "company_website"],
-    "country": ["country", "region_country"],
-    "state": ["state", "province", "region", "state_region"],
-    "first_name": ["first_name", "firstname", "given_name"],
-    "last_name": ["last_name", "lastname", "surname", "family_name"],
-    "full_name": ["full_name", "name", "contact_name"],
-    "email": ["email", "work_email", "business_email"],
-    "phone": ["phone", "mobile", "telephone", "work_phone"],
-    "linkedin": ["linkedin", "linkedin_url"],
+    "company": ["company", "company_name", "company name", "account", "organisation", "organization", "business_name", "business name"],
+    "website": ["website", "domain", "url", "company_website", "company website"],
+    "country": ["country", "region_country", "region country"],
+    "state": ["state", "province", "region", "state_region", "state region"],
+    "first_name": ["first_name", "first name", "firstname", "given_name", "given name"],
+    "last_name": ["last_name", "last name", "lastname", "surname", "family_name", "family name"],
+    "full_name": ["full_name", "full name", "name", "contact_name", "contact name"],
+    "email": ["email", "work_email", "work email", "business_email", "business email"],
+    "phone": ["phone", "mobile", "telephone", "work_phone", "work phone"],
+    "linkedin": ["linkedin", "linkedin_url", "linkedin url"],
 }
 
 
