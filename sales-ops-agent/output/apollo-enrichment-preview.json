@@ -1,0 +1,116 @@
+{
+  "queue_items_scanned": 10,
+  "preview_generated_at": "2026-05-05T08:28:28.720689Z",
+  "items": [
+    {
+      "queue_id": "20260427213452-00001",
+      "company": "Acme Precision",
+      "website": "https://example.com",
+      "assigned_agent": "bdr-us-ca",
+      "assigned_owner": "Joe Payne",
+      "website_domain": "example.com",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    },
+    {
+      "queue_id": "20260427213452-00002",
+      "company": "Beta CNC",
+      "website": "https://beta.example",
+      "assigned_agent": "bdr-us-ca",
+      "assigned_owner": "Julian Earl",
+      "website_domain": "beta.example",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    },
+    {
+      "queue_id": "20260427212908-00001",
+      "company": "Acme Precision",
+      "website": "https://example.com",
+      "assigned_agent": "unassigned",
+      "assigned_owner": null,
+      "website_domain": "example.com",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    },
+    {
+      "queue_id": "20260427212908-00002",
+      "company": "Beta CNC",
+      "website": "https://beta.example",
+      "assigned_agent": "unassigned",
+      "assigned_owner": null,
+      "website_domain": "beta.example",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    },
+    {
+      "queue_id": "20260505082751-00001",
+      "company": "L & S Machine Co., LLC",
+      "website": "www.lsmachineco.com",
+      "assigned_agent": "unassigned",
+      "assigned_owner": null,
+      "website_domain": "lsmachineco.com",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    },
+    {
+      "queue_id": "20260505082751-00002",
+      "company": "Quality Tool Company Inc",
+      "website": "www.qualitytool.com",
+      "assigned_agent": "unassigned",
+      "assigned_owner": null,
+      "website_domain": "qualitytool.com",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    },
+    {
+      "queue_id": "20260505082751-00003",
+      "company": "Ri Alto Mfg., Inc.",
+      "website": "www.rialtomfg.com",
+      "assigned_agent": "unassigned",
+      "assigned_owner": null,
+      "website_domain": "rialtomfg.com",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    },
+    {
+      "queue_id": "20260505082751-00004",
+      "company": "TSW Industries, Inc.",
+      "website": "www.tswindustries.com",
+      "assigned_agent": "unassigned",
+      "assigned_owner": null,
+      "website_domain": "tswindustries.com",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    },
+    {
+      "queue_id": "20260505082751-00005",
+      "company": "SWARTZ MANUFACTURING INC.",
+      "website": "www.swartzmfg.com",
+      "assigned_agent": "unassigned",
+      "assigned_owner": null,
+      "website_domain": "swartzmfg.com",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    },
+    {
+      "queue_id": "20260505082751-00006",
+      "company": "H & S AUTOMOTIVE & MACHINE SERVICE INC",
+      "website": "automotive-machine-shops.cmac.ws",
+      "assigned_agent": "unassigned",
+      "assigned_owner": null,
+      "website_domain": "automotive-machine-shops.cmac.ws",
+      "apollo_organizations": [],
+      "apollo_people": [],
+      "apollo_people_error": ""
+    }
+  ]
+}

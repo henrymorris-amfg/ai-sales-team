@@ -74,6 +74,7 @@
     .mini-stat { background:var(--bg); border-radius:18px; padding:14px; }
     .mini-stat span { display:block; color:var(--muted); font-size:.82rem; margin-bottom:6px; }
     .owner-row, .queue-row { display:grid; grid-template-columns:1.2fr 1fr auto; gap:12px; align-items:center; margin-bottom:12px; }
+    .apollo-row { display:grid; grid-template-columns:1.2fr .8fr auto; gap:12px; align-items:center; margin-bottom:12px; }
     .bar-wrap { height:10px; background:#edf2f7; border-radius:999px; overflow:hidden; }
     .bar { height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--blue),#67b1ff); }
     .finding { border:1px solid var(--border); border-radius:18px; padding:15px; margin-bottom:12px; }
@@ -135,6 +136,7 @@
       <div class="card section"><div class="label">Uploads queued</div><div class="value" id="kpi-uploads">0</div><div class="subtle">CSV files staged for processing</div></div>
       <div class="card section"><div class="label">Intake queue</div><div class="value" id="kpi-intake">0</div><div class="subtle">Rows ready for AI BDR qualification</div></div>
       <div class="card section"><div class="label">High-priority queue</div><div class="value" id="kpi-high-priority">0</div><div class="subtle" id="kpi-high-priority-sub">Waiting for queue data</div></div>
+      <div class="card section"><div class="label">Apollo preview</div><div class="value" id="kpi-apollo">0</div><div class="subtle" id="kpi-apollo-sub">No enrichment preview yet</div></div>
     </section>
 
     <section class="main">
@@ -180,6 +182,10 @@
         <div class="card section">
           <div class="section-head"><div><h2>AI BDR intake queue</h2><p>Rows normalized and routed for qualification and enrichment.</p></div></div>
           <div id="queue-list"></div>
+        </div>
+        <div class="card section">
+          <div class="section-head"><div><h2>Apollo enrichment preview</h2><p>What the first enrichment pass is finding for queued accounts.</p></div><button class="secondary small" id="refresh-button" type="button">Refresh view</button></div>
+          <div id="apollo-list"></div>
         </div>
         <div class="card section">
           <div class="section-head"><div><h2>Rule pressure</h2><p>Where the hygiene engine is firing most often.</p></div></div>
@@ -332,6 +338,23 @@
       `).join('') || '<div class="muted">No AI BDR queue items yet.</div>';
     }
 
+    function renderApollo(items) {
+      const root = document.getElementById('apollo-list');
+      root.innerHTML = items.slice(0, 8).map(item => `
+        <div class="apollo-row">
+          <div>
+            <strong>${escapeHtml(item.company || item.website_domain || 'Untitled')}</strong><br>
+            <span class="muted">${escapeHtml(item.website_domain || item.website || '')}</span>
+          </div>
+          <div>
+            <div class="muted">Org matches: ${fmt.format((item.apollo_organizations || []).length)}</div>
+            <strong>People: ${fmt.format((item.apollo_people || []).length)}</strong>
+          </div>
+          <span class="pill ${((item.apollo_people || []).length || (item.apollo_organizations || []).length) ? 'processed' : 'planned'}">${((item.apollo_people || []).length || (item.apollo_organizations || []).length) ? 'match' : 'no match'}</span>
+        </div>
+      `).join('') || '<div class="muted">No Apollo preview data yet.</div>';
+    }
+
     function renderNextActions(actions) {
       const root = document.getElementById('next-action-list');
       root.innerHTML = actions.map(item => `
@@ -370,6 +393,8 @@
       setText('kpi-intake', fmt.format(data.summary.intake_queue));
       setText('kpi-high-priority', fmt.format(data.summary.queue_high_priority || 0));
       setText('kpi-high-priority-sub', `${fmt.format(data.summary.queue_owner_assigned || 0)} owner assigned, ${fmt.format(data.summary.queue_needs_website || 0)} need website recovery`);
+      setText('kpi-apollo', fmt.format(data.summary.apollo_preview_scanned || 0));
+      setText('kpi-apollo-sub', `${fmt.format(data.summary.apollo_org_hits || 0)} org hits, ${fmt.format(data.summary.apollo_people_hits || 0)} people hits`);
       renderNextActions(data.next_actions || []);
       renderAgents(data.agents || []);
       renderFindings(data.findings || []);
@@ -378,6 +403,7 @@
       renderOwners(data.owners || []);
       renderUploads(data.uploads || []);
       renderQueue(data.intake_queue || []);
+      renderApollo((data.apollo_preview || {}).items || []);
       renderBlockers(data.blockers || []);
     }
 
@@ -457,6 +483,8 @@
         button.disabled = false;
       }
     });
+
+    document.getElementById('refresh-button').addEventListener('click', loadOverview);
 
     loadOverview();
   </script>

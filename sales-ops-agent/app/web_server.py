@@ -42,6 +42,7 @@ def build_overview() -> dict:
     upload_jobs = _load_json(UPLOAD_JOBS_FILE, [])
     intake_queue = _load_json(OUTPUT_DIR / "bdr-intake-queue.json", [])
     batch_review = _load_json(OUTPUT_DIR / "cnc-random-review-200.json", {})
+    apollo_preview = _load_json(OUTPUT_DIR / "apollo-enrichment-preview.json", {})
 
     severity_counts = Counter((item.get("severity") or "unknown").lower() for item in findings)
     rule_counts = Counter(item.get("rule_id") or "unknown" for item in findings)
@@ -51,6 +52,9 @@ def build_overview() -> dict:
     queue_by_priority = Counter(item.get("priority") or "unknown" for item in intake_queue)
     website_status = Counter(item.get("website_status") or "unknown" for item in intake_queue)
     contact_status = Counter(item.get("contact_status") or "unknown" for item in intake_queue)
+    apollo_items = apollo_preview.get("items") or []
+    apollo_org_hits = sum(1 for item in apollo_items if item.get("apollo_organizations"))
+    apollo_people_hits = sum(1 for item in apollo_items if item.get("apollo_people"))
 
     blockers = []
     if website_status.get("needs_website_recovery", 0):
@@ -105,6 +109,9 @@ def build_overview() -> dict:
             "queue_owner_assigned": sum(1 for item in intake_queue if item.get("assigned_owner")),
             "queue_needs_website": website_status.get("needs_website_recovery", 0),
             "queue_needs_contact": contact_status.get("needs_contact_enrichment", 0),
+            "apollo_preview_scanned": apollo_preview.get("queue_items_scanned", 0),
+            "apollo_org_hits": apollo_org_hits,
+            "apollo_people_hits": apollo_people_hits,
         },
         "agents": agents,
         "owners": owners[:10],
@@ -127,6 +134,13 @@ def build_overview() -> dict:
             "recommendation_counts": batch_review.get("recommendation_counts", {}),
             "archive_candidates": (batch_review.get("archive_candidates") or [])[:10],
             "good_fits": (batch_review.get("good_fits") or [])[:10],
+        },
+        "apollo_preview": {
+            "preview_generated_at": apollo_preview.get("preview_generated_at"),
+            "queue_items_scanned": apollo_preview.get("queue_items_scanned", 0),
+            "org_hits": apollo_org_hits,
+            "people_hits": apollo_people_hits,
+            "items": apollo_items[:10],
         },
     }
 
@@ -229,6 +243,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if parsed.path == "/api/batch-review":
             self._send_json(_load_json(OUTPUT_DIR / "cnc-random-review-200.json", {}))
+            return
+        if parsed.path == "/api/apollo-preview":
+            self._send_json(_load_json(OUTPUT_DIR / "apollo-enrichment-preview.json", {}))
             return
         self._send_not_found()
 
