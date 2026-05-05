@@ -15,6 +15,7 @@ from urllib.parse import parse_qs, urlparse
 
 from .intake_queue import process_uploads
 from .bdr_full_flow import qualification_criteria, save_qualification_criteria
+from .territory_map import owner_territories
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -172,6 +173,7 @@ def build_overview() -> dict:
             "person_duplicates": (sales_ops_duplicates.get("person_duplicates") or [])[:20],
             "lead_duplicates": (sales_ops_duplicates.get("lead_duplicates") or [])[:20],
         },
+        "territories": owner_territories(),
     }
 
 
@@ -291,6 +293,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if parsed.path == "/api/sales-ops-duplicates":
             self._send_json(_load_json(OUTPUT_DIR / "sales-ops-duplicates.json", {}))
+            return
+        if parsed.path == "/api/territories":
+            self._send_json(owner_territories())
             return
         self._send_not_found()
 

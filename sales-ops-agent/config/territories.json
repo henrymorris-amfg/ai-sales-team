@@ -1,0 +1,77 @@
+{
+  "owners": {
+    "Joe / Julian": {
+      "territories": [
+        "UK & Ireland"
+      ],
+      "countries": ["United Kingdom", "Ireland"],
+      "states": []
+    },
+    "Julian Earl": {
+      "territories": [
+        "Canada"
+      ],
+      "countries": ["Canada"],
+      "states": []
+    },
+    "Toby": {
+      "territories": [
+        "Nordics",
+        "Great Lakes East"
+      ],
+      "countries": ["Sweden", "Finland", "Norway", "Denmark"],
+      "states": ["Indiana", "Michigan"]
+    },
+    "Tad": {
+      "territories": [
+        "North Eastern Europe",
+        "Eastern Europe",
+        "Gulf"
+      ],
+      "countries": ["Poland", "Estonia", "Latvia", "Lithuania", "Romania", "Hungary", "Slovakia", "Slovenia", "Croatia", "Bosnia and Herzegovina", "Serbia", "Bulgaria", "Albania", "Greece"],
+      "states": ["Florida", "Mississippi", "Alabama", "Georgia"]
+    },
+    "Callum": {
+      "territories": [
+        "Benelux",
+        "Ohio Valley"
+      ],
+      "countries": ["Belgium", "Netherlands", "Luxembourg"],
+      "states": ["Ohio", "Pennsylvania", "West Virginia"]
+    },
+    "Ben": {
+      "territories": [
+        "New England",
+        "California"
+      ],
+      "countries": [],
+      "states": ["Maine", "New Hampshire", "Vermont", "California"]
+    },
+    "Henry": {
+      "territories": [
+        "Great Lakes West"
+      ],
+      "countries": [],
+      "states": ["Wisconsin", "Illinois"]
+    },
+    "Joe Payne": {
+      "territories": [
+        "South Central"
+      ],
+      "countries": [],
+      "states": ["Texas", "Oklahoma", "New Mexico", "Louisiana"]
+    }
+  },
+  "unassigned": {
+    "territories": [
+      "DACH",
+      "France / Italy / Iberia",
+      "Northeast",
+      "Central Plains",
+      "Mid-South & Atlantic",
+      "Mountain West"
+    ],
+    "countries": [],
+    "states": ["Massachusetts", "Rhode Island", "Connecticut", "New York", "New Jersey"]
+  }
+}

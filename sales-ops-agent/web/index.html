@@ -4,256 +4,127 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AMFG AI Sales Team</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --blue:#1B83FF;
-      --dark:#272727;
-      --muted:#646464;
-      --bg:#F7F9FC;
-      --card:#FFFFFF;
-      --border:#EBEDF0;
-      --shadow:0 24px 56px rgba(22,34,51,.08);
-      --success:#15925e;
-      --warning:#c76b00;
-      --danger:#c53d3d;
+      --dark:#1f2937;
+      --muted:#667085;
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --border:#e6eaf0;
+      --success:#15803d;
+      --warn:#b45309;
     }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter, Arial, sans-serif; color:var(--dark); background:linear-gradient(180deg,#eff6ff 0%,#f7f9fc 35%,#fbfcfe 100%); }
-    .shell { max-width:1440px; margin:0 auto; padding:28px; }
-    .hero { background:linear-gradient(135deg,#111827 0%,#1f2937 55%,#0f1720 100%); color:white; border-radius:28px; padding:32px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
-    .hero:before { content:""; position:absolute; right:-60px; top:-60px; width:240px; height:240px; border-radius:50%; background:rgba(27,131,255,.18); filter:blur(12px); }
-    .brand { display:flex; align-items:center; gap:14px; font-weight:800; letter-spacing:.08em; font-size:.92rem; }
-    .brand-mark { width:16px; height:16px; border-radius:5px; background:var(--blue); box-shadow:20px 0 0 rgba(27,131,255,.35), 40px 0 0 rgba(27,131,255,.16); }
-    .hero-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:22px; align-items:end; margin-top:22px; }
-    h1 { margin:12px 0; font-size:clamp(2rem,4.1vw,3.5rem); line-height:1.02; max-width:12ch; }
-    .hero p { color:rgba(255,255,255,.78); max-width:60ch; margin:0; }
-    .hero-side { display:grid; gap:14px; }
-    .glass { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:22px; padding:18px; backdrop-filter:blur(10px); }
-    .glass-label, .eyebrow, .label { color:var(--muted); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; }
-    .glass strong { display:block; margin-top:8px; font-size:2rem; }
-    .row { display:grid; grid-template-columns:repeat(5,1fr); gap:18px; margin-top:18px; }
-    .row.six { grid-template-columns:repeat(6,1fr); }
-    .card { background:var(--card); border:1px solid var(--border); border-radius:24px; box-shadow:var(--shadow); }
-    .section { padding:22px; }
-    .value { margin-top:8px; font-size:2rem; font-weight:800; }
-    .subtle, .muted { color:var(--muted); }
-    .main { display:grid; grid-template-columns:1.35fr 1fr; gap:18px; margin-top:18px; }
-    .section-head { display:flex; justify-content:space-between; align-items:end; gap:16px; margin-bottom:18px; }
-    .section-head h2 { margin:0 0 4px; font-size:1.18rem; }
-    .section-head p { margin:0; color:var(--muted); }
-    .agent-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-    .agent-card { border:1px solid var(--border); border-radius:20px; padding:18px; background:linear-gradient(180deg,#fff 0%,#fcfdff 100%); }
-    .agent-head { display:flex; justify-content:space-between; gap:12px; align-items:start; }
-    .agent-card h3 { margin:6px 0 0; }
-    .pill { display:inline-flex; padding:8px 12px; border-radius:999px; font-size:.8rem; font-weight:700; }
-    .pill.active { background:#e8f3ff; color:var(--blue); }
-    .pill.planned { background:#f1f3f5; color:var(--muted); }
-    .pill.processed { background:#ecf9f2; color:var(--success); }
-    .pill.queued { background:#fff4e5; color:var(--warning); }
-    .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px; }
-    .metric { background:var(--bg); border-radius:16px; padding:12px; }
-    .metric span { display:block; font-size:.78rem; color:var(--muted); margin-bottom:6px; }
-    .metric strong { font-size:1.05rem; }
-    .stack { display:grid; gap:18px; }
-    .upload-zone { border:1.5px dashed #b7d6ff; background:linear-gradient(180deg,#f8fbff 0%,#f2f8ff 100%); border-radius:20px; padding:20px; }
-    .upload-zone form { display:grid; gap:12px; }
-    input[type=file] { width:100%; padding:14px; border:1px solid var(--border); border-radius:14px; background:white; }
-    button { appearance:none; border:none; background:var(--blue); color:white; border-radius:14px; padding:14px 18px; font:inherit; font-weight:700; cursor:pointer; }
+    body { margin:0; font-family:Inter, Arial, sans-serif; background:var(--bg); color:var(--dark); }
+    .wrap { max-width:1100px; margin:0 auto; padding:24px; }
+    .hero { background:#111827; color:white; padding:24px; border-radius:20px; }
+    .hero h1 { margin:8px 0 6px; font-size:2rem; }
+    .hero p { margin:0; color:rgba(255,255,255,.78); }
+    .grid { display:grid; gap:16px; margin-top:16px; }
+    .grid.kpis { grid-template-columns:repeat(4,1fr); }
+    .grid.two { grid-template-columns:1fr 1fr; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; }
+    .label { font-size:.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+    .value { font-size:1.9rem; font-weight:800; margin-top:8px; }
+    .muted { color:var(--muted); }
+    .section-head { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px; }
+    .section-head h2 { margin:0; font-size:1.05rem; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; }
+    button { border:none; background:var(--blue); color:white; padding:12px 14px; border-radius:12px; font:inherit; font-weight:700; cursor:pointer; }
     button.secondary { background:#eef5ff; color:var(--blue); }
-    button.ghost { background:#fff5f5; color:var(--danger); }
-    button.small { padding:10px 12px; border-radius:12px; font-size:.9rem; }
-    button:disabled { opacity:.6; cursor:wait; }
-    .button-row { display:flex; flex-wrap:wrap; gap:10px; }
-    .status-line { font-size:.92rem; min-height:1.2em; }
-    .status-line.ok { color:var(--success); }
-    .status-line.err { color:#c43737; }
-    .mini-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
-    .mini-stat { background:var(--bg); border-radius:18px; padding:14px; }
-    .mini-stat span { display:block; color:var(--muted); font-size:.82rem; margin-bottom:6px; }
-    .owner-row, .queue-row { display:grid; grid-template-columns:1.2fr 1fr auto; gap:12px; align-items:center; margin-bottom:12px; }
-    .apollo-row { display:grid; grid-template-columns:1.2fr .8fr auto; gap:12px; align-items:center; margin-bottom:12px; }
-    .criteria-row { border:1px solid var(--border); border-radius:18px; padding:14px; margin-bottom:10px; background:linear-gradient(180deg,#fff 0%,#fbfdff 100%); }
-    textarea.code { width:100%; min-height:260px; border:1px solid var(--border); border-radius:16px; padding:14px; font:12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; background:#fcfdff; color:var(--dark); }
-    .bar-wrap { height:10px; background:#edf2f7; border-radius:999px; overflow:hidden; }
-    .bar { height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--blue),#67b1ff); }
-    .finding { border:1px solid var(--border); border-radius:18px; padding:15px; margin-bottom:12px; }
-    .action-list, .blocker-list { display:grid; gap:12px; }
-    .action-card { border:1px solid var(--border); border-radius:18px; padding:16px; background:linear-gradient(180deg,#fff 0%,#fbfdff 100%); }
-    .action-card strong.big { font-size:1.35rem; }
-    .finding-top { display:flex; justify-content:space-between; gap:10px; margin-bottom:8px; }
-    .severity { font-size:.76rem; font-weight:700; border-radius:999px; padding:6px 10px; }
-    .severity.medium { background:#fff4e5; color:var(--warning); }
-    .severity.low { background:#ecf9f2; color:var(--success); }
-    table { width:100%; border-collapse:collapse; }
-    th, td { padding:14px 10px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
-    th { color:var(--muted); text-transform:uppercase; font-size:.8rem; letter-spacing:.08em; }
-    .upload-actions { display:flex; gap:8px; flex-wrap:wrap; }
-    .footer { margin-top:18px; color:var(--muted); display:flex; justify-content:space-between; gap:16px; font-size:.92rem; }
-    @media (max-width:1100px) {
-      .hero-grid, .main { grid-template-columns:1fr; }
-      .row { grid-template-columns:repeat(2,1fr); }
-      .agent-grid { grid-template-columns:1fr; }
+    button:disabled { opacity:.65; }
+    input[type=file], textarea { width:100%; border:1px solid var(--border); border-radius:12px; padding:12px; font:inherit; background:#fff; }
+    textarea { min-height:180px; font-family:ui-monospace, monospace; font-size:12px; }
+    .status { min-height:1.2em; font-size:.95rem; margin-top:10px; }
+    .status.ok { color:var(--success); }
+    .status.err { color:#b91c1c; }
+    .list { display:grid; gap:10px; }
+    .item { border:1px solid var(--border); border-radius:14px; padding:12px; }
+    .item strong { display:block; margin-bottom:4px; }
+    .pill { display:inline-block; padding:5px 10px; border-radius:999px; font-size:.8rem; font-weight:700; background:#eef5ff; color:var(--blue); }
+    .pill.warn { background:#fff7ed; color:var(--warn); }
+    .small { font-size:.92rem; }
+    @media (max-width:900px) {
+      .grid.kpis, .grid.two { grid-template-columns:1fr 1fr; }
     }
-    @media (max-width:720px) {
-      .shell { padding:16px; }
-      .hero { padding:22px; border-radius:22px; }
-      .row, .mini-stats { grid-template-columns:1fr; }
-      .owner-row, .queue-row { grid-template-columns:1fr; }
-      th:nth-child(5), td:nth-child(5) { display:none; }
-      .footer { flex-direction:column; }
+    @media (max-width:640px) {
+      .grid.kpis, .grid.two { grid-template-columns:1fr; }
+      .wrap { padding:14px; }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
+  <div class="wrap">
     <section class="hero">
-      <div class="brand"><div class="brand-mark"></div><span>AMFG AI SALES TEAM</span></div>
-      <div class="hero-grid">
-        <div>
-          <h1>Simple control for the AI sales team.</h1>
-          <p>This is the first live AMFG-branded workspace for Sales Ops and the AI BDRs. It surfaces hygiene findings, queue health, and lets you upload fresh CSV lists to feed the machine.</p>
-        </div>
-        <div class="hero-side">
-          <div class="glass">
-            <div class="glass-label">Current posture</div>
-            <strong id="hero-posture">Loading...</strong>
-            <div class="muted" id="hero-sub">Pulling latest status</div>
+      <div class="label" style="color:rgba(255,255,255,.65)">AMFG AI SALES TEAM</div>
+      <h1>Simple control panel</h1>
+      <p>Only the essentials, upload leads, run workers, check queue health, and review the key recommendations.</p>
+    </section>
+
+    <section class="grid kpis">
+      <div class="card"><div class="label">Uploads</div><div class="value" id="kpi-uploads">0</div><div class="muted small">CSV files staged</div></div>
+      <div class="card"><div class="label">Queue</div><div class="value" id="kpi-queue">0</div><div class="muted small">Rows ready for BDR processing</div></div>
+      <div class="card"><div class="label">Archive recs</div><div class="value" id="kpi-archive">0</div><div class="muted small">Leads recommended for archive</div></div>
+      <div class="card"><div class="label">Duplicate clusters</div><div class="value" id="kpi-duplicates">0</div><div class="muted small">Org, people, and lead merge candidates</div></div>
+    </section>
+
+    <section class="grid two">
+      <div class="card">
+        <div class="section-head"><h2>Upload CSV</h2></div>
+        <form id="upload-form">
+          <input id="csv-file" name="file" type="file" accept=".csv,text/csv" required />
+          <div class="actions" style="margin-top:12px;">
+            <button id="upload-button" type="submit">Upload CSV</button>
+            <button id="process-button" class="secondary" type="button">Build queue</button>
           </div>
-          <div class="glass">
-            <div class="glass-label">CSV intake</div>
-            <strong id="hero-uploads">0 queued</strong>
-            <div class="muted" id="hero-queue-sub">No intake queue yet.</div>
-          </div>
+        </form>
+        <div id="status" class="status"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-head"><h2>Run workers</h2></div>
+        <div class="actions">
+          <button id="sales-ops-button" type="button">Run Sales Ops workers</button>
+          <button id="refresh-button" class="secondary" type="button">Refresh</button>
         </div>
+        <div class="list" id="summary-list" style="margin-top:14px;"></div>
       </div>
     </section>
 
-    <section class="row six">
-      <div class="card section"><div class="label">Open hygiene findings</div><div class="value" id="kpi-findings">0</div><div class="subtle" id="kpi-findings-sub">Waiting for data</div></div>
-      <div class="card section"><div class="label">Owners impacted</div><div class="value" id="kpi-owners">0</div><div class="subtle">Reps or managers with cleanup work</div></div>
-      <div class="card section"><div class="label">Lead samples</div><div class="value" id="kpi-leads">0</div><div class="subtle">CNC review sample currently visible</div></div>
-      <div class="card section"><div class="label">Uploads queued</div><div class="value" id="kpi-uploads">0</div><div class="subtle">CSV files staged for processing</div></div>
-      <div class="card section"><div class="label">Intake queue</div><div class="value" id="kpi-intake">0</div><div class="subtle">Rows ready for AI BDR qualification</div></div>
-      <div class="card section"><div class="label">High-priority queue</div><div class="value" id="kpi-high-priority">0</div><div class="subtle" id="kpi-high-priority-sub">Waiting for queue data</div></div>
-      <div class="card section"><div class="label">Apollo preview</div><div class="value" id="kpi-apollo">0</div><div class="subtle" id="kpi-apollo-sub">No enrichment preview yet</div></div>
-      <div class="card section"><div class="label">Batch created</div><div class="value" id="kpi-batch">0</div><div class="subtle" id="kpi-batch-sub">No batch run yet</div></div>
-      <div class="card section"><div class="label">Batch skips</div><div class="value" id="kpi-skips">0</div><div class="subtle" id="kpi-skips-sub">No skip data yet</div></div>
-      <div class="card section"><div class="label">Archive recommendations</div><div class="value" id="kpi-archive">0</div><div class="subtle" id="kpi-archive-sub">Sales Ops worker not run yet</div></div>
-      <div class="card section"><div class="label">Duplicate clusters</div><div class="value" id="kpi-duplicates">0</div><div class="subtle" id="kpi-duplicates-sub">No duplicate recommendations yet</div></div>
-    </section>
-
-    <section class="main">
-      <div class="stack">
-        <div class="card section">
-          <div class="section-head"><div><h2>Immediate next actions</h2><p>The few moves that will accelerate the team fastest right now.</p></div></div>
-          <div class="action-list" id="next-action-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Agent control surface</h2><p>All four AI sales agents in one place.</p></div></div>
-          <div class="agent-grid" id="agent-grid"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Priority findings</h2><p>The first issues worth acting on in Pipedrive.</p></div></div>
-          <div id="finding-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>CNC lead sample</h2><p>Sample recommendations from the review worker.</p></div></div>
-          <table>
-            <thead><tr><th>Lead</th><th>Recommendation</th><th>Score</th><th>Confidence</th><th>Website</th></tr></thead>
-            <tbody id="lead-table"></tbody>
-          </table>
-        </div>
+    <section class="grid two">
+      <div class="card">
+        <div class="section-head"><h2>Latest uploads</h2></div>
+        <div class="list" id="upload-list"></div>
       </div>
-      <div class="stack">
-        <div class="card section">
-          <div class="section-head"><div><h2>Upload new CSV</h2><p>Feed fresh lists into the AI BDR workflow.</p></div></div>
-          <div class="upload-zone">
-            <form id="upload-form">
-              <input id="csv-file" name="file" type="file" accept=".csv,text/csv" required />
-              <div class="button-row">
-                <button id="upload-button" type="submit">Upload CSV</button>
-                <button id="process-button" class="secondary" type="button">Build AI BDR queue</button>
-              </div>
-              <div class="status-line" id="upload-status"></div>
-            </form>
-          </div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Upload history</h2><p>Manage incoming CSV files before and after queueing.</p></div></div>
-          <div id="upload-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>AI BDR intake queue</h2><p>Rows normalized and routed for qualification and enrichment.</p></div></div>
-          <div id="queue-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Apollo enrichment preview</h2><p>What the first enrichment pass is finding for queued accounts.</p></div><button class="secondary small" id="refresh-button" type="button">Refresh view</button></div>
-          <div id="apollo-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Qualification criteria</h2><p>The current lead score logic, ready for review and tuning.</p></div></div>
-          <div id="criteria-list"></div>
-          <div style="margin-top:14px;">
-            <textarea id="criteria-editor" class="code"></textarea>
-            <div class="button-row" style="margin-top:10px;">
-              <button id="save-criteria-button" type="button">Save scoring config</button>
-            </div>
-          </div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Sales Ops workers</h2><p>Run recommendation-only disqualification and duplicate scans from live Pipedrive data.</p></div><button class="secondary small" id="sales-ops-button" type="button">Run workers</button></div>
-          <div id="sales-ops-summary"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Recent BDR batch results</h2><p>The newest safe create runs from the AI BDR flow.</p></div></div>
-          <div id="batch-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Archive recommendations</h2><p>CNC leads that look disqualified and should be archived after review.</p></div></div>
-          <div id="archive-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Duplicate recommendations</h2><p>Suggested merge clusters for organisations, people, and leads.</p></div></div>
-          <div id="duplicate-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Run history and skip reasons</h2><p>Recent hourly runs, including duplicate blocks and threshold skips.</p></div></div>
-          <div id="history-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Rule pressure</h2><p>Where the hygiene engine is firing most often.</p></div></div>
-          <div class="mini-stats" id="rule-stats"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Current blockers</h2><p>The friction slowing down qualification and routing.</p></div></div>
-          <div class="blocker-list" id="blocker-list"></div>
-        </div>
-        <div class="card section">
-          <div class="section-head"><div><h2>Owners needing attention</h2><p>Who currently has the most cleanup load.</p></div></div>
-          <div id="owner-list"></div>
-        </div>
+      <div class="card">
+        <div class="section-head"><h2>Queue snapshot</h2></div>
+        <div class="list" id="queue-list"></div>
       </div>
     </section>
 
-    <div class="footer">
-      <div>AMFG styling cues used here: Inter, AMFG blue, charcoal, minimal bright card layout.</div>
-      <div>Next upgrade: deploy this to GitHub and Vercel or a Python host with auth and live actions.</div>
-    </div>
+    <section class="grid two">
+      <div class="card">
+        <div class="section-head"><h2>Archive recommendations</h2></div>
+        <div class="list" id="archive-list"></div>
+      </div>
+      <div class="card">
+        <div class="section-head"><h2>Duplicate recommendations</h2></div>
+        <div class="list" id="duplicate-list"></div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px;">
+      <div class="section-head"><h2>Scoring config</h2></div>
+      <textarea id="criteria-editor"></textarea>
+      <div class="actions" style="margin-top:12px;">
+        <button id="save-criteria-button" type="button">Save scoring config</button>
+      </div>
+    </section>
   </div>
 
   <script>
     const fmt = new Intl.NumberFormat('en-GB');
-
-    function pillClass(status) {
-      return (status || '').toLowerCase();
-    }
-
-    function setText(id, value) {
-      document.getElementById(id).textContent = value;
-    }
 
     function escapeHtml(text) {
       return String(text || '')
@@ -264,282 +135,81 @@
         .replaceAll("'", '&#039;');
     }
 
-    function renderAgents(agents) {
-      const root = document.getElementById('agent-grid');
-      root.innerHTML = agents.map(agent => `
-        <article class="agent-card">
-          <div class="agent-head">
-            <div>
-              <div class="eyebrow">${escapeHtml(agent.region || '')}</div>
-              <h3>${escapeHtml(agent.name || 'Agent')}</h3>
-            </div>
-            <span class="pill ${pillClass(agent.status)}">${escapeHtml(agent.status || 'planned')}</span>
-          </div>
-          <p class="muted">${escapeHtml(agent.scope || '')}</p>
-          <div class="metrics">
-            <div class="metric"><span>Queue</span><strong>${fmt.format(agent.queue_count || 0)}</strong></div>
-            <div class="metric"><span>Processed</span><strong>${fmt.format(agent.processed_today || 0)}</strong></div>
-            <div class="metric"><span>Errors</span><strong>${fmt.format(agent.errors_today || 0)}</strong></div>
-          </div>
-        </article>
-      `).join('');
+    function setText(id, value) {
+      document.getElementById(id).textContent = value;
     }
 
-    function renderFindings(findings) {
-      const root = document.getElementById('finding-list');
-      root.innerHTML = findings.slice(0, 8).map(item => `
-        <div class="finding">
-          <div class="finding-top">
-            <strong>${escapeHtml(item.rule_id || '')}</strong>
-            <span class="severity ${escapeHtml((item.severity || 'medium').toLowerCase())}">${escapeHtml(item.severity || '')}</span>
-          </div>
-          <div><strong>${escapeHtml(item.summary || '')}</strong></div>
-          <div class="muted" style="margin-top:8px;">${escapeHtml(item.suggested_action || '')}</div>
+    function setStatus(message, kind='') {
+      const el = document.getElementById('status');
+      el.className = `status ${kind}`.trim();
+      el.textContent = message;
+    }
+
+    function renderUploads(items) {
+      document.getElementById('upload-list').innerHTML = items.slice(0, 5).map(item => `
+        <div class="item">
+          <strong>${escapeHtml(item.filename || 'Upload')}</strong>
+          <div class="muted small">${fmt.format(item.row_count || 0)} rows, ${escapeHtml(item.status || 'queued')}</div>
         </div>
-      `).join('') || '<div class="muted">No findings yet.</div>';
+      `).join('') || '<div class="muted small">No uploads yet.</div>';
     }
 
-    function renderLeads(leads) {
-      const root = document.getElementById('lead-table');
-      root.innerHTML = leads.map(item => `
-        <tr>
-          <td>${escapeHtml(item.title || '')}</td>
-          <td>${escapeHtml((item.recommendation || '').replaceAll('_', ' '))}</td>
-          <td>${item.score ?? ''}</td>
-          <td>${Math.round((item.confidence || 0) * 100)}%</td>
-          <td>${escapeHtml(item.website || '')}</td>
-        </tr>
-      `).join('') || '<tr><td colspan="5">No lead sample yet.</td></tr>';
-    }
-
-    function renderRules(ruleCounts) {
-      const root = document.getElementById('rule-stats');
-      const entries = Object.entries(ruleCounts || {});
-      root.innerHTML = entries.map(([name, count]) => `
-        <div class="mini-stat"><span>${escapeHtml(name)}</span><strong>${fmt.format(count)}</strong></div>
-      `).join('') || '<div class="mini-stat"><span>No rule data</span><strong>0</strong></div>';
-    }
-
-    function renderOwners(owners) {
-      const root = document.getElementById('owner-list');
-      const maxCount = Math.max(1, ...owners.map(item => item.finding_count || 0));
-      root.innerHTML = owners.slice(0, 6).map(owner => {
-        const width = Math.max(8, Math.round(((owner.finding_count || 0) / maxCount) * 100));
-        return `
-          <div class="owner-row">
-            <div>
-              <strong>${escapeHtml(owner.owner_name || 'Unassigned')}</strong><br>
-              <span class="muted">${escapeHtml(owner.owner_email || '')}</span>
-            </div>
-            <div class="bar-wrap"><div class="bar" style="width:${width}%"></div></div>
-            <strong>${fmt.format(owner.finding_count || 0)}</strong>
-          </div>
-        `;
-      }).join('') || '<div class="muted">No owner data yet.</div>';
-    }
-
-    function renderUploads(uploads) {
-      const root = document.getElementById('upload-list');
-      root.innerHTML = uploads.slice(0, 8).map(item => `
-        <div class="finding">
-          <div class="finding-top">
-            <div>
-              <strong>${escapeHtml(item.filename || '')}</strong><br>
-              <span class="muted">${fmt.format(item.row_count || 0)} rows, ${escapeHtml((item.headers || []).join(', '))}</span>
-            </div>
-            <span class="pill ${pillClass(item.status)}">${escapeHtml(item.status || 'queued')}</span>
-          </div>
-          <div class="muted">${escapeHtml(item.notes || '')}</div>
-          <div class="upload-actions" style="margin-top:12px;">
-            <button class="ghost small" onclick="deleteUpload('${escapeHtml(item.id || '')}')">Delete</button>
-          </div>
+    function renderQueue(items) {
+      document.getElementById('queue-list').innerHTML = items.slice(0, 6).map(item => `
+        <div class="item">
+          <strong>${escapeHtml(item.company || 'Row')}</strong>
+          <div class="muted small">${escapeHtml(item.website || 'No website')} ${item.assigned_owner ? '• owner ' + escapeHtml(item.assigned_owner) : ''}</div>
         </div>
-      `).join('') || '<div class="muted">No CSVs uploaded yet.</div>';
+      `).join('') || '<div class="muted small">No queue items yet.</div>';
     }
 
-    function renderQueue(queue) {
-      const root = document.getElementById('queue-list');
-      root.innerHTML = queue.slice(0, 8).map(item => `
-        <div class="queue-row">
-          <div>
-            <strong>${escapeHtml(item.company || item.contact_full_name || item.source_filename || 'Untitled')}</strong><br>
-            <span class="muted">${escapeHtml(item.country || 'No country')} ${item.state ? '• ' + escapeHtml(item.state) : ''} ${item.assigned_owner ? '• owner ' + escapeHtml(item.assigned_owner) : ''}</span>
-          </div>
-          <div>
-            <div class="muted">${escapeHtml(item.assigned_agent || 'unassigned')}</div>
-            <strong>${escapeHtml(item.next_step || '')}</strong>
-          </div>
-          <span class="pill queued">${escapeHtml(item.status || 'queued')}</span>
-        </div>
-      `).join('') || '<div class="muted">No AI BDR queue items yet.</div>';
-    }
-
-    function renderApollo(items) {
-      const root = document.getElementById('apollo-list');
-      root.innerHTML = items.slice(0, 8).map(item => `
-        <div class="apollo-row">
-          <div>
-            <strong>${escapeHtml(item.company || item.website_domain || 'Untitled')}</strong><br>
-            <span class="muted">${escapeHtml(item.website_domain || item.website || '')}</span>
-          </div>
-          <div>
-            <div class="muted">Org matches: ${fmt.format((item.apollo_organizations || []).length)}</div>
-            <strong>People: ${fmt.format((item.apollo_people || []).length)}</strong>
-          </div>
-          <span class="pill ${((item.apollo_people || []).length || (item.apollo_organizations || []).length) ? 'processed' : 'planned'}">${((item.apollo_people || []).length || (item.apollo_organizations || []).length) ? 'match' : 'no match'}</span>
-        </div>
-      `).join('') || '<div class="muted">No Apollo preview data yet.</div>';
-    }
-
-    function renderCriteria(criteria) {
-      const root = document.getElementById('criteria-list');
-      const rules = criteria.rules || [];
-      document.getElementById('criteria-editor').value = JSON.stringify(criteria, null, 2);
-      root.innerHTML = [`<div class="criteria-row"><strong>Base score</strong><div class="muted">${fmt.format(criteria.base_score || 0)} points before rule bonuses</div></div>`]
-        .concat(rules.map(rule => `<div class="criteria-row"><strong>+${fmt.format(rule.points || 0)}</strong><div class="muted">${escapeHtml(rule.when || '')}</div></div>`))
-        .join('') || '<div class="muted">No criteria loaded.</div>';
-    }
-
-    function renderBatch(batch) {
-      const root = document.getElementById('batch-list');
-      const results = batch.results || [];
-      root.innerHTML = results.map(item => `
-        <div class="finding">
-          <div class="finding-top">
-            <strong>${escapeHtml(item.lead_title || item.source_company || 'Created lead')}</strong>
-            <span class="pill processed">${fmt.format(item.score || 0)}</span>
-          </div>
-          <div class="muted">Owner: ${escapeHtml(item.owner_name || '')} • State: ${escapeHtml(item.state || '')}</div>
-        </div>
-      `).join('') || '<div class="muted">No batch results yet.</div>';
-    }
-
-    function renderHistory(history) {
-      const root = document.getElementById('history-list');
-      root.innerHTML = history.map(item => `
-        <div class="finding">
-          <div class="finding-top">
-            <strong>${escapeHtml(item.ran_at || 'Run')}</strong>
-            <span class="pill ${item.paused ? 'planned' : 'processed'}">${item.paused ? 'paused' : 'active'}</span>
-          </div>
-          <div class="muted">Created ${fmt.format(item.created || 0)}, skips ${fmt.format((item.skips || []).length)}, errors ${fmt.format((item.errors || []).length)}</div>
-          ${((item.skips || []).slice(0,3)).map(skip => `<div class="muted" style="margin-top:6px;">• ${escapeHtml(skip)}</div>`).join('')}
-          ${item.pause_reason ? `<div class="muted" style="margin-top:6px;">Pause reason: ${escapeHtml(item.pause_reason)}</div>` : ''}
-        </div>
-      `).join('') || '<div class="muted">No run history yet.</div>';
-    }
-
-    function renderSalesOpsSummary(summary) {
-      const root = document.getElementById('sales-ops-summary');
-      root.innerHTML = `
-        <div class="mini-stats">
-          <div class="mini-stat"><span>Archive recommendations</span><strong>${fmt.format(summary.archive_recommendations || 0)}</strong></div>
-          <div class="mini-stat"><span>Organisation duplicate clusters</span><strong>${fmt.format(summary.organisation_duplicate_clusters || 0)}</strong></div>
-          <div class="mini-stat"><span>Person duplicate clusters</span><strong>${fmt.format(summary.person_duplicate_clusters || 0)}</strong></div>
-          <div class="mini-stat"><span>Lead duplicate clusters</span><strong>${fmt.format(summary.lead_duplicate_clusters || 0)}</strong></div>
-        </div>
-        <div class="muted" style="margin-top:12px;">Mode: ${escapeHtml(summary.disqualification_mode || 'recommend_only')} / ${escapeHtml(summary.duplicate_mode || 'recommend_only')}</div>
+    function renderSummary(data) {
+      const s = data.sales_ops_summary || {};
+      const totalDupes = (s.organisation_duplicate_clusters || 0) + (s.person_duplicate_clusters || 0) + (s.lead_duplicate_clusters || 0);
+      document.getElementById('summary-list').innerHTML = `
+        <div class="item"><strong>Sales Ops</strong><div class="muted small">Archive recs: ${fmt.format(s.archive_recommendations || 0)}</div></div>
+        <div class="item"><strong>Duplicates</strong><div class="muted small">${fmt.format(totalDupes)} total clusters</div></div>
+        <div class="item"><strong>Modes</strong><div class="muted small">${escapeHtml(s.disqualification_mode || 'recommend_only')} / ${escapeHtml(s.duplicate_mode || 'recommend_only')}</div></div>
       `;
     }
 
-    function renderArchiveCandidates(payload) {
-      const root = document.getElementById('archive-list');
-      const items = payload.archive_candidates || [];
-      root.innerHTML = items.slice(0, 8).map(item => `
-        <div class="finding">
-          <div class="finding-top">
-            <strong>${escapeHtml(item.title || 'Lead')}</strong>
-            <span class="pill queued">${fmt.format(item.score || 0)}</span>
-          </div>
-          <div class="muted">Confidence ${escapeHtml(item.confidence || 0)} • ${escapeHtml(item.website || 'no website')}</div>
-          <div class="muted" style="margin-top:6px;">${escapeHtml((item.disqualify_signals || []).slice(0,4).join(', ') || item.reason || 'No disqualify signals captured')}</div>
+    function renderArchive(items) {
+      document.getElementById('archive-list').innerHTML = items.slice(0, 5).map(item => `
+        <div class="item">
+          <strong>${escapeHtml(item.title || 'Lead')}</strong>
+          <span class="pill warn">Score ${fmt.format(item.score || 0)}</span>
+          <div class="muted small" style="margin-top:8px;">${escapeHtml((item.disqualify_signals || []).slice(0,3).join(', ') || item.reason || 'No reason captured')}</div>
         </div>
-      `).join('') || '<div class="muted">No archive recommendations yet.</div>';
+      `).join('') || '<div class="muted small">No archive recommendations yet.</div>';
     }
 
-    function renderDuplicateRecommendations(payload) {
-      const root = document.getElementById('duplicate-list');
-      const groups = []
-        .concat((payload.organisation_duplicates || []).slice(0, 3))
-        .concat((payload.person_duplicates || []).slice(0, 3))
-        .concat((payload.lead_duplicates || []).slice(0, 3));
-      root.innerHTML = groups.map(item => `
-        <div class="finding">
-          <div class="finding-top">
-            <strong>${escapeHtml(item.type || 'duplicate')} cluster</strong>
-            <span class="pill planned">${escapeHtml(item.confidence || 0)}</span>
-          </div>
-          <div class="muted">Keep: ${escapeHtml((item.survivor || {}).name || (item.survivor || {}).id || 'record')}</div>
-          <div class="muted" style="margin-top:6px;">Merge ${fmt.format((item.duplicates || []).length)} duplicate record(s) • ${escapeHtml(item.reason || '')}</div>
+    function renderDuplicates(payload) {
+      const items = []
+        .concat((payload.organisation_duplicates || []).slice(0, 2))
+        .concat((payload.person_duplicates || []).slice(0, 2))
+        .concat((payload.lead_duplicates || []).slice(0, 2));
+      document.getElementById('duplicate-list').innerHTML = items.map(item => `
+        <div class="item">
+          <strong>${escapeHtml(item.type || 'duplicate')} cluster</strong>
+          <div class="muted small">Keep ${escapeHtml((item.survivor || {}).name || (item.survivor || {}).id || 'record')} and review ${fmt.format((item.duplicates || []).length)} duplicate record(s)</div>
         </div>
-      `).join('') || '<div class="muted">No duplicate recommendations yet.</div>';
-    }
-
-    function renderNextActions(actions) {
-      const root = document.getElementById('next-action-list');
-      root.innerHTML = actions.map(item => `
-        <div class="action-card">
-          <div class="finding-top">
-            <strong>${escapeHtml(item.title || '')}</strong>
-            <strong class="big">${fmt.format(item.value || 0)}</strong>
-          </div>
-          <div class="muted">${escapeHtml(item.detail || '')}</div>
-        </div>
-      `).join('') || '<div class="muted">No actions surfaced yet.</div>';
-    }
-
-    function renderBlockers(blockers) {
-      const root = document.getElementById('blocker-list');
-      root.innerHTML = blockers.map(item => `
-        <div class="finding">
-          <div><strong>${escapeHtml(item.title || '')}</strong></div>
-          <div class="muted" style="margin-top:8px;">${escapeHtml(item.detail || '')}</div>
-        </div>
-      `).join('') || '<div class="muted">No blockers surfaced right now.</div>';
+      `).join('') || '<div class="muted small">No duplicate recommendations yet.</div>';
     }
 
     async function loadOverview() {
       const response = await fetch('/api/overview');
       const data = await response.json();
-      setText('hero-posture', `${data.summary.active_agents} live, ${data.summary.total_agents - data.summary.active_agents} queued`);
-      setText('hero-sub', `${fmt.format(data.summary.findings)} findings, ${fmt.format(data.summary.owners)} owners impacted`);
-      setText('hero-uploads', `${fmt.format(data.summary.uploads)} uploads`);
-      setText('hero-queue-sub', `${fmt.format(data.summary.intake_queue)} rows ready for AI BDR qualification`);
-      setText('kpi-findings', fmt.format(data.summary.findings));
-      setText('kpi-findings-sub', `${fmt.format(data.summary.medium_findings)} medium, ${fmt.format(data.summary.low_findings)} low`);
-      setText('kpi-owners', fmt.format(data.summary.owners));
-      setText('kpi-leads', fmt.format(data.summary.lead_samples));
-      setText('kpi-uploads', fmt.format(data.summary.uploads));
-      setText('kpi-intake', fmt.format(data.summary.intake_queue));
-      setText('kpi-high-priority', fmt.format(data.summary.queue_high_priority || 0));
-      setText('kpi-high-priority-sub', `${fmt.format(data.summary.queue_owner_assigned || 0)} owner assigned, ${fmt.format(data.summary.queue_needs_website || 0)} need website recovery`);
-      setText('kpi-apollo', fmt.format(data.summary.apollo_preview_scanned || 0));
-      setText('kpi-apollo-sub', `${fmt.format(data.summary.apollo_org_hits || 0)} org hits, ${fmt.format(data.summary.apollo_people_hits || 0)} people hits`);
-      setText('kpi-batch', fmt.format(data.summary.batch_created || 0));
-      setText('kpi-batch-sub', `${fmt.format((data.bdr_batch || {}).errors?.length || 0)} errors in latest run`);
-      setText('kpi-skips', fmt.format(data.summary.batch_skips || 0));
-      setText('kpi-skips-sub', `${fmt.format(data.summary.batch_errors || 0)} errors, latest run skip reasons tracked`);
+      const dupes = (data.summary.organisation_duplicate_clusters || 0) + (data.summary.person_duplicate_clusters || 0) + (data.summary.lead_duplicate_clusters || 0);
+      setText('kpi-uploads', fmt.format(data.summary.uploads || 0));
+      setText('kpi-queue', fmt.format(data.summary.intake_queue || 0));
       setText('kpi-archive', fmt.format(data.summary.archive_recommendations || 0));
-      setText('kpi-archive-sub', `${escapeHtml((data.sales_ops_disqualification || {}).mode || 'recommend_only')} mode`);
-      const dupTotal = (data.summary.organisation_duplicate_clusters || 0) + (data.summary.person_duplicate_clusters || 0) + (data.summary.lead_duplicate_clusters || 0);
-      setText('kpi-duplicates', fmt.format(dupTotal));
-      setText('kpi-duplicates-sub', `${fmt.format(data.summary.organisation_duplicate_clusters || 0)} org, ${fmt.format(data.summary.person_duplicate_clusters || 0)} people, ${fmt.format(data.summary.lead_duplicate_clusters || 0)} leads`);
-      renderNextActions(data.next_actions || []);
-      renderAgents(data.agents || []);
-      renderFindings(data.findings || []);
-      renderLeads(data.lead_samples || []);
-      renderRules(data.rule_counts || {});
-      renderOwners(data.owners || []);
+      setText('kpi-duplicates', fmt.format(dupes));
       renderUploads(data.uploads || []);
       renderQueue(data.intake_queue || []);
-      renderApollo((data.apollo_preview || {}).items || []);
-      renderCriteria(data.qualification_criteria || {});
-      renderBatch(data.bdr_batch || {});
-      renderHistory(data.bdr_history || []);
-      renderSalesOpsSummary(data.sales_ops_summary || {});
-      renderArchiveCandidates(data.sales_ops_disqualification || {});
-      renderDuplicateRecommendations(data.sales_ops_duplicates || {});
-      renderBlockers(data.blockers || []);
+      renderSummary(data);
+      renderArchive((data.sales_ops_disqualification || {}).archive_candidates || []);
+      renderDuplicates(data.sales_ops_duplicates || {});
+      document.getElementById('criteria-editor').value = JSON.stringify(data.qualification_criteria || {}, null, 2);
     }
 
     async function uploadCsv(file) {
@@ -558,6 +228,13 @@
       return payload;
     }
 
+    async function runSalesOps() {
+      const response = await fetch('/api/run-sales-ops', { method:'POST' });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.detail || payload.error || 'Sales Ops worker failed');
+      return payload;
+    }
+
     async function saveCriteria(payload) {
       const response = await fetch('/api/qualification-criteria', {
         method:'POST',
@@ -569,50 +246,21 @@
       return result;
     }
 
-    async function runSalesOps() {
-      const response = await fetch('/api/run-sales-ops', { method:'POST' });
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.detail || payload.error || 'Sales Ops worker failed');
-      return payload;
-    }
-
-    async function deleteUpload(id) {
-      if (!confirm('Delete this upload and remove its queued rows?')) return;
-      const status = document.getElementById('upload-status');
-      status.className = 'status-line';
-      status.textContent = 'Deleting upload...';
-      try {
-        const response = await fetch(`/api/uploads?id=${encodeURIComponent(id)}`, { method:'DELETE' });
-        const payload = await response.json();
-        if (!response.ok) throw new Error(payload.detail || payload.error || 'Delete failed');
-        status.className = 'status-line ok';
-        status.textContent = 'Upload deleted.';
-        await loadOverview();
-      } catch (error) {
-        status.className = 'status-line err';
-        status.textContent = error.message;
-      }
-    }
-
     document.getElementById('upload-form').addEventListener('submit', async (event) => {
       event.preventDefault();
       const fileInput = document.getElementById('csv-file');
       const button = document.getElementById('upload-button');
-      const status = document.getElementById('upload-status');
       const file = fileInput.files[0];
       if (!file) return;
       button.disabled = true;
-      status.className = 'status-line';
-      status.textContent = 'Uploading CSV...';
+      setStatus('Uploading CSV...');
       try {
         const result = await uploadCsv(file);
-        status.className = 'status-line ok';
-        status.textContent = `Uploaded ${result.filename}, ${fmt.format(result.row_count || 0)} rows staged.`;
+        setStatus(`Uploaded ${result.filename}, ${fmt.format(result.row_count || 0)} rows staged.`, 'ok');
         fileInput.value = '';
         await loadOverview();
       } catch (error) {
-        status.className = 'status-line err';
-        status.textContent = error.message;
+        setStatus(error.message, 'err');
       } finally {
         button.disabled = false;
       }
@@ -620,60 +268,47 @@
 
     document.getElementById('process-button').addEventListener('click', async () => {
       const button = document.getElementById('process-button');
-      const status = document.getElementById('upload-status');
       button.disabled = true;
-      status.className = 'status-line';
-      status.textContent = 'Building AI BDR intake queue...';
+      setStatus('Building queue...');
       try {
         const result = await processUploads();
-        status.className = 'status-line ok';
-        status.textContent = `Processed ${fmt.format(result.processed_jobs || 0)} uploads and added ${fmt.format(result.items_added || 0)} queue rows.`;
+        setStatus(`Processed ${fmt.format(result.processed_jobs || 0)} uploads and added ${fmt.format(result.items_added || 0)} rows.`, 'ok');
         await loadOverview();
       } catch (error) {
-        status.className = 'status-line err';
-        status.textContent = error.message;
+        setStatus(error.message, 'err');
       } finally {
         button.disabled = false;
-      }
-    });
-
-    document.getElementById('refresh-button').addEventListener('click', loadOverview);
-
-    document.getElementById('save-criteria-button').addEventListener('click', async () => {
-      const status = document.getElementById('upload-status');
-      status.className = 'status-line';
-      status.textContent = 'Saving scoring config...';
-      try {
-        const payload = JSON.parse(document.getElementById('criteria-editor').value);
-        await saveCriteria(payload);
-        status.className = 'status-line ok';
-        status.textContent = 'Scoring config saved.';
-        await loadOverview();
-      } catch (error) {
-        status.className = 'status-line err';
-        status.textContent = error.message;
       }
     });
 
     document.getElementById('sales-ops-button').addEventListener('click', async () => {
       const button = document.getElementById('sales-ops-button');
-      const status = document.getElementById('upload-status');
       button.disabled = true;
-      status.className = 'status-line';
-      status.textContent = 'Running Sales Ops workers...';
+      setStatus('Running Sales Ops workers...');
       try {
         const result = await runSalesOps();
-        status.className = 'status-line ok';
-        status.textContent = `Sales Ops workers ran. ${fmt.format(result.archive_recommendations || 0)} archive recommendations, ${fmt.format((result.organisation_duplicate_clusters || 0) + (result.person_duplicate_clusters || 0) + (result.lead_duplicate_clusters || 0))} duplicate clusters.`;
+        const dupes = (result.organisation_duplicate_clusters || 0) + (result.person_duplicate_clusters || 0) + (result.lead_duplicate_clusters || 0);
+        setStatus(`Sales Ops workers ran. ${fmt.format(result.archive_recommendations || 0)} archive recs, ${fmt.format(dupes)} duplicate clusters.`, 'ok');
         await loadOverview();
       } catch (error) {
-        status.className = 'status-line err';
-        status.textContent = error.message;
+        setStatus(error.message, 'err');
       } finally {
         button.disabled = false;
       }
     });
 
+    document.getElementById('save-criteria-button').addEventListener('click', async () => {
+      try {
+        setStatus('Saving scoring config...');
+        await saveCriteria(JSON.parse(document.getElementById('criteria-editor').value));
+        setStatus('Scoring config saved.', 'ok');
+        await loadOverview();
+      } catch (error) {
+        setStatus(error.message, 'err');
+      }
+    });
+
+    document.getElementById('refresh-button').addEventListener('click', loadOverview);
     loadOverview();
   </script>
 </body>
