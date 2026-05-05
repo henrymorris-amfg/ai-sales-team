@@ -20,6 +20,7 @@ from .customer_registry import build_customer_registry
 
 ROOT = Path(__file__).resolve().parents[1]
 UPLOAD_CSV = ROOT / "uploads" / "NorthOhio100.csv"
+QUEUE_FILE = ROOT / "output" / "bdr-intake-queue.json"
 QUALIFICATION_FILE = ROOT / "config" / "qualification-criteria.json"
 SOURCE_INGEST_FILE = ROOT / "config" / "source-ingest.json"
 AUTOMATION_CONFIG_FILE = ROOT / "config" / "automation-config.json"
@@ -108,6 +109,27 @@ def save_qualification_criteria(payload: dict[str, Any]) -> dict[str, Any]:
 def _load_rows() -> list[dict[str, str]]:
     with UPLOAD_CSV.open("r", encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def _load_queue_items() -> list[dict[str, Any]]:
+    if not QUEUE_FILE.exists():
+        return []
+    return json.loads(QUEUE_FILE.read_text(encoding="utf-8"))
+
+
+def _save_queue_items(items: list[dict[str, Any]]) -> None:
+    QUEUE_FILE.write_text(json.dumps(items, indent=2), encoding="utf-8")
+
+
+def _update_queue_item(queue_id: str | None, **changes: Any) -> None:
+    if not queue_id:
+        return
+    items = _load_queue_items()
+    for item in items:
+        if item.get("queue_id") == queue_id:
+            item.update(changes)
+            break
+    _save_queue_items(items)
 
 
 def source_ingest_config() -> dict[str, Any]:
@@ -223,16 +245,33 @@ def _apollo_person_detail(api_key: str, person_id: str) -> dict[str, Any]:
 def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[str, Any]:
     apollo = load_apollo_client()
     ignore_rows = {int(value) for value in source_ingest_config().get("ignore_row_numbers", [])}
-    for row_number, row in enumerate(_load_rows(), start=1):
+    queue_candidates: list[tuple[int | None, dict[str, Any], dict[str, str]]] = []
+    for item in _load_queue_items():
+        if item.get("status") != "queued":
+            continue
+        row = dict(item.get("raw") or {})
+        row.setdefault("Company Name", item.get("company") or "")
+        row.setdefault("Website", item.get("website") or "")
+        row.setdefault("Address", item.get("source_address") or "")
+        queue_candidates.append((None, item, row))
+    row_iterable = queue_candidates or [(index, {}, row) for index, row in enumerate(_load_rows(), start=1)]
+
+    for row_number, queue_item, row in row_iterable:
         if row_number in ignore_rows:
             continue
         company = (row.get("Company Name") or "").strip()
         if not company:
             continue
         if is_customer(company=company, website=row.get("Website") or ""):
+            _update_queue_item(queue_item.get("queue_id"), status="excluded_customer", next_step="skip_existing_customer", excluded_reason="Existing customer from won deals list")
             continue
 
-        people = apollo.search_people(organization_name=company, titles=PRIORITY_TITLES, per_page=5).get("people") or []
+        people = apollo.search_people(
+            organization_name=company,
+            domain=_normalise_domain(row.get("Website") or ""),
+            titles=PRIORITY_TITLES,
+            per_page=10,
+        ).get("people") or []
         for person in people:
             detail = _apollo_person_detail(apollo.api_key, person["id"])
             org = detail.get("organization") or {}
@@ -266,6 +305,7 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
             if person_dupes:
                 continue
             return {
+                "queue_id": queue_item.get("queue_id") if queue_item else None,
                 "sheet_row": row,
                 "apollo_person": detail,
                 "apollo_org": org,
@@ -372,9 +412,11 @@ def run() -> dict[str, Any]:
     apollo_org = candidate["apollo_org"]
     score, reasons, site_review = _score_candidate(row, apollo_org, apollo_person)
     if is_customer(company=row.get("Company Name") or apollo_org.get("name") or "", website=apollo_org.get("website_url") or row.get("Website") or ""):
+        _update_queue_item(candidate.get("queue_id"), status="excluded_customer", next_step="skip_existing_customer", excluded_reason="Existing customer from won deals list")
         raise RuntimeError(f"Lead skipped: existing customer {row.get('Company Name') or apollo_org.get('name')}")
     min_score = ((automation_config().get("batch") or {}).get("min_score") or 0)
     if score < min_score:
+        _update_queue_item(candidate.get("queue_id"), status="scored_below_threshold", next_step="manual_review", last_score=score)
         raise RuntimeError(f"Lead skipped: score {score} below threshold {min_score} for {row.get('Company Name')}")
     org_dupes = candidate.get("org_dupes") or []
     existing_org = ((org_dupes[0] or {}).get("item") or {}) if org_dupes else None
@@ -412,6 +454,7 @@ def run() -> dict[str, Any]:
     lead_payload = {k: v for k, v in lead_payload.items() if v is not None and v != ""}
     existing_lead = _find_lead_dupe(client, organisation, row.get("Company Name") or organisation.get("name") or "")
     if existing_lead:
+        _update_queue_item(candidate.get("queue_id"), status="duplicate_lead", next_step="skip_duplicate", existing_lead_id=existing_lead.get("id"))
         raise RuntimeError(f"Lead duplicate detected for organisation {organisation.get('name')}, existing lead {existing_lead.get('id')}")
     lead = client.create_lead(lead_payload)
 
@@ -451,6 +494,17 @@ def run() -> dict[str, Any]:
         "used_existing_org": bool(existing_org),
         "site_review": site_review,
     }
+    _update_queue_item(
+        candidate.get("queue_id"),
+        status="created",
+        next_step="done",
+        created_lead_id=lead.get("id"),
+        created_person_id=person.get("id"),
+        created_org_id=organisation.get("id"),
+        assigned_owner=candidate.get("owner_name"),
+        assigned_agent=candidate.get("assigned_agent"),
+        last_score=score,
+    )
     target = ROOT / "output" / "bdr-full-flow-result.json"
     target.write_text(json.dumps(result, indent=2), encoding="utf-8")
     return result

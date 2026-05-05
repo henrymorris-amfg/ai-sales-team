@@ -61,13 +61,18 @@ def run_batch(limit: int | None = None) -> dict:
             )
         except Exception as exc:
             message = str(exc)
+            if "429" in message or "too many requests" in message.lower():
+                errors.append(f"Transient Apollo rate limit: {message}")
+                break
             if message.startswith("Lead skipped:") or "duplicate" in message.lower():
                 skips.append(message)
                 continue
             errors.append(message)
             break
 
-    if errors:
+    transient_rate_limit = bool(errors and all("Transient Apollo rate limit:" in item for item in errors))
+
+    if errors and not transient_rate_limit:
         state["consecutive_error_runs"] = int(state.get("consecutive_error_runs", 0)) + 1
     else:
         state["consecutive_error_runs"] = 0
@@ -85,7 +90,7 @@ def run_batch(limit: int | None = None) -> dict:
         state["pause_reason"] = f"{safety.get('pause_reason_prefix', 'AUTO_PAUSED')}: too many consecutive duplicate-only runs"
     else:
         state["paused"] = False
-        state["pause_reason"] = None
+        state["pause_reason"] = "Transient Apollo rate limit, will retry next run" if transient_rate_limit else None
 
     payload = {
         "created": len(results),

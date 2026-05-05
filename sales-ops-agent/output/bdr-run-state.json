@@ -1,6 +1,6 @@
 {
   "paused": false,
-  "pause_reason": null,
-  "consecutive_error_runs": 1,
+  "pause_reason": "Transient Apollo rate limit, will retry next run",
+  "consecutive_error_runs": 0,
   "consecutive_duplicate_runs": 0
 }

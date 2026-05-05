@@ -4,8 +4,9 @@ import csv
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+import re
 
-from .territory_map import assign_owner
+from .territory_map import assign_owner, assign_agent
 from .customer_registry import is_customer
 from .customer_registry import build_customer_registry
 
@@ -39,6 +40,27 @@ ALIASES = {
     "linkedin": ["linkedin", "linkedin_url", "linkedin url"],
 }
 
+KNOWN_STATES = {
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming", "ontario", "quebec", "british columbia", "alberta", "manitoba", "saskatchewan", "nova scotia", "new brunswick"
+}
+
+
+def _infer_country_state(row: dict) -> tuple[str, str]:
+    country = _pick(row, ALIASES["country"])
+    state = _pick(row, ALIASES["state"])
+    if country or state:
+        return country, state
+    address = " ".join(str(v or "") for k, v in row.items() if "address" in str(k).lower()) or str(row.get("Address") or "")
+    lowered = address.lower()
+    found_state = next((name.title() for name in sorted(KNOWN_STATES, key=len, reverse=True) if name in lowered), "")
+    if country:
+        return country, found_state
+    if re.search(r"\b(canada|ontario|quebec|alberta|british columbia|manitoba|saskatchewan|nova scotia|new brunswick)\b", lowered):
+        return "Canada", found_state
+    if found_state:
+        return "United States", found_state
+    return "", ""
+
 
 def _pick(row: dict, keys: list[str]) -> str:
     lowered = {str(k).strip().lower(): v for k, v in row.items()}
@@ -58,18 +80,10 @@ def _normalize_row(row: dict, upload_id: str, filename: str, index: int) -> dict
 
     company = _pick(row, ALIASES["company"])
     website = _pick(row, ALIASES["website"])
-    country = _pick(row, ALIASES["country"])
-    state = _pick(row, ALIASES["state"])
+    country, state = _infer_country_state(row)
     owner = assign_owner(country, state)
+    assigned_agent = assign_agent(country, state)
     customer_blocked = is_customer(company=company, website=website)
-
-    routing_region = "unassigned"
-    if country.lower() in {"usa", "us", "united states", "canada"}:
-        routing_region = "bdr-us-ca"
-    elif country.lower() in {"uk", "united kingdom", "ireland"}:
-        routing_region = "bdr-uk-ie"
-    elif country:
-        routing_region = "bdr-eu"
 
     website_status = "ready"
     if not website:
@@ -92,7 +106,7 @@ def _normalize_row(row: dict, upload_id: str, filename: str, index: int) -> dict
         "email": _pick(row, ALIASES["email"]),
         "phone": _pick(row, ALIASES["phone"]),
         "linkedin": _pick(row, ALIASES["linkedin"]),
-        "assigned_agent": routing_region,
+        "assigned_agent": assigned_agent,
         "assigned_owner": owner,
         "routing_status": "excluded_customer" if customer_blocked else ("owner_assigned" if owner else "owner_unassigned"),
         "website_status": website_status,
@@ -100,6 +114,7 @@ def _normalize_row(row: dict, upload_id: str, filename: str, index: int) -> dict
         "priority": "excluded" if customer_blocked else ("high" if website and owner else "medium"),
         "next_step": "skip_existing_customer" if customer_blocked else "qualify_and_enrich",
         "excluded_reason": "Existing customer from won deals list" if customer_blocked else None,
+        "source_address": str(row.get("Address") or ""),
         "raw": row,
     }
 
@@ -115,6 +130,17 @@ def process_uploads() -> dict:
             item["priority"] = "excluded"
             item["next_step"] = "skip_existing_customer"
             item["excluded_reason"] = "Existing customer from won deals list"
+        elif not item.get("assigned_owner") or item.get("assigned_owner") == "unassigned":
+            inferred_country, inferred_state = _infer_country_state(item.get("raw") or {"Address": item.get("source_address") or ""})
+            item["country"] = item.get("country") or inferred_country
+            item["state"] = item.get("state") or inferred_state
+            item["assigned_owner"] = assign_owner(item.get("country"), item.get("state"))
+            item["assigned_agent"] = assign_agent(item.get("country"), item.get("state"))
+            item["routing_status"] = "owner_assigned" if item.get("assigned_owner") else "owner_unassigned"
+            item["priority"] = "high" if item.get("website") and item.get("assigned_owner") else item.get("priority") or "medium"
+        if not item.get("assigned_owner"):
+            item["assigned_owner"] = assign_owner(item.get("country"), item.get("state"))
+            item["routing_status"] = "owner_assigned"
     existing_ids = {item.get("queue_id") for item in existing_queue}
     added = []
     processed_jobs = 0

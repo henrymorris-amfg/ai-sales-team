@@ -3,12 +3,68 @@
     "created": 0,
     "results": [],
     "errors": [
+      "Transient Apollo rate limit: 429 Client Error: Too Many Requests for url: https://api.apollo.io/api/v1/mixed_people/api_search"
+    ],
+    "skips": [],
+    "source": {
+      "preferred_source_url": "https://www.thomasnet.com/suppliers/usa/cnc-machining-45330503?coverage_area=NA",
+      "ignore_row_numbers": [
+        8
+      ],
+      "fallback_source_url": "https://usamachineshops.com/?view=table"
+    },
+    "paused": false,
+    "pause_reason": "Transient Apollo rate limit, will retry next run",
+    "ran_at": "2026-05-05T19:35:41.745478+00:00"
+  },
+  {
+    "created": 0,
+    "results": [],
+    "errors": [
+      "No candidate found with Apollo match, no Pipedrive dupes, and a routable owner"
+    ],
+    "skips": [],
+    "source": {
+      "preferred_source_url": "https://www.thomasnet.com/suppliers/usa/cnc-machining-45330503?coverage_area=NA",
+      "ignore_row_numbers": [
+        8
+      ],
+      "fallback_source_url": "https://usamachineshops.com/?view=table"
+    },
+    "paused": true,
+    "pause_reason": "AUTO_PAUSED: too many consecutive error runs",
+    "ran_at": "2026-05-05T18:18:26.134744+00:00"
+  },
+  {
+    "created": 0,
+    "results": [],
+    "errors": [
+      "No candidate found with Apollo match, no Pipedrive dupes, and a routable owner"
+    ],
+    "skips": [],
+    "source": {
+      "preferred_source_url": "https://www.thomasnet.com/suppliers/usa/cnc-machining-45330503?coverage_area=NA",
+      "ignore_row_numbers": [
+        8
+      ],
+      "fallback_source_url": "https://usamachineshops.com/?view=table"
+    },
+    "paused": false,
+    "pause_reason": null,
+    "ran_at": "2026-05-05T17:18:26.776288+00:00"
+  },
+  {
+    "created": 0,
+    "results": [],
+    "errors": [
       "Lead duplicate detected for organisation Norman Noble, Inc., existing lead 647d98a0-85de-11ed-8f43-07de1078cd00"
     ],
     "skips": [],
     "source": {
       "preferred_source_url": "https://www.thomasnet.com/suppliers/usa/cnc-machining-45330503?coverage_area=NA",
-      "ignore_row_numbers": [8],
+      "ignore_row_numbers": [
+        8
+      ],
       "fallback_source_url": "https://usamachineshops.com/?view=table"
     },
     "paused": false,
