@@ -60,12 +60,17 @@ def build_preview(limit: int = 10) -> dict:
         domain = _domain_from_website(str(item.get("website") or ""))
         company = str(item.get("company") or "").strip()
         org_result = client.search_organizations(domain=domain, name=company, per_page=3)
-        people_result = client.search_people(
-            organization_name=company,
-            domain=domain,
-            titles=PRIORITY_TITLES,
-            per_page=5,
-        )
+        people_result = {}
+        people_error = ""
+        try:
+            people_result = client.search_people(
+                organization_name=company,
+                domain=domain,
+                titles=PRIORITY_TITLES,
+                per_page=5,
+            )
+        except Exception as exc:
+            people_error = str(exc)
 
         previews.append(
             {
@@ -77,6 +82,7 @@ def build_preview(limit: int = 10) -> dict:
                 "website_domain": domain,
                 "apollo_organizations": (org_result.get("organizations") or [])[:3],
                 "apollo_people": (people_result.get("people") or [])[:5],
+                "apollo_people_error": people_error,
             }
         )
 

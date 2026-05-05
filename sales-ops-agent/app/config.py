@@ -6,9 +6,19 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKSPACE = ROOT.parent
-SECRETS_FILE = WORKSPACE / ".secrets" / "pipedrive.env"
-APOLLO_SECRETS_FILE = WORKSPACE / ".secrets" / "apollo.env"
+WORKSPACE_CANDIDATES = [ROOT.parent, ROOT.parent.parent]
+
+
+def _find_secrets_file(filename: str) -> Path:
+    for base in WORKSPACE_CANDIDATES:
+        candidate = base / ".secrets" / filename
+        if candidate.exists():
+            return candidate
+    return WORKSPACE_CANDIDATES[0] / ".secrets" / filename
+
+
+SECRETS_FILE = _find_secrets_file("pipedrive.env")
+APOLLO_SECRETS_FILE = _find_secrets_file("apollo.env")
 
 
 def _load_env_file(path: Path) -> None:

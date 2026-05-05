@@ -4,6 +4,8 @@ from typing import Any
 
 import requests
 
+from . import config as _config  # noqa: F401  Ensures local secret env files are loaded.
+
 
 class ApolloClient:
     def __init__(self, api_key: str, api_base: str = "https://api.apollo.io/api/v1") -> None:
