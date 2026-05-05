@@ -1,30 +1,7 @@
 {
-  "created": 3,
-  "results": [
-    {
-      "lead_id": "9efcda10-4884-11f1-a85c-97e44ca8565d",
-      "lead_title": "QUALITY TOOL & STAMPING COMPANY, INC. - Engineering Manager",
-      "owner_name": "Toby",
-      "score": 40,
-      "state": "Michigan",
-      "source_company": "Quality Tool Company Inc"
-    },
-    {
-      "lead_id": "b416c4b0-4884-11f1-a8e4-5bd26a9f0420",
-      "lead_title": "Midway Swiss Turn, Inc. - General Manager",
-      "owner_name": "Callum",
-      "score": 85,
-      "state": "Ohio",
-      "source_company": "Midway Swiss Turn, Inc."
-    },
-    {
-      "lead_id": "d19c2430-4884-11f1-a85c-97e44ca8565d",
-      "lead_title": "Delco LLC - President",
-      "owner_name": "Callum",
-      "score": 45,
-      "state": "Ohio",
-      "source_company": "Delco LLC"
-    }
-  ],
-  "errors": []
+  "created": 0,
+  "results": [],
+  "errors": [
+    "Lead duplicate detected for organisation Delco LLC, existing lead d5d9f1c0-985f-11ef-aec2-a116e94f49b0"
+  ]
 }

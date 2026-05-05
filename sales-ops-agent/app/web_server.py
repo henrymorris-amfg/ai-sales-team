@@ -14,7 +14,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from .intake_queue import process_uploads
-from .bdr_full_flow import qualification_criteria
+from .bdr_full_flow import qualification_criteria, save_qualification_criteria
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -287,6 +287,17 @@ class Handler(BaseHTTPRequestHandler):
                 self._send_json(result, status=HTTPStatus.OK)
             except Exception as exc:
                 self._send_json({"error": "processing_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
+            return
+
+        if parsed.path == "/api/qualification-criteria":
+            content_length = int(self.headers.get("Content-Length", "0") or 0)
+            body = self.rfile.read(content_length)
+            try:
+                payload = json.loads(body.decode("utf-8"))
+                saved = save_qualification_criteria(payload)
+                self._send_json(saved)
+            except Exception as exc:
+                self._send_json({"error": "criteria_update_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
             return
 
         self._send_not_found()

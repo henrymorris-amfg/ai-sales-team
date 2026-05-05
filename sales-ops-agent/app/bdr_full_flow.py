@@ -17,6 +17,7 @@ from .territory_map import assign_owner
 
 ROOT = Path(__file__).resolve().parents[1]
 UPLOAD_CSV = ROOT / "uploads" / "NorthOhio100.csv"
+QUALIFICATION_FILE = ROOT / "config" / "qualification-criteria.json"
 HOMEPAGE_FIELD_KEY = "667dae8863844f07bf48be7af77ae678647c6afb"
 STATE_FIELD_KEY = "dd4be7e718da24b3254c4981d89b5eb6a5fb0192"
 CNC_LABEL_ID = "e028bea0-b37b-11ee-9581-d55a394d57f7"
@@ -90,25 +91,13 @@ KNOWN_STATES = sorted(STATE_OPTION_IDS.keys(), key=len, reverse=True)
 
 
 def qualification_criteria() -> dict[str, Any]:
-    return {
-        "base_score": 0,
-        "rules": [
-            {"points": 30, "when": "website or company evidence shows CNC machining"},
-            {"points": 15, "when": "website shows Request a Quote, Quote, or RFQ language"},
-            {"points": 10, "when": "website shows prototyping, contract manufacturing, build to print, or rapid turnaround"},
-            {"points": 15, "when": "website shows 5-axis capability"},
-            {"points": 5, "when": "website shows aerospace or defence work"},
-            {"points": 10, "when": "website shows ITAR"},
-            {"points": 5, "when": "website shows F1 or motorsport work"},
-            {"points": 10, "when": "website shows a capabilities or equipment page"},
-            {"points": 5, "when": "website shows DMG Mori, Mazak, Matsuura, Okuma, Hermle, or Haas"},
-            {"points": 10, "when": "website shows 3D printing"},
-            {"points": -20, "when": "website emphasizes sheet metal, fabrication, welding, bending, or stamping"},
-            {"points": -10, "when": "website emphasizes high volume or serial production"},
-            {"points": -5, "when": "website shows EDM"},
-        ],
-        "cap": {"min": 0, "max": 100},
-    }
+    return json.loads(QUALIFICATION_FILE.read_text(encoding="utf-8"))
+
+
+def save_qualification_criteria(payload: dict[str, Any]) -> dict[str, Any]:
+    QUALIFICATION_FILE.parent.mkdir(parents=True, exist_ok=True)
+    QUALIFICATION_FILE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    return payload
 
 
 def _load_rows() -> list[dict[str, str]]:
@@ -144,6 +133,10 @@ def _normalise_domain(value: str) -> str:
     return text.strip("/")
 
 
+def _normalise_name(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", (value or "").lower())
+
+
 def _find_org_dupes(client: PipedriveClient, org_name: str, website: str) -> list[dict[str, Any]]:
     terms = [org_name]
     domain = _normalise_domain(website)
@@ -176,6 +169,25 @@ def _pick_owner_id(client: PipedriveClient, owner_name: str | None) -> int | Non
         name = (user.get("name") or "").strip().lower()
         if target in name or name in target:
             return user.get("id")
+    return None
+
+
+def _find_lead_dupe(client: PipedriveClient, organisation: dict[str, Any], source_company: str) -> dict[str, Any] | None:
+    org_id = organisation.get("id")
+    org_name = organisation.get("name") or source_company
+    norm_org = _normalise_name(org_name)
+    norm_source = _normalise_name(source_company)
+    for lead in client.get_all_leads(limit=500):
+        if lead.get("is_archived"):
+            continue
+        lead_org_id = lead.get("organization_id") or lead.get("related_org_id")
+        title_norm = _normalise_name(lead.get("title") or "")
+        if org_id and str(lead_org_id) == str(org_id):
+            return lead
+        if norm_org and norm_org in title_norm:
+            return lead
+        if norm_source and norm_source in title_norm:
+            return lead
     return None
 
 
@@ -243,7 +255,8 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
 
 
 def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_person: dict[str, Any]) -> tuple[int, list[str]]:
-    score = qualification_criteria()["base_score"]
+    criteria = qualification_criteria()
+    score = criteria["base_score"]
     reasons: list[str] = []
     evidence_parts = [
         row.get("Description") or "",
@@ -259,47 +272,58 @@ def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_per
     def has_any(*tokens: str) -> bool:
         return any(token.lower() in evidence for token in tokens)
 
+    rules = {rule["key"]: rule for rule in criteria.get("rules", []) if rule.get("key")}
+
     if has_any("cnc machining", "cnc milling", "cnc turning", "precision machining", "machine shop"):
-        score += 30
+        score += rules["cnc_machining"]["points"]
         reasons.append("CNC machining evidence found")
     if has_any("request a quote", "quote", "rfq"):
-        score += 15
+        score += rules["quote_rfq"]["points"]
         reasons.append("quote or RFQ evidence found")
     if has_any("prototyp", "contract manufacturing", "build to print", "rapid turnaround"):
-        score += 10
+        score += rules["prototype_contract_build_to_print"]["points"]
         reasons.append("prototype or contract manufacturing evidence found")
     if has_any("5-axis", "5 axis"):
-        score += 15
+        score += rules["five_axis"]["points"]
         reasons.append("5-axis evidence found")
     if has_any("aerospace", "defence", "defense"):
-        score += 5
+        score += rules["aerospace_defence"]["points"]
         reasons.append("aerospace or defence evidence found")
     if has_any("itar"):
-        score += 10
+        score += rules["itar"]["points"]
         reasons.append("ITAR evidence found")
     if has_any("motorsport", "formula 1", "f1"):
-        score += 5
+        score += rules["motorsport_f1"]["points"]
         reasons.append("motorsport evidence found")
     if has_any("capabilities", "equipment"):
-        score += 10
+        score += rules["capabilities_equipment_page"]["points"]
         reasons.append("capabilities or equipment evidence found")
     if has_any("dmg mori", "mazak", "matsuura", "okuma", "hermle", "haas"):
-        score += 5
+        score += rules["target_machine_brands"]["points"]
         reasons.append("target machine-brand evidence found")
     if has_any("3d printing", "additive manufacturing"):
-        score += 10
+        score += rules["3d_printing"]["points"]
         reasons.append("3D printing evidence found")
+    if has_any("medical", "iso 13485"):
+        score += rules["medical_iso13485"]["points"]
+        reasons.append("medical or ISO 13485 evidence found")
+    if has_any("tight tolerance", "tight tolerances", "high precision", "complex parts", "complex component"):
+        score += rules["tight_tolerance_precision_complex_parts"]["points"]
+        reasons.append("tight tolerance or complex-part evidence found")
+    if has_any("repair", "directory", "business directory", "automotive machine shops.cmac.ws"):
+        score += rules["repair_directory_false_positive"]["points"]
+        reasons.append("repair-shop or directory-style evidence found")
     if has_any("sheet metal", "fabrication", "welding", "bending", "stamping"):
-        score -= 20
+        score += rules["sheet_metal_fabrication"]["points"]
         reasons.append("sheet metal or fabrication-heavy evidence found")
     if has_any("high volume", "serial production"):
-        score -= 10
+        score += rules["high_volume_serial_production"]["points"]
         reasons.append("high-volume production evidence found")
     if has_any("edm", "wire edm", "sinker edm"):
-        score -= 5
+        score += rules["edm"]["points"]
         reasons.append("EDM evidence found")
 
-    score = max(0, min(100, score))
+    score = max(criteria.get("cap", {}).get("min", 0), min(criteria.get("cap", {}).get("max", 100), score))
     return score, reasons
 
 
@@ -345,6 +369,9 @@ def run() -> dict[str, Any]:
         "label_ids": [CNC_LABEL_ID],
     }
     lead_payload = {k: v for k, v in lead_payload.items() if v is not None and v != ""}
+    existing_lead = _find_lead_dupe(client, organisation, row.get("Company Name") or organisation.get("name") or "")
+    if existing_lead:
+        raise RuntimeError(f"Lead duplicate detected for organisation {organisation.get('name')}, existing lead {existing_lead.get('id')}")
     lead = client.create_lead(lead_payload)
 
     note_lines = [

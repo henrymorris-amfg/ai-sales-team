@@ -1,0 +1,89 @@
+{
+  "base_score": 0,
+  "rules": [
+    {
+      "key": "cnc_machining",
+      "points": 30,
+      "when": "website or company evidence shows CNC machining"
+    },
+    {
+      "key": "quote_rfq",
+      "points": 15,
+      "when": "website shows Request a Quote, Quote, or RFQ language"
+    },
+    {
+      "key": "prototype_contract_build_to_print",
+      "points": 10,
+      "when": "website shows prototyping, contract manufacturing, build to print, or rapid turnaround"
+    },
+    {
+      "key": "five_axis",
+      "points": 15,
+      "when": "website shows 5-axis capability"
+    },
+    {
+      "key": "aerospace_defence",
+      "points": 5,
+      "when": "website shows aerospace or defence work"
+    },
+    {
+      "key": "itar",
+      "points": 10,
+      "when": "website shows ITAR"
+    },
+    {
+      "key": "motorsport_f1",
+      "points": 5,
+      "when": "website shows F1 or motorsport work"
+    },
+    {
+      "key": "capabilities_equipment_page",
+      "points": 10,
+      "when": "website shows a capabilities or equipment page"
+    },
+    {
+      "key": "target_machine_brands",
+      "points": 5,
+      "when": "website shows DMG Mori, Mazak, Matsuura, Okuma, Hermle, or Haas"
+    },
+    {
+      "key": "3d_printing",
+      "points": 10,
+      "when": "website shows 3D printing"
+    },
+    {
+      "key": "medical_iso13485",
+      "points": 5,
+      "when": "website shows medical manufacturing or ISO 13485"
+    },
+    {
+      "key": "tight_tolerance_precision_complex_parts",
+      "points": 10,
+      "when": "website shows tight tolerances, high precision, or complex parts"
+    },
+    {
+      "key": "repair_directory_false_positive",
+      "points": -20,
+      "when": "website looks like a repair shop, directory listing, or non-industrial false positive"
+    },
+    {
+      "key": "sheet_metal_fabrication",
+      "points": -20,
+      "when": "website emphasizes sheet metal, fabrication, welding, bending, or stamping"
+    },
+    {
+      "key": "high_volume_serial_production",
+      "points": -10,
+      "when": "website emphasizes high volume or serial production"
+    },
+    {
+      "key": "edm",
+      "points": -5,
+      "when": "website shows EDM"
+    }
+  ],
+  "cap": {
+    "min": 0,
+    "max": 100
+  }
+}
