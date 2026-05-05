@@ -46,6 +46,7 @@ def build_overview() -> dict:
     batch_review = _load_json(OUTPUT_DIR / "cnc-random-review-200.json", {})
     apollo_preview = _load_json(OUTPUT_DIR / "apollo-enrichment-preview.json", {})
     bdr_batch = _load_json(OUTPUT_DIR / "bdr-batch-results.json", {})
+    bdr_history = _load_json(OUTPUT_DIR / "bdr-run-history.json", [])
 
     severity_counts = Counter((item.get("severity") or "unknown").lower() for item in findings)
     rule_counts = Counter(item.get("rule_id") or "unknown" for item in findings)
@@ -116,6 +117,8 @@ def build_overview() -> dict:
             "apollo_org_hits": apollo_org_hits,
             "apollo_people_hits": apollo_people_hits,
             "batch_created": bdr_batch.get("created", 0),
+            "batch_skips": len(bdr_batch.get("skips") or []),
+            "batch_errors": len(bdr_batch.get("errors") or []),
         },
         "agents": agents,
         "owners": owners[:10],
@@ -148,6 +151,7 @@ def build_overview() -> dict:
         },
         "qualification_criteria": qualification_criteria(),
         "bdr_batch": bdr_batch,
+        "bdr_history": bdr_history[:10],
     }
 
 
@@ -255,6 +259,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if parsed.path == "/api/bdr-batch-results":
             self._send_json(_load_json(OUTPUT_DIR / "bdr-batch-results.json", {}))
+            return
+        if parsed.path == "/api/bdr-run-history":
+            self._send_json(_load_json(OUTPUT_DIR / "bdr-run-history.json", []))
             return
         self._send_not_found()
 

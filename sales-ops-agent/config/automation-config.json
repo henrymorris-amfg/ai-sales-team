@@ -1,0 +1,16 @@
+{
+  "source": {
+    "preferred_source_url": "https://www.thomasnet.com/suppliers/usa/cnc-machining-45330503?coverage_area=NA",
+    "ignore_row_numbers": [8],
+    "fallback_source_url": "https://usamachineshops.com/?view=table"
+  },
+  "batch": {
+    "limit": 3,
+    "min_score": 35
+  },
+  "safety": {
+    "pause_after_consecutive_error_runs": 3,
+    "pause_after_consecutive_duplicate_runs": 5,
+    "pause_reason_prefix": "AUTO_PAUSED"
+  }
+}

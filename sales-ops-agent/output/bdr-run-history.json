@@ -1,0 +1,18 @@
+[
+  {
+    "created": 0,
+    "results": [],
+    "errors": [
+      "Lead duplicate detected for organisation Norman Noble, Inc., existing lead 647d98a0-85de-11ed-8f43-07de1078cd00"
+    ],
+    "skips": [],
+    "source": {
+      "preferred_source_url": "https://www.thomasnet.com/suppliers/usa/cnc-machining-45330503?coverage_area=NA",
+      "ignore_row_numbers": [8],
+      "fallback_source_url": "https://usamachineshops.com/?view=table"
+    },
+    "paused": false,
+    "pause_reason": null,
+    "ran_at": "2026-05-05T16:27:00+00:00"
+  }
+]

@@ -140,6 +140,7 @@
       <div class="card section"><div class="label">High-priority queue</div><div class="value" id="kpi-high-priority">0</div><div class="subtle" id="kpi-high-priority-sub">Waiting for queue data</div></div>
       <div class="card section"><div class="label">Apollo preview</div><div class="value" id="kpi-apollo">0</div><div class="subtle" id="kpi-apollo-sub">No enrichment preview yet</div></div>
       <div class="card section"><div class="label">Batch created</div><div class="value" id="kpi-batch">0</div><div class="subtle" id="kpi-batch-sub">No batch run yet</div></div>
+      <div class="card section"><div class="label">Batch skips</div><div class="value" id="kpi-skips">0</div><div class="subtle" id="kpi-skips-sub">No skip data yet</div></div>
     </section>
 
     <section class="main">
@@ -203,6 +204,10 @@
         <div class="card section">
           <div class="section-head"><div><h2>Recent BDR batch results</h2><p>The newest safe create runs from the AI BDR flow.</p></div></div>
           <div id="batch-list"></div>
+        </div>
+        <div class="card section">
+          <div class="section-head"><div><h2>Run history and skip reasons</h2><p>Recent hourly runs, including duplicate blocks and threshold skips.</p></div></div>
+          <div id="history-list"></div>
         </div>
         <div class="card section">
           <div class="section-head"><div><h2>Rule pressure</h2><p>Where the hygiene engine is firing most often.</p></div></div>
@@ -395,6 +400,21 @@
       `).join('') || '<div class="muted">No batch results yet.</div>';
     }
 
+    function renderHistory(history) {
+      const root = document.getElementById('history-list');
+      root.innerHTML = history.map(item => `
+        <div class="finding">
+          <div class="finding-top">
+            <strong>${escapeHtml(item.ran_at || 'Run')}</strong>
+            <span class="pill ${item.paused ? 'planned' : 'processed'}">${item.paused ? 'paused' : 'active'}</span>
+          </div>
+          <div class="muted">Created ${fmt.format(item.created || 0)}, skips ${fmt.format((item.skips || []).length)}, errors ${fmt.format((item.errors || []).length)}</div>
+          ${((item.skips || []).slice(0,3)).map(skip => `<div class="muted" style="margin-top:6px;">• ${escapeHtml(skip)}</div>`).join('')}
+          ${item.pause_reason ? `<div class="muted" style="margin-top:6px;">Pause reason: ${escapeHtml(item.pause_reason)}</div>` : ''}
+        </div>
+      `).join('') || '<div class="muted">No run history yet.</div>';
+    }
+
     function renderNextActions(actions) {
       const root = document.getElementById('next-action-list');
       root.innerHTML = actions.map(item => `
@@ -437,6 +457,8 @@
       setText('kpi-apollo-sub', `${fmt.format(data.summary.apollo_org_hits || 0)} org hits, ${fmt.format(data.summary.apollo_people_hits || 0)} people hits`);
       setText('kpi-batch', fmt.format(data.summary.batch_created || 0));
       setText('kpi-batch-sub', `${fmt.format((data.bdr_batch || {}).errors?.length || 0)} errors in latest run`);
+      setText('kpi-skips', fmt.format(data.summary.batch_skips || 0));
+      setText('kpi-skips-sub', `${fmt.format(data.summary.batch_errors || 0)} errors, latest run skip reasons tracked`);
       renderNextActions(data.next_actions || []);
       renderAgents(data.agents || []);
       renderFindings(data.findings || []);
@@ -448,6 +470,7 @@
       renderApollo((data.apollo_preview || {}).items || []);
       renderCriteria(data.qualification_criteria || {});
       renderBatch(data.bdr_batch || {});
+      renderHistory(data.bdr_history || []);
       renderBlockers(data.blockers || []);
     }
 

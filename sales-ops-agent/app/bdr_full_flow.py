@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 UPLOAD_CSV = ROOT / "uploads" / "NorthOhio100.csv"
 QUALIFICATION_FILE = ROOT / "config" / "qualification-criteria.json"
 SOURCE_INGEST_FILE = ROOT / "config" / "source-ingest.json"
+AUTOMATION_CONFIG_FILE = ROOT / "config" / "automation-config.json"
 HOMEPAGE_FIELD_KEY = "667dae8863844f07bf48be7af77ae678647c6afb"
 STATE_FIELD_KEY = "dd4be7e718da24b3254c4981d89b5eb6a5fb0192"
 CNC_LABEL_ID = "e028bea0-b37b-11ee-9581-d55a394d57f7"
@@ -108,9 +109,17 @@ def _load_rows() -> list[dict[str, str]]:
 
 
 def source_ingest_config() -> dict[str, Any]:
+    if AUTOMATION_CONFIG_FILE.exists():
+        return (json.loads(AUTOMATION_CONFIG_FILE.read_text(encoding="utf-8")) or {}).get("source") or {"preferred_source_url": None, "ignore_row_numbers": []}
     if not SOURCE_INGEST_FILE.exists():
         return {"preferred_source_url": None, "ignore_row_numbers": []}
     return json.loads(SOURCE_INGEST_FILE.read_text(encoding="utf-8"))
+
+
+def automation_config() -> dict[str, Any]:
+    if not AUTOMATION_CONFIG_FILE.exists():
+        return {"batch": {"limit": 3, "min_score": 35}, "safety": {}}
+    return json.loads(AUTOMATION_CONFIG_FILE.read_text(encoding="utf-8"))
 
 
 def _address_parts(address: str) -> tuple[str, str, str]:
@@ -354,6 +363,9 @@ def run() -> dict[str, Any]:
     apollo_person = candidate["apollo_person"]
     apollo_org = candidate["apollo_org"]
     score, reasons, site_review = _score_candidate(row, apollo_org, apollo_person)
+    min_score = ((automation_config().get("batch") or {}).get("min_score") or 0)
+    if score < min_score:
+        raise RuntimeError(f"Lead skipped: score {score} below threshold {min_score} for {row.get('Company Name')}")
     org_dupes = candidate.get("org_dupes") or []
     existing_org = ((org_dupes[0] or {}).get("item") or {}) if org_dupes else None
 
