@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+import os
 import re
 from collections import Counter
 from datetime import datetime, timezone
@@ -20,7 +21,7 @@ OUTPUT_DIR = ROOT / "output"
 UPLOAD_DIR = ROOT / "uploads"
 STATIC_DIR = ROOT / "web"
 UPLOAD_JOBS_FILE = OUTPUT_DIR / "upload-jobs.json"
-DEFAULT_PORT = 8787
+DEFAULT_PORT = int(os.getenv("PORT", "8787"))
 
 
 def _load_json(path: Path, default):

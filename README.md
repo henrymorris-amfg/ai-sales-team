@@ -40,6 +40,17 @@ pip install -r requirements.txt
 
 Dashboard default URL: `http://localhost:8787`
 
+## Deploy on Render
+
+This repo is now set up for a simple Render web deploy.
+
+1. In Render, choose **New +** -> **Blueprint**
+2. Connect the GitHub repo `henrymorris-amfg/ai-sales-team`
+3. Render will detect `render.yaml`
+4. Click deploy
+
+Render will run the dashboard from `sales-ops-agent/` and bind to the platform `PORT` automatically.
+
 ## Notes
 
 - Keep credentials out of git. Use local env files or `.secrets/`.
