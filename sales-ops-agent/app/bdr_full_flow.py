@@ -12,12 +12,14 @@ import requests
 from .apollo_client import load_apollo_client
 from .config import load_config
 from .pipedrive_client import PipedriveClient
+from .site_review import review_site
 from .territory_map import assign_owner
 
 
 ROOT = Path(__file__).resolve().parents[1]
 UPLOAD_CSV = ROOT / "uploads" / "NorthOhio100.csv"
 QUALIFICATION_FILE = ROOT / "config" / "qualification-criteria.json"
+SOURCE_INGEST_FILE = ROOT / "config" / "source-ingest.json"
 HOMEPAGE_FIELD_KEY = "667dae8863844f07bf48be7af77ae678647c6afb"
 STATE_FIELD_KEY = "dd4be7e718da24b3254c4981d89b5eb6a5fb0192"
 CNC_LABEL_ID = "e028bea0-b37b-11ee-9581-d55a394d57f7"
@@ -103,6 +105,12 @@ def save_qualification_criteria(payload: dict[str, Any]) -> dict[str, Any]:
 def _load_rows() -> list[dict[str, str]]:
     with UPLOAD_CSV.open("r", encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def source_ingest_config() -> dict[str, Any]:
+    if not SOURCE_INGEST_FILE.exists():
+        return {"preferred_source_url": None, "ignore_row_numbers": []}
+    return json.loads(SOURCE_INGEST_FILE.read_text(encoding="utf-8"))
 
 
 def _address_parts(address: str) -> tuple[str, str, str]:
@@ -203,7 +211,10 @@ def _apollo_person_detail(api_key: str, person_id: str) -> dict[str, Any]:
 
 def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[str, Any]:
     apollo = load_apollo_client()
-    for row in _load_rows():
+    ignore_rows = {int(value) for value in source_ingest_config().get("ignore_row_numbers", [])}
+    for row_number, row in enumerate(_load_rows(), start=1):
+        if row_number in ignore_rows:
+            continue
         company = (row.get("Company Name") or "").strip()
         if not company:
             continue
@@ -254,10 +265,15 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
     raise RuntimeError("No candidate found with Apollo match, no Pipedrive dupes, and a routable owner")
 
 
-def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_person: dict[str, Any]) -> tuple[int, list[str]]:
+def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_person: dict[str, Any]) -> tuple[int, list[str], dict[str, Any]]:
     criteria = qualification_criteria()
     score = criteria["base_score"]
     reasons: list[str] = []
+    site_review = {"homepage_url": apollo_org.get("website_url") or row.get("Website"), "homepage_text": "", "inspected_pages": []}
+    try:
+        site_review = review_site(apollo_org.get("website_url") or row.get("Website") or "")
+    except Exception:
+        pass
     evidence_parts = [
         row.get("Description") or "",
         row.get("Capabilities") or "",
@@ -266,6 +282,9 @@ def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_per
         " ".join(apollo_org.get("keywords") or []),
         apollo_org.get("industry") or "",
         apollo_org.get("website_url") or "",
+        site_review.get("homepage_text") or "",
+        " ".join((page.get("text") or "") for page in site_review.get("inspected_pages") or []),
+        " ".join((page.get("label") or "") for page in site_review.get("inspected_pages") or []),
     ]
     evidence = " ".join(evidence_parts).lower()
 
@@ -324,7 +343,7 @@ def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_per
         reasons.append("EDM evidence found")
 
     score = max(criteria.get("cap", {}).get("min", 0), min(criteria.get("cap", {}).get("max", 100), score))
-    return score, reasons
+    return score, reasons, site_review
 
 
 def run() -> dict[str, Any]:
@@ -334,7 +353,7 @@ def run() -> dict[str, Any]:
     row = candidate["sheet_row"]
     apollo_person = candidate["apollo_person"]
     apollo_org = candidate["apollo_org"]
-    score, reasons = _score_candidate(row, apollo_org, apollo_person)
+    score, reasons, site_review = _score_candidate(row, apollo_org, apollo_person)
     org_dupes = candidate.get("org_dupes") or []
     existing_org = ((org_dupes[0] or {}).get("item") or {}) if org_dupes else None
 
@@ -407,6 +426,7 @@ def run() -> dict[str, Any]:
         "owner_name": candidate["owner_name"],
         "source_company": row.get("Company Name"),
         "used_existing_org": bool(existing_org),
+        "site_review": site_review,
     }
     target = ROOT / "output" / "bdr-full-flow-result.json"
     target.write_text(json.dumps(result, indent=2), encoding="utf-8")
