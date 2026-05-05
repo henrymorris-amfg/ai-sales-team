@@ -50,7 +50,7 @@ class ApolloClient:
             payload["q_organization_domains"] = [domain]
         if titles:
             payload["person_titles"] = titles
-        return self._post("/mixed_people/search", payload)
+        return self._post("/mixed_people/api_search", payload)
 
 
 def load_apollo_client() -> ApolloClient:
