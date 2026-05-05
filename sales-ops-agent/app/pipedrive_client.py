@@ -133,3 +133,6 @@ class PipedriveClient:
 
     def create_note(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         return self._post("/notes", payload).get("data") or {}
+
+    def create_activity(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self._post("/activities", payload).get("data") or {}

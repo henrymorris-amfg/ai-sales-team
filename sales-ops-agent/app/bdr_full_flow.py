@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import json
 import re
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +18,7 @@ from .territory_map import assign_owner
 ROOT = Path(__file__).resolve().parents[1]
 UPLOAD_CSV = ROOT / "uploads" / "NorthOhio100.csv"
 HOMEPAGE_FIELD_KEY = "667dae8863844f07bf48be7af77ae678647c6afb"
+STATE_FIELD_KEY = "dd4be7e718da24b3254c4981d89b5eb6a5fb0192"
 PRIORITY_TITLES = [
     "President",
     "Owner",
@@ -27,6 +29,60 @@ PRIORITY_TITLES = [
     "Vice President",
     "Head of Operations",
 ]
+STATE_OPTION_IDS = {
+    "alabama": 1196,
+    "alberta": 1197,
+    "arizona": 1198,
+    "california": 1200,
+    "colorado": 1202,
+    "connecticut": 1203,
+    "florida": 1204,
+    "idaho": 1205,
+    "illinois": 1206,
+    "indiana": 1207,
+    "kentucky": 1208,
+    "maine": 1210,
+    "massachusetts": 1211,
+    "michigan": 1212,
+    "minnesota": 1213,
+    "missouri": 1214,
+    "new hampshire": 1216,
+    "new jersey": 1217,
+    "new mexico": 1218,
+    "new york": 1219,
+    "ohio": 1220,
+    "oklahoma": 1221,
+    "ontario": 1222,
+    "pennsylvania": 1223,
+    "rhode island": 1224,
+    "tennessee": 1225,
+    "texas": 1226,
+    "west virginia": 1227,
+    "virginia": 1228,
+    "utah": 1229,
+    "south carolina": 1230,
+    "oregon": 1231,
+    "north carolina": 1232,
+    "montana": 1233,
+    "maryland": 1234,
+    "kansas": 1235,
+    "georgia": 1236,
+    "delaware": 1237,
+    "wisconsin": 1253,
+    "south dakota": 1254,
+    "washington": 1255,
+    "north dakota": 1256,
+    "iowa": 1257,
+    "louisiana": 1308,
+    "vermont": 1309,
+    "nevada": 1314,
+    "arkansas": 1315,
+    "nebraska": 1316,
+    "mississippi": 1317,
+    "non-us": 1319,
+    "wyoming": 1320,
+}
+KNOWN_STATES = sorted(STATE_OPTION_IDS.keys(), key=len, reverse=True)
 
 
 def _load_rows() -> list[dict[str, str]]:
@@ -35,15 +91,55 @@ def _load_rows() -> list[dict[str, str]]:
 
 
 def _address_parts(address: str) -> tuple[str, str, str]:
-    parts = [part.strip() for part in (address or "").split(",") if part.strip()]
-    country = "United States"
-    state = parts[-2] if len(parts) >= 2 else ""
-    city = parts[-3] if len(parts) >= 3 else ""
-    if parts and parts[-1].upper() in {"US", "USA", "UNITED STATES"}:
-        country = "United States"
-        state = parts[-2] if len(parts) >= 2 else ""
-        city = parts[-3] if len(parts) >= 3 else ""
+    raw = (address or "").strip()
+    lowered = raw.lower()
+    state = next((candidate.title() for candidate in KNOWN_STATES if candidate in lowered), "")
+    country = "United States" if any(token in lowered for token in [" us", ", us", "united states", "usa"]) else ""
+    parts = [part.strip() for part in raw.split(",") if part.strip()]
+    city = ""
+    if state:
+        for index, part in enumerate(parts):
+            if state.lower() in part.lower() and index > 0:
+                city = parts[index - 1]
+                break
+    if not country:
+        country = "United States" if state else ""
     return city, state, country
+
+
+def _state_option_id(state: str) -> str | None:
+    option_id = STATE_OPTION_IDS.get((state or "").strip().lower())
+    return str(option_id) if option_id else None
+
+
+def _normalise_domain(value: str) -> str:
+    text = (value or "").strip().lower()
+    text = text.removeprefix("https://").removeprefix("http://").removeprefix("www.")
+    return text.strip("/")
+
+
+def _find_org_dupes(client: PipedriveClient, org_name: str, website: str) -> list[dict[str, Any]]:
+    terms = [org_name]
+    domain = _normalise_domain(website)
+    if domain:
+        terms.append(domain)
+    hits: list[dict[str, Any]] = []
+    seen_ids: set[int] = set()
+    for term in terms:
+        for result in client.search_organisations(term, limit=10):
+            item = result.get("item") or {}
+            item_id = item.get("id")
+            if not item_id or item_id in seen_ids:
+                continue
+            haystacks = [
+                (item.get("name") or "").lower(),
+                (item.get("address") or "").lower(),
+                " ".join(str(v).lower() for v in (item.get("custom_fields") or [])),
+            ]
+            if org_name.lower() in haystacks[0] or any(domain and domain in hay for hay in haystacks):
+                hits.append(result)
+                seen_ids.add(item_id)
+    return hits
 
 
 def _pick_owner_id(client: PipedriveClient, owner_name: str | None) -> int | None:
@@ -73,22 +169,22 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
         company = (row.get("Company Name") or "").strip()
         if not company:
             continue
-        city, state, country = _address_parts(row.get("Address") or "")
-        owner_name = assign_owner(country, state)
-        owner_id = _pick_owner_id(client, owner_name)
-        if not owner_id:
-            continue
 
         people = apollo.search_people(organization_name=company, titles=PRIORITY_TITLES, per_page=5).get("people") or []
         for person in people:
             detail = _apollo_person_detail(apollo.api_key, person["id"])
             org = detail.get("organization") or {}
+            city, state, country = _address_parts(org.get("raw_address") or row.get("Address") or "")
+            owner_name = assign_owner(country, state)
+            owner_id = _pick_owner_id(client, owner_name)
+            if not owner_id:
+                continue
             org_name = (org.get("name") or company).strip()
             email = (detail.get("email") or "").strip()
             if "email_not_unlocked" in email:
                 email = ""
             person_name = (detail.get("name") or "").strip()
-            org_dupes = client.search_organisations(org_name, limit=5)
+            org_dupes = _find_org_dupes(client, org_name, org.get("website_url") or row.get("Website") or "")
             person_dupes = client.search_persons(email or person_name, limit=5) if (email or person_name) else []
             if person_dupes:
                 continue
@@ -172,29 +268,31 @@ def run() -> dict[str, Any]:
         "owner_id": candidate["owner_id"],
         "person_id": person.get("id"),
         "organization_id": organisation.get("id"),
+        STATE_FIELD_KEY: _state_option_id(candidate["state"]),
     }
+    lead_payload = {k: v for k, v in lead_payload.items() if v not in {None, ""}}
     lead = client.create_lead(lead_payload)
 
     note_lines = [
-        f"AI BDR qualification score: {score}/100",
-        f"Assigned owner: {candidate['owner_name']} (user id {candidate['owner_id']})",
-        f"Contact: {apollo_person.get('name')} | {apollo_person.get('title')}",
-        f"Website: {apollo_org.get('website_url') or row.get('Website')}",
-        f"Address: {apollo_org.get('raw_address') or row.get('Address')}",
-        "Why this lead scored well:",
+        f"Qualification score: {score}/100",
+        f"State: {candidate['state']}",
+        "Justification:",
     ]
     note_lines.extend(f"- {reason}" for reason in reasons)
-    note_lines.extend([
-        "Duplicate checks completed before create:",
-        f"- org search on '{apollo_org.get('name') or row.get('Company Name')}' returned {len(org_dupes)} usable matches",
-        f"- person search on '{apollo_person.get('email') or apollo_person.get('name')}' returned 0 usable matches",
-        "Source: NorthOhio100 Google Sheet + Apollo enrichment",
-    ])
     note = client.create_note({
         "content": "\n".join(note_lines),
         "lead_id": lead.get("id"),
         "person_id": person.get("id"),
         "org_id": organisation.get("id"),
+    })
+    activity = client.create_activity({
+        "subject": "Call new lead",
+        "type": "call",
+        "lead_id": lead.get("id"),
+        "person_id": person.get("id"),
+        "org_id": organisation.get("id"),
+        "user_id": candidate["owner_id"],
+        "due_date": str(date.today() + timedelta(days=1)),
     })
 
     result = {
@@ -202,6 +300,7 @@ def run() -> dict[str, Any]:
         "created_person": person,
         "created_lead": lead,
         "created_note": note,
+        "created_activity": activity,
         "score": score,
         "score_reasons": reasons,
         "owner_name": candidate["owner_name"],
