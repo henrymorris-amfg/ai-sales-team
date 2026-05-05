@@ -36,3 +36,32 @@ Create a coordinated AI Sales Team that feeds high-quality, territory-assigned o
 - no lead ownership changes without logged reason
 - duplicate checks before any create
 - every score must leave an audit note
+
+## Qualification model
+- Score the organisation from a base of `0`
+- Score from website and company evidence, not from the contact
+- Positive signals:
+  - CNC machining +30
+  - Request a quote / Quote / RFQ +15
+  - Prototyping / contract manufacturing / build to print / rapid turnaround +10
+  - 5-axis +15
+  - Aerospace and defence +5
+  - ITAR +10
+  - F1 / motorsport +5
+  - Capabilities or Equipment page +10
+  - DMG Mori / Mazak / Matsuura / Okuma / Hermle / Haas +5
+  - 3D printing +10
+- Negative signals:
+  - Sheet metal / fabrication / welding / bending / stamping -20
+  - High volume / serial production -10
+  - EDM -5
+
+## Preferred contact roles
+Prioritize contacts in this order where available:
+- Owner
+- Managing Director
+- President
+- Vice President
+- General Manager
+- Engineering Manager
+- Production Manager

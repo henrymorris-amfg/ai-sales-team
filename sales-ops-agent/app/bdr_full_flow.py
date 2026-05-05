@@ -21,13 +21,16 @@ HOMEPAGE_FIELD_KEY = "667dae8863844f07bf48be7af77ae678647c6afb"
 STATE_FIELD_KEY = "dd4be7e718da24b3254c4981d89b5eb6a5fb0192"
 CNC_LABEL_ID = "e028bea0-b37b-11ee-9581-d55a394d57f7"
 PRIORITY_TITLES = [
-    "President",
     "Owner",
+    "Managing Director",
+    "President",
+    "Vice President",
+    "General Manager",
+    "Engineering Manager",
+    "Production Manager",
     "CEO",
-    "Vice President Operations",
     "VP Operations",
     "Operations Manager",
-    "Vice President",
     "Head of Operations",
 ]
 STATE_OPTION_IDS = {
@@ -88,13 +91,21 @@ KNOWN_STATES = sorted(STATE_OPTION_IDS.keys(), key=len, reverse=True)
 
 def qualification_criteria() -> dict[str, Any]:
     return {
-        "base_score": 50,
+        "base_score": 0,
         "rules": [
-            {"points": 15, "when": "capabilities include strong CNC signals such as 5-axis, CNC machining, CNC turning, or CNC milling"},
-            {"points": 15, "when": "certifications include quality/compliance signals such as ISO 9001, AS9100, or ITAR"},
-            {"points": 10, "when": "employee count is 5 or more"},
-            {"points": 10, "when": "Apollo finds a relevant title such as owner, president, VP, or operations leader"},
-            {"points": 5, "when": "Apollo returns an industry value"},
+            {"points": 30, "when": "website or company evidence shows CNC machining"},
+            {"points": 15, "when": "website shows Request a Quote, Quote, or RFQ language"},
+            {"points": 10, "when": "website shows prototyping, contract manufacturing, build to print, or rapid turnaround"},
+            {"points": 15, "when": "website shows 5-axis capability"},
+            {"points": 5, "when": "website shows aerospace or defence work"},
+            {"points": 10, "when": "website shows ITAR"},
+            {"points": 5, "when": "website shows F1 or motorsport work"},
+            {"points": 10, "when": "website shows a capabilities or equipment page"},
+            {"points": 5, "when": "website shows DMG Mori, Mazak, Matsuura, Okuma, Hermle, or Haas"},
+            {"points": 10, "when": "website shows 3D printing"},
+            {"points": -20, "when": "website emphasizes sheet metal, fabrication, welding, bending, or stamping"},
+            {"points": -10, "when": "website emphasizes high volume or serial production"},
+            {"points": -5, "when": "website shows EDM"},
         ],
         "cap": {"min": 0, "max": 100},
     }
@@ -234,26 +245,60 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
 def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_person: dict[str, Any]) -> tuple[int, list[str]]:
     score = qualification_criteria()["base_score"]
     reasons: list[str] = []
-    certifications = (row.get("Certifications") or "").lower()
-    capabilities = (row.get("Capabilities") or "").lower()
-    employees = int(re.sub(r"[^0-9]", "", row.get("Employees") or "0") or 0)
-    title = (apollo_person.get("title") or "").lower()
+    evidence_parts = [
+        row.get("Description") or "",
+        row.get("Capabilities") or "",
+        row.get("Certifications") or "",
+        apollo_org.get("short_description") or "",
+        " ".join(apollo_org.get("keywords") or []),
+        apollo_org.get("industry") or "",
+        apollo_org.get("website_url") or "",
+    ]
+    evidence = " ".join(evidence_parts).lower()
 
-    if any(token in capabilities for token in ["5-axis", "cnc machining", "cnc turning", "cnc milling"]):
+    def has_any(*tokens: str) -> bool:
+        return any(token.lower() in evidence for token in tokens)
+
+    if has_any("cnc machining", "cnc milling", "cnc turning", "precision machining", "machine shop"):
+        score += 30
+        reasons.append("CNC machining evidence found")
+    if has_any("request a quote", "quote", "rfq"):
         score += 15
-        reasons.append("strong CNC capability signals")
-    if any(token in certifications for token in ["iso 9001", "as9100", "itar"]):
+        reasons.append("quote or RFQ evidence found")
+    if has_any("prototyp", "contract manufacturing", "build to print", "rapid turnaround"):
+        score += 10
+        reasons.append("prototype or contract manufacturing evidence found")
+    if has_any("5-axis", "5 axis"):
         score += 15
-        reasons.append("quality/compliance certifications present")
-    if employees >= 5:
-        score += 10
-        reasons.append("team size suggests an active shop")
-    if any(token in title for token in ["owner", "president", "vp", "operations"]):
-        score += 10
-        reasons.append("Apollo found a relevant decision-maker or operator contact")
-    if apollo_org.get("industry"):
+        reasons.append("5-axis evidence found")
+    if has_any("aerospace", "defence", "defense"):
         score += 5
-        reasons.append(f"Apollo industry: {apollo_org.get('industry')}")
+        reasons.append("aerospace or defence evidence found")
+    if has_any("itar"):
+        score += 10
+        reasons.append("ITAR evidence found")
+    if has_any("motorsport", "formula 1", "f1"):
+        score += 5
+        reasons.append("motorsport evidence found")
+    if has_any("capabilities", "equipment"):
+        score += 10
+        reasons.append("capabilities or equipment evidence found")
+    if has_any("dmg mori", "mazak", "matsuura", "okuma", "hermle", "haas"):
+        score += 5
+        reasons.append("target machine-brand evidence found")
+    if has_any("3d printing", "additive manufacturing"):
+        score += 10
+        reasons.append("3D printing evidence found")
+    if has_any("sheet metal", "fabrication", "welding", "bending", "stamping"):
+        score -= 20
+        reasons.append("sheet metal or fabrication-heavy evidence found")
+    if has_any("high volume", "serial production"):
+        score -= 10
+        reasons.append("high-volume production evidence found")
+    if has_any("edm", "wire edm", "sinker edm"):
+        score -= 5
+        reasons.append("EDM evidence found")
+
     score = max(0, min(100, score))
     return score, reasons
 
