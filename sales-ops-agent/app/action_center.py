@@ -5,6 +5,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from .config import load_config
+
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
 POLICY_FILE = ROOT / "config" / "action-policies.json"
@@ -27,6 +29,29 @@ def _policies() -> dict[str, Any]:
     return _load_json(POLICY_FILE, {"archive": {}, "merge": {}})
 
 
+def _base_url() -> str:
+    cfg = load_config()
+    if cfg.company_domain:
+        return f"https://{cfg.company_domain}.pipedrive.com"
+    api_base = cfg.api_base.replace('/api/v1', '').rstrip('/')
+    return api_base
+
+
+def _record_url(record_type: str, record_id: Any) -> str | None:
+    if not record_id:
+        return None
+    mapping = {
+        "organisation": "organization",
+        "person": "person",
+        "lead": "lead",
+        "archive": "lead",
+    }
+    target = mapping.get(record_type)
+    if not target:
+        return None
+    return f"{_base_url()}/{target}/{record_id}"
+
+
 def refresh_pending_actions() -> dict[str, Any]:
     disq = _load_json(OUTPUT / "sales-ops-disqualification.json", {})
     dupes = _load_json(OUTPUT / "sales-ops-duplicates.json", {})
@@ -39,6 +64,7 @@ def refresh_pending_actions() -> dict[str, Any]:
             "type": "archive",
             "lead_id": item.get("lead_id"),
             "title": item.get("title"),
+            "lead_url": _record_url("archive", item.get("lead_id")),
             "score": item.get("score"),
             "confidence": item.get("confidence"),
             "reason": (item.get("disqualify_signals") or [])[:4],
@@ -54,8 +80,17 @@ def refresh_pending_actions() -> dict[str, Any]:
                 "type": "merge",
                 "record_type": item.get("type"),
                 "cluster_key": item.get("cluster_key"),
-                "survivor": item.get("survivor"),
-                "duplicates": item.get("duplicates"),
+                "survivor": {
+                    **(item.get("survivor") or {}),
+                    "url": _record_url(item.get("type"), (item.get("survivor") or {}).get("id")),
+                },
+                "duplicates": [
+                    {
+                        **dup,
+                        "url": _record_url(item.get("type"), dup.get("id")),
+                    }
+                    for dup in (item.get("duplicates") or [])
+                ],
                 "confidence": item.get("confidence"),
                 "status": "pending",
                 "policy": policies.get("merge") or {},

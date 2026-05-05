@@ -52,6 +52,7 @@ def run_batch(limit: int | None = None) -> dict:
                 {
                     "lead_id": (result.get("created_lead") or {}).get("id"),
                     "lead_title": (result.get("created_lead") or {}).get("title"),
+                    "assigned_agent": result.get("assigned_agent"),
                     "owner_name": result.get("owner_name"),
                     "score": result.get("score"),
                     "state": ((result.get("created_note") or {}).get("content") or "").split("State: ")[-1].split("<br />")[0] if result.get("created_note") else None,

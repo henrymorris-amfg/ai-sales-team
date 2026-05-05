@@ -13,7 +13,7 @@ from .apollo_client import load_apollo_client
 from .config import load_config
 from .pipedrive_client import PipedriveClient
 from .site_review import review_site
-from .territory_map import assign_owner
+from .territory_map import assign_owner, assign_agent
 from .customer_registry import is_customer
 from .customer_registry import build_customer_registry
 
@@ -269,6 +269,7 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
                 "sheet_row": row,
                 "apollo_person": detail,
                 "apollo_org": org,
+                "assigned_agent": assign_agent(country, state),
                 "owner_name": owner_name,
                 "owner_id": owner_id,
                 "city": city,
@@ -445,6 +446,7 @@ def run() -> dict[str, Any]:
         "score": score,
         "score_reasons": reasons,
         "owner_name": candidate["owner_name"],
+        "assigned_agent": candidate.get("assigned_agent"),
         "source_company": row.get("Company Name"),
         "used_existing_org": bool(existing_org),
         "site_review": site_review,

@@ -18,6 +18,17 @@ def owner_territories() -> dict[str, Any]:
     return _load_territories()
 
 
+def assign_agent(country: str | None, state: str | None = None) -> str:
+    country_key = (country or "").strip().lower()
+    if country_key in {"usa", "us", "united states", "canada"}:
+        return "bdr-us-ca"
+    if country_key in {"uk", "united kingdom", "ireland"}:
+        return "bdr-uk-ie"
+    if country_key:
+        return "bdr-eu"
+    return "unassigned"
+
+
 def assign_owner(country: str | None, state: str | None) -> str | None:
     country_key = (country or "").strip().lower()
     state_key = (state or "").strip().lower()

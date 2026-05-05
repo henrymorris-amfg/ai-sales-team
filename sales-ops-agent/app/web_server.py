@@ -45,6 +45,34 @@ def _save_territories(payload: dict) -> dict:
     return payload
 
 
+def _bdr_analytics(bdr_history: list[dict], intake_queue: list[dict]) -> dict:
+    by_agent: Counter = Counter()
+    by_owner: Counter = Counter()
+    total_created = 0
+    for run in bdr_history or []:
+        for item in run.get("results") or []:
+            total_created += 1
+            by_agent[item.get("assigned_agent") or "unassigned"] += 1
+            by_owner[item.get("owner_name") or "unassigned"] += 1
+    queued_by_agent = Counter(item.get("assigned_agent") or "unassigned" for item in intake_queue if item.get("status") == "queued")
+    queued_by_owner = Counter(item.get("assigned_owner") or "unassigned" for item in intake_queue if item.get("status") == "queued")
+    latest = (bdr_history or [{}])[0] if bdr_history else {}
+    return {
+        "total_created": total_created,
+        "created_by_agent": dict(by_agent),
+        "created_by_owner": dict(by_owner),
+        "queued_by_agent": dict(queued_by_agent),
+        "queued_by_owner": dict(queued_by_owner),
+        "latest_run": {
+            "ran_at": latest.get("ran_at"),
+            "created": latest.get("created", 0),
+            "paused": latest.get("paused", False),
+            "pause_reason": latest.get("pause_reason"),
+            "errors": latest.get("errors") or [],
+        },
+    }
+
+
 def build_overview() -> dict:
     agents = _load_json(OUTPUT_DIR / "agent-status.json", [])
     findings = _load_json(OUTPUT_DIR / "findings.json", [])
@@ -63,6 +91,7 @@ def build_overview() -> dict:
     customer_summary = load_customer_summary()
     archive_approvals = load_approvals("archive")
     merge_approvals = load_approvals("merge")
+    analytics = _bdr_analytics(bdr_history, intake_queue)
 
     severity_counts = Counter((item.get("severity") or "unknown").lower() for item in findings)
     rule_counts = Counter(item.get("rule_id") or "unknown" for item in findings)
@@ -139,9 +168,9 @@ def build_overview() -> dict:
             "organisation_duplicate_clusters": sales_ops_summary.get("organisation_duplicate_clusters", 0),
             "person_duplicate_clusters": sales_ops_summary.get("person_duplicate_clusters", 0),
             "lead_duplicate_clusters": sales_ops_summary.get("lead_duplicate_clusters", 0),
-            "customers": customer_summary.get("count", 0),
             "archive_pending": sum(1 for item in (archive_approvals.get("items") or []) if item.get("status") == "pending"),
             "merge_pending": sum(1 for item in (merge_approvals.get("items") or []) if item.get("status") == "pending"),
+            "bdr_total_created": analytics.get("total_created", 0),
         },
         "agents": agents,
         "owners": owners[:10],
@@ -189,15 +218,12 @@ def build_overview() -> dict:
             "lead_duplicates": (sales_ops_duplicates.get("lead_duplicates") or [])[:20],
         },
         "territories": owner_territories(),
-        "customers": {
-            "generated_at": customers.get("generated_at"),
-            "count": customers.get("count", 0),
-            "items": (customers.get("customers") or [])[:20],
-        },
+        "customers": {"generated_at": customers.get("generated_at"), "count": customers.get("count", 0)},
         "approvals": {
             "archive": archive_approvals,
             "merge": merge_approvals,
         },
+        "analytics": analytics,
     }
 
 

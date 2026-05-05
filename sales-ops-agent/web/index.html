@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AMFG AI Sales Team</title>
   <style>
-    :root { --blue:#1B83FF; --dark:#1f2937; --muted:#667085; --bg:#f6f8fb; --card:#fff; --border:#e6eaf0; --success:#15803d; --warn:#b45309; }
+    :root { --blue:#1B83FF; --dark:#1f2937; --muted:#667085; --bg:#f6f8fb; --card:#fff; --border:#e6eaf0; --success:#15803d; --warn:#b45309; --danger:#b91c1c; }
     * { box-sizing:border-box; }
     body { margin:0; font-family:Inter, Arial, sans-serif; background:var(--bg); color:var(--dark); }
-    .wrap { max-width:1100px; margin:0 auto; padding:24px; }
+    .wrap { max-width:1120px; margin:0 auto; padding:24px; }
     .hero { background:#111827; color:#fff; padding:22px; border-radius:18px; }
     .hero h1 { margin:6px 0; font-size:1.9rem; }
     .hero p { margin:0; color:rgba(255,255,255,.78); }
     .grid { display:grid; gap:16px; margin-top:16px; }
-    .kpis { grid-template-columns:repeat(5,1fr); }
+    .kpis { grid-template-columns:repeat(4,1fr); }
     .two { grid-template-columns:1fr 1fr; }
     .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; }
     .label { font-size:.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
@@ -30,13 +30,16 @@
     textarea { min-height:150px; font-family:ui-monospace, monospace; font-size:12px; }
     .status { min-height:1.2em; font-size:.95rem; margin-top:10px; }
     .status.ok { color:var(--success); }
-    .status.err { color:#b91c1c; }
+    .status.err { color:var(--danger); }
     .list { display:grid; gap:10px; }
     .item { border:1px solid var(--border); border-radius:12px; padding:12px; }
     .item strong { display:block; margin-bottom:4px; }
     .pill { display:inline-block; padding:4px 9px; border-radius:999px; font-size:.8rem; font-weight:700; background:#eef5ff; color:var(--blue); }
     .pill.warn { background:#fff7ed; color:var(--warn); }
+    .pill.err { background:#fef2f2; color:var(--danger); }
     .small { font-size:.92rem; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
     @media (max-width:960px) { .kpis,.two { grid-template-columns:1fr 1fr; } }
     @media (max-width:640px) { .kpis,.two { grid-template-columns:1fr; } .wrap { padding:14px; } }
   </style>
@@ -46,14 +49,13 @@
     <section class="hero">
       <div class="label" style="color:rgba(255,255,255,.65)">AMFG AI SALES TEAM</div>
       <h1>Simple control panel</h1>
-      <p>Upload lists, refresh customers, run workers, review only the actions that matter.</p>
+      <p>Upload lists, run workers, review merge candidates, and check whether automation is actually running.</p>
     </section>
 
     <section class="grid kpis">
       <div class="card"><div class="label">Uploads</div><div class="value" id="kpi-uploads">0</div></div>
       <div class="card"><div class="label">Queue</div><div class="value" id="kpi-queue">0</div></div>
-      <div class="card"><div class="label">Customers</div><div class="value" id="kpi-customers">0</div></div>
-      <div class="card"><div class="label">Archive pending</div><div class="value" id="kpi-archive">0</div></div>
+      <div class="card"><div class="label">Leads created</div><div class="value" id="kpi-created">0</div></div>
       <div class="card"><div class="label">Merge pending</div><div class="value" id="kpi-merge">0</div></div>
     </section>
 
@@ -70,13 +72,12 @@
         <div id="status" class="status"></div>
       </div>
       <div class="card">
-        <div class="section-head"><h2>Run backend</h2></div>
-        <div class="actions">
-          <button id="refresh-customers-button" class="secondary" type="button">Refresh customers</button>
+        <div class="section-head"><h2>Automation status</h2></div>
+        <div class="list" id="automation-list"></div>
+        <div class="actions" style="margin-top:12px;">
           <button id="sales-ops-button" type="button">Run Sales Ops workers</button>
           <button id="refresh-button" class="secondary" type="button">Refresh view</button>
         </div>
-        <div class="list" id="summary-list" style="margin-top:12px;"></div>
       </div>
     </section>
 
@@ -86,8 +87,8 @@
     </section>
 
     <section class="grid two">
-      <div class="card"><div class="section-head"><h2>Customers</h2></div><div class="list" id="customer-list"></div></div>
-      <div class="card"><div class="section-head"><h2>Archive approvals</h2></div><div class="list" id="archive-list"></div></div>
+      <div class="card"><div class="section-head"><h2>Lead analytics by AI BDR</h2></div><div class="list" id="agent-analytics-list"></div></div>
+      <div class="card"><div class="section-head"><h2>Lead analytics by AE</h2></div><div class="list" id="owner-analytics-list"></div></div>
     </section>
 
     <section class="grid two">
@@ -104,35 +105,47 @@
     function setText(id, value) { document.getElementById(id).textContent = value; }
     function setStatus(message, kind='') { const el = document.getElementById('status'); el.className = `status ${kind}`.trim(); el.textContent = message; }
     async function j(url, opts) { const r = await fetch(url, opts); const p = await r.json(); if (!r.ok) throw new Error(p.detail || p.error || 'Request failed'); return p; }
-
     function renderList(id, items, empty) { document.getElementById(id).innerHTML = items.join('') || `<div class="muted small">${empty}</div>`; }
+    function mapItems(obj, labelPrefix='') {
+      return Object.entries(obj || {}).sort((a,b) => b[1]-a[1]).map(([k,v]) => `<div class="item"><strong>${esc(labelPrefix ? labelPrefix + k : k)}</strong><div class="muted small">${fmt.format(v)} lead(s)</div></div>`);
+    }
 
     async function loadOverview() {
       const data = await j('/api/overview');
+      const latest = (data.analytics || {}).latest_run || {};
       setText('kpi-uploads', fmt.format(data.summary.uploads || 0));
       setText('kpi-queue', fmt.format(data.summary.intake_queue || 0));
-      setText('kpi-customers', fmt.format(data.summary.customers || 0));
-      setText('kpi-archive', fmt.format(data.summary.archive_pending || 0));
+      setText('kpi-created', fmt.format(data.summary.bdr_total_created || 0));
       setText('kpi-merge', fmt.format(data.summary.merge_pending || 0));
-      renderList('summary-list', [
-        `<div class="item"><strong>Customers excluded</strong><div class="muted small">${fmt.format(data.summary.customers || 0)} won-deal customers blocked from search, scoring, and hygiene.</div></div>`,
-        `<div class="item"><strong>Pending actions</strong><div class="muted small">${fmt.format(data.summary.archive_pending || 0)} archive approvals, ${fmt.format(data.summary.merge_pending || 0)} merge approvals.</div></div>`
-      ], 'No summary yet.');
+
+      renderList('automation-list', [
+        `<div class="item"><strong>AI BDR cron</strong><div class="muted small">Hourly at minute 17.</div></div>`,
+        `<div class="item"><strong>Latest AI BDR run</strong><div class="muted small">${esc(latest.ran_at || 'No run yet')}</div><div style="margin-top:6px;"><span class="pill ${latest.paused ? 'err' : ''}">${latest.paused ? 'paused' : 'active'}</span></div>${latest.pause_reason ? `<div class="muted small" style="margin-top:6px;">${esc(latest.pause_reason)}</div>` : ''}</div>`,
+        `<div class="item"><strong>Sales Ops cron</strong><div class="muted small">Hourly at minute 47.</div></div>`
+      ], 'No automation status yet.');
+
       renderList('upload-list', (data.uploads || []).slice(0,5).map(item => `<div class="item"><strong>${esc(item.filename || 'Upload')}</strong><div class="muted small">${fmt.format(item.row_count || 0)} rows, ${esc(item.status || '')}</div></div>`), 'No uploads yet.');
       renderList('queue-list', (data.intake_queue || []).slice(0,6).map(item => `<div class="item"><strong>${esc(item.company || 'Row')}</strong><div class="muted small">${esc(item.next_step || '')}${item.assigned_owner ? ' • owner ' + esc(item.assigned_owner) : ''}</div></div>`), 'No queue items yet.');
-      renderList('customer-list', ((data.customers || {}).items || []).slice(0,6).map(item => `<div class="item"><strong>${esc(item.organisation_name || item.deal_title || 'Customer')}</strong><div class="muted small">${esc(item.domain || item.homepage || 'No domain')} • ${esc(item.source || '')}</div></div>`), 'No customers loaded yet.');
-      renderList('archive-list', (((data.approvals || {}).archive || {}).items || []).slice(0,5).map(item => `<div class="item"><strong>${esc(item.title || 'Archive candidate')}</strong><div class="muted small">Score ${fmt.format(item.score || 0)} • confidence ${esc(item.confidence || 0)}</div><div class="actions" style="margin-top:8px;"><button class="ghost" onclick="approveAction('archive','${esc(item.id)}')">Approve</button></div></div>`), 'No archive approvals pending.');
-      renderList('merge-list', (((data.approvals || {}).merge || {}).items || []).slice(0,5).map(item => `<div class="item"><strong>${esc(item.record_type || 'merge')} cluster</strong><div class="muted small">Keep ${esc((item.survivor || {}).name || (item.survivor || {}).id || 'record')} and review ${fmt.format((item.duplicates || []).length)} duplicates</div><div class="actions" style="margin-top:8px;"><button class="ghost" onclick="approveAction('merge','${esc(item.id)}')">Approve</button></div></div>`), 'No merge approvals pending.');
+      const agentCreated = (data.analytics || {}).created_by_agent || {};
+      const agentQueued = (data.analytics || {}).queued_by_agent || {};
+      const ownerCreated = (data.analytics || {}).created_by_owner || {};
+      const ownerQueued = (data.analytics || {}).queued_by_owner || {};
+      renderList('agent-analytics-list', Object.keys(agentCreated).length ? mapItems(agentCreated, '') : mapItems(agentQueued, ''), Object.keys(agentCreated).length ? 'No created leads yet.' : 'No queued leads yet.');
+      renderList('owner-analytics-list', Object.keys(ownerCreated).length ? mapItems(ownerCreated, '') : mapItems(ownerQueued, ''), Object.keys(ownerCreated).length ? 'No AE assignments yet.' : 'No queued AE assignments yet.');
+
+      renderList('merge-list', (((data.approvals || {}).merge || {}).items || []).slice(0,8).map(item => {
+        const survivor = item.survivor || {};
+        const dupes = (item.duplicates || []).slice(0,3).map(dup => dup.url ? `<a href="${esc(dup.url)}" target="_blank" rel="noopener">${esc(dup.name || dup.id)}</a>` : esc(dup.name || dup.id)).join(', ');
+        const survivorLink = survivor.url ? `<a href="${esc(survivor.url)}" target="_blank" rel="noopener">${esc(survivor.name || survivor.id || 'record')}</a>` : esc(survivor.name || survivor.id || 'record');
+        return `<div class="item"><strong>${esc(item.record_type || 'merge')} cluster</strong><div class="muted small">Keep ${survivorLink}</div><div class="muted small" style="margin-top:6px;">Review: ${dupes || 'No linked duplicates shown'}</div><div class="actions" style="margin-top:8px;"><button class="ghost" onclick="approveAction('merge','${esc(item.id)}')">Approve</button></div></div>`;
+      }), 'No merge approvals pending.');
+
       document.getElementById('criteria-editor').value = JSON.stringify(data.qualification_criteria || {}, null, 2);
       document.getElementById('territories-editor').value = JSON.stringify(data.territories || {}, null, 2);
     }
 
     async function approveAction(kind, id) {
-      try {
-        await j('/api/approvals/approve', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ kind, id }) });
-        setStatus(`${kind} action approved.`, 'ok');
-        await loadOverview();
-      } catch (error) { setStatus(error.message, 'err'); }
+      try { await j('/api/approvals/approve', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ kind, id }) }); setStatus(`${kind} action approved.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); }
     }
     window.approveAction = approveAction;
 
@@ -142,8 +155,7 @@
       try { const f = new FormData(); f.append('file', file); const r = await fetch('/api/upload-csv', { method:'POST', body:f }); const p = await r.json(); if (!r.ok) throw new Error(p.detail || p.error); setStatus(`Uploaded ${p.filename}.`, 'ok'); document.getElementById('csv-file').value=''; await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } finally { b.disabled = false; }
     });
     document.getElementById('process-button').addEventListener('click', async () => { const b = document.getElementById('process-button'); b.disabled = true; setStatus('Building queue...'); try { const p = await j('/api/process-uploads', { method:'POST' }); setStatus(`Added ${fmt.format(p.items_added || 0)} rows.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } finally { b.disabled = false; } });
-    document.getElementById('refresh-customers-button').addEventListener('click', async () => { const b = document.getElementById('refresh-customers-button'); b.disabled = true; setStatus('Refreshing customers from won deals...'); try { const p = await j('/api/refresh-customers', { method:'POST' }); setStatus(`Loaded ${fmt.format(p.count || 0)} customers.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } finally { b.disabled = false; } });
-    document.getElementById('sales-ops-button').addEventListener('click', async () => { const b = document.getElementById('sales-ops-button'); b.disabled = true; setStatus('Running Sales Ops workers...'); try { const p = await j('/api/run-sales-ops', { method:'POST' }); setStatus(`Workers ran. ${fmt.format(p.archive_recommendations || 0)} archive recs, ${fmt.format((p.organisation_duplicate_clusters || 0)+(p.person_duplicate_clusters || 0)+(p.lead_duplicate_clusters || 0))} merge clusters.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } finally { b.disabled = false; } });
+    document.getElementById('sales-ops-button').addEventListener('click', async () => { const b = document.getElementById('sales-ops-button'); b.disabled = true; setStatus('Running Sales Ops workers...'); try { const p = await j('/api/run-sales-ops', { method:'POST' }); setStatus(`Workers ran. ${fmt.format((p.organisation_duplicate_clusters || 0)+(p.person_duplicate_clusters || 0)+(p.lead_duplicate_clusters || 0))} merge clusters found.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } finally { b.disabled = false; } });
     document.getElementById('save-criteria-button').addEventListener('click', async () => { try { await j('/api/qualification-criteria', { method:'POST', headers:{'Content-Type':'application/json'}, body: document.getElementById('criteria-editor').value }); setStatus('Scoring config saved.', 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } });
     document.getElementById('save-territories-button').addEventListener('click', async () => { try { await j('/api/territories', { method:'POST', headers:{'Content-Type':'application/json'}, body: document.getElementById('territories-editor').value }); setStatus('Territories saved.', 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } });
     document.getElementById('refresh-button').addEventListener('click', loadOverview);

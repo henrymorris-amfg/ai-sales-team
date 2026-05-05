@@ -31,21 +31,21 @@
       "countries": ["Poland", "Estonia", "Latvia", "Lithuania", "Romania", "Hungary", "Slovakia", "Slovenia", "Croatia", "Bosnia and Herzegovina", "Serbia", "Bulgaria", "Albania", "Greece"],
       "states": ["Florida", "Mississippi", "Alabama", "Georgia"]
     },
-    "Callum": {
-      "territories": [
-        "Benelux",
-        "Ohio Valley"
-      ],
-      "countries": ["Belgium", "Netherlands", "Luxembourg"],
-      "states": ["Ohio", "Pennsylvania", "West Virginia"]
-    },
     "Ben": {
       "territories": [
         "New England",
-        "California"
+        "California",
+        "Benelux"
+      ],
+      "countries": ["Belgium", "Netherlands", "Luxembourg"],
+      "states": ["Maine", "New Hampshire", "Vermont", "California"]
+    },
+    "Callum": {
+      "territories": [
+        "Ohio Valley"
       ],
       "countries": [],
-      "states": ["Maine", "New Hampshire", "Vermont", "California"]
+      "states": ["Ohio", "Pennsylvania", "West Virginia"]
     },
     "Henry": {
       "territories": [
