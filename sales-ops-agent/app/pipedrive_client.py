@@ -21,6 +21,20 @@ class PipedriveClient:
             raise RuntimeError(f"Pipedrive API error: {payload}")
         return payload
 
+    def _post(self, path: str, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        payload = dict(data or {})
+        response = self.session.post(
+            f"{self.api_base}{path}",
+            params={"api_token": self.api_key},
+            json=payload,
+            timeout=60,
+        )
+        response.raise_for_status()
+        body = response.json()
+        if not body.get("success", False):
+            raise RuntimeError(f"Pipedrive API error: {body}")
+        return body
+
     def _get_all(self, path: str, params: Optional[Dict[str, Any]] = None, limit: int = 500) -> List[Dict[str, Any]]:
         start = 0
         rows: List[Dict[str, Any]] = []
@@ -101,3 +115,21 @@ class PipedriveClient:
 
     def get_deal_activities(self, deal_id: int) -> List[Dict[str, Any]]:
         return self._get_all(f"/deals/{deal_id}/activities")
+
+    def search_persons(self, term: str, limit: int = 10) -> List[Dict[str, Any]]:
+        return self._get("/persons/search", {"term": term, "limit": limit, "fields": "name,email"}).get("data", {}).get("items") or []
+
+    def search_organisations(self, term: str, limit: int = 10) -> List[Dict[str, Any]]:
+        return self._get("/organizations/search", {"term": term, "limit": limit, "fields": "name,address"}).get("data", {}).get("items") or []
+
+    def create_organisation(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self._post("/organizations", payload).get("data") or {}
+
+    def create_person(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self._post("/persons", payload).get("data") or {}
+
+    def create_lead(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self._post("/leads", payload).get("data") or {}
+
+    def create_note(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self._post("/notes", payload).get("data") or {}
