@@ -18,6 +18,7 @@ AMFG-focused AI Sales Team workspace, centered on two things:
 - CSV upload intake for AI BDR workflows
 - Territory-aware intake queue routing
 - Live local dashboard for team status, findings, queue health, and uploads
+- Apollo enrichment preview scaffold for queued AI BDR leads
 
 ## Immediate roadmap
 
@@ -42,5 +43,6 @@ Dashboard default URL: `http://localhost:8787`
 ## Notes
 
 - Keep credentials out of git. Use local env files or `.secrets/`.
+- Apollo credentials should live in `.secrets/apollo.env` as `APOLLO_API_KEY=...`.
+- Run `./run.sh apollo-preview` from `sales-ops-agent/` to generate `output/apollo-enrichment-preview.json` for the next batch of queued leads.
 - The current repo snapshot is the baseline import from the local working prototype.
-

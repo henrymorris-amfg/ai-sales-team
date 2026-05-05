@@ -17,8 +17,11 @@ case "${1:-audit}" in
   process-uploads)
     python3 -m app.intake_queue
     ;;
+  apollo-preview)
+    python3 -m app.apollo_enrich_queue
+    ;;
   *)
-    echo "Usage: ./run.sh [audit|dashboard|generate-dashboard|batch-review|process-uploads]" >&2
+    echo "Usage: ./run.sh [audit|dashboard|generate-dashboard|batch-review|process-uploads|apollo-preview]" >&2
     exit 1
     ;;
 esac

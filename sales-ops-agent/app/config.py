@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE = ROOT.parent
 SECRETS_FILE = WORKSPACE / ".secrets" / "pipedrive.env"
+APOLLO_SECRETS_FILE = WORKSPACE / ".secrets" / "apollo.env"
 
 
 def _load_env_file(path: Path) -> None:
@@ -26,6 +27,7 @@ def _load_env_file(path: Path) -> None:
 
 _load_env_file(ROOT / ".env")
 _load_env_file(SECRETS_FILE)
+_load_env_file(APOLLO_SECRETS_FILE)
 
 
 @dataclass
