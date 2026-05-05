@@ -52,6 +52,28 @@ class ApolloClient:
             payload["person_titles"] = titles
         return self._post("/mixed_people/api_search", payload)
 
+    def match_person(
+        self,
+        *,
+        name: str = "",
+        organization_name: str = "",
+        domain: str = "",
+        linkedin_url: str = "",
+    ) -> dict[str, Any]:
+        payload: dict[str, Any] = {}
+        if name:
+            payload["name"] = name
+        if organization_name:
+            payload["organization_name"] = organization_name
+        if domain:
+            payload["domain"] = domain
+        if linkedin_url:
+            payload["linkedin_url"] = linkedin_url
+        return self._post("/people/match", payload)
+
+    def bulk_match_people(self, details: list[dict[str, Any]]) -> dict[str, Any]:
+        return self._post("/people/bulk_match", {"details": details})
+
 
 def load_apollo_client() -> ApolloClient:
     import os

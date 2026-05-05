@@ -14,6 +14,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from .intake_queue import process_uploads
+from .bdr_full_flow import qualification_criteria
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,6 +45,7 @@ def build_overview() -> dict:
     intake_queue = _load_json(OUTPUT_DIR / "bdr-intake-queue.json", [])
     batch_review = _load_json(OUTPUT_DIR / "cnc-random-review-200.json", {})
     apollo_preview = _load_json(OUTPUT_DIR / "apollo-enrichment-preview.json", {})
+    bdr_batch = _load_json(OUTPUT_DIR / "bdr-batch-results.json", {})
 
     severity_counts = Counter((item.get("severity") or "unknown").lower() for item in findings)
     rule_counts = Counter(item.get("rule_id") or "unknown" for item in findings)
@@ -113,6 +115,7 @@ def build_overview() -> dict:
             "apollo_preview_scanned": apollo_preview.get("queue_items_scanned", 0),
             "apollo_org_hits": apollo_org_hits,
             "apollo_people_hits": apollo_people_hits,
+            "batch_created": bdr_batch.get("created", 0),
         },
         "agents": agents,
         "owners": owners[:10],
@@ -143,6 +146,8 @@ def build_overview() -> dict:
             "people_hits": apollo_people_hits,
             "items": apollo_items[:10],
         },
+        "qualification_criteria": qualification_criteria(),
+        "bdr_batch": bdr_batch,
     }
 
 
@@ -247,6 +252,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if parsed.path == "/api/apollo-preview":
             self._send_json(_load_json(OUTPUT_DIR / "apollo-enrichment-preview.json", {}))
+            return
+        if parsed.path == "/api/bdr-batch-results":
+            self._send_json(_load_json(OUTPUT_DIR / "bdr-batch-results.json", {}))
             return
         self._send_not_found()
 

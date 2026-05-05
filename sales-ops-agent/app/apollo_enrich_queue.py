@@ -62,6 +62,7 @@ def build_preview(limit: int = 10) -> dict:
         org_result = client.search_organizations(domain=domain, name=company, per_page=3)
         people_result = {}
         people_error = ""
+        resolved_email = ""
         try:
             people_result = client.search_people(
                 organization_name=company,
@@ -69,6 +70,15 @@ def build_preview(limit: int = 10) -> dict:
                 titles=PRIORITY_TITLES,
                 per_page=5,
             )
+            people = people_result.get("people") or []
+            if people:
+                top = people[0]
+                matched = client.match_person(
+                    name=f"{top.get('first_name') or ''} {top.get('last_name_obfuscated') or ''}".replace('*', '').strip(),
+                    organization_name=company,
+                    domain=domain,
+                ).get("person") or {}
+                resolved_email = matched.get("email") or ""
         except Exception as exc:
             people_error = str(exc)
 
@@ -82,6 +92,7 @@ def build_preview(limit: int = 10) -> dict:
                 "website_domain": domain,
                 "apollo_organizations": (org_result.get("organizations") or [])[:3],
                 "apollo_people": (people_result.get("people") or [])[:5],
+                "resolved_email": resolved_email,
                 "apollo_people_error": people_error,
             }
         )

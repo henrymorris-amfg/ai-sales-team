@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 UPLOAD_CSV = ROOT / "uploads" / "NorthOhio100.csv"
 HOMEPAGE_FIELD_KEY = "667dae8863844f07bf48be7af77ae678647c6afb"
 STATE_FIELD_KEY = "dd4be7e718da24b3254c4981d89b5eb6a5fb0192"
+CNC_LABEL_ID = "e028bea0-b37b-11ee-9581-d55a394d57f7"
 PRIORITY_TITLES = [
     "President",
     "Owner",
@@ -83,6 +84,20 @@ STATE_OPTION_IDS = {
     "wyoming": 1320,
 }
 KNOWN_STATES = sorted(STATE_OPTION_IDS.keys(), key=len, reverse=True)
+
+
+def qualification_criteria() -> dict[str, Any]:
+    return {
+        "base_score": 50,
+        "rules": [
+            {"points": 15, "when": "capabilities include strong CNC signals such as 5-axis, CNC machining, CNC turning, or CNC milling"},
+            {"points": 15, "when": "certifications include quality/compliance signals such as ISO 9001, AS9100, or ITAR"},
+            {"points": 10, "when": "employee count is 5 or more"},
+            {"points": 10, "when": "Apollo finds a relevant title such as owner, president, VP, or operations leader"},
+            {"points": 5, "when": "Apollo returns an industry value"},
+        ],
+        "cap": {"min": 0, "max": 100},
+    }
 
 
 def _load_rows() -> list[dict[str, str]]:
@@ -174,6 +189,17 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
         for person in people:
             detail = _apollo_person_detail(apollo.api_key, person["id"])
             org = detail.get("organization") or {}
+            domain = _normalise_domain(org.get("website_url") or row.get("Website") or "")
+            if (not detail.get("email")) or ("email_not_unlocked" in (detail.get("email") or "")):
+                matched = apollo.match_person(
+                    name=detail.get("name") or "",
+                    organization_name=org.get("name") or company,
+                    domain=domain,
+                    linkedin_url=detail.get("linkedin_url") or "",
+                ).get("person") or {}
+                if matched:
+                    detail = matched
+                    org = detail.get("organization") or org
             city, state, country = _address_parts(org.get("raw_address") or row.get("Address") or "")
             owner_name = assign_owner(country, state)
             owner_id = _pick_owner_id(client, owner_name)
@@ -183,6 +209,8 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
             email = (detail.get("email") or "").strip()
             if "email_not_unlocked" in email:
                 email = ""
+            if not email:
+                continue
             person_name = (detail.get("name") or "").strip()
             org_dupes = _find_org_dupes(client, org_name, org.get("website_url") or row.get("Website") or "")
             person_dupes = client.search_persons(email or person_name, limit=5) if (email or person_name) else []
@@ -204,7 +232,7 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
 
 
 def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_person: dict[str, Any]) -> tuple[int, list[str]]:
-    score = 50
+    score = qualification_criteria()["base_score"]
     reasons: list[str] = []
     certifications = (row.get("Certifications") or "").lower()
     capabilities = (row.get("Capabilities") or "").lower()
@@ -269,8 +297,9 @@ def run() -> dict[str, Any]:
         "person_id": person.get("id"),
         "organization_id": organisation.get("id"),
         STATE_FIELD_KEY: _state_option_id(candidate["state"]),
+        "label_ids": [CNC_LABEL_ID],
     }
-    lead_payload = {k: v for k, v in lead_payload.items() if v not in {None, ""}}
+    lead_payload = {k: v for k, v in lead_payload.items() if v is not None and v != ""}
     lead = client.create_lead(lead_payload)
 
     note_lines = [

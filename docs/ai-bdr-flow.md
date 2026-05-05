@@ -13,9 +13,10 @@ Create a coordinated AI Sales Team that feeds high-quality, territory-assigned o
 7. If not, add lead records for the best contacts found.
 8. Always set the lead `State` custom field from the website or Apollo address, for example `Michigan`.
 9. Assign owner based on `Country` and `State` territory rules.
-10. Add a short lead note containing only the qualification score, the state, and the justification bullet points.
-11. Create a `Call` activity for the assigned AE due the next day, with no time entered.
-12. Alert the human AE in Google Chat.
+10. Always assign the `CNC` lead label on AI BDR-created CNC leads.
+11. Add a short lead note containing only the qualification score, the state, and the justification bullet points.
+12. Create a `Call` activity for the assigned AE due the next day, with no time entered.
+13. Alert the human AE in Google Chat.
 
 ## Agent roles
 ### Sales Ops
