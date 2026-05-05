@@ -5,53 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AMFG AI Sales Team</title>
   <style>
-    :root {
-      --blue:#1B83FF;
-      --dark:#1f2937;
-      --muted:#667085;
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --border:#e6eaf0;
-      --success:#15803d;
-      --warn:#b45309;
-    }
+    :root { --blue:#1B83FF; --dark:#1f2937; --muted:#667085; --bg:#f6f8fb; --card:#fff; --border:#e6eaf0; --success:#15803d; --warn:#b45309; }
     * { box-sizing:border-box; }
     body { margin:0; font-family:Inter, Arial, sans-serif; background:var(--bg); color:var(--dark); }
     .wrap { max-width:1100px; margin:0 auto; padding:24px; }
-    .hero { background:#111827; color:white; padding:24px; border-radius:20px; }
-    .hero h1 { margin:8px 0 6px; font-size:2rem; }
+    .hero { background:#111827; color:#fff; padding:22px; border-radius:18px; }
+    .hero h1 { margin:6px 0; font-size:1.9rem; }
     .hero p { margin:0; color:rgba(255,255,255,.78); }
     .grid { display:grid; gap:16px; margin-top:16px; }
-    .grid.kpis { grid-template-columns:repeat(4,1fr); }
-    .grid.two { grid-template-columns:1fr 1fr; }
-    .card { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; }
+    .kpis { grid-template-columns:repeat(5,1fr); }
+    .two { grid-template-columns:1fr 1fr; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; }
     .label { font-size:.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
     .value { font-size:1.9rem; font-weight:800; margin-top:8px; }
     .muted { color:var(--muted); }
-    .section-head { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px; }
-    .section-head h2 { margin:0; font-size:1.05rem; }
+    .section-head { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px; }
+    .section-head h2 { margin:0; font-size:1rem; }
     .actions { display:flex; gap:10px; flex-wrap:wrap; }
-    button { border:none; background:var(--blue); color:white; padding:12px 14px; border-radius:12px; font:inherit; font-weight:700; cursor:pointer; }
+    button { border:none; background:var(--blue); color:#fff; padding:11px 13px; border-radius:11px; font:inherit; font-weight:700; cursor:pointer; }
     button.secondary { background:#eef5ff; color:var(--blue); }
+    button.ghost { background:#fff7ed; color:var(--warn); }
     button:disabled { opacity:.65; }
     input[type=file], textarea { width:100%; border:1px solid var(--border); border-radius:12px; padding:12px; font:inherit; background:#fff; }
-    textarea { min-height:180px; font-family:ui-monospace, monospace; font-size:12px; }
+    textarea { min-height:150px; font-family:ui-monospace, monospace; font-size:12px; }
     .status { min-height:1.2em; font-size:.95rem; margin-top:10px; }
     .status.ok { color:var(--success); }
     .status.err { color:#b91c1c; }
     .list { display:grid; gap:10px; }
-    .item { border:1px solid var(--border); border-radius:14px; padding:12px; }
+    .item { border:1px solid var(--border); border-radius:12px; padding:12px; }
     .item strong { display:block; margin-bottom:4px; }
-    .pill { display:inline-block; padding:5px 10px; border-radius:999px; font-size:.8rem; font-weight:700; background:#eef5ff; color:var(--blue); }
+    .pill { display:inline-block; padding:4px 9px; border-radius:999px; font-size:.8rem; font-weight:700; background:#eef5ff; color:var(--blue); }
     .pill.warn { background:#fff7ed; color:var(--warn); }
     .small { font-size:.92rem; }
-    @media (max-width:900px) {
-      .grid.kpis, .grid.two { grid-template-columns:1fr 1fr; }
-    }
-    @media (max-width:640px) {
-      .grid.kpis, .grid.two { grid-template-columns:1fr; }
-      .wrap { padding:14px; }
-    }
+    @media (max-width:960px) { .kpis,.two { grid-template-columns:1fr 1fr; } }
+    @media (max-width:640px) { .kpis,.two { grid-template-columns:1fr; } .wrap { padding:14px; } }
   </style>
 </head>
 <body>
@@ -59,14 +46,15 @@
     <section class="hero">
       <div class="label" style="color:rgba(255,255,255,.65)">AMFG AI SALES TEAM</div>
       <h1>Simple control panel</h1>
-      <p>Only the essentials, upload leads, run workers, check queue health, and review the key recommendations.</p>
+      <p>Upload lists, refresh customers, run workers, review only the actions that matter.</p>
     </section>
 
     <section class="grid kpis">
-      <div class="card"><div class="label">Uploads</div><div class="value" id="kpi-uploads">0</div><div class="muted small">CSV files staged</div></div>
-      <div class="card"><div class="label">Queue</div><div class="value" id="kpi-queue">0</div><div class="muted small">Rows ready for BDR processing</div></div>
-      <div class="card"><div class="label">Archive recs</div><div class="value" id="kpi-archive">0</div><div class="muted small">Leads recommended for archive</div></div>
-      <div class="card"><div class="label">Duplicate clusters</div><div class="value" id="kpi-duplicates">0</div><div class="muted small">Org, people, and lead merge candidates</div></div>
+      <div class="card"><div class="label">Uploads</div><div class="value" id="kpi-uploads">0</div></div>
+      <div class="card"><div class="label">Queue</div><div class="value" id="kpi-queue">0</div></div>
+      <div class="card"><div class="label">Customers</div><div class="value" id="kpi-customers">0</div></div>
+      <div class="card"><div class="label">Archive pending</div><div class="value" id="kpi-archive">0</div></div>
+      <div class="card"><div class="label">Merge pending</div><div class="value" id="kpi-merge">0</div></div>
     </section>
 
     <section class="grid two">
@@ -81,233 +69,83 @@
         </form>
         <div id="status" class="status"></div>
       </div>
-
       <div class="card">
-        <div class="section-head"><h2>Run workers</h2></div>
+        <div class="section-head"><h2>Run backend</h2></div>
         <div class="actions">
+          <button id="refresh-customers-button" class="secondary" type="button">Refresh customers</button>
           <button id="sales-ops-button" type="button">Run Sales Ops workers</button>
-          <button id="refresh-button" class="secondary" type="button">Refresh</button>
+          <button id="refresh-button" class="secondary" type="button">Refresh view</button>
         </div>
-        <div class="list" id="summary-list" style="margin-top:14px;"></div>
+        <div class="list" id="summary-list" style="margin-top:12px;"></div>
       </div>
     </section>
 
     <section class="grid two">
-      <div class="card">
-        <div class="section-head"><h2>Latest uploads</h2></div>
-        <div class="list" id="upload-list"></div>
-      </div>
-      <div class="card">
-        <div class="section-head"><h2>Queue snapshot</h2></div>
-        <div class="list" id="queue-list"></div>
-      </div>
+      <div class="card"><div class="section-head"><h2>Latest uploads</h2></div><div class="list" id="upload-list"></div></div>
+      <div class="card"><div class="section-head"><h2>Queue snapshot</h2></div><div class="list" id="queue-list"></div></div>
     </section>
 
     <section class="grid two">
-      <div class="card">
-        <div class="section-head"><h2>Archive recommendations</h2></div>
-        <div class="list" id="archive-list"></div>
-      </div>
-      <div class="card">
-        <div class="section-head"><h2>Duplicate recommendations</h2></div>
-        <div class="list" id="duplicate-list"></div>
-      </div>
+      <div class="card"><div class="section-head"><h2>Customers</h2></div><div class="list" id="customer-list"></div></div>
+      <div class="card"><div class="section-head"><h2>Archive approvals</h2></div><div class="list" id="archive-list"></div></div>
     </section>
 
-    <section class="card" style="margin-top:16px;">
-      <div class="section-head"><h2>Scoring config</h2></div>
-      <textarea id="criteria-editor"></textarea>
-      <div class="actions" style="margin-top:12px;">
-        <button id="save-criteria-button" type="button">Save scoring config</button>
-      </div>
+    <section class="grid two">
+      <div class="card"><div class="section-head"><h2>Merge approvals</h2></div><div class="list" id="merge-list"></div></div>
+      <div class="card"><div class="section-head"><h2>Territories config</h2></div><textarea id="territories-editor"></textarea><div class="actions" style="margin-top:12px;"><button id="save-territories-button" class="secondary" type="button">Save territories</button></div></div>
     </section>
+
+    <section class="card" style="margin-top:16px;"><div class="section-head"><h2>Scoring config</h2></div><textarea id="criteria-editor"></textarea><div class="actions" style="margin-top:12px;"><button id="save-criteria-button" type="button">Save scoring config</button></div></section>
   </div>
 
   <script>
     const fmt = new Intl.NumberFormat('en-GB');
+    const esc = t => String(t || '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
+    function setText(id, value) { document.getElementById(id).textContent = value; }
+    function setStatus(message, kind='') { const el = document.getElementById('status'); el.className = `status ${kind}`.trim(); el.textContent = message; }
+    async function j(url, opts) { const r = await fetch(url, opts); const p = await r.json(); if (!r.ok) throw new Error(p.detail || p.error || 'Request failed'); return p; }
 
-    function escapeHtml(text) {
-      return String(text || '')
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-    }
-
-    function setText(id, value) {
-      document.getElementById(id).textContent = value;
-    }
-
-    function setStatus(message, kind='') {
-      const el = document.getElementById('status');
-      el.className = `status ${kind}`.trim();
-      el.textContent = message;
-    }
-
-    function renderUploads(items) {
-      document.getElementById('upload-list').innerHTML = items.slice(0, 5).map(item => `
-        <div class="item">
-          <strong>${escapeHtml(item.filename || 'Upload')}</strong>
-          <div class="muted small">${fmt.format(item.row_count || 0)} rows, ${escapeHtml(item.status || 'queued')}</div>
-        </div>
-      `).join('') || '<div class="muted small">No uploads yet.</div>';
-    }
-
-    function renderQueue(items) {
-      document.getElementById('queue-list').innerHTML = items.slice(0, 6).map(item => `
-        <div class="item">
-          <strong>${escapeHtml(item.company || 'Row')}</strong>
-          <div class="muted small">${escapeHtml(item.website || 'No website')} ${item.assigned_owner ? '• owner ' + escapeHtml(item.assigned_owner) : ''}</div>
-        </div>
-      `).join('') || '<div class="muted small">No queue items yet.</div>';
-    }
-
-    function renderSummary(data) {
-      const s = data.sales_ops_summary || {};
-      const totalDupes = (s.organisation_duplicate_clusters || 0) + (s.person_duplicate_clusters || 0) + (s.lead_duplicate_clusters || 0);
-      document.getElementById('summary-list').innerHTML = `
-        <div class="item"><strong>Sales Ops</strong><div class="muted small">Archive recs: ${fmt.format(s.archive_recommendations || 0)}</div></div>
-        <div class="item"><strong>Duplicates</strong><div class="muted small">${fmt.format(totalDupes)} total clusters</div></div>
-        <div class="item"><strong>Modes</strong><div class="muted small">${escapeHtml(s.disqualification_mode || 'recommend_only')} / ${escapeHtml(s.duplicate_mode || 'recommend_only')}</div></div>
-      `;
-    }
-
-    function renderArchive(items) {
-      document.getElementById('archive-list').innerHTML = items.slice(0, 5).map(item => `
-        <div class="item">
-          <strong>${escapeHtml(item.title || 'Lead')}</strong>
-          <span class="pill warn">Score ${fmt.format(item.score || 0)}</span>
-          <div class="muted small" style="margin-top:8px;">${escapeHtml((item.disqualify_signals || []).slice(0,3).join(', ') || item.reason || 'No reason captured')}</div>
-        </div>
-      `).join('') || '<div class="muted small">No archive recommendations yet.</div>';
-    }
-
-    function renderDuplicates(payload) {
-      const items = []
-        .concat((payload.organisation_duplicates || []).slice(0, 2))
-        .concat((payload.person_duplicates || []).slice(0, 2))
-        .concat((payload.lead_duplicates || []).slice(0, 2));
-      document.getElementById('duplicate-list').innerHTML = items.map(item => `
-        <div class="item">
-          <strong>${escapeHtml(item.type || 'duplicate')} cluster</strong>
-          <div class="muted small">Keep ${escapeHtml((item.survivor || {}).name || (item.survivor || {}).id || 'record')} and review ${fmt.format((item.duplicates || []).length)} duplicate record(s)</div>
-        </div>
-      `).join('') || '<div class="muted small">No duplicate recommendations yet.</div>';
-    }
+    function renderList(id, items, empty) { document.getElementById(id).innerHTML = items.join('') || `<div class="muted small">${empty}</div>`; }
 
     async function loadOverview() {
-      const response = await fetch('/api/overview');
-      const data = await response.json();
-      const dupes = (data.summary.organisation_duplicate_clusters || 0) + (data.summary.person_duplicate_clusters || 0) + (data.summary.lead_duplicate_clusters || 0);
+      const data = await j('/api/overview');
       setText('kpi-uploads', fmt.format(data.summary.uploads || 0));
       setText('kpi-queue', fmt.format(data.summary.intake_queue || 0));
-      setText('kpi-archive', fmt.format(data.summary.archive_recommendations || 0));
-      setText('kpi-duplicates', fmt.format(dupes));
-      renderUploads(data.uploads || []);
-      renderQueue(data.intake_queue || []);
-      renderSummary(data);
-      renderArchive((data.sales_ops_disqualification || {}).archive_candidates || []);
-      renderDuplicates(data.sales_ops_duplicates || {});
+      setText('kpi-customers', fmt.format(data.summary.customers || 0));
+      setText('kpi-archive', fmt.format(data.summary.archive_pending || 0));
+      setText('kpi-merge', fmt.format(data.summary.merge_pending || 0));
+      renderList('summary-list', [
+        `<div class="item"><strong>Customers excluded</strong><div class="muted small">${fmt.format(data.summary.customers || 0)} won-deal customers blocked from search, scoring, and hygiene.</div></div>`,
+        `<div class="item"><strong>Pending actions</strong><div class="muted small">${fmt.format(data.summary.archive_pending || 0)} archive approvals, ${fmt.format(data.summary.merge_pending || 0)} merge approvals.</div></div>`
+      ], 'No summary yet.');
+      renderList('upload-list', (data.uploads || []).slice(0,5).map(item => `<div class="item"><strong>${esc(item.filename || 'Upload')}</strong><div class="muted small">${fmt.format(item.row_count || 0)} rows, ${esc(item.status || '')}</div></div>`), 'No uploads yet.');
+      renderList('queue-list', (data.intake_queue || []).slice(0,6).map(item => `<div class="item"><strong>${esc(item.company || 'Row')}</strong><div class="muted small">${esc(item.next_step || '')}${item.assigned_owner ? ' • owner ' + esc(item.assigned_owner) : ''}</div></div>`), 'No queue items yet.');
+      renderList('customer-list', ((data.customers || {}).items || []).slice(0,6).map(item => `<div class="item"><strong>${esc(item.organisation_name || item.deal_title || 'Customer')}</strong><div class="muted small">${esc(item.domain || item.homepage || 'No domain')} • ${esc(item.source || '')}</div></div>`), 'No customers loaded yet.');
+      renderList('archive-list', (((data.approvals || {}).archive || {}).items || []).slice(0,5).map(item => `<div class="item"><strong>${esc(item.title || 'Archive candidate')}</strong><div class="muted small">Score ${fmt.format(item.score || 0)} • confidence ${esc(item.confidence || 0)}</div><div class="actions" style="margin-top:8px;"><button class="ghost" onclick="approveAction('archive','${esc(item.id)}')">Approve</button></div></div>`), 'No archive approvals pending.');
+      renderList('merge-list', (((data.approvals || {}).merge || {}).items || []).slice(0,5).map(item => `<div class="item"><strong>${esc(item.record_type || 'merge')} cluster</strong><div class="muted small">Keep ${esc((item.survivor || {}).name || (item.survivor || {}).id || 'record')} and review ${fmt.format((item.duplicates || []).length)} duplicates</div><div class="actions" style="margin-top:8px;"><button class="ghost" onclick="approveAction('merge','${esc(item.id)}')">Approve</button></div></div>`), 'No merge approvals pending.');
       document.getElementById('criteria-editor').value = JSON.stringify(data.qualification_criteria || {}, null, 2);
+      document.getElementById('territories-editor').value = JSON.stringify(data.territories || {}, null, 2);
     }
 
-    async function uploadCsv(file) {
-      const form = new FormData();
-      form.append('file', file);
-      const response = await fetch('/api/upload-csv', { method:'POST', body:form });
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.detail || payload.error || 'Upload failed');
-      return payload;
-    }
-
-    async function processUploads() {
-      const response = await fetch('/api/process-uploads', { method:'POST' });
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.detail || payload.error || 'Processing failed');
-      return payload;
-    }
-
-    async function runSalesOps() {
-      const response = await fetch('/api/run-sales-ops', { method:'POST' });
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.detail || payload.error || 'Sales Ops worker failed');
-      return payload;
-    }
-
-    async function saveCriteria(payload) {
-      const response = await fetch('/api/qualification-criteria', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify(payload),
-      });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.detail || result.error || 'Save failed');
-      return result;
-    }
-
-    document.getElementById('upload-form').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const fileInput = document.getElementById('csv-file');
-      const button = document.getElementById('upload-button');
-      const file = fileInput.files[0];
-      if (!file) return;
-      button.disabled = true;
-      setStatus('Uploading CSV...');
+    async function approveAction(kind, id) {
       try {
-        const result = await uploadCsv(file);
-        setStatus(`Uploaded ${result.filename}, ${fmt.format(result.row_count || 0)} rows staged.`, 'ok');
-        fileInput.value = '';
+        await j('/api/approvals/approve', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ kind, id }) });
+        setStatus(`${kind} action approved.`, 'ok');
         await loadOverview();
-      } catch (error) {
-        setStatus(error.message, 'err');
-      } finally {
-        button.disabled = false;
-      }
-    });
+      } catch (error) { setStatus(error.message, 'err'); }
+    }
+    window.approveAction = approveAction;
 
-    document.getElementById('process-button').addEventListener('click', async () => {
-      const button = document.getElementById('process-button');
-      button.disabled = true;
-      setStatus('Building queue...');
-      try {
-        const result = await processUploads();
-        setStatus(`Processed ${fmt.format(result.processed_jobs || 0)} uploads and added ${fmt.format(result.items_added || 0)} rows.`, 'ok');
-        await loadOverview();
-      } catch (error) {
-        setStatus(error.message, 'err');
-      } finally {
-        button.disabled = false;
-      }
+    document.getElementById('upload-form').addEventListener('submit', async (e) => {
+      e.preventDefault(); const file = document.getElementById('csv-file').files[0]; if (!file) return;
+      const b = document.getElementById('upload-button'); b.disabled = true; setStatus('Uploading CSV...');
+      try { const f = new FormData(); f.append('file', file); const r = await fetch('/api/upload-csv', { method:'POST', body:f }); const p = await r.json(); if (!r.ok) throw new Error(p.detail || p.error); setStatus(`Uploaded ${p.filename}.`, 'ok'); document.getElementById('csv-file').value=''; await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } finally { b.disabled = false; }
     });
-
-    document.getElementById('sales-ops-button').addEventListener('click', async () => {
-      const button = document.getElementById('sales-ops-button');
-      button.disabled = true;
-      setStatus('Running Sales Ops workers...');
-      try {
-        const result = await runSalesOps();
-        const dupes = (result.organisation_duplicate_clusters || 0) + (result.person_duplicate_clusters || 0) + (result.lead_duplicate_clusters || 0);
-        setStatus(`Sales Ops workers ran. ${fmt.format(result.archive_recommendations || 0)} archive recs, ${fmt.format(dupes)} duplicate clusters.`, 'ok');
-        await loadOverview();
-      } catch (error) {
-        setStatus(error.message, 'err');
-      } finally {
-        button.disabled = false;
-      }
-    });
-
-    document.getElementById('save-criteria-button').addEventListener('click', async () => {
-      try {
-        setStatus('Saving scoring config...');
-        await saveCriteria(JSON.parse(document.getElementById('criteria-editor').value));
-        setStatus('Scoring config saved.', 'ok');
-        await loadOverview();
-      } catch (error) {
-        setStatus(error.message, 'err');
-      }
-    });
-
+    document.getElementById('process-button').addEventListener('click', async () => { const b = document.getElementById('process-button'); b.disabled = true; setStatus('Building queue...'); try { const p = await j('/api/process-uploads', { method:'POST' }); setStatus(`Added ${fmt.format(p.items_added || 0)} rows.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } finally { b.disabled = false; } });
+    document.getElementById('refresh-customers-button').addEventListener('click', async () => { const b = document.getElementById('refresh-customers-button'); b.disabled = true; setStatus('Refreshing customers from won deals...'); try { const p = await j('/api/refresh-customers', { method:'POST' }); setStatus(`Loaded ${fmt.format(p.count || 0)} customers.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } finally { b.disabled = false; } });
+    document.getElementById('sales-ops-button').addEventListener('click', async () => { const b = document.getElementById('sales-ops-button'); b.disabled = true; setStatus('Running Sales Ops workers...'); try { const p = await j('/api/run-sales-ops', { method:'POST' }); setStatus(`Workers ran. ${fmt.format(p.archive_recommendations || 0)} archive recs, ${fmt.format((p.organisation_duplicate_clusters || 0)+(p.person_duplicate_clusters || 0)+(p.lead_duplicate_clusters || 0))} merge clusters.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } finally { b.disabled = false; } });
+    document.getElementById('save-criteria-button').addEventListener('click', async () => { try { await j('/api/qualification-criteria', { method:'POST', headers:{'Content-Type':'application/json'}, body: document.getElementById('criteria-editor').value }); setStatus('Scoring config saved.', 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } });
+    document.getElementById('save-territories-button').addEventListener('click', async () => { try { await j('/api/territories', { method:'POST', headers:{'Content-Type':'application/json'}, body: document.getElementById('territories-editor').value }); setStatus('Territories saved.', 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); } });
     document.getElementById('refresh-button').addEventListener('click', loadOverview);
     loadOverview();
   </script>

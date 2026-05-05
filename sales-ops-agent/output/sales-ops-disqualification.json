@@ -1,9 +1,26 @@
 {
-  "generated_at": "2026-05-05T18:19:17.779997+00:00",
+  "generated_at": "2026-05-05T18:42:57.894894+00:00",
   "mode": "recommend_only",
   "batch_size": 60,
   "archive_candidates": [],
   "reviewed": [
+    {
+      "lead_id": "42b65990-48a0-11f1-824f-41809e0b34b0",
+      "title": "Acro Tool & Die Company - Assistant Engineering Manager",
+      "owner_id": 25690919,
+      "person_id": 67688,
+      "organization_id": 46281,
+      "website_candidates": [
+        "https://metalcraftsolutions.com",
+        "https://oldhaminspections.com"
+      ],
+      "mode": "recommend_only",
+      "status": "needs_review",
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='metalcraftsolutions.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f45a4be54c0>: Failed to establish a new connection: [Errno 111] Connection refused'))",
+      "score": 0,
+      "confidence": 0.0,
+      "action": "none"
+    },
     {
       "lead_id": "03f47460-e53e-11ef-a3d2-ab07afb01fef",
       "title": "Silicon Valley Precision Inc",
@@ -165,23 +182,6 @@
       "action": "none"
     },
     {
-      "lead_id": "42b65990-48a0-11f1-824f-41809e0b34b0",
-      "title": "Acro Tool & Die Company - Assistant Engineering Manager",
-      "owner_id": 25690919,
-      "person_id": 67688,
-      "organization_id": 46281,
-      "website_candidates": [
-        "https://metalcraftsolutions.com",
-        "https://oldhaminspections.com"
-      ],
-      "mode": "recommend_only",
-      "status": "needs_review",
-      "reason": "Website fetch failed: HTTPSConnectionPool(host='metalcraftsolutions.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fbc5b54b740>: Failed to establish a new connection: [Errno 111] Connection refused'))",
-      "score": 0,
-      "confidence": 0.0,
-      "action": "none"
-    },
-    {
       "lead_id": "f700c9e0-489f-11f1-b8bd-350681976de6",
       "title": "Alloy Precision Technologies, Inc. - Operations Manager",
       "owner_id": 25690919,
@@ -221,7 +221,7 @@
       ],
       "mode": "recommend_only",
       "status": "needs_review",
-      "reason": "Website fetch failed: HTTPSConnectionPool(host='pmeincorp.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fbc5b57d370>: Failed to resolve 'pmeincorp.com' ([Errno -5] No address associated with hostname)\"))",
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='pmeincorp.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f45a5c7e780>: Failed to resolve 'pmeincorp.com' ([Errno -5] No address associated with hostname)\"))",
       "score": 0,
       "confidence": 0.0,
       "action": "none"
@@ -677,7 +677,7 @@
       ],
       "mode": "recommend_only",
       "status": "needs_review",
-      "reason": "Website fetch failed: HTTPSConnectionPool(host='rm-machining.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fbc5b40c080>: Failed to resolve 'rm-machining.com' ([Errno -3] Temporary failure in name resolution)\"))",
+      "reason": "Website fetch failed: HTTPSConnectionPool(host='rm-machining.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f45a4a43d40>: Failed to resolve 'rm-machining.com' ([Errno -3] Temporary failure in name resolution)\"))",
       "score": 0,
       "confidence": 0.0,
       "action": "none"

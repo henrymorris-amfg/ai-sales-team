@@ -16,6 +16,8 @@ from urllib.parse import parse_qs, urlparse
 from .intake_queue import process_uploads
 from .bdr_full_flow import qualification_criteria, save_qualification_criteria
 from .territory_map import owner_territories
+from .customer_registry import build_customer_registry, load_customer_registry, load_customer_summary
+from .action_center import refresh_pending_actions, load_approvals, approve_action
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,6 +39,12 @@ def _save_json(path: Path, payload) -> None:
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
+def _save_territories(payload: dict) -> dict:
+    path = ROOT / "config" / "territories.json"
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    return payload
+
+
 def build_overview() -> dict:
     agents = _load_json(OUTPUT_DIR / "agent-status.json", [])
     findings = _load_json(OUTPUT_DIR / "findings.json", [])
@@ -51,6 +59,10 @@ def build_overview() -> dict:
     sales_ops_summary = _load_json(OUTPUT_DIR / "sales-ops-summary.json", {})
     sales_ops_disqualification = _load_json(OUTPUT_DIR / "sales-ops-disqualification.json", {})
     sales_ops_duplicates = _load_json(OUTPUT_DIR / "sales-ops-duplicates.json", {})
+    customers = load_customer_registry()
+    customer_summary = load_customer_summary()
+    archive_approvals = load_approvals("archive")
+    merge_approvals = load_approvals("merge")
 
     severity_counts = Counter((item.get("severity") or "unknown").lower() for item in findings)
     rule_counts = Counter(item.get("rule_id") or "unknown" for item in findings)
@@ -127,6 +139,9 @@ def build_overview() -> dict:
             "organisation_duplicate_clusters": sales_ops_summary.get("organisation_duplicate_clusters", 0),
             "person_duplicate_clusters": sales_ops_summary.get("person_duplicate_clusters", 0),
             "lead_duplicate_clusters": sales_ops_summary.get("lead_duplicate_clusters", 0),
+            "customers": customer_summary.get("count", 0),
+            "archive_pending": sum(1 for item in (archive_approvals.get("items") or []) if item.get("status") == "pending"),
+            "merge_pending": sum(1 for item in (merge_approvals.get("items") or []) if item.get("status") == "pending"),
         },
         "agents": agents,
         "owners": owners[:10],
@@ -174,6 +189,15 @@ def build_overview() -> dict:
             "lead_duplicates": (sales_ops_duplicates.get("lead_duplicates") or [])[:20],
         },
         "territories": owner_territories(),
+        "customers": {
+            "generated_at": customers.get("generated_at"),
+            "count": customers.get("count", 0),
+            "items": (customers.get("customers") or [])[:20],
+        },
+        "approvals": {
+            "archive": archive_approvals,
+            "merge": merge_approvals,
+        },
     }
 
 
@@ -297,6 +321,15 @@ class Handler(BaseHTTPRequestHandler):
         if parsed.path == "/api/territories":
             self._send_json(owner_territories())
             return
+        if parsed.path == "/api/customers":
+            self._send_json(load_customer_registry())
+            return
+        if parsed.path == "/api/approvals/archive":
+            self._send_json(load_approvals("archive"))
+            return
+        if parsed.path == "/api/approvals/merge":
+            self._send_json(load_approvals("merge"))
+            return
         self._send_not_found()
 
     def do_POST(self):
@@ -334,9 +367,26 @@ class Handler(BaseHTTPRequestHandler):
             try:
                 from .sales_ops_worker import run_sales_ops_workers
                 result = run_sales_ops_workers()
+                refresh_pending_actions()
                 self._send_json(result, status=HTTPStatus.OK)
             except Exception as exc:
                 self._send_json({"error": "sales_ops_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
+            return
+
+        if parsed.path == "/api/refresh-customers":
+            try:
+                result = build_customer_registry()
+                self._send_json(result, status=HTTPStatus.OK)
+            except Exception as exc:
+                self._send_json({"error": "customer_refresh_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
+            return
+
+        if parsed.path == "/api/refresh-approvals":
+            try:
+                result = refresh_pending_actions()
+                self._send_json(result, status=HTTPStatus.OK)
+            except Exception as exc:
+                self._send_json({"error": "approval_refresh_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
             return
 
         if parsed.path == "/api/qualification-criteria":
@@ -348,6 +398,26 @@ class Handler(BaseHTTPRequestHandler):
                 self._send_json(saved)
             except Exception as exc:
                 self._send_json({"error": "criteria_update_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
+            return
+
+        if parsed.path == "/api/territories":
+            content_length = int(self.headers.get("Content-Length", "0") or 0)
+            body = self.rfile.read(content_length)
+            try:
+                payload = json.loads(body.decode("utf-8"))
+                self._send_json(_save_territories(payload))
+            except Exception as exc:
+                self._send_json({"error": "territories_update_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
+            return
+
+        if parsed.path == "/api/approvals/approve":
+            content_length = int(self.headers.get("Content-Length", "0") or 0)
+            body = self.rfile.read(content_length)
+            try:
+                payload = json.loads(body.decode("utf-8"))
+                self._send_json(approve_action(str(payload.get("kind") or ""), str(payload.get("id") or "")))
+            except Exception as exc:
+                self._send_json({"error": "approval_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
             return
 
         self._send_not_found()

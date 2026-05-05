@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import load_config
+from .customer_registry import build_customer_registry, is_customer
 from .lead_review import _extract_website_candidates, _fetch_text, _is_cnc_lead
 from .pipedrive_client import PipedriveClient
 from .website_review import review_text
@@ -19,10 +20,18 @@ OUTPUT_DIR = Path(__file__).resolve().parents[1] / "output"
 
 
 def build_random_batch_review(batch_size: int = DEFAULT_BATCH_SIZE, seed: int = DEFAULT_SEED) -> dict[str, Any]:
+    build_customer_registry()
     config = load_config()
     client = PipedriveClient(config.api_base, config.api_key)
     leads = client.get_all_leads(limit=500)
-    cnc_leads = [lead for lead in leads if _is_cnc_lead(lead)]
+    cnc_leads = [
+        lead for lead in leads
+        if _is_cnc_lead(lead) and not is_customer(
+            organisation_id=lead.get("organization_id"),
+            person_id=lead.get("person_id"),
+            company=(lead.get("title") or "").split(" - ")[0],
+        )
+    ]
 
     rng = random.Random(seed)
     sample = list(cnc_leads)

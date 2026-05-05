@@ -14,6 +14,8 @@ from .config import load_config
 from .pipedrive_client import PipedriveClient
 from .site_review import review_site
 from .territory_map import assign_owner
+from .customer_registry import is_customer
+from .customer_registry import build_customer_registry
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -227,6 +229,8 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
         company = (row.get("Company Name") or "").strip()
         if not company:
             continue
+        if is_customer(company=company, website=row.get("Website") or ""):
+            continue
 
         people = apollo.search_people(organization_name=company, titles=PRIORITY_TITLES, per_page=5).get("people") or []
         for person in people:
@@ -256,6 +260,8 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
                 continue
             person_name = (detail.get("name") or "").strip()
             org_dupes = _find_org_dupes(client, org_name, org.get("website_url") or row.get("Website") or "")
+            if is_customer(organisation_id=(org_dupes[0].get("item") or {}).get("id") if org_dupes else None, company=org_name, website=org.get("website_url") or row.get("Website") or ""):
+                continue
             person_dupes = client.search_persons(email or person_name, limit=5) if (email or person_name) else []
             if person_dupes:
                 continue
@@ -356,6 +362,7 @@ def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_per
 
 
 def run() -> dict[str, Any]:
+    build_customer_registry()
     cfg = load_config()
     client = PipedriveClient(cfg.api_base, cfg.api_key)
     candidate = _candidate_from_sheet(client, load_apollo_client().api_key)
@@ -363,6 +370,8 @@ def run() -> dict[str, Any]:
     apollo_person = candidate["apollo_person"]
     apollo_org = candidate["apollo_org"]
     score, reasons, site_review = _score_candidate(row, apollo_org, apollo_person)
+    if is_customer(company=row.get("Company Name") or apollo_org.get("name") or "", website=apollo_org.get("website_url") or row.get("Website") or ""):
+        raise RuntimeError(f"Lead skipped: existing customer {row.get('Company Name') or apollo_org.get('name')}")
     min_score = ((automation_config().get("batch") or {}).get("min_score") or 0)
     if score < min_score:
         raise RuntimeError(f"Lead skipped: score {score} below threshold {min_score} for {row.get('Company Name')}")

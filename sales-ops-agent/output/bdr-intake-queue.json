@@ -1267,7 +1267,7 @@
     "queue_id": "20260505082751-00037",
     "source_upload_id": "20260505082751",
     "source_filename": "NorthOhio100.csv",
-    "status": "queued",
+    "status": "excluded_customer",
     "company": "DX 4, LLC",
     "website": "www.proformmfg.com",
     "country": "",
@@ -1280,11 +1280,11 @@
     "linkedin": "",
     "assigned_agent": "unassigned",
     "assigned_owner": null,
-    "routing_status": "owner_unassigned",
+    "routing_status": "excluded_customer",
     "website_status": "ready",
     "contact_status": "needs_contact_enrichment",
-    "priority": "medium",
-    "next_step": "qualify_and_enrich",
+    "priority": "excluded",
+    "next_step": "skip_existing_customer",
     "raw": {
       "Company Name": "DX 4, LLC",
       "Website": "www.proformmfg.com",
@@ -1293,7 +1293,8 @@
       "Description": "Proform Manufacturing builds American-made precision parts for various industries. Skilled in\u2026",
       "Certifications": "\u2014",
       "Capabilities": "additive manufacturing, AL 100U-01 Abrasive Pipe Notcher Grinder, anodizing, assembly and integration, Atlantic Machine Tools 135 ton press brake, bending, black oxide, boring, calipers, Citizen A32 Swiss lathe, CNC mills, CNC plasma cutting, CNC precision machining, CNC Swiss lathes, custom aluminum fabrication, cutting, design & engineering, DoALL 500 SNC horizontal numerically controlled metal cutting band saw, Famco Arbor 3 ton press, finishing, forming, gage pins and blocks, GMC High Speed Precision Gap Bed Lathe, Guardian Power Heavy Duty Drill Press, Haas VF2 vertical machining center, Hardinge HC Chucker Turret Lathe, heat treating, Hishinuma die casting machine, industrial repair, Integrex 200 IIIS multi-tasking machine, Integrex 300-IV S multi-tasking machine, iron forming, Koike PNC-12 Plasma Cutting Machine, lathes, Mazak 510 VCN C-II 5-axis vertical machining center, Mazak Quick Turn Nexus 200-II MSY CNC turning center, metal cutting, micrometers, MIG welding, Miller CP-302 MIG Welder, Miller Syncowave TIG welder, milling, Mitutoyo precision height gage, multi-axis machines, notching, optical comparator, paint & primer coating, passivation, Piranha P-50 hydraulic ironworker machine, plasma cutting, powder coating, profilometer, prototyping, punching, Ridgid 600 Series Lever Bender, ring and plug gages for threads, sandblasting finishing, saw cutting, shearing, sheet metal fabrication, stainless steel fabrication, stamping, steel fabrication, subtractive manufacturing, surface treatment, Swiss-styled machines, TIG welding, tooling, welding, welding manufacturing"
-    }
+    },
+    "excluded_reason": "Existing customer from won deals list"
   },
   {
     "queue_id": "20260505082751-00038",
@@ -2387,7 +2388,7 @@
     "queue_id": "20260505082751-00072",
     "source_upload_id": "20260505082751",
     "source_filename": "NorthOhio100.csv",
-    "status": "queued",
+    "status": "excluded_customer",
     "company": "PROFORM HOLDINGS LLC",
     "website": "www.proformmfg.com",
     "country": "",
@@ -2400,11 +2401,11 @@
     "linkedin": "",
     "assigned_agent": "unassigned",
     "assigned_owner": null,
-    "routing_status": "owner_unassigned",
+    "routing_status": "excluded_customer",
     "website_status": "ready",
     "contact_status": "needs_contact_enrichment",
-    "priority": "medium",
-    "next_step": "qualify_and_enrich",
+    "priority": "excluded",
+    "next_step": "skip_existing_customer",
     "raw": {
       "Company Name": "PROFORM HOLDINGS LLC",
       "Website": "www.proformmfg.com",
@@ -2413,7 +2414,8 @@
       "Description": "Proform Manufacturing builds American-made precision parts for various industries. Skilled in\u2026",
       "Certifications": "\u2014",
       "Capabilities": "additive manufacturing, AL 100U-01 Abrasive Pipe Notcher Grinder, anodizing, assembly and integration, Atlantic Machine Tools 135 ton press brake, bending, black oxide, boring, calipers, Citizen A32 Swiss lathe, CNC mills, CNC plasma cutting, CNC precision machining, CNC Swiss lathes, custom aluminum fabrication, cutting, design & engineering, DoALL 500 SNC horizontal numerically controlled metal cutting band saw, Famco Arbor 3 ton press, finishing, forming, gage pins and blocks, GMC High Speed Precision Gap Bed Lathe, Guardian Power Heavy Duty Drill Press, Haas VF2 vertical machining center, Hardinge HC Chucker Turret Lathe, heat treating, Hishinuma die casting machine, industrial repair, Integrex 200 IIIS multi-tasking machine, Integrex 300-IV S multi-tasking machine, iron forming, Koike PNC-12 Plasma Cutting Machine, lathes, Mazak 510 VCN C-II 5-axis vertical machining center, Mazak Quick Turn Nexus 200-II MSY CNC turning center, metal cutting, micrometers, MIG welding, Miller CP-302 MIG Welder, Miller Syncowave TIG welder, milling, Mitutoyo precision height gage, multi-axis machines, notching, optical comparator, paint & primer coating, passivation, Piranha P-50 hydraulic ironworker machine, plasma cutting, powder coating, profilometer, prototyping, punching, Ridgid 600 Series Lever Bender, ring and plug gages for threads, sandblasting finishing, saw cutting, shearing, sheet metal fabrication, stainless steel fabrication, stamping, steel fabrication, subtractive manufacturing, surface treatment, Swiss-styled machines, TIG welding, tooling, welding, welding manufacturing"
-    }
+    },
+    "excluded_reason": "Existing customer from won deals list"
   },
   {
     "queue_id": "20260505082751-00073",

@@ -1,0 +1,13 @@
+{
+  "archive": {
+    "mode": "approval_required",
+    "auto_apply_clear_cases": false,
+    "min_confidence": 0.9,
+    "max_score": 10
+  },
+  "merge": {
+    "mode": "approval_required",
+    "auto_apply_clear_cases": false,
+    "min_confidence": 0.95
+  }
+}

@@ -13,6 +13,9 @@ from .config import load_config
 from .lead_review import _extract_website_candidates, _fetch_text, _is_cnc_lead
 from .pipedrive_client import PipedriveClient
 from .website_review import review_text
+from .customer_registry import is_customer
+from .customer_registry import build_customer_registry
+from .action_center import refresh_pending_actions
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "output"
@@ -109,6 +112,12 @@ def build_disqualification_report(client: PipedriveClient, cfg: dict[str, Any]) 
     archive_candidates = []
 
     for lead in sorted(cnc_leads, key=lambda row: str(row.get("update_time") or ""), reverse=True)[:batch_size]:
+        if is_customer(
+            organisation_id=lead.get("organization_id"),
+            person_id=lead.get("person_id"),
+            company=(lead.get("title") or "").split(" - ")[0],
+        ):
+            continue
         candidates = _extract_website_candidates(lead, client, org_cache, person_cache)
         entry = {
             "lead_id": lead.get("id"),
@@ -182,6 +191,8 @@ def build_duplicate_report(client: PipedriveClient, cfg: dict[str, Any]) -> dict
     org_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     org_candidates = []
     for org in organisations:
+        if is_customer(organisation_id=org.get("id"), company=org.get("name"), website=org.get("667dae8863844f07bf48be7af77ae678647c6afb") or org.get("website")):
+            continue
         domain = _domain_from_url(org.get("667dae8863844f07bf48be7af77ae678647c6afb") or org.get("website") or org.get("name"))
         key = domain or _normalize_name(org.get("name"))
         if key:
@@ -209,6 +220,8 @@ def build_duplicate_report(client: PipedriveClient, cfg: dict[str, Any]) -> dict
     person_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     person_candidates = []
     for person in persons:
+        if is_customer(person_id=person.get("id"), company=person.get("org_name"), domain=(_first_email(person.get("email")).split("@", 1)[1] if "@" in _first_email(person.get("email")) else "")):
+            continue
         email = _first_email(person.get("email"))
         org_name = _normalize_name((person.get("org_name") or ""))
         key = email or f"{_normalize_name(person.get('name'))}|{org_name}"
@@ -237,6 +250,12 @@ def build_duplicate_report(client: PipedriveClient, cfg: dict[str, Any]) -> dict
     lead_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     lead_candidates = []
     for lead in leads:
+        if is_customer(
+            organisation_id=lead.get("organization_id"),
+            person_id=lead.get("person_id"),
+            company=(lead.get("title") or "").split(" - ")[0],
+        ):
+            continue
         org_id = lead.get("organization_id") or ""
         person_id = lead.get("person_id") or ""
         title_key = _normalize_name(lead.get("title") or lead.get("name"))
@@ -275,6 +294,7 @@ def build_duplicate_report(client: PipedriveClient, cfg: dict[str, Any]) -> dict
 
 def run_sales_ops_workers() -> dict[str, Any]:
     cfg = worker_config()
+    build_customer_registry()
     config = load_config()
     client = PipedriveClient(config.api_base, config.api_key)
     disqualification = build_disqualification_report(client, cfg)
@@ -292,6 +312,7 @@ def run_sales_ops_workers() -> dict[str, Any]:
     (OUTPUT_DIR / "sales-ops-disqualification.json").write_text(json.dumps(disqualification, indent=2), encoding="utf-8")
     (OUTPUT_DIR / "sales-ops-duplicates.json").write_text(json.dumps(duplicates, indent=2), encoding="utf-8")
     (OUTPUT_DIR / "sales-ops-summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    refresh_pending_actions()
     return summary
 
 

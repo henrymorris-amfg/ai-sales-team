@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 import requests
 
 from .config import load_config
+from .customer_registry import build_customer_registry, is_customer
 from .pipedrive_client import PipedriveClient
 from .website_review import review_text
 
@@ -142,6 +143,7 @@ def _is_cnc_lead(lead: Dict[str, Any]) -> bool:
 
 def build_recommendations(leads: List[Dict[str, Any]], client: PipedriveClient) -> List[Dict[str, Any]]:
     recommendations = []
+    build_customer_registry()
     org_cache: Dict[int, Dict[str, Any]] = {}
     person_cache: Dict[int, Dict[str, Any]] = {}
 
@@ -150,6 +152,12 @@ def build_recommendations(leads: List[Dict[str, Any]], client: PipedriveClient) 
 
     prepared = []
     for lead in cnc_leads[:ENRICHMENT_POOL_SIZE]:
+        if is_customer(
+            organisation_id=lead.get("organization_id"),
+            person_id=lead.get("person_id"),
+            company=(lead.get("title") or "").split(" - ")[0],
+        ):
+            continue
         candidates = _extract_website_candidates(lead, client, org_cache, person_cache)
         prepared.append((lead, candidates))
 

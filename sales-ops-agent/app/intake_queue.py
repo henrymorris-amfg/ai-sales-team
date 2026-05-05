@@ -6,6 +6,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .territory_map import assign_owner
+from .customer_registry import is_customer
+from .customer_registry import build_customer_registry
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -59,6 +61,7 @@ def _normalize_row(row: dict, upload_id: str, filename: str, index: int) -> dict
     country = _pick(row, ALIASES["country"])
     state = _pick(row, ALIASES["state"])
     owner = assign_owner(country, state)
+    customer_blocked = is_customer(company=company, website=website)
 
     routing_region = "unassigned"
     if country.lower() in {"usa", "us", "united states", "canada"}:
@@ -78,7 +81,7 @@ def _normalize_row(row: dict, upload_id: str, filename: str, index: int) -> dict
         "queue_id": f"{upload_id}-{index:05d}",
         "source_upload_id": upload_id,
         "source_filename": filename,
-        "status": "queued",
+        "status": "excluded_customer" if customer_blocked else "queued",
         "company": company,
         "website": website,
         "country": country,
@@ -91,18 +94,27 @@ def _normalize_row(row: dict, upload_id: str, filename: str, index: int) -> dict
         "linkedin": _pick(row, ALIASES["linkedin"]),
         "assigned_agent": routing_region,
         "assigned_owner": owner,
-        "routing_status": "owner_assigned" if owner else "owner_unassigned",
+        "routing_status": "excluded_customer" if customer_blocked else ("owner_assigned" if owner else "owner_unassigned"),
         "website_status": website_status,
         "contact_status": contact_status,
-        "priority": "high" if website and owner else "medium",
-        "next_step": "qualify_and_enrich",
+        "priority": "excluded" if customer_blocked else ("high" if website and owner else "medium"),
+        "next_step": "skip_existing_customer" if customer_blocked else "qualify_and_enrich",
+        "excluded_reason": "Existing customer from won deals list" if customer_blocked else None,
         "raw": row,
     }
 
 
 def process_uploads() -> dict:
+    build_customer_registry()
     jobs = _load_json(UPLOADS_FILE, [])
     existing_queue = _load_json(QUEUE_FILE, [])
+    for item in existing_queue:
+        if is_customer(company=item.get("company"), website=item.get("website"), organisation_id=item.get("organisation_id"), person_id=item.get("person_id")):
+            item["status"] = "excluded_customer"
+            item["routing_status"] = "excluded_customer"
+            item["priority"] = "excluded"
+            item["next_step"] = "skip_existing_customer"
+            item["excluded_reason"] = "Existing customer from won deals list"
     existing_ids = {item.get("queue_id") for item in existing_queue}
     added = []
     processed_jobs = 0
