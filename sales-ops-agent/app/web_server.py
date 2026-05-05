@@ -73,6 +73,10 @@ def _bdr_analytics(bdr_history: list[dict], intake_queue: list[dict]) -> dict:
     }
 
 
+def _pending_items(payload: dict) -> list[dict]:
+    return [item for item in (payload.get("items") or []) if item.get("status") == "pending"]
+
+
 def build_overview() -> dict:
     agents = _load_json(OUTPUT_DIR / "agent-status.json", [])
     findings = _load_json(OUTPUT_DIR / "findings.json", [])
@@ -91,6 +95,8 @@ def build_overview() -> dict:
     customer_summary = load_customer_summary()
     archive_approvals = load_approvals("archive")
     merge_approvals = load_approvals("merge")
+    archive_pending = _pending_items(archive_approvals)
+    merge_pending = _pending_items(merge_approvals)
     analytics = _bdr_analytics(bdr_history, intake_queue)
 
     severity_counts = Counter((item.get("severity") or "unknown").lower() for item in findings)
@@ -168,8 +174,8 @@ def build_overview() -> dict:
             "organisation_duplicate_clusters": sales_ops_summary.get("organisation_duplicate_clusters", 0),
             "person_duplicate_clusters": sales_ops_summary.get("person_duplicate_clusters", 0),
             "lead_duplicate_clusters": sales_ops_summary.get("lead_duplicate_clusters", 0),
-            "archive_pending": sum(1 for item in (archive_approvals.get("items") or []) if item.get("status") == "pending"),
-            "merge_pending": sum(1 for item in (merge_approvals.get("items") or []) if item.get("status") == "pending"),
+            "archive_pending": len(archive_pending),
+            "merge_pending": len(merge_pending),
             "bdr_total_created": analytics.get("total_created", 0),
         },
         "agents": agents,
@@ -220,8 +226,8 @@ def build_overview() -> dict:
         "territories": owner_territories(),
         "customers": {"generated_at": customers.get("generated_at"), "count": customers.get("count", 0)},
         "approvals": {
-            "archive": archive_approvals,
-            "merge": merge_approvals,
+            "archive": {"generated_at": archive_approvals.get("generated_at"), "items": archive_pending[:50]},
+            "merge": {"generated_at": merge_approvals.get("generated_at"), "items": merge_pending[:50]},
         },
         "analytics": analytics,
     }

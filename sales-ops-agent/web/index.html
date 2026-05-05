@@ -137,7 +137,10 @@
         const survivor = item.survivor || {};
         const dupes = (item.duplicates || []).slice(0,3).map(dup => dup.url ? `<a href="${esc(dup.url)}" target="_blank" rel="noopener">${esc(dup.name || dup.id)}</a>` : esc(dup.name || dup.id)).join(', ');
         const survivorLink = survivor.url ? `<a href="${esc(survivor.url)}" target="_blank" rel="noopener">${esc(survivor.name || survivor.id || 'record')}</a>` : esc(survivor.name || survivor.id || 'record');
-        return `<div class="item"><strong>${esc(item.record_type || 'merge')} cluster</strong><div class="muted small">Keep ${survivorLink}</div><div class="muted small" style="margin-top:6px;">Review: ${dupes || 'No linked duplicates shown'}</div><div class="actions" style="margin-top:8px;"><button class="ghost" onclick="approveAction('merge','${esc(item.id)}')">Approve</button></div></div>`;
+        const openButtons = [survivor.url ? `<a href="${esc(survivor.url)}" target="_blank" rel="noopener"><button class="secondary" type="button">Open survivor</button></a>` : '']
+          .concat((item.duplicates || []).slice(0,2).map((dup, i) => dup.url ? `<a href="${esc(dup.url)}" target="_blank" rel="noopener"><button class="secondary" type="button">Open duplicate ${i+1}</button></a>` : ''))
+          .join('');
+        return `<div class="item"><strong>${esc(item.record_type || 'merge')} cluster</strong><div class="muted small">Keep ${survivorLink}</div><div class="muted small" style="margin-top:6px;">Review: ${dupes || 'No linked duplicates shown'}</div><div class="actions" style="margin-top:8px;">${openButtons}<button class="ghost" onclick="approveAction('merge','${esc(item.id)}')">Approve</button></div></div>`;
       }), 'No merge approvals pending.');
 
       document.getElementById('criteria-editor').value = JSON.stringify(data.qualification_criteria || {}, null, 2);
@@ -145,7 +148,7 @@
     }
 
     async function approveAction(kind, id) {
-      try { await j('/api/approvals/approve', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ kind, id }) }); setStatus(`${kind} action approved.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); }
+      try { await j('/api/approvals/approve', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ kind, id }) }); setStatus(`${kind} action approved and removed from the pending list.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); }
     }
     window.approveAction = approveAction;
 

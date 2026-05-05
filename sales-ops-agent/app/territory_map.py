@@ -6,6 +6,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 TERRITORY_FILE = ROOT / "config" / "territories.json"
+FALLBACK_OWNER = "Laura AI"
 
 
 def _load_territories() -> dict[str, Any]:
@@ -41,4 +42,4 @@ def assign_owner(country: str | None, state: str | None) -> str | None:
             return owner
         if state_key and state_key in states:
             return owner
-    return None
+    return FALLBACK_OWNER
