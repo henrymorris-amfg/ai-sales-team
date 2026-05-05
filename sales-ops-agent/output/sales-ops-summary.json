@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-05-05T18:20:09.450246+00:00",
+  "disqualification_mode": "recommend_only",
+  "duplicate_mode": "recommend_only",
+  "archive_recommendations": 0,
+  "organisation_duplicate_clusters": 200,
+  "person_duplicate_clusters": 189,
+  "lead_duplicate_clusters": 200
+}

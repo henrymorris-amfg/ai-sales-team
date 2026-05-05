@@ -20,8 +20,11 @@ case "${1:-audit}" in
   apollo-preview)
     python3 -m app.apollo_enrich_queue
     ;;
+  sales-ops)
+    python3 -m app.sales_ops_worker
+    ;;
   *)
-    echo "Usage: ./run.sh [audit|dashboard|generate-dashboard|batch-review|process-uploads|apollo-preview]" >&2
+    echo "Usage: ./run.sh [audit|dashboard|generate-dashboard|batch-review|process-uploads|apollo-preview|sales-ops]" >&2
     exit 1
     ;;
 esac

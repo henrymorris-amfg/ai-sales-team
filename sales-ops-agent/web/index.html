@@ -141,6 +141,8 @@
       <div class="card section"><div class="label">Apollo preview</div><div class="value" id="kpi-apollo">0</div><div class="subtle" id="kpi-apollo-sub">No enrichment preview yet</div></div>
       <div class="card section"><div class="label">Batch created</div><div class="value" id="kpi-batch">0</div><div class="subtle" id="kpi-batch-sub">No batch run yet</div></div>
       <div class="card section"><div class="label">Batch skips</div><div class="value" id="kpi-skips">0</div><div class="subtle" id="kpi-skips-sub">No skip data yet</div></div>
+      <div class="card section"><div class="label">Archive recommendations</div><div class="value" id="kpi-archive">0</div><div class="subtle" id="kpi-archive-sub">Sales Ops worker not run yet</div></div>
+      <div class="card section"><div class="label">Duplicate clusters</div><div class="value" id="kpi-duplicates">0</div><div class="subtle" id="kpi-duplicates-sub">No duplicate recommendations yet</div></div>
     </section>
 
     <section class="main">
@@ -202,8 +204,20 @@
           </div>
         </div>
         <div class="card section">
+          <div class="section-head"><div><h2>Sales Ops workers</h2><p>Run recommendation-only disqualification and duplicate scans from live Pipedrive data.</p></div><button class="secondary small" id="sales-ops-button" type="button">Run workers</button></div>
+          <div id="sales-ops-summary"></div>
+        </div>
+        <div class="card section">
           <div class="section-head"><div><h2>Recent BDR batch results</h2><p>The newest safe create runs from the AI BDR flow.</p></div></div>
           <div id="batch-list"></div>
+        </div>
+        <div class="card section">
+          <div class="section-head"><div><h2>Archive recommendations</h2><p>CNC leads that look disqualified and should be archived after review.</p></div></div>
+          <div id="archive-list"></div>
+        </div>
+        <div class="card section">
+          <div class="section-head"><div><h2>Duplicate recommendations</h2><p>Suggested merge clusters for organisations, people, and leads.</p></div></div>
+          <div id="duplicate-list"></div>
         </div>
         <div class="card section">
           <div class="section-head"><div><h2>Run history and skip reasons</h2><p>Recent hourly runs, including duplicate blocks and threshold skips.</p></div></div>
@@ -415,6 +429,52 @@
       `).join('') || '<div class="muted">No run history yet.</div>';
     }
 
+    function renderSalesOpsSummary(summary) {
+      const root = document.getElementById('sales-ops-summary');
+      root.innerHTML = `
+        <div class="mini-stats">
+          <div class="mini-stat"><span>Archive recommendations</span><strong>${fmt.format(summary.archive_recommendations || 0)}</strong></div>
+          <div class="mini-stat"><span>Organisation duplicate clusters</span><strong>${fmt.format(summary.organisation_duplicate_clusters || 0)}</strong></div>
+          <div class="mini-stat"><span>Person duplicate clusters</span><strong>${fmt.format(summary.person_duplicate_clusters || 0)}</strong></div>
+          <div class="mini-stat"><span>Lead duplicate clusters</span><strong>${fmt.format(summary.lead_duplicate_clusters || 0)}</strong></div>
+        </div>
+        <div class="muted" style="margin-top:12px;">Mode: ${escapeHtml(summary.disqualification_mode || 'recommend_only')} / ${escapeHtml(summary.duplicate_mode || 'recommend_only')}</div>
+      `;
+    }
+
+    function renderArchiveCandidates(payload) {
+      const root = document.getElementById('archive-list');
+      const items = payload.archive_candidates || [];
+      root.innerHTML = items.slice(0, 8).map(item => `
+        <div class="finding">
+          <div class="finding-top">
+            <strong>${escapeHtml(item.title || 'Lead')}</strong>
+            <span class="pill queued">${fmt.format(item.score || 0)}</span>
+          </div>
+          <div class="muted">Confidence ${escapeHtml(item.confidence || 0)} • ${escapeHtml(item.website || 'no website')}</div>
+          <div class="muted" style="margin-top:6px;">${escapeHtml((item.disqualify_signals || []).slice(0,4).join(', ') || item.reason || 'No disqualify signals captured')}</div>
+        </div>
+      `).join('') || '<div class="muted">No archive recommendations yet.</div>';
+    }
+
+    function renderDuplicateRecommendations(payload) {
+      const root = document.getElementById('duplicate-list');
+      const groups = []
+        .concat((payload.organisation_duplicates || []).slice(0, 3))
+        .concat((payload.person_duplicates || []).slice(0, 3))
+        .concat((payload.lead_duplicates || []).slice(0, 3));
+      root.innerHTML = groups.map(item => `
+        <div class="finding">
+          <div class="finding-top">
+            <strong>${escapeHtml(item.type || 'duplicate')} cluster</strong>
+            <span class="pill planned">${escapeHtml(item.confidence || 0)}</span>
+          </div>
+          <div class="muted">Keep: ${escapeHtml((item.survivor || {}).name || (item.survivor || {}).id || 'record')}</div>
+          <div class="muted" style="margin-top:6px;">Merge ${fmt.format((item.duplicates || []).length)} duplicate record(s) • ${escapeHtml(item.reason || '')}</div>
+        </div>
+      `).join('') || '<div class="muted">No duplicate recommendations yet.</div>';
+    }
+
     function renderNextActions(actions) {
       const root = document.getElementById('next-action-list');
       root.innerHTML = actions.map(item => `
@@ -459,6 +519,11 @@
       setText('kpi-batch-sub', `${fmt.format((data.bdr_batch || {}).errors?.length || 0)} errors in latest run`);
       setText('kpi-skips', fmt.format(data.summary.batch_skips || 0));
       setText('kpi-skips-sub', `${fmt.format(data.summary.batch_errors || 0)} errors, latest run skip reasons tracked`);
+      setText('kpi-archive', fmt.format(data.summary.archive_recommendations || 0));
+      setText('kpi-archive-sub', `${escapeHtml((data.sales_ops_disqualification || {}).mode || 'recommend_only')} mode`);
+      const dupTotal = (data.summary.organisation_duplicate_clusters || 0) + (data.summary.person_duplicate_clusters || 0) + (data.summary.lead_duplicate_clusters || 0);
+      setText('kpi-duplicates', fmt.format(dupTotal));
+      setText('kpi-duplicates-sub', `${fmt.format(data.summary.organisation_duplicate_clusters || 0)} org, ${fmt.format(data.summary.person_duplicate_clusters || 0)} people, ${fmt.format(data.summary.lead_duplicate_clusters || 0)} leads`);
       renderNextActions(data.next_actions || []);
       renderAgents(data.agents || []);
       renderFindings(data.findings || []);
@@ -471,6 +536,9 @@
       renderCriteria(data.qualification_criteria || {});
       renderBatch(data.bdr_batch || {});
       renderHistory(data.bdr_history || []);
+      renderSalesOpsSummary(data.sales_ops_summary || {});
+      renderArchiveCandidates(data.sales_ops_disqualification || {});
+      renderDuplicateRecommendations(data.sales_ops_duplicates || {});
       renderBlockers(data.blockers || []);
     }
 
@@ -499,6 +567,13 @@
       const result = await response.json();
       if (!response.ok) throw new Error(result.detail || result.error || 'Save failed');
       return result;
+    }
+
+    async function runSalesOps() {
+      const response = await fetch('/api/run-sales-ops', { method:'POST' });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.detail || payload.error || 'Sales Ops worker failed');
+      return payload;
     }
 
     async function deleteUpload(id) {
@@ -577,6 +652,25 @@
       } catch (error) {
         status.className = 'status-line err';
         status.textContent = error.message;
+      }
+    });
+
+    document.getElementById('sales-ops-button').addEventListener('click', async () => {
+      const button = document.getElementById('sales-ops-button');
+      const status = document.getElementById('upload-status');
+      button.disabled = true;
+      status.className = 'status-line';
+      status.textContent = 'Running Sales Ops workers...';
+      try {
+        const result = await runSalesOps();
+        status.className = 'status-line ok';
+        status.textContent = `Sales Ops workers ran. ${fmt.format(result.archive_recommendations || 0)} archive recommendations, ${fmt.format((result.organisation_duplicate_clusters || 0) + (result.person_duplicate_clusters || 0) + (result.lead_duplicate_clusters || 0))} duplicate clusters.`;
+        await loadOverview();
+      } catch (error) {
+        status.className = 'status-line err';
+        status.textContent = error.message;
+      } finally {
+        button.disabled = false;
       }
     });
 

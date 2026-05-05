@@ -1,0 +1,16 @@
+{
+  "disqualification": {
+    "mode": "recommend_only",
+    "batch_size": 60,
+    "archive_score_max": 20,
+    "minimum_confidence": 0.55,
+    "require_no_conflict_flag": true
+  },
+  "duplicates": {
+    "mode": "recommend_only",
+    "max_candidates_per_type": 200,
+    "organisation_similarity_min": 0.9,
+    "person_similarity_min": 0.92,
+    "lead_similarity_min": 0.9
+  }
+}

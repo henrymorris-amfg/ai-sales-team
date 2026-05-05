@@ -47,6 +47,9 @@ def build_overview() -> dict:
     apollo_preview = _load_json(OUTPUT_DIR / "apollo-enrichment-preview.json", {})
     bdr_batch = _load_json(OUTPUT_DIR / "bdr-batch-results.json", {})
     bdr_history = _load_json(OUTPUT_DIR / "bdr-run-history.json", [])
+    sales_ops_summary = _load_json(OUTPUT_DIR / "sales-ops-summary.json", {})
+    sales_ops_disqualification = _load_json(OUTPUT_DIR / "sales-ops-disqualification.json", {})
+    sales_ops_duplicates = _load_json(OUTPUT_DIR / "sales-ops-duplicates.json", {})
 
     severity_counts = Counter((item.get("severity") or "unknown").lower() for item in findings)
     rule_counts = Counter(item.get("rule_id") or "unknown" for item in findings)
@@ -119,6 +122,10 @@ def build_overview() -> dict:
             "batch_created": bdr_batch.get("created", 0),
             "batch_skips": len(bdr_batch.get("skips") or []),
             "batch_errors": len(bdr_batch.get("errors") or []),
+            "archive_recommendations": sales_ops_summary.get("archive_recommendations", 0),
+            "organisation_duplicate_clusters": sales_ops_summary.get("organisation_duplicate_clusters", 0),
+            "person_duplicate_clusters": sales_ops_summary.get("person_duplicate_clusters", 0),
+            "lead_duplicate_clusters": sales_ops_summary.get("lead_duplicate_clusters", 0),
         },
         "agents": agents,
         "owners": owners[:10],
@@ -152,6 +159,19 @@ def build_overview() -> dict:
         "qualification_criteria": qualification_criteria(),
         "bdr_batch": bdr_batch,
         "bdr_history": bdr_history[:10],
+        "sales_ops_summary": sales_ops_summary,
+        "sales_ops_disqualification": {
+            "generated_at": sales_ops_disqualification.get("generated_at"),
+            "mode": sales_ops_disqualification.get("mode"),
+            "archive_candidates": (sales_ops_disqualification.get("archive_candidates") or [])[:20],
+        },
+        "sales_ops_duplicates": {
+            "generated_at": sales_ops_duplicates.get("generated_at"),
+            "mode": sales_ops_duplicates.get("mode"),
+            "organisation_duplicates": (sales_ops_duplicates.get("organisation_duplicates") or [])[:20],
+            "person_duplicates": (sales_ops_duplicates.get("person_duplicates") or [])[:20],
+            "lead_duplicates": (sales_ops_duplicates.get("lead_duplicates") or [])[:20],
+        },
     }
 
 
@@ -263,6 +283,15 @@ class Handler(BaseHTTPRequestHandler):
         if parsed.path == "/api/bdr-run-history":
             self._send_json(_load_json(OUTPUT_DIR / "bdr-run-history.json", []))
             return
+        if parsed.path == "/api/sales-ops-summary":
+            self._send_json(_load_json(OUTPUT_DIR / "sales-ops-summary.json", {}))
+            return
+        if parsed.path == "/api/sales-ops-disqualification":
+            self._send_json(_load_json(OUTPUT_DIR / "sales-ops-disqualification.json", {}))
+            return
+        if parsed.path == "/api/sales-ops-duplicates":
+            self._send_json(_load_json(OUTPUT_DIR / "sales-ops-duplicates.json", {}))
+            return
         self._send_not_found()
 
     def do_POST(self):
@@ -294,6 +323,15 @@ class Handler(BaseHTTPRequestHandler):
                 self._send_json(result, status=HTTPStatus.OK)
             except Exception as exc:
                 self._send_json({"error": "processing_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
+            return
+
+        if parsed.path == "/api/run-sales-ops":
+            try:
+                from .sales_ops_worker import run_sales_ops_workers
+                result = run_sales_ops_workers()
+                self._send_json(result, status=HTTPStatus.OK)
+            except Exception as exc:
+                self._send_json({"error": "sales_ops_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
             return
 
         if parsed.path == "/api/qualification-criteria":
