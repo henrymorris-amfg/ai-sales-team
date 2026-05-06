@@ -5,6 +5,7 @@ import re
 from html import unescape
 from pathlib import Path
 from urllib.parse import urljoin
+import os
 
 import requests
 
@@ -13,10 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output" / "site-review.json"
 REQUEST_HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; OpenClaw/1.0)"}
 TARGET_LINK_WORDS = ["capabilities", "equipment", "quote", "rfq", "request a quote"]
+REQUEST_TIMEOUT_SECONDS = max(3, int((os.getenv("SITE_REVIEW_REQUEST_TIMEOUT_SECONDS", "8") or "8").strip()))
+MAX_LINKS_TO_INSPECT = max(1, int((os.getenv("SITE_REVIEW_MAX_LINKS", "2") or "2").strip()))
 
 
 def _fetch(url: str) -> tuple[str, str]:
-    response = requests.get(url, headers=REQUEST_HEADERS, timeout=30)
+    response = requests.get(url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT_SECONDS)
     response.raise_for_status()
     return response.url, response.text
 
@@ -51,7 +54,7 @@ def review_site(url: str) -> dict:
     homepage_text = _clean_text(homepage_html)
     links = _extract_links(base_url, homepage_html)
     pages = []
-    for link in links[:4]:
+    for link in links[:MAX_LINKS_TO_INSPECT]:
         try:
             final_url, html = _fetch(link["url"])
             pages.append({

@@ -5,6 +5,7 @@ import json
 import re
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError
 from pathlib import Path
 from typing import Any
 
@@ -99,6 +100,8 @@ KNOWN_STATES = sorted(STATE_OPTION_IDS.keys(), key=len, reverse=True)
 APOLLO_QUEUE_RETRY_MINUTES = 360
 APOLLO_QUEUE_TRANSIENT_RETRY_MINUTES = 120
 APOLLO_NO_MATCH_RETRY_DAYS = 7
+APOLLO_CACHE_TTL_HOURS = 24
+SITE_REVIEW_TIMEOUT_SECONDS = 12
 
 
 @dataclass
@@ -284,6 +287,18 @@ def _mark_queue_no_match(queue_id: str | None, status: str, message: str, *, ret
     _update_queue_item(queue_id, **changes)
 
 
+def _cache_is_fresh(timestamp: str | None, ttl_hours: int = APOLLO_CACHE_TTL_HOURS) -> bool:
+    if not timestamp:
+        return False
+    try:
+        cached_at = datetime.fromisoformat(timestamp)
+    except Exception:
+        return False
+    if cached_at.tzinfo is None:
+        cached_at = cached_at.replace(tzinfo=timezone.utc)
+    return datetime.now(timezone.utc) - cached_at.astimezone(timezone.utc) <= timedelta(hours=ttl_hours)
+
+
 def _title_rank(title: str) -> tuple[int, int]:
     lowered = (title or "").strip().lower()
     for idx, preferred in enumerate(PRIORITY_TITLES):
@@ -292,6 +307,8 @@ def _title_rank(title: str) -> tuple[int, int]:
             return (0, idx)
         if pref in lowered:
             return (1, idx)
+    if any(token in lowered for token in ["president", "owner", "founder", "chief", "vp", "vice president", "general manager", "engineering manager", "production manager", "operations"]):
+        return (2, 50)
     return (9, 999)
 
 
@@ -432,6 +449,11 @@ def _apollo_person_detail(api_key: str, person_id: str) -> dict[str, Any]:
 def _apollo_resolve_candidate(apollo, queue_id: str | None, row: dict[str, str]) -> tuple[dict[str, Any], dict[str, Any]] | None:
     company = (row.get("Company Name") or "").strip()
     domain = _normalise_domain(row.get("Website") or "")
+    queue_item = next((item for item in _load_queue_items() if item.get("queue_id") == queue_id), {}) if queue_id else {}
+    cached_best_person = queue_item.get("apollo_best_person") or {}
+    cached_best_org = queue_item.get("apollo_resolved_org") or {}
+    if cached_best_person.get("email") and _cache_is_fresh(queue_item.get("apollo_cached_at")):
+        return cached_best_person, cached_best_org
     try:
         org_candidates = _apollo_org_candidates(apollo, company, domain)
         org = org_candidates[0] if org_candidates else {}
@@ -450,6 +472,31 @@ def _apollo_resolve_candidate(apollo, queue_id: str | None, row: dict[str, str])
     except ApolloTransientError as exc:
         _mark_apollo_transient_retry_later(queue_id, str(exc))
         return None
+
+    _update_queue_item(
+        queue_id,
+        apollo_cached_at=datetime.now(timezone.utc).isoformat(),
+        apollo_resolved_org={
+            "id": org.get("id"),
+            "name": org.get("name"),
+            "website_url": org.get("website_url"),
+            "primary_domain": org.get("primary_domain"),
+            "raw_address": org.get("raw_address"),
+            "phone": org.get("phone"),
+        } if org else {},
+        apollo_people_count=len(people),
+        apollo_unlocked_email_count=0,
+        apollo_top_people=[
+            {
+                "id": person.get("id"),
+                "name": person.get("name"),
+                "title": person.get("title") or person.get("job_title"),
+                "email": person.get("email"),
+                "linkedin_url": person.get("linkedin_url"),
+            }
+            for person in people[:5]
+        ],
+    )
 
     if not people:
         _mark_queue_no_match(queue_id, "no_people_match", f"Apollo found no people for {company}", retry_days=APOLLO_NO_MATCH_RETRY_DAYS)
@@ -486,6 +533,30 @@ def _apollo_resolve_candidate(apollo, queue_id: str | None, row: dict[str, str])
                 detail_org = detail.get("organization") or detail_org
                 email = (detail.get("email") or "").strip()
         if email and "email_not_unlocked" not in email:
+            _update_queue_item(
+                queue_id,
+                apollo_status="matched",
+                apollo_best_person={
+                    "id": detail.get("id"),
+                    "name": detail.get("name"),
+                    "title": detail.get("title"),
+                    "email": detail.get("email"),
+                    "linkedin_url": detail.get("linkedin_url"),
+                    "organization": detail.get("organization") or detail_org,
+                },
+                apollo_resolved_org={
+                    "id": detail_org.get("id"),
+                    "name": detail_org.get("name"),
+                    "website_url": detail_org.get("website_url"),
+                    "primary_domain": detail_org.get("primary_domain"),
+                    "raw_address": detail_org.get("raw_address"),
+                    "phone": detail_org.get("phone"),
+                },
+                apollo_unlocked_email_count=1,
+                apollo_last_error=None,
+                apollo_retry_after=None,
+                next_step="ready_for_creation",
+            )
             return detail, detail_org
 
     _mark_queue_no_match(queue_id, "no_email_after_match", f"Apollo found contacts for {company} but no unlocked email", retry_days=APOLLO_NO_MATCH_RETRY_DAYS)
@@ -543,11 +614,14 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
         if person_dupes:
             _update_queue_item(queue_item.get("queue_id"), status="duplicate_person", next_step="skip_duplicate_person")
             continue
+        queue_snapshot = next((item for item in _load_queue_items() if item.get("queue_id") == queue_item.get("queue_id")), queue_item)
         return {
             "queue_id": queue_item.get("queue_id") if queue_item else None,
             "sheet_row": row,
             "apollo_person": detail,
             "apollo_org": org,
+            "apollo_people_count": queue_snapshot.get("apollo_people_count"),
+            "apollo_unlocked_email_count": queue_snapshot.get("apollo_unlocked_email_count"),
             "assigned_agent": assign_agent(country, state),
             "owner_name": owner_name,
             "owner_id": owner_id,
@@ -566,7 +640,17 @@ def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_per
     reasons: list[str] = []
     site_review = {"homepage_url": apollo_org.get("website_url") or row.get("Website"), "homepage_text": "", "inspected_pages": []}
     try:
-        site_review = review_site(apollo_org.get("website_url") or row.get("Website") or "")
+        target_url = apollo_org.get("website_url") or row.get("Website") or ""
+        with ThreadPoolExecutor(max_workers=1) as pool:
+            future = pool.submit(review_site, target_url)
+            site_review = future.result(timeout=SITE_REVIEW_TIMEOUT_SECONDS)
+    except FutureTimeoutError:
+        site_review = {
+            "homepage_url": apollo_org.get("website_url") or row.get("Website"),
+            "homepage_text": "",
+            "inspected_pages": [],
+            "error": f"site review timeout after {SITE_REVIEW_TIMEOUT_SECONDS}s",
+        }
     except Exception:
         pass
     evidence_parts = [
@@ -732,6 +816,9 @@ def run() -> dict[str, Any]:
         "source_company": row.get("Company Name"),
         "used_existing_org": bool(existing_org),
         "site_review": site_review,
+        "apollo_people_count": candidate.get("apollo_people_count"),
+        "apollo_unlocked_email_count": candidate.get("apollo_unlocked_email_count"),
+        "apollo_resolved_org_name": (candidate.get("apollo_org") or {}).get("name"),
     }
     _update_queue_item(
         candidate.get("queue_id"),
@@ -743,6 +830,7 @@ def run() -> dict[str, Any]:
         assigned_owner=candidate.get("owner_name"),
         assigned_agent=candidate.get("assigned_agent"),
         last_score=score,
+        apollo_status="created",
     )
     target = ROOT / "output" / "bdr-full-flow-result.json"
     target.write_text(json.dumps(result, indent=2), encoding="utf-8")

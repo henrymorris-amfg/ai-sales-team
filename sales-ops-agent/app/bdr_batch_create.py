@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output" / "bdr-batch-results.json"
 HISTORY = ROOT / "output" / "bdr-run-history.json"
 STATE = ROOT / "output" / "bdr-run-state.json"
+QUEUE = ROOT / "output" / "bdr-intake-queue.json"
 
 
 def _load_json(path: Path, default):
@@ -22,6 +23,15 @@ def _load_json(path: Path, default):
 
 def _save_json(path: Path, payload) -> None:
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def _queue_metrics() -> dict:
+    queue = _load_json(QUEUE, [])
+    return {
+        "matched_people": sum(1 for item in queue if (item.get("apollo_people_count") or 0) > 0),
+        "matched_unlocked_email": sum(1 for item in queue if (item.get("apollo_unlocked_email_count") or 0) > 0),
+        "created_leads": sum(1 for item in queue if item.get("status") == "created"),
+    }
 
 
 def run_batch(limit: int | None = None) -> dict:
@@ -110,6 +120,7 @@ def run_batch(limit: int | None = None) -> dict:
         "results": results,
         "errors": errors,
         "skips": skips,
+        "metrics": _queue_metrics(),
         "source": source_ingest_config(),
         "paused": state.get("paused", False),
         "pause_reason": state.get("pause_reason"),
