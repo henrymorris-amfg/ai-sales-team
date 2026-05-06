@@ -17,23 +17,38 @@ class ApolloRateLimitError(RuntimeError):
         return self.message
 
 
+@dataclass
+class ApolloTransientError(RuntimeError):
+    message: str
+    retry_after_seconds: int | None = None
+
+    def __str__(self) -> str:
+        return self.message
+
+
 class ApolloClient:
-    def __init__(self, api_key: str, api_base: str = "https://api.apollo.io/api/v1") -> None:
+    def __init__(self, api_key: str, api_base: str = "https://api.apollo.io/api/v1", timeout_seconds: int = 12) -> None:
         self.api_key = api_key.strip()
         self.api_base = api_base.rstrip("/")
+        self.timeout_seconds = max(3, int(timeout_seconds))
         if not self.api_key:
             raise ValueError("Missing APOLLO_API_KEY")
 
     def _post(self, path: str, payload: dict[str, Any]) -> dict[str, Any]:
-        response = requests.post(
-            f"{self.api_base}{path}",
-            headers={
-                "Content-Type": "application/json",
-                "X-Api-Key": self.api_key,
-            },
-            json=payload,
-            timeout=45,
-        )
+        try:
+            response = requests.post(
+                f"{self.api_base}{path}",
+                headers={
+                    "Content-Type": "application/json",
+                    "X-Api-Key": self.api_key,
+                },
+                json=payload,
+                timeout=self.timeout_seconds,
+            )
+        except requests.Timeout as exc:
+            raise ApolloTransientError(message=f"Apollo request timed out for path: {path}") from exc
+        except requests.RequestException as exc:
+            raise ApolloTransientError(message=f"Apollo request failed for path: {path}: {exc}") from exc
         if response.status_code == 429:
             retry_after = response.headers.get("Retry-After")
             retry_after_seconds: int | None = None
@@ -102,4 +117,5 @@ def load_apollo_client() -> ApolloClient:
 
     api_key = os.getenv("APOLLO_API_KEY", "").strip()
     api_base = os.getenv("APOLLO_API_BASE", "https://api.apollo.io/api/v1").strip() or "https://api.apollo.io/api/v1"
-    return ApolloClient(api_key=api_key, api_base=api_base)
+    timeout_seconds = int((os.getenv("APOLLO_API_TIMEOUT_SECONDS", "12") or "12").strip())
+    return ApolloClient(api_key=api_key, api_base=api_base, timeout_seconds=timeout_seconds)

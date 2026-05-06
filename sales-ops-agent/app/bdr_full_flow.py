@@ -10,7 +10,7 @@ from typing import Any
 import requests
 
 from .apollo_client import load_apollo_client
-from .apollo_client import ApolloRateLimitError
+from .apollo_client import ApolloRateLimitError, ApolloTransientError
 from .config import load_config
 from .pipedrive_client import PipedriveClient
 from .site_review import review_site
@@ -96,6 +96,7 @@ STATE_OPTION_IDS = {
 }
 KNOWN_STATES = sorted(STATE_OPTION_IDS.keys(), key=len, reverse=True)
 APOLLO_QUEUE_RETRY_MINUTES = 360
+APOLLO_QUEUE_TRANSIENT_RETRY_MINUTES = 120
 
 
 def qualification_criteria() -> dict[str, Any]:
@@ -172,6 +173,20 @@ def _mark_apollo_retry_later(queue_id: str | None, message: str, retry_after_sec
     _update_queue_item(
         queue_id,
         apollo_status="rate_limited",
+        apollo_last_error=message,
+        apollo_last_error_at=datetime.now(timezone.utc).isoformat(),
+        apollo_retry_after=next_retry.isoformat(),
+        next_step="retry_apollo_later",
+    )
+
+
+def _mark_apollo_transient_retry_later(queue_id: str | None, message: str, retry_after_seconds: int | None = None) -> None:
+    if not queue_id:
+        return
+    next_retry = datetime.now(timezone.utc) + timedelta(seconds=retry_after_seconds or (APOLLO_QUEUE_TRANSIENT_RETRY_MINUTES * 60))
+    _update_queue_item(
+        queue_id,
+        apollo_status="transient_error",
         apollo_last_error=message,
         apollo_last_error_at=datetime.now(timezone.utc).isoformat(),
         apollo_retry_after=next_retry.isoformat(),
@@ -280,11 +295,16 @@ def _find_lead_dupe(client: PipedriveClient, organisation: dict[str, Any], sourc
 
 
 def _apollo_person_detail(api_key: str, person_id: str) -> dict[str, Any]:
-    response = requests.get(
-        f"https://api.apollo.io/api/v1/people/{person_id}",
-        headers={"X-Api-Key": api_key},
-        timeout=45,
-    )
+    try:
+        response = requests.get(
+            f"https://api.apollo.io/api/v1/people/{person_id}",
+            headers={"X-Api-Key": api_key},
+            timeout=12,
+        )
+    except requests.Timeout as exc:
+        raise ApolloTransientError(message=f"Apollo person detail timed out for person {person_id}") from exc
+    except requests.RequestException as exc:
+        raise ApolloTransientError(message=f"Apollo person detail failed for person {person_id}: {exc}") from exc
     if response.status_code == 429:
         raise ApolloRateLimitError(
             message=f"429 Too Many Requests for url: {response.url}",
@@ -330,11 +350,17 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
         except ApolloRateLimitError as exc:
             _mark_apollo_retry_later(queue_item.get("queue_id"), str(exc), exc.retry_after_seconds)
             continue
+        except ApolloTransientError as exc:
+            _mark_apollo_transient_retry_later(queue_item.get("queue_id"), str(exc))
+            continue
         for person in people:
             try:
                 detail = _apollo_person_detail(apollo.api_key, person["id"])
             except ApolloRateLimitError as exc:
                 _mark_apollo_retry_later(queue_item.get("queue_id"), str(exc), exc.retry_after_seconds)
+                break
+            except ApolloTransientError as exc:
+                _mark_apollo_transient_retry_later(queue_item.get("queue_id"), str(exc))
                 break
             org = detail.get("organization") or {}
             domain = _normalise_domain(org.get("website_url") or row.get("Website") or "")
@@ -348,6 +374,9 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
                     ).get("person") or {}
                 except ApolloRateLimitError as exc:
                     _mark_apollo_retry_later(queue_item.get("queue_id"), str(exc), exc.retry_after_seconds)
+                    break
+                except ApolloTransientError as exc:
+                    _mark_apollo_transient_retry_later(queue_item.get("queue_id"), str(exc))
                     break
                 if matched:
                     detail = matched
