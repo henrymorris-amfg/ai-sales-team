@@ -1,10 +1,20 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
 from typing import Any
 
 import requests
 
 from . import config as _config  # noqa: F401  Ensures local secret env files are loaded.
+
+
+@dataclass
+class ApolloRateLimitError(RuntimeError):
+    message: str
+    retry_after_seconds: int | None = None
+
+    def __str__(self) -> str:
+        return self.message
 
 
 class ApolloClient:
@@ -24,6 +34,18 @@ class ApolloClient:
             json=payload,
             timeout=45,
         )
+        if response.status_code == 429:
+            retry_after = response.headers.get("Retry-After")
+            retry_after_seconds: int | None = None
+            if retry_after:
+                try:
+                    retry_after_seconds = max(0, int(float(retry_after)))
+                except ValueError:
+                    retry_after_seconds = None
+            raise ApolloRateLimitError(
+                message=f"429 Too Many Requests for url: {response.url}",
+                retry_after_seconds=retry_after_seconds,
+            )
         response.raise_for_status()
         return response.json()
 
