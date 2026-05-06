@@ -3,13 +3,14 @@ from __future__ import annotations
 import csv
 import json
 import re
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
 import requests
 
 from .apollo_client import load_apollo_client
+from .apollo_client import ApolloRateLimitError
 from .config import load_config
 from .pipedrive_client import PipedriveClient
 from .site_review import review_site
@@ -94,6 +95,7 @@ STATE_OPTION_IDS = {
     "wyoming": 1320,
 }
 KNOWN_STATES = sorted(STATE_OPTION_IDS.keys(), key=len, reverse=True)
+APOLLO_QUEUE_RETRY_MINUTES = 360
 
 
 def qualification_criteria() -> dict[str, Any]:
@@ -130,6 +132,51 @@ def _update_queue_item(queue_id: str | None, **changes: Any) -> None:
             item.update(changes)
             break
     _save_queue_items(items)
+
+
+def _apollo_retry_after_seconds_from_response(response: requests.Response | None) -> int | None:
+    if response is None:
+        return None
+    retry_after = response.headers.get("Retry-After")
+    if not retry_after:
+        return None
+    try:
+        return max(0, int(float(retry_after)))
+    except ValueError:
+        return None
+
+
+def _queue_item_is_ready(queue_item: dict[str, Any]) -> bool:
+    retry_at = str(queue_item.get("apollo_retry_after") or "").strip()
+    if not retry_at:
+        return True
+    try:
+        retry_dt = date.fromisoformat(retry_at[:10]) if len(retry_at) == 10 else None
+    except ValueError:
+        retry_dt = None
+    if retry_dt is not None:
+        return True
+    try:
+        retry_dt_full = datetime.fromisoformat(retry_at)
+    except Exception:
+        return True
+    if retry_dt_full.tzinfo is None:
+        retry_dt_full = retry_dt_full.replace(tzinfo=timezone.utc)
+    return datetime.now(timezone.utc) >= retry_dt_full.astimezone(timezone.utc)
+
+
+def _mark_apollo_retry_later(queue_id: str | None, message: str, retry_after_seconds: int | None = None) -> None:
+    if not queue_id:
+        return
+    next_retry = datetime.now(timezone.utc) + timedelta(seconds=retry_after_seconds or (APOLLO_QUEUE_RETRY_MINUTES * 60))
+    _update_queue_item(
+        queue_id,
+        apollo_status="rate_limited",
+        apollo_last_error=message,
+        apollo_last_error_at=datetime.now(timezone.utc).isoformat(),
+        apollo_retry_after=next_retry.isoformat(),
+        next_step="retry_apollo_later",
+    )
 
 
 def source_ingest_config() -> dict[str, Any]:
@@ -238,6 +285,11 @@ def _apollo_person_detail(api_key: str, person_id: str) -> dict[str, Any]:
         headers={"X-Api-Key": api_key},
         timeout=45,
     )
+    if response.status_code == 429:
+        raise ApolloRateLimitError(
+            message=f"429 Too Many Requests for url: {response.url}",
+            retry_after_seconds=_apollo_retry_after_seconds_from_response(response),
+        )
     response.raise_for_status()
     return response.json().get("person") or {}
 
@@ -248,6 +300,8 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
     queue_candidates: list[tuple[int | None, dict[str, Any], dict[str, str]]] = []
     for item in _load_queue_items():
         if item.get("status") != "queued":
+            continue
+        if not _queue_item_is_ready(item):
             continue
         row = dict(item.get("raw") or {})
         row.setdefault("Company Name", item.get("company") or "")
@@ -266,23 +320,35 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
             _update_queue_item(queue_item.get("queue_id"), status="excluded_customer", next_step="skip_existing_customer", excluded_reason="Existing customer from won deals list")
             continue
 
-        people = apollo.search_people(
-            organization_name=company,
-            domain=_normalise_domain(row.get("Website") or ""),
-            titles=PRIORITY_TITLES,
-            per_page=10,
-        ).get("people") or []
+        try:
+            people = apollo.search_people(
+                organization_name=company,
+                domain=_normalise_domain(row.get("Website") or ""),
+                titles=PRIORITY_TITLES,
+                per_page=10,
+            ).get("people") or []
+        except ApolloRateLimitError as exc:
+            _mark_apollo_retry_later(queue_item.get("queue_id"), str(exc), exc.retry_after_seconds)
+            continue
         for person in people:
-            detail = _apollo_person_detail(apollo.api_key, person["id"])
+            try:
+                detail = _apollo_person_detail(apollo.api_key, person["id"])
+            except ApolloRateLimitError as exc:
+                _mark_apollo_retry_later(queue_item.get("queue_id"), str(exc), exc.retry_after_seconds)
+                break
             org = detail.get("organization") or {}
             domain = _normalise_domain(org.get("website_url") or row.get("Website") or "")
             if (not detail.get("email")) or ("email_not_unlocked" in (detail.get("email") or "")):
-                matched = apollo.match_person(
-                    name=detail.get("name") or "",
-                    organization_name=org.get("name") or company,
-                    domain=domain,
-                    linkedin_url=detail.get("linkedin_url") or "",
-                ).get("person") or {}
+                try:
+                    matched = apollo.match_person(
+                        name=detail.get("name") or "",
+                        organization_name=org.get("name") or company,
+                        domain=domain,
+                        linkedin_url=detail.get("linkedin_url") or "",
+                    ).get("person") or {}
+                except ApolloRateLimitError as exc:
+                    _mark_apollo_retry_later(queue_item.get("queue_id"), str(exc), exc.retry_after_seconds)
+                    break
                 if matched:
                     detail = matched
                     org = detail.get("organization") or org
