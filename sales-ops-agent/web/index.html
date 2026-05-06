@@ -140,7 +140,9 @@
         const openButtons = [survivor.url ? `<a href="${esc(survivor.url)}" target="_blank" rel="noopener"><button class="secondary" type="button">Open survivor</button></a>` : '']
           .concat((item.duplicates || []).slice(0,2).map((dup, i) => dup.url ? `<a href="${esc(dup.url)}" target="_blank" rel="noopener"><button class="secondary" type="button">Open duplicate ${i+1}</button></a>` : ''))
           .join('');
-        return `<div class="item"><strong>${esc(item.record_type || 'merge')} cluster</strong><div class="muted small">Keep ${survivorLink}</div><div class="muted small" style="margin-top:6px;">Review: ${dupes || 'No linked duplicates shown'}</div><div class="actions" style="margin-top:8px;">${openButtons}<button class="ghost" onclick="approveAction('merge','${esc(item.id)}')">Approve</button></div></div>`;
+        const executeLabel = (item.record_type || '') === 'lead' ? 'Lead merge unsupported' : 'Merge in Pipedrive';
+        const disabled = (item.record_type || '') === 'lead' ? 'disabled' : '';
+        return `<div class="item"><strong>${esc(item.record_type || 'merge')} cluster</strong><div class="muted small">Keep ${survivorLink}</div><div class="muted small" style="margin-top:6px;">Review: ${dupes || 'No linked duplicates shown'}</div><div class="actions" style="margin-top:8px;">${openButtons}<button class="ghost" ${disabled} onclick="executeMerge('${esc(item.id)}','${esc(item.record_type || '')}')">${executeLabel}</button></div></div>`;
       }), 'No merge approvals pending.');
 
       document.getElementById('criteria-editor').value = JSON.stringify(data.qualification_criteria || {}, null, 2);
@@ -151,6 +153,24 @@
       try { await j('/api/approvals/approve', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ kind, id }) }); setStatus(`${kind} action approved and removed from the pending list.`, 'ok'); await loadOverview(); } catch (error) { setStatus(error.message, 'err'); }
     }
     window.approveAction = approveAction;
+
+    async function executeMerge(id, recordType) {
+      if (recordType === 'lead') {
+        setStatus('Pipedrive does not expose a lead merge endpoint, so lead clusters still need manual cleanup.', 'err');
+        return;
+      }
+      const ok = window.confirm(`Merge this ${recordType} cluster in Pipedrive now? This will merge the duplicate records into the survivor.`);
+      if (!ok) return;
+      try {
+        const result = await j('/api/approvals/merge/execute', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ id }) });
+        const summary = result.execution_summary || {};
+        setStatus(`Merged ${fmt.format(summary.merge_count || 0)} duplicate ${recordType} record(s) into survivor ${summary.survivor_id || ''}.`, 'ok');
+        await loadOverview();
+      } catch (error) {
+        setStatus(error.message, 'err');
+      }
+    }
+    window.executeMerge = executeMerge;
 
     document.getElementById('upload-form').addEventListener('submit', async (e) => {
       e.preventDefault(); const file = document.getElementById('csv-file').files[0]; if (!file) return;

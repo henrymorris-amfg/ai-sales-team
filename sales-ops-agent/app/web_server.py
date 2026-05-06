@@ -17,7 +17,7 @@ from .intake_queue import process_uploads
 from .bdr_full_flow import qualification_criteria, save_qualification_criteria
 from .territory_map import owner_territories
 from .customer_registry import build_customer_registry, load_customer_registry, load_customer_summary
-from .action_center import refresh_pending_actions, load_approvals, approve_action
+from .action_center import refresh_pending_actions, load_approvals, approve_action, execute_merge_action
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -450,6 +450,16 @@ class Handler(BaseHTTPRequestHandler):
                 self._send_json(approve_action(str(payload.get("kind") or ""), str(payload.get("id") or "")))
             except Exception as exc:
                 self._send_json({"error": "approval_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
+            return
+
+        if parsed.path == "/api/approvals/merge/execute":
+            content_length = int(self.headers.get("Content-Length", "0") or 0)
+            body = self.rfile.read(content_length)
+            try:
+                payload = json.loads(body.decode("utf-8"))
+                self._send_json(execute_merge_action(str(payload.get("id") or "")))
+            except Exception as exc:
+                self._send_json({"error": "merge_failed", "detail": escape(str(exc))}, status=HTTPStatus.BAD_REQUEST)
             return
 
         self._send_not_found()

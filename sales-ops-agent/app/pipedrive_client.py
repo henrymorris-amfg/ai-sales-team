@@ -35,6 +35,20 @@ class PipedriveClient:
             raise RuntimeError(f"Pipedrive API error: {body}")
         return body
 
+    def _put(self, path: str, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        payload = dict(data or {})
+        response = self.session.put(
+            f"{self.api_base}{path}",
+            params={"api_token": self.api_key},
+            json=payload,
+            timeout=60,
+        )
+        response.raise_for_status()
+        body = response.json()
+        if not body.get("success", False):
+            raise RuntimeError(f"Pipedrive API error: {body}")
+        return body
+
     def _get_all(self, path: str, params: Optional[Dict[str, Any]] = None, limit: int = 500) -> List[Dict[str, Any]]:
         start = 0
         rows: List[Dict[str, Any]] = []
@@ -136,3 +150,9 @@ class PipedriveClient:
 
     def create_activity(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         return self._post("/activities", payload).get("data") or {}
+
+    def merge_organisation(self, survivor_id: int, duplicate_id: int) -> Dict[str, Any]:
+        return self._put(f"/organizations/{survivor_id}/merge", {"merge_with_id": duplicate_id}).get("data") or {}
+
+    def merge_person(self, survivor_id: int, duplicate_id: int) -> Dict[str, Any]:
+        return self._put(f"/persons/{survivor_id}/merge", {"merge_with_id": duplicate_id}).get("data") or {}

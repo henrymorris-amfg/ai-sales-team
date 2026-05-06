@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import load_config
+from .pipedrive_client import PipedriveClient
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
@@ -119,6 +120,64 @@ def approve_action(kind: str, action_id: str) -> dict[str, Any]:
             item["approved_at"] = datetime.now(timezone.utc).isoformat()
             _save_json(path, payload)
             return item
+    raise ValueError(f"Action not found: {action_id}")
+
+
+def execute_merge_action(action_id: str) -> dict[str, Any]:
+    payload = _load_json(MERGE_APPROVALS, {"generated_at": None, "items": []})
+    for item in payload.get("items") or []:
+        if item.get("id") != action_id:
+            continue
+
+        if item.get("status") == "executed":
+            return item
+
+        record_type = str(item.get("record_type") or "").strip().lower()
+        survivor = item.get("survivor") or {}
+        duplicates = item.get("duplicates") or []
+        survivor_id = survivor.get("id")
+        if not survivor_id:
+            raise ValueError("Merge action is missing a survivor record id")
+        if not duplicates:
+            raise ValueError("Merge action has no duplicate records to merge")
+
+        if record_type == "lead":
+            raise ValueError("Pipedrive does not provide a lead merge API endpoint, so lead duplicate clusters cannot be auto-merged safely.")
+        if record_type not in {"organisation", "person"}:
+            raise ValueError(f"Unsupported merge record type: {record_type}")
+
+        cfg = load_config()
+        client = PipedriveClient(cfg.api_base, cfg.api_key)
+        executed = []
+        for duplicate in duplicates:
+            duplicate_id = duplicate.get("id")
+            if not duplicate_id or str(duplicate_id) == str(survivor_id):
+                continue
+            if record_type == "organisation":
+                result = client.merge_organisation(int(survivor_id), int(duplicate_id))
+            else:
+                result = client.merge_person(int(survivor_id), int(duplicate_id))
+            executed.append({
+                "duplicate_id": duplicate_id,
+                "merged_into_id": survivor_id,
+                "result": result,
+            })
+
+        if not executed:
+            raise ValueError("No valid duplicate ids were available to merge")
+
+        item["status"] = "executed"
+        item["approved_at"] = datetime.now(timezone.utc).isoformat()
+        item["executed_at"] = item["approved_at"]
+        item["execution_summary"] = {
+            "record_type": record_type,
+            "survivor_id": survivor_id,
+            "merged_duplicates": [entry["duplicate_id"] for entry in executed],
+            "merge_count": len(executed),
+        }
+        _save_json(MERGE_APPROVALS, payload)
+        return item
+
     raise ValueError(f"Action not found: {action_id}")
 
 
