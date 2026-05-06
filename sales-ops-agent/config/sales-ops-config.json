@@ -2,7 +2,7 @@
   "disqualification": {
     "mode": "recommend_only",
     "batch_size": 60,
-    "archive_score_max": 20,
+    "archive_score_max": 40,
     "minimum_confidence": 0.55,
     "require_no_conflict_flag": true
   },

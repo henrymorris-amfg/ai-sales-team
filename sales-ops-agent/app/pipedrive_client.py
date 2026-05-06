@@ -161,6 +161,15 @@ class PipedriveClient:
     def create_activity(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         return self._post("/activities", payload).get("data") or {}
 
+    def update_organisation(self, organisation_id: int, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self._put(f"/organizations/{organisation_id}", payload).get("data") or {}
+
+    def update_person(self, person_id: int, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self._put(f"/persons/{person_id}", payload).get("data") or {}
+
+    def update_lead(self, lead_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self._put(f"/leads/{lead_id}", payload).get("data") or {}
+
     def merge_organisation(self, survivor_id: int, duplicate_id: int) -> Dict[str, Any]:
         return self._put(f"/organizations/{survivor_id}/merge", {"merge_with_id": duplicate_id}).get("data") or {}
 

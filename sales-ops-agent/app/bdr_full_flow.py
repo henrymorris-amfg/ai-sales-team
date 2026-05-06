@@ -30,6 +30,8 @@ AUTOMATION_CONFIG_FILE = ROOT / "config" / "automation-config.json"
 HOMEPAGE_FIELD_KEY = "667dae8863844f07bf48be7af77ae678647c6afb"
 STATE_FIELD_KEY = "dd4be7e718da24b3254c4981d89b5eb6a5fb0192"
 CNC_LABEL_ID = "e028bea0-b37b-11ee-9581-d55a394d57f7"
+FIVE_AXIS_LABEL_ID = "616f0f80-17f9-11f1-af24-81f45bb3e021"
+ITAR_LABEL_ID = "65e443f0-17f9-11f1-a37d-27e51f3d0737"
 PRIORITY_TITLES = [
     "Owner",
     "Managing Director",
@@ -445,6 +447,71 @@ def _remember_created_lead(lead: dict[str, Any]) -> None:
     _LEADS_CACHE["loaded_at"] = datetime.now(timezone.utc)
 
 
+def _lead_for_person_or_org(client: PipedriveClient, person_id: int | None, organisation_id: int | None, source_company: str, *, include_org_match: bool = False) -> dict[str, Any] | None:
+    cache_loaded_at = _LEADS_CACHE.get("loaded_at")
+    cache_items = _LEADS_CACHE.get("items") or []
+    now = datetime.now(timezone.utc)
+    if not cache_loaded_at or (now - cache_loaded_at).total_seconds() > LEADS_CACHE_TTL_SECONDS or not cache_items:
+        cache_items = client.get_all_leads(limit=500)
+        _LEADS_CACHE["loaded_at"] = now
+        _LEADS_CACHE["items"] = cache_items
+    norm_source = _normalise_name(source_company)
+    for lead in cache_items:
+        if lead.get("is_archived"):
+            continue
+        if person_id and str(lead.get("person_id")) == str(person_id):
+            return lead
+        lead_org_id = lead.get("organization_id") or lead.get("related_org_id")
+        if include_org_match and organisation_id and str(lead_org_id) == str(organisation_id):
+            return lead
+        if norm_source and norm_source in _normalise_name(lead.get("title") or ""):
+            return lead
+    return None
+
+
+def _existing_person_from_search_result(client: PipedriveClient, search_result: dict[str, Any]) -> dict[str, Any]:
+    item = search_result.get("item") or {}
+    person_id = item.get("id") or search_result.get("id")
+    return client.get_person(int(person_id)) if person_id else {}
+
+
+def _capability_label_ids(reasons: list[str], evidence: str) -> list[str]:
+    labels = [CNC_LABEL_ID]
+    lowered = (" ".join(reasons) + " " + (evidence or "")).lower()
+    if "5-axis" in lowered or "5 axis" in lowered:
+        labels.append(FIVE_AXIS_LABEL_ID)
+    if "itar" in lowered:
+        labels.append(ITAR_LABEL_ID)
+    return labels
+
+
+def _build_person_update_payload(person: dict[str, Any], apollo_person: dict[str, Any], apollo_org: dict[str, Any], owner_id: int, organisation_id: int) -> dict[str, Any]:
+    existing_email = person.get("email")
+    if isinstance(existing_email, list):
+        existing_email = next((item.get("value") for item in existing_email if isinstance(item, dict) and item.get("value")), "")
+    existing_phone = person.get("phone")
+    if isinstance(existing_phone, list):
+        existing_phone = next((item.get("value") for item in existing_phone if isinstance(item, dict) and item.get("value")), "")
+    payload = {
+        "name": person.get("name") or apollo_person.get("name"),
+        "owner_id": owner_id,
+        "org_id": organisation_id,
+        "email": existing_email or apollo_person.get("email"),
+        "phone": existing_phone or apollo_person.get("mobile_phone") or apollo_person.get("phone") or apollo_org.get("phone"),
+    }
+    return {k: v for k, v in payload.items() if v not in {None, ""}}
+
+
+def _build_org_update_payload(organisation: dict[str, Any], apollo_org: dict[str, Any], row: dict[str, str], owner_id: int) -> dict[str, Any]:
+    payload = {
+        "name": organisation.get("name") or apollo_org.get("name") or row.get("Company Name"),
+        "owner_id": owner_id,
+        "address": organisation.get("address") or apollo_org.get("raw_address") or row.get("Address"),
+        HOMEPAGE_FIELD_KEY: (apollo_org.get("website_url") or row.get("Website") or "").replace("http://", "https://"),
+    }
+    return {k: v for k, v in payload.items() if v not in {None, ""}}
+
+
 def _apollo_person_detail(api_key: str, person_id: str) -> dict[str, Any]:
     try:
         response = requests.get(
@@ -630,9 +697,12 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
             _update_queue_item(queue_item.get("queue_id"), status="excluded_customer", next_step="skip_existing_customer", excluded_reason="Existing customer from won deals list")
             continue
         person_dupes = client.search_persons(email or person_name, limit=5) if (email or person_name) else []
-        if person_dupes:
-            _update_queue_item(queue_item.get("queue_id"), status="duplicate_person", next_step="skip_duplicate_person")
-            continue
+        existing_person = _existing_person_from_search_result(client, person_dupes[0]) if person_dupes else None
+        if existing_person:
+            existing_lead_for_person = _lead_for_person_or_org(client, existing_person.get("id"), (org_dupes[0].get("item") or {}).get("id") if org_dupes else None, row.get("Company Name") or org_name)
+            if existing_lead_for_person:
+                _update_queue_item(queue_item.get("queue_id"), status="duplicate_person", next_step="skip_duplicate_person", existing_lead_id=existing_lead_for_person.get("id"))
+                continue
         queue_snapshot = next((item for item in _load_queue_items() if item.get("queue_id") == queue_item.get("queue_id")), queue_item)
         return {
             "queue_id": queue_item.get("queue_id") if queue_item else None,
@@ -649,11 +719,12 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
             "country": country,
             "org_dupes": org_dupes,
             "person_dupes": person_dupes,
+            "existing_person": existing_person,
         }
     raise CandidateSkip("No lead candidate ready after Apollo matching and duplicate checks")
 
 
-def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_person: dict[str, Any]) -> tuple[int, list[str], dict[str, Any]]:
+def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_person: dict[str, Any]) -> tuple[int, list[str], dict[str, Any], str]:
     criteria = qualification_criteria()
     score = criteria["base_score"]
     reasons: list[str] = []
@@ -741,7 +812,7 @@ def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_per
         reasons.append("EDM evidence found")
 
     score = max(criteria.get("cap", {}).get("min", 0), min(criteria.get("cap", {}).get("max", 100), score))
-    return score, reasons, site_review
+    return score, reasons, site_review, evidence
 
 
 def run() -> dict[str, Any]:
@@ -752,7 +823,7 @@ def run() -> dict[str, Any]:
     row = candidate["sheet_row"]
     apollo_person = candidate["apollo_person"]
     apollo_org = candidate["apollo_org"]
-    score, reasons, site_review = _score_candidate(row, apollo_org, apollo_person)
+    score, reasons, site_review, evidence = _score_candidate(row, apollo_org, apollo_person)
     if is_customer(company=row.get("Company Name") or apollo_org.get("name") or "", website=apollo_org.get("website_url") or row.get("Website") or ""):
         _update_queue_item(candidate.get("queue_id"), status="excluded_customer", next_step="skip_existing_customer", excluded_reason="Existing customer from won deals list")
         raise RuntimeError(f"Lead skipped: existing customer {row.get('Company Name') or apollo_org.get('name')}")
@@ -765,6 +836,9 @@ def run() -> dict[str, Any]:
 
     if existing_org:
         organisation = existing_org
+        org_update_payload = _build_org_update_payload(organisation, apollo_org, row, candidate["owner_id"])
+        if org_update_payload:
+            organisation = client.update_organisation(int(organisation.get("id")), org_update_payload)
     else:
         org_payload = {
             "name": apollo_org.get("name") or row.get("Company Name"),
@@ -774,27 +848,33 @@ def run() -> dict[str, Any]:
         }
         organisation = client.create_organisation(org_payload)
 
-    person_payload = {
-        "name": apollo_person.get("name"),
-        "owner_id": candidate["owner_id"],
-        "org_id": organisation.get("id"),
-        "email": apollo_person.get("email") if apollo_person.get("email") and "email_not_unlocked" not in apollo_person.get("email", "") else None,
-        "phone": (apollo_org.get("phone") or ""),
-    }
-    person_payload = {k: v for k, v in person_payload.items() if v not in {None, ""}}
-    person = client.create_person(person_payload)
+    existing_person = candidate.get("existing_person")
+    if existing_person:
+        person_payload = _build_person_update_payload(existing_person, apollo_person, apollo_org, candidate["owner_id"], organisation.get("id"))
+        person = client.update_person(int(existing_person.get("id")), person_payload) if person_payload else existing_person
+    else:
+        person_payload = {
+            "name": apollo_person.get("name"),
+            "owner_id": candidate["owner_id"],
+            "org_id": organisation.get("id"),
+            "email": apollo_person.get("email") if apollo_person.get("email") and "email_not_unlocked" not in apollo_person.get("email", "") else None,
+            "phone": apollo_person.get("mobile_phone") or apollo_person.get("phone") or (apollo_org.get("phone") or ""),
+        }
+        person_payload = {k: v for k, v in person_payload.items() if v not in {None, ""}}
+        person = client.create_person(person_payload)
 
     lead_title = f"{organisation.get('name')} - {apollo_person.get('title') or 'Apollo lead'}"
+    label_ids = _capability_label_ids(reasons, evidence)
     lead_payload = {
         "title": lead_title,
         "owner_id": candidate["owner_id"],
         "person_id": person.get("id"),
         "organization_id": organisation.get("id"),
         STATE_FIELD_KEY: _state_option_id(candidate["state"]),
-        "label_ids": [CNC_LABEL_ID],
+        "label_ids": label_ids,
     }
     lead_payload = {k: v for k, v in lead_payload.items() if v is not None and v != ""}
-    existing_lead = _find_lead_dupe(client, organisation, row.get("Company Name") or organisation.get("name") or "")
+    existing_lead = _lead_for_person_or_org(client, person.get("id"), organisation.get("id"), row.get("Company Name") or organisation.get("name") or "")
     if existing_lead:
         _update_queue_item(candidate.get("queue_id"), status="duplicate_lead", next_step="skip_duplicate", existing_lead_id=existing_lead.get("id"))
         raise RuntimeError(f"Lead duplicate detected for organisation {organisation.get('name')}, existing lead {existing_lead.get('id')}")
@@ -835,10 +915,12 @@ def run() -> dict[str, Any]:
         "assigned_agent": candidate.get("assigned_agent"),
         "source_company": row.get("Company Name"),
         "used_existing_org": bool(existing_org),
+        "used_existing_person": bool(existing_person),
         "site_review": site_review,
         "apollo_people_count": candidate.get("apollo_people_count"),
         "apollo_unlocked_email_count": candidate.get("apollo_unlocked_email_count"),
         "apollo_resolved_org_name": (candidate.get("apollo_org") or {}).get("name"),
+        "label_ids": label_ids,
     }
     _update_queue_item(
         candidate.get("queue_id"),
