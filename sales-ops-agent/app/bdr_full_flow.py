@@ -102,6 +102,9 @@ APOLLO_QUEUE_TRANSIENT_RETRY_MINUTES = 120
 APOLLO_NO_MATCH_RETRY_DAYS = 7
 APOLLO_CACHE_TTL_HOURS = 24
 SITE_REVIEW_TIMEOUT_SECONDS = 12
+LEADS_CACHE_TTL_SECONDS = 300
+
+_LEADS_CACHE: dict[str, Any] = {"loaded_at": None, "items": []}
 
 
 @dataclass
@@ -412,7 +415,14 @@ def _find_lead_dupe(client: PipedriveClient, organisation: dict[str, Any], sourc
     org_name = organisation.get("name") or source_company
     norm_org = _normalise_name(org_name)
     norm_source = _normalise_name(source_company)
-    for lead in client.get_all_leads(limit=500):
+    cache_loaded_at = _LEADS_CACHE.get("loaded_at")
+    cache_items = _LEADS_CACHE.get("items") or []
+    now = datetime.now(timezone.utc)
+    if not cache_loaded_at or (now - cache_loaded_at).total_seconds() > LEADS_CACHE_TTL_SECONDS or not cache_items:
+        cache_items = client.get_all_leads(limit=500)
+        _LEADS_CACHE["loaded_at"] = now
+        _LEADS_CACHE["items"] = cache_items
+    for lead in cache_items:
         if lead.get("is_archived"):
             continue
         lead_org_id = lead.get("organization_id") or lead.get("related_org_id")
@@ -424,6 +434,15 @@ def _find_lead_dupe(client: PipedriveClient, organisation: dict[str, Any], sourc
         if norm_source and norm_source in title_norm:
             return lead
     return None
+
+
+def _remember_created_lead(lead: dict[str, Any]) -> None:
+    if not lead:
+        return
+    cache_items = _LEADS_CACHE.get("items") or []
+    cache_items.append(lead)
+    _LEADS_CACHE["items"] = cache_items
+    _LEADS_CACHE["loaded_at"] = datetime.now(timezone.utc)
 
 
 def _apollo_person_detail(api_key: str, person_id: str) -> dict[str, Any]:
@@ -780,6 +799,7 @@ def run() -> dict[str, Any]:
         _update_queue_item(candidate.get("queue_id"), status="duplicate_lead", next_step="skip_duplicate", existing_lead_id=existing_lead.get("id"))
         raise RuntimeError(f"Lead duplicate detected for organisation {organisation.get('name')}, existing lead {existing_lead.get('id')}")
     lead = client.create_lead(lead_payload)
+    _remember_created_lead(lead)
 
     note_lines = [
         f"Qualification score: {score}/100",
