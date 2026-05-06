@@ -130,8 +130,18 @@
       const agentQueued = (data.analytics || {}).queued_by_agent || {};
       const ownerCreated = (data.analytics || {}).created_by_owner || {};
       const ownerQueued = (data.analytics || {}).queued_by_owner || {};
-      renderList('agent-analytics-list', Object.keys(agentCreated).length ? mapItems(agentCreated, '') : mapItems(agentQueued, ''), Object.keys(agentCreated).length ? 'No created leads yet.' : 'No queued leads yet.');
-      renderList('owner-analytics-list', Object.keys(ownerCreated).length ? mapItems(ownerCreated, '') : mapItems(ownerQueued, ''), Object.keys(ownerCreated).length ? 'No AE assignments yet.' : 'No queued AE assignments yet.');
+      renderList('agent-analytics-list', [
+        `<div class="item"><strong>Created leads</strong><div class="muted small">Actual Pipedrive lead creations recorded by the worker.</div></div>`,
+        ...mapItems(agentCreated, ''),
+        `<div class="item"><strong>Queued leads</strong><div class="muted small">Assignments waiting in the intake queue, not yet created in Pipedrive.</div></div>`,
+        ...mapItems(agentQueued, '')
+      ], 'No AI BDR analytics yet.');
+      renderList('owner-analytics-list', [
+        `<div class="item"><strong>Created leads</strong><div class="muted small">Actual Pipedrive lead creations by AE owner.</div></div>`,
+        ...mapItems(ownerCreated, ''),
+        `<div class="item"><strong>Queued leads</strong><div class="muted small">Queue assignments by AE owner, not yet created.</div></div>`,
+        ...mapItems(ownerQueued, '')
+      ], 'No AE analytics yet.');
 
       renderList('merge-list', (((data.approvals || {}).merge || {}).items || []).slice(0,8).map(item => {
         const survivor = item.survivor || {};
@@ -140,9 +150,9 @@
         const openButtons = [survivor.url ? `<a href="${esc(survivor.url)}" target="_blank" rel="noopener"><button class="secondary" type="button">Open survivor</button></a>` : '']
           .concat((item.duplicates || []).slice(0,2).map((dup, i) => dup.url ? `<a href="${esc(dup.url)}" target="_blank" rel="noopener"><button class="secondary" type="button">Open duplicate ${i+1}</button></a>` : ''))
           .join('');
-        const executeLabel = (item.record_type || '') === 'lead' ? 'Lead merge unsupported' : 'Merge in Pipedrive';
-        const disabled = (item.record_type || '') === 'lead' ? 'disabled' : '';
-        return `<div class="item"><strong>${esc(item.record_type || 'merge')} cluster</strong><div class="muted small">Keep ${survivorLink}</div><div class="muted small" style="margin-top:6px;">Review: ${dupes || 'No linked duplicates shown'}</div><div class="actions" style="margin-top:8px;">${openButtons}<button class="ghost" ${disabled} onclick="executeMerge('${esc(item.id)}','${esc(item.record_type || '')}')">${executeLabel}</button></div></div>`;
+        const executeLabel = (item.record_type || '') === 'lead' ? 'Delete duplicate leads' : 'Merge in Pipedrive';
+        const helper = (item.record_type || '') === 'lead' ? '<div class="muted small" style="margin-top:6px;">Pipedrive has no lead merge API, so this keeps the survivor and deletes the duplicate leads.</div>' : '';
+        return `<div class="item"><strong>${esc(item.record_type || 'merge')} cluster</strong><div class="muted small">Keep ${survivorLink}</div><div class="muted small" style="margin-top:6px;">Review: ${dupes || 'No linked duplicates shown'}</div>${helper}<div class="actions" style="margin-top:8px;">${openButtons}<button class="ghost" onclick="executeMerge('${esc(item.id)}','${esc(item.record_type || '')}')">${executeLabel}</button></div></div>`;
       }), 'No merge approvals pending.');
 
       document.getElementById('criteria-editor').value = JSON.stringify(data.qualification_criteria || {}, null, 2);
@@ -155,16 +165,16 @@
     window.approveAction = approveAction;
 
     async function executeMerge(id, recordType) {
-      if (recordType === 'lead') {
-        setStatus('Pipedrive does not expose a lead merge endpoint, so lead clusters still need manual cleanup.', 'err');
-        return;
-      }
-      const ok = window.confirm(`Merge this ${recordType} cluster in Pipedrive now? This will merge the duplicate records into the survivor.`);
+      const message = recordType === 'lead'
+        ? 'Pipedrive does not support lead merges. This action will keep the survivor lead and DELETE the duplicate lead records. Continue?'
+        : `Merge this ${recordType} cluster in Pipedrive now? This will merge the duplicate records into the survivor.`;
+      const ok = window.confirm(message);
       if (!ok) return;
       try {
         const result = await j('/api/approvals/merge/execute', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ id }) });
         const summary = result.execution_summary || {};
-        setStatus(`Merged ${fmt.format(summary.merge_count || 0)} duplicate ${recordType} record(s) into survivor ${summary.survivor_id || ''}.`, 'ok');
+        const verb = recordType === 'lead' ? 'Deleted' : 'Merged';
+        setStatus(`${verb} ${fmt.format(summary.merge_count || 0)} duplicate ${recordType} record(s). Survivor: ${summary.survivor_id || ''}.`, 'ok');
         await loadOverview();
       } catch (error) {
         setStatus(error.message, 'err');

@@ -141,9 +141,7 @@ def execute_merge_action(action_id: str) -> dict[str, Any]:
         if not duplicates:
             raise ValueError("Merge action has no duplicate records to merge")
 
-        if record_type == "lead":
-            raise ValueError("Pipedrive does not provide a lead merge API endpoint, so lead duplicate clusters cannot be auto-merged safely.")
-        if record_type not in {"organisation", "person"}:
+        if record_type not in {"organisation", "person", "lead"}:
             raise ValueError(f"Unsupported merge record type: {record_type}")
 
         cfg = load_config()
@@ -155,8 +153,10 @@ def execute_merge_action(action_id: str) -> dict[str, Any]:
                 continue
             if record_type == "organisation":
                 result = client.merge_organisation(int(survivor_id), int(duplicate_id))
-            else:
+            elif record_type == "person":
                 result = client.merge_person(int(survivor_id), int(duplicate_id))
+            else:
+                result = client.delete_lead(str(duplicate_id))
             executed.append({
                 "duplicate_id": duplicate_id,
                 "merged_into_id": survivor_id,
@@ -174,6 +174,7 @@ def execute_merge_action(action_id: str) -> dict[str, Any]:
             "survivor_id": survivor_id,
             "merged_duplicates": [entry["duplicate_id"] for entry in executed],
             "merge_count": len(executed),
+            "execution_mode": "delete_duplicates" if record_type == "lead" else "merge",
         }
         _save_json(MERGE_APPROVALS, payload)
         return item

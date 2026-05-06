@@ -49,6 +49,16 @@ class PipedriveClient:
             raise RuntimeError(f"Pipedrive API error: {body}")
         return body
 
+    def _delete(self, path: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        merged = dict(params or {})
+        merged["api_token"] = self.api_key
+        response = self.session.delete(f"{self.api_base}{path}", params=merged, timeout=60)
+        response.raise_for_status()
+        body = response.json()
+        if not body.get("success", False):
+            raise RuntimeError(f"Pipedrive API error: {body}")
+        return body
+
     def _get_all(self, path: str, params: Optional[Dict[str, Any]] = None, limit: int = 500) -> List[Dict[str, Any]]:
         start = 0
         rows: List[Dict[str, Any]] = []
@@ -156,3 +166,6 @@ class PipedriveClient:
 
     def merge_person(self, survivor_id: int, duplicate_id: int) -> Dict[str, Any]:
         return self._put(f"/persons/{survivor_id}/merge", {"merge_with_id": duplicate_id}).get("data") or {}
+
+    def delete_lead(self, lead_id: str) -> Dict[str, Any]:
+        return self._delete(f"/leads/{lead_id}").get("data") or {}
