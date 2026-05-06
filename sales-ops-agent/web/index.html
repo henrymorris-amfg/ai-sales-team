@@ -59,6 +59,13 @@
       <div class="card"><div class="label">Merge pending</div><div class="value" id="kpi-merge">0</div></div>
     </section>
 
+    <section class="grid kpis">
+      <div class="card"><div class="label">Apollo deferred</div><div class="value" id="kpi-apollo-deferred">0</div></div>
+      <div class="card"><div class="label">Last batch created</div><div class="value" id="kpi-batch-created">0</div></div>
+      <div class="card"><div class="label">Last batch skips</div><div class="value" id="kpi-batch-skips">0</div></div>
+      <div class="card"><div class="label">Last batch errors</div><div class="value" id="kpi-batch-errors">0</div></div>
+    </section>
+
     <section class="grid two">
       <div class="card">
         <div class="section-head"><h2>Upload CSV</h2></div>
@@ -117,15 +124,19 @@
       setText('kpi-queue', fmt.format(data.summary.intake_queue || 0));
       setText('kpi-created', fmt.format(data.summary.bdr_total_created || 0));
       setText('kpi-merge', fmt.format(data.summary.merge_pending || 0));
+      setText('kpi-apollo-deferred', fmt.format(data.summary.apollo_rate_limited || 0));
+      setText('kpi-batch-created', fmt.format(data.summary.batch_created || 0));
+      setText('kpi-batch-skips', fmt.format(data.summary.batch_skips || 0));
+      setText('kpi-batch-errors', fmt.format(data.summary.batch_errors || 0));
 
       renderList('automation-list', [
         `<div class="item"><strong>AI BDR cron</strong><div class="muted small">Hourly at minute 17.</div></div>`,
-        `<div class="item"><strong>Latest AI BDR run</strong><div class="muted small">${esc(latest.ran_at || 'No run yet')}</div><div style="margin-top:6px;"><span class="pill ${latest.paused ? 'err' : ''}">${latest.paused ? 'paused' : 'active'}</span></div>${latest.pause_reason ? `<div class="muted small" style="margin-top:6px;">${esc(latest.pause_reason)}</div>` : ''}</div>`,
+        `<div class="item"><strong>Latest AI BDR run</strong><div class="muted small">${esc(latest.ran_at || 'No run yet')}</div><div style="margin-top:6px;"><span class="pill ${latest.paused ? 'err' : ''}">${latest.paused ? 'paused' : 'active'}</span></div>${latest.pause_reason ? `<div class="muted small" style="margin-top:6px;">${esc(latest.pause_reason)}</div>` : ''}${(latest.errors || []).length ? `<div class="muted small" style="margin-top:6px;">Errors: ${esc((latest.errors || []).slice(0,2).join(' | '))}</div>` : ''}</div>`,
         `<div class="item"><strong>Sales Ops cron</strong><div class="muted small">Hourly at minute 47.</div></div>`
       ], 'No automation status yet.');
 
       renderList('upload-list', (data.uploads || []).slice(0,5).map(item => `<div class="item"><strong>${esc(item.filename || 'Upload')}</strong><div class="muted small">${fmt.format(item.row_count || 0)} rows, ${esc(item.status || '')}</div></div>`), 'No uploads yet.');
-      renderList('queue-list', (data.intake_queue || []).slice(0,6).map(item => `<div class="item"><strong>${esc(item.company || 'Row')}</strong><div class="muted small">${esc(item.next_step || '')}${item.assigned_owner ? ' • owner ' + esc(item.assigned_owner) : ''}</div></div>`), 'No queue items yet.');
+      renderList('queue-list', (data.intake_queue || []).slice(0,6).map(item => `<div class="item"><strong>${esc(item.company || 'Row')}</strong><div class="muted small">${esc(item.next_step || '')}${item.assigned_owner ? ' • owner ' + esc(item.assigned_owner) : ''}</div>${item.apollo_status === 'rate_limited' ? `<div class="muted small" style="margin-top:6px;">Apollo deferred until ${esc(item.apollo_retry_after || 'later')}</div>` : ''}</div>`), 'No queue items yet.');
       const agentCreated = (data.analytics || {}).created_by_agent || {};
       const agentQueued = (data.analytics || {}).queued_by_agent || {};
       const ownerCreated = (data.analytics || {}).created_by_owner || {};

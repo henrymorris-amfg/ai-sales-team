@@ -107,6 +107,7 @@ def build_overview() -> dict:
     queue_by_priority = Counter(item.get("priority") or "unknown" for item in intake_queue)
     website_status = Counter(item.get("website_status") or "unknown" for item in intake_queue)
     contact_status = Counter(item.get("contact_status") or "unknown" for item in intake_queue)
+    apollo_status = Counter(item.get("apollo_status") or "none" for item in intake_queue)
     apollo_items = apollo_preview.get("items") or []
     apollo_org_hits = sum(1 for item in apollo_items if item.get("apollo_organizations"))
     apollo_people_hits = sum(1 for item in apollo_items if item.get("apollo_people"))
@@ -121,6 +122,11 @@ def build_overview() -> dict:
         blockers.append({
             "title": "Contact enrichment gap",
             "detail": f"{contact_status.get('needs_contact_enrichment', 0)} queue items do not yet have a named contact or email.",
+        })
+    if apollo_status.get("rate_limited", 0):
+        blockers.append({
+            "title": "Apollo deferred leads",
+            "detail": f"{apollo_status.get('rate_limited', 0)} queue items hit Apollo rate limits and are waiting for retry.",
         })
     if queue_by_owner.get("unassigned", 0):
         blockers.append({
@@ -167,6 +173,7 @@ def build_overview() -> dict:
             "apollo_preview_scanned": apollo_preview.get("queue_items_scanned", 0),
             "apollo_org_hits": apollo_org_hits,
             "apollo_people_hits": apollo_people_hits,
+            "apollo_rate_limited": apollo_status.get("rate_limited", 0),
             "batch_created": bdr_batch.get("created", 0),
             "batch_skips": len(bdr_batch.get("skips") or []),
             "batch_errors": len(bdr_batch.get("errors") or []),
@@ -190,6 +197,7 @@ def build_overview() -> dict:
         "queue_by_priority": dict(queue_by_priority),
         "website_status": dict(website_status),
         "contact_status": dict(contact_status),
+        "apollo_status": dict(apollo_status),
         "blockers": blockers,
         "next_actions": next_actions,
         "batch_review": {
