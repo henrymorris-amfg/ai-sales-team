@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .apollo_client import ApolloRateLimitError
-from .bdr_full_flow import automation_config, run, source_ingest_config
+from .bdr_full_flow import CandidateSkip, automation_config, run, source_ingest_config
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -70,6 +70,9 @@ def run_batch(limit: int | None = None) -> dict:
             )
         except ApolloRateLimitError as exc:
             skips.append(f"Apollo rate limited current lead and moved on: {exc}")
+            continue
+        except CandidateSkip as exc:
+            skips.append(str(exc))
             continue
         except Exception as exc:
             message = str(exc)

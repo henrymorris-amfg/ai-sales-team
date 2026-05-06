@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import json
 import re
+from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -97,6 +98,15 @@ STATE_OPTION_IDS = {
 KNOWN_STATES = sorted(STATE_OPTION_IDS.keys(), key=len, reverse=True)
 APOLLO_QUEUE_RETRY_MINUTES = 360
 APOLLO_QUEUE_TRANSIENT_RETRY_MINUTES = 120
+APOLLO_NO_MATCH_RETRY_DAYS = 7
+
+
+@dataclass
+class CandidateSkip(RuntimeError):
+    message: str
+
+    def __str__(self) -> str:
+        return self.message
 
 
 def qualification_criteria() -> dict[str, Any]:
@@ -240,6 +250,111 @@ def _normalise_name(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", (value or "").lower())
 
 
+def _looks_like_placeholder_company(company: str) -> bool:
+    text = _normalise_name(company)
+    return text in {"acmeprecision", "betacnc", "examplecompany", "testcompany"}
+
+
+def _looks_like_placeholder_domain(domain: str) -> bool:
+    text = _normalise_domain(domain)
+    return (not text) or text.endswith(".example") or text == "example.com" or text.startswith("example.")
+
+
+def _is_bad_apollo_target(company: str, website: str) -> str | None:
+    domain = _normalise_domain(website)
+    if _looks_like_placeholder_company(company):
+        return "placeholder_company"
+    if _looks_like_placeholder_domain(domain):
+        return "placeholder_domain"
+    return None
+
+
+def _mark_queue_no_match(queue_id: str | None, status: str, message: str, *, retry_days: int | None = None) -> None:
+    if not queue_id:
+        return
+    changes: dict[str, Any] = {
+        "apollo_status": status,
+        "apollo_last_error": message,
+        "apollo_last_error_at": datetime.now(timezone.utc).isoformat(),
+        "next_step": "review_apollo_match",
+    }
+    if retry_days:
+        changes["apollo_retry_after"] = (datetime.now(timezone.utc) + timedelta(days=retry_days)).isoformat()
+        changes["next_step"] = "retry_apollo_later"
+    _update_queue_item(queue_id, **changes)
+
+
+def _title_rank(title: str) -> tuple[int, int]:
+    lowered = (title or "").strip().lower()
+    for idx, preferred in enumerate(PRIORITY_TITLES):
+        pref = preferred.lower()
+        if lowered == pref:
+            return (0, idx)
+        if pref in lowered:
+            return (1, idx)
+    return (9, 999)
+
+
+def _sort_people(people: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    def key(person: dict[str, Any]) -> tuple[int, int, int, str]:
+        title = person.get("title") or person.get("job_title") or ""
+        has_email = 0 if (person.get("email") and "email_not_unlocked" not in str(person.get("email"))) else 1
+        seniority = 0 if person.get("seniority") else 1
+        return (*_title_rank(title), has_email, seniority, (person.get("name") or "").lower())
+
+    return sorted(people, key=key)
+
+
+def _apollo_org_candidates(apollo, company: str, domain: str) -> list[dict[str, Any]]:
+    searches = [
+        {"name": company, "per_page": 5},
+        {"domain": domain, "per_page": 5} if domain else None,
+        {"name": company, "domain": domain, "per_page": 5} if domain else None,
+    ]
+    hits: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for params in searches:
+        if not params:
+            continue
+        result = apollo.search_organizations(**params)
+        for org in result.get("organizations") or []:
+            org_id = str(org.get("id") or "")
+            marker = org_id or f"{_normalise_name(org.get('name') or '')}|{_normalise_domain(org.get('website_url') or org.get('primary_domain') or '')}"
+            if marker in seen:
+                continue
+            seen.add(marker)
+            hits.append(org)
+    return hits
+
+
+def _apollo_people_candidates(apollo, company: str, domain: str, org: dict[str, Any] | None) -> list[dict[str, Any]]:
+    org_name = (org or {}).get("name") or company
+    org_domain = _normalise_domain((org or {}).get("website_url") or (org or {}).get("primary_domain") or domain)
+    searches = [
+        {"organization_name": org_name, "per_page": 25},
+        {"organization_name": org_name, "domain": org_domain, "per_page": 25} if org_domain else None,
+        {"organization_name": company, "per_page": 25} if company and company != org_name else None,
+        {"domain": org_domain, "per_page": 25} if org_domain else None,
+        {"organization_name": org_name, "titles": PRIORITY_TITLES, "per_page": 25},
+    ]
+    hits: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for params in searches:
+        if not params:
+            continue
+        result = apollo.search_people(**params)
+        for person in result.get("people") or []:
+            person_id = str(person.get("id") or "")
+            marker = person_id or f"{_normalise_name(person.get('name') or '')}|{_normalise_name(person.get('title') or '')}"
+            if marker in seen:
+                continue
+            seen.add(marker)
+            hits.append(person)
+        if hits:
+            break
+    return _sort_people(hits)
+
+
 def _find_org_dupes(client: PipedriveClient, org_name: str, website: str) -> list[dict[str, Any]]:
     terms = [org_name]
     domain = _normalise_domain(website)
@@ -314,6 +429,69 @@ def _apollo_person_detail(api_key: str, person_id: str) -> dict[str, Any]:
     return response.json().get("person") or {}
 
 
+def _apollo_resolve_candidate(apollo, queue_id: str | None, row: dict[str, str]) -> tuple[dict[str, Any], dict[str, Any]] | None:
+    company = (row.get("Company Name") or "").strip()
+    domain = _normalise_domain(row.get("Website") or "")
+    try:
+        org_candidates = _apollo_org_candidates(apollo, company, domain)
+        org = org_candidates[0] if org_candidates else {}
+    except ApolloRateLimitError as exc:
+        _mark_apollo_retry_later(queue_id, str(exc), exc.retry_after_seconds)
+        return None
+    except ApolloTransientError as exc:
+        _mark_apollo_transient_retry_later(queue_id, str(exc))
+        return None
+
+    try:
+        people = _apollo_people_candidates(apollo, company, domain, org)
+    except ApolloRateLimitError as exc:
+        _mark_apollo_retry_later(queue_id, str(exc), exc.retry_after_seconds)
+        return None
+    except ApolloTransientError as exc:
+        _mark_apollo_transient_retry_later(queue_id, str(exc))
+        return None
+
+    if not people:
+        _mark_queue_no_match(queue_id, "no_people_match", f"Apollo found no people for {company}", retry_days=APOLLO_NO_MATCH_RETRY_DAYS)
+        return None
+
+    for person in people:
+        try:
+            detail = _apollo_person_detail(apollo.api_key, person["id"])
+        except ApolloRateLimitError as exc:
+            _mark_apollo_retry_later(queue_id, str(exc), exc.retry_after_seconds)
+            return None
+        except ApolloTransientError as exc:
+            _mark_apollo_transient_retry_later(queue_id, str(exc))
+            return None
+        detail_org = detail.get("organization") or org
+        detail_domain = _normalise_domain(detail_org.get("website_url") or detail_org.get("primary_domain") or domain)
+        email = (detail.get("email") or "").strip()
+        if (not email) or ("email_not_unlocked" in email):
+            try:
+                matched = apollo.match_person(
+                    name=detail.get("name") or person.get("name") or "",
+                    organization_name=detail_org.get("name") or company,
+                    domain=detail_domain,
+                    linkedin_url=detail.get("linkedin_url") or person.get("linkedin_url") or "",
+                ).get("person") or {}
+            except ApolloRateLimitError as exc:
+                _mark_apollo_retry_later(queue_id, str(exc), exc.retry_after_seconds)
+                return None
+            except ApolloTransientError as exc:
+                _mark_apollo_transient_retry_later(queue_id, str(exc))
+                return None
+            if matched:
+                detail = matched
+                detail_org = detail.get("organization") or detail_org
+                email = (detail.get("email") or "").strip()
+        if email and "email_not_unlocked" not in email:
+            return detail, detail_org
+
+    _mark_queue_no_match(queue_id, "no_email_after_match", f"Apollo found contacts for {company} but no unlocked email", retry_days=APOLLO_NO_MATCH_RETRY_DAYS)
+    return None
+
+
 def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[str, Any]:
     apollo = load_apollo_client()
     ignore_rows = {int(value) for value in source_ingest_config().get("ignore_row_numbers", [])}
@@ -336,84 +514,50 @@ def _candidate_from_sheet(client: PipedriveClient, apollo_api_key: str) -> dict[
         company = (row.get("Company Name") or "").strip()
         if not company:
             continue
+        bad_target_reason = _is_bad_apollo_target(company, row.get("Website") or "")
+        if bad_target_reason:
+            _update_queue_item(queue_item.get("queue_id"), status="invalid_apollo_target", next_step="skip_invalid_target", excluded_reason=bad_target_reason)
+            continue
         if is_customer(company=company, website=row.get("Website") or ""):
             _update_queue_item(queue_item.get("queue_id"), status="excluded_customer", next_step="skip_existing_customer", excluded_reason="Existing customer from won deals list")
             continue
 
-        try:
-            people = apollo.search_people(
-                organization_name=company,
-                domain=_normalise_domain(row.get("Website") or ""),
-                titles=PRIORITY_TITLES,
-                per_page=10,
-            ).get("people") or []
-        except ApolloRateLimitError as exc:
-            _mark_apollo_retry_later(queue_item.get("queue_id"), str(exc), exc.retry_after_seconds)
+        resolved = _apollo_resolve_candidate(apollo, queue_item.get("queue_id"), row)
+        if not resolved:
             continue
-        except ApolloTransientError as exc:
-            _mark_apollo_transient_retry_later(queue_item.get("queue_id"), str(exc))
+        detail, org = resolved
+        city, state, country = _address_parts(org.get("raw_address") or row.get("Address") or "")
+        owner_name = assign_owner(country, state)
+        owner_id = _pick_owner_id(client, owner_name)
+        if not owner_id:
+            _mark_queue_no_match(queue_item.get("queue_id"), "no_routable_owner", f"No routable owner for {company}")
             continue
-        for person in people:
-            try:
-                detail = _apollo_person_detail(apollo.api_key, person["id"])
-            except ApolloRateLimitError as exc:
-                _mark_apollo_retry_later(queue_item.get("queue_id"), str(exc), exc.retry_after_seconds)
-                break
-            except ApolloTransientError as exc:
-                _mark_apollo_transient_retry_later(queue_item.get("queue_id"), str(exc))
-                break
-            org = detail.get("organization") or {}
-            domain = _normalise_domain(org.get("website_url") or row.get("Website") or "")
-            if (not detail.get("email")) or ("email_not_unlocked" in (detail.get("email") or "")):
-                try:
-                    matched = apollo.match_person(
-                        name=detail.get("name") or "",
-                        organization_name=org.get("name") or company,
-                        domain=domain,
-                        linkedin_url=detail.get("linkedin_url") or "",
-                    ).get("person") or {}
-                except ApolloRateLimitError as exc:
-                    _mark_apollo_retry_later(queue_item.get("queue_id"), str(exc), exc.retry_after_seconds)
-                    break
-                except ApolloTransientError as exc:
-                    _mark_apollo_transient_retry_later(queue_item.get("queue_id"), str(exc))
-                    break
-                if matched:
-                    detail = matched
-                    org = detail.get("organization") or org
-            city, state, country = _address_parts(org.get("raw_address") or row.get("Address") or "")
-            owner_name = assign_owner(country, state)
-            owner_id = _pick_owner_id(client, owner_name)
-            if not owner_id:
-                continue
-            org_name = (org.get("name") or company).strip()
-            email = (detail.get("email") or "").strip()
-            if "email_not_unlocked" in email:
-                email = ""
-            if not email:
-                continue
-            person_name = (detail.get("name") or "").strip()
-            org_dupes = _find_org_dupes(client, org_name, org.get("website_url") or row.get("Website") or "")
-            if is_customer(organisation_id=(org_dupes[0].get("item") or {}).get("id") if org_dupes else None, company=org_name, website=org.get("website_url") or row.get("Website") or ""):
-                continue
-            person_dupes = client.search_persons(email or person_name, limit=5) if (email or person_name) else []
-            if person_dupes:
-                continue
-            return {
-                "queue_id": queue_item.get("queue_id") if queue_item else None,
-                "sheet_row": row,
-                "apollo_person": detail,
-                "apollo_org": org,
-                "assigned_agent": assign_agent(country, state),
-                "owner_name": owner_name,
-                "owner_id": owner_id,
-                "city": city,
-                "state": state,
-                "country": country,
-                "org_dupes": org_dupes,
-                "person_dupes": person_dupes,
-            }
-    raise RuntimeError("No candidate found with Apollo match, no Pipedrive dupes, and a routable owner")
+        org_name = (org.get("name") or company).strip()
+        email = (detail.get("email") or "").strip()
+        person_name = (detail.get("name") or "").strip()
+        org_dupes = _find_org_dupes(client, org_name, org.get("website_url") or row.get("Website") or "")
+        if is_customer(organisation_id=(org_dupes[0].get("item") or {}).get("id") if org_dupes else None, company=org_name, website=org.get("website_url") or row.get("Website") or ""):
+            _update_queue_item(queue_item.get("queue_id"), status="excluded_customer", next_step="skip_existing_customer", excluded_reason="Existing customer from won deals list")
+            continue
+        person_dupes = client.search_persons(email or person_name, limit=5) if (email or person_name) else []
+        if person_dupes:
+            _update_queue_item(queue_item.get("queue_id"), status="duplicate_person", next_step="skip_duplicate_person")
+            continue
+        return {
+            "queue_id": queue_item.get("queue_id") if queue_item else None,
+            "sheet_row": row,
+            "apollo_person": detail,
+            "apollo_org": org,
+            "assigned_agent": assign_agent(country, state),
+            "owner_name": owner_name,
+            "owner_id": owner_id,
+            "city": city,
+            "state": state,
+            "country": country,
+            "org_dupes": org_dupes,
+            "person_dupes": person_dupes,
+        }
+    raise CandidateSkip("No lead candidate ready after Apollo matching and duplicate checks")
 
 
 def _score_candidate(row: dict[str, str], apollo_org: dict[str, Any], apollo_person: dict[str, Any]) -> tuple[int, list[str], dict[str, Any]]:
